@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renewable Revolt &mdash; Gaming Benchmarks</title>
+<meta name="description" content="FPS benchmarks, bandwidth comparisons, and total cost of ownership vs. new OEM PCs. See what your money actually buys.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--amethyst:#9b59b6;--revenant:#8b5cf6;--imperial:#6d28d9;--royal:#7c3aed;--plum:#a855f7;--green:#00e676;--amber:#ffab00;--red:#ff4444;--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--purple)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--purple);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+
+section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-body{font-size:1rem;color:var(--muted);max-width:680px;line-height:1.75}
+
+/* HERO */
+.c-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.c-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.c-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.09) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.c-hero-content{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.c-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.c-hero h1 span{color:var(--purple);display:block}
+.c-hero-sub{font-size:clamp(1rem,1.8vw,1.1rem);color:var(--muted);max-width:620px;line-height:1.75;margin-bottom:2rem}
+
+/* TRAP SECTION */
+.trap{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem}
+.trap-inner{max-width:1100px;margin:0 auto}
+.trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2rem}
+.trap-col{padding:2rem 2.5rem}
+.trap-col.bad{background:#140a0a}
+.trap-col.good{background:#0a1409}
+.trap-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem}
+.trap-eyebrow.r{color:var(--red)}
+.trap-eyebrow.g{color:var(--green)}
+.trap-price{font-family:var(--disp);font-size:2.4rem;font-weight:800;line-height:1;margin-bottom:.5rem}
+.trap-price.r{color:#ff6b6b}
+.trap-price.g{color:var(--green)}
+.trap-detail{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.9}
+.trap-detail span{display:block}
+.trap-detail .rl{color:#ff8888}
+.trap-detail .gl{color:var(--green)}
+.trap-note{font-family:var(--mono);font-size:.65rem;color:var(--dim);text-align:center;margin-top:1rem}
+
+/* BALANCE */
+.bal-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2rem}
+.bal-card{background:var(--surface2);padding:2rem}
+.bal-icon{font-size:1.8rem;margin-bottom:.75rem}
+.bal-h{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.bal-h span{color:var(--purple)}
+.bal-p{font-size:.85rem;color:var(--muted);line-height:1.75}
+
+/* METER BARS */
+.meter-section{padding:5rem 2rem;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meter-inner{max-width:1100px;margin:0 auto}
+.meter-row{display:grid;grid-template-columns:200px 1fr 60px;align-items:center;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.meter-row:last-child{border-bottom:none}
+.meter-label{font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.04em}
+.meter-label small{display:block;color:var(--dim);font-size:.55rem;margin-top:.1rem}
+.meter-bar-wrap{height:24px;background:rgba(139,92,246,.08);border-radius:2px;position:relative;overflow:hidden}
+.meter-bar{height:100%;border-radius:2px;display:flex;align-items:center;padding-left:.5rem;font-family:var(--mono);font-size:.55rem;color:rgba(255,255,255,.9);letter-spacing:.05em;min-width:40px;transition:width .8s ease}
+.meter-bar.revolt{background:linear-gradient(90deg,var(--purple),#a855f7)}
+.meter-bar.revolt-opt{background:repeating-linear-gradient(135deg,var(--purple),var(--purple) 4px,rgba(139,92,246,.3) 4px,rgba(139,92,246,.3) 8px);border:1px dashed var(--purple)}
+.meter-bar.oem{background:linear-gradient(90deg,#ff4444,#ff6b6b)}
+.meter-bar.oem-real{background:linear-gradient(90deg,#ff8c00,#ffab00)}
+.meter-bar.ebay-mid{background:linear-gradient(90deg,#cc8800,#ddaa00)}
+.meter-bar.ebay{background:linear-gradient(90deg,#555,#777)}
+.meter-fps{font-family:var(--mono);font-size:.7rem;font-weight:700;text-align:right}
+.meter-fps.g{color:var(--green)}
+.meter-fps.r{color:var(--red)}
+.meter-fps.d{color:var(--dim)}
+.meter-group-hdr{font-family:var(--mono);font-size:.58rem;color:var(--purple);letter-spacing:.15em;text-transform:uppercase;padding:1.5rem 0 .5rem;border-bottom:1px solid var(--border)}
+.meter-group-hdr:first-child{padding-top:0}
+.meter-legend{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
+.meter-legend-item{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.6rem;color:var(--dim)}
+.meter-legend-swatch{width:16px;height:10px;border-radius:1px}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.82rem}
+th{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.75rem .6rem;border-bottom:2px solid var(--border);text-align:left;color:var(--dim);background:var(--surface2)}
+th.rr{color:var(--purple)}
+td{padding:.65rem .6rem;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
+tr:hover td{background:rgba(139,92,246,.03)}
+.g{color:var(--green);font-weight:700}
+.r{color:var(--red);font-weight:700}
+.a{color:var(--amber);font-weight:700}
+.p{color:var(--purple);font-weight:700}
+
+/* CALLOUTS */
+.callout{border-left:3px solid var(--purple);background:var(--surface2);padding:1.25rem 1.5rem;margin:2rem 0}
+.callout p{font-family:var(--mono);font-size:.82rem;color:var(--text);line-height:1.85;margin:0}
+.callout p span{color:var(--purple)}
+.callout-red{border-left-color:var(--red);background:rgba(255,68,68,.06)}
+
+/* BANDWIDTH VIZ */
+.bw-row{display:grid;grid-template-columns:240px 1fr 100px;align-items:center;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--border)}
+.bw-bar-wrap{height:20px;background:rgba(139,92,246,.08);border-radius:2px;overflow:hidden}
+.bw-bar{height:100%;border-radius:2px;display:flex;align-items:center;padding-left:.5rem;font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.85)}
+.bw-bar.rr{background:linear-gradient(90deg,var(--purple),#a855f7)}
+.bw-bar.oem{background:linear-gradient(90deg,#ff4444,#ff6b6b)}
+.bw-val{font-family:var(--mono);font-size:.72rem;font-weight:700;text-align:right;color:var(--muted)}
+
+/* TCO */
+.tco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2rem}
+.tco-col{padding:2rem;text-align:center}
+.tco-col.oem{background:#140a0a}
+.tco-col.revolt{background:#0a1409}
+.tco-col.ebay{background:var(--surface2)}
+.tco-who{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.tco-who.r{color:var(--red)}
+.tco-who.g{color:var(--green)}
+.tco-who.d{color:var(--dim)}
+.tco-total{font-family:var(--disp);font-size:2rem;font-weight:800;margin-bottom:.5rem}
+.tco-detail{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:2;text-align:left}
+
+/* CTA */
+.cta-bar{text-align:center;padding:4rem 2rem;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-bar h2{font-family:var(--disp);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:1rem}
+.cta-bar h2 span{color:var(--purple)}
+.cta-bar p{font-size:.9rem;color:var(--muted);margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.75}
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--purple);color:#fff;border:none;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}
+.btn-p:hover{opacity:.85}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.85rem 2rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent}
+.btn-s:hover{background:var(--purple);color:#fff}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:4rem 2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem}
+.foot-brand{font-family:var(--disp);font-size:1rem;font-weight:800;letter-spacing:.05em}
+.foot-brand span{color:var(--purple)}
+.foot-meta{font-family:var(--mono);font-size:.58rem;color:var(--dim);line-height:2;letter-spacing:.06em;text-align:center}
+.foot-links{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
+.foot-links a{font-family:var(--mono);font-size:.6rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.foot-links a:hover{color:var(--purple)}
+.foot-pages{border-top:1px solid var(--border);padding-top:2rem;margin-top:2rem;max-width:1100px;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;gap:1px;background:var(--border)}
+.fp{flex:1;min-width:160px;background:var(--surface2);padding:1rem 1.25rem;text-decoration:none;display:block}
+.fp:hover{background:#181a2a}
+.fp-l{font-family:var(--mono);font-size:.58rem;color:var(--purple);text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:.25rem}
+.fp-n{font-size:.82rem;color:var(--muted)}
+
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fi.vis{opacity:1;transform:none}
+
+@media(max-width:1024px){.trap-grid,.tco-grid{grid-template-columns:1fr}.bal-cards{grid-template-columns:1fr}.foot-in{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.meter-row,.bw-row{grid-template-columns:120px 1fr 50px}.foot-in{grid-template-columns:1fr}.foot-pages{flex-direction:column}section{padding:4rem 1.5rem}}
+@media(max-width:480px){.c-hero h1{font-size:2rem}nav{padding:0 1.25rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">RENEWABLE<span> REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="recover.html">Recover</a></li>
+    <li><a href="revive.html">Revive</a></li>
+    <li><a href="index.html#products">Shop</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="nav-cta">Shop eBay &rarr;</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="recover.html" onclick="toggleMenu()">Recover</a>
+  <a href="revive.html" onclick="toggleMenu()">Revive</a>
+  <a href="index.html#products" onclick="toggleMenu()">Shop</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop eBay</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="c-hero">
+  <div class="c-hero-grid"></div>
+  <div class="c-hero-glow"></div>
+  <div class="c-hero-content">
+    <div class="sec-label">Gaming Benchmarks</div>
+    <h1>The spec sheet says one thing.<span>Your experience says another.</span></h1>
+    <p class="c-hero-sub">You&rsquo;ve been taught to buy the newest chip and the flashiest GPU.&nbsp; But the machine you game on doesn&rsquo;t care about launch dates.&nbsp; It cares about balance.&nbsp; Real FPS benchmarks, real game titles, real prices.</p>
+  </div>
+</div>
+
+<section style="padding:1rem 2rem 0;max-width:1100px;margin:0 auto">
+  <div class="callout" style="margin-bottom:0;">
+    <p><span>Looking for content creation?</span>&nbsp; We built a dedicated comparison against the Mac Studio&mdash;RAM, bandwidth, Blender, Resolve, Premiere, and more.&nbsp; <a href="Mac_Attack.html" style="color:var(--green);font-weight:700">See the Mac Attack &rarr;</a></p>
+  </div>
+</section>
+
+
+<!-- ===== SECTION 1: THE TRAP ===== -->
+<div class="trap fi">
+  <div class="trap-inner">
+    <div class="sec-label">The $899 Trap</div>
+    <h2 class="sec-title">The Obvious Choice<br><span style="color:var(--red)">Is the Obvious Mistake.</span></h2>
+    <p class="sec-body" style="margin-bottom:1rem">The bestselling &ldquo;gaming PC&rdquo; at every major retailer right now is an AMD Ryzen processor, an RTX 5060, and 16GB of single-channel DDR5.&nbsp; On paper, it&rsquo;s the smart buy.&nbsp; In practice, it&rsquo;s a $900 bottleneck.</p>
+    <p class="sec-body" style="margin-bottom:2rem">Here&rsquo;s what the spec sheet doesn&rsquo;t tell you.</p>
+
+    <div class="trap-grid">
+      <div class="trap-col bad">
+        <div class="trap-eyebrow r">What You Bought</div>
+        <div class="trap-price r">$899</div>
+        <div class="trap-detail">
+          <span class="rl">&#8227;&nbsp; RTX 5060 8GB&mdash;powerful GPU</span>
+          <span class="rl">&#8227;&nbsp; 16GB DDR5&mdash;single channel (48 GB/s at DDR5-6000)</span>
+          <span class="rl">&#8227;&nbsp; Stock air cooler&mdash;throttles under sustained load</span>
+          <span class="rl">&#8227;&nbsp; Windows 11 Home&mdash;Copilot, Recall, Edge, telemetry</span>
+          <span class="rl">&#8227;&nbsp; No Office&mdash;365 trial expires in 30 days</span>
+          <span class="rl">&#8227;&nbsp; 3-year cost with Office: ~$1,680</span>
+        </div>
+      </div>
+      <div class="trap-col bad">
+        <div class="trap-eyebrow r">What Actually Happens</div>
+        <div class="trap-price r" style="font-size:1.4rem;margin-bottom:1rem">Day 1 vs. Day 90</div>
+        <div class="trap-detail">
+          <span class="rl">&#8227;&nbsp; GPU renders frames.&nbsp; RAM can&rsquo;t feed them fast enough.</span>
+          <span class="rl">&#8227;&nbsp; Discord + web browser + Fortnite = 14GB used.&nbsp; 2GB headroom.</span>
+          <span class="rl">&#8227;&nbsp; One notification and Windows swaps to disk.&nbsp; Stutter.</span>
+          <span class="rl">&#8227;&nbsp; Cooler hits thermal limit.&nbsp; CPU clocks drop.&nbsp; FPS drops.</span>
+          <span class="rl">&#8227;&nbsp; 6 months of Windows updates eat the remaining headroom.</span>
+          <span class="rl">&#8227;&nbsp; The $899 machine now performs like a $500 machine.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:2rem">
+      <p><span>The RTX 5060 is a great GPU.</span>&nbsp; But a great GPU in a starved system is like a race engine in a car with bicycle tires.&nbsp; You paid for 120+ FPS.&nbsp; You&rsquo;re getting stutters.&nbsp; The fix?&nbsp; Replace the cooler ($30&ndash;$50).&nbsp; Debloat the OS (2&ndash;4 hours if you know how).&nbsp; Buy Office ($100/yr).&nbsp; Total real cost: $1,330+.&nbsp; Ain&rsquo;t nobody got time for that.&nbsp; Buy a balanced machine from the start.</p>
+    </div>
+
+    <div class="callout-red callout" style="margin-top:1rem">
+      <p><span style="color:var(--red)">Want dual-channel bandwidth on that $899 machine?&nbsp; Best Buy doesn&rsquo;t even sell a single 16GB DDR5 stick&mdash;you can buy a 2&times;16GB kit for $350+&hellip; then try to sell the original module.&nbsp; Or find a single one on eBay and hope it&rsquo;s compatible.</span>&nbsp; That&rsquo;s 40% of the cost of the entire PC&mdash;just for the RAM upgrade.&nbsp; Even then, DDR5-6000 dual-channel delivers 96 GB/s.&nbsp; Our $699 Revolt Warhorse with quad-channel DDR4 already delivers 68.3 GB/s&mdash;71% of the way there, at half the price, out of the box.&nbsp; Programs&mdash;especially games&mdash;need balance, not spec sheet marketing.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== SECTION 2: THE OTHER TRAP ===== -->
+<section class="fi">
+  <div class="sec-label">The $279 Trap</div>
+  <h2 class="sec-title">If It Sounds Too Good to Be True,<br><span style="color:var(--red)">Check the GPU.</span></h2>
+  <p class="sec-body" style="margin-bottom:2rem">eBay is full of &ldquo;Gaming PCs&rdquo; at $250&ndash;$350.&nbsp; RGB lights.&nbsp; Aggressive case.&nbsp; &ldquo;GAMING&rdquo; in all caps.&nbsp; Inside: a Dell OptiPlex with a GT 1030 or GTX 750 Ti and a $10 LED strip.&nbsp; Some don&rsquo;t even have a dedicated GPU&mdash;just integrated graphics with RGB lighting to distract you from the spec sheet.&nbsp; That&rsquo;s not a gaming PC.&nbsp; That&rsquo;s a $50 office computer in a costume.</p>
+
+  <div class="trap-grid" style="background:var(--border)">
+    <div class="trap-col" style="background:var(--surface2)">
+      <div class="trap-eyebrow" style="color:var(--dim)">$279 eBay &ldquo;Gaming PC&rdquo;</div>
+      <div class="trap-price" style="color:var(--dim)">$279</div>
+      <div class="trap-detail">
+        <span>&#8227;&nbsp; GT 1030 2GB or GTX 750 Ti</span>
+        <span>&#8227;&nbsp; 8&ndash;16GB DDR3</span>
+        <span>&#8227;&nbsp; 15&ndash;25 FPS Fortnite at 720p Low</span>
+        <span>&#8227;&nbsp; Unplayable.&nbsp; A slideshow with RGB.</span>
+        <span>&#8227;&nbsp; Windows 11 Home (if it even runs Win 11)</span>
+        <span>&#8227;&nbsp; No Office.&nbsp; No WiFi card.&nbsp; No cooler upgrade.</span>
+        <span style="color:var(--red);display:block;margin-top:.75rem;font-size:.62rem">Six months later, you&rsquo;re back on eBay buying another machine.</span>
+      </div>
+    </div>
+    <div class="trap-col good">
+      <div class="trap-eyebrow g">Revolt Sword</div>
+      <div class="trap-price g">$349</div>
+      <div class="trap-detail">
+        <span class="gl">&#8227;&nbsp; Dedicated AMD Polaris gaming graphics&mdash;tried &amp; true</span>
+        <span class="gl">&#8227;&nbsp; 24GB DDR3&mdash;full dual-channel</span>
+        <span class="gl">&#8227;&nbsp; 60&ndash;80 FPS Fortnite at 1080p</span>
+        <span class="gl">&#8227;&nbsp; Actually plays the game.</span>
+        <span class="gl">&#8227;&nbsp; Win 11 Pro [RR Turbo]&mdash;debloated</span>
+        <span class="gl">&#8227;&nbsp; Office 2019 Pro+ included.&nbsp; WiFi 6.</span>
+        <span style="color:var(--green);display:block;margin-top:.75rem;font-size:.62rem">$70 more.&nbsp; Five years of actual use.</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="trap-note">$70 is the difference between a slideshow and a gaming PC.&nbsp; That&rsquo;s one month of the Microsoft 365 subscription the $279 machine doesn&rsquo;t include.</p>
+</section>
+
+
+<!-- ===== SECTION 2b: THE $450 eBay LISTING ===== -->
+<section class="fi">
+  <div class="sec-label">The Tempting One</div>
+  <h2 class="sec-title">The $450 eBay Listing<br><span style="color:var(--amber)">That Looks Like the Smart Buy.</span></h2>
+  <p class="sec-body" style="margin-bottom:1.5rem">Not every eBay gaming PC is a slideshow.&nbsp; Some are legitimate builds with real GPUs, real i7 processors, and ARGB cases that look the part.&nbsp; At $450 + shipping, specs like these are genuinely tempting:</p>
+
+  <div class="trap-grid" style="background:var(--border)">
+    <div class="trap-col" style="background:var(--surface2)">
+      <div class="trap-eyebrow" style="color:var(--amber)">The Listing</div>
+      <div class="trap-price" style="color:var(--amber)">~$490</div>
+      <div class="trap-detail">
+        <span>&#8227;&nbsp; Intel Core i7-7700 (4C/8T, 4.2 GHz)</span>
+        <span>&#8227;&nbsp; GTX 1650 4GB</span>
+        <span>&#8227;&nbsp; 16GB DDR4</span>
+        <span>&#8227;&nbsp; 512GB SSD</span>
+        <span>&#8227;&nbsp; WiFi 5</span>
+        <span>&#8227;&nbsp; Windows 11 Home</span>
+        <span>&#8227;&nbsp; ARGB case</span>
+        <span>&#8227;&nbsp; Claims &ldquo;100+ FPS in Fortnite&rdquo;</span>
+        <span style="color:var(--amber);display:block;margin-top:.5rem;font-size:.62rem">$450 + $39 shipping.&nbsp; No Office.&nbsp; No secondary storage.</span>
+      </div>
+    </div>
+    <div class="trap-col good">
+      <div class="trap-eyebrow g">Revolt Relic &mdash; $499</div>
+      <div class="trap-price g">$499</div>
+      <div class="trap-detail">
+        <span class="gl">&#8227;&nbsp; Intel Core i7-4770/4790 (4C/8T, 3.9&ndash;4.0 GHz)</span>
+        <span class="gl">&#8227;&nbsp; GTX 970 4GB&mdash;equivalent gaming FPS</span>
+        <span class="gl">&#8227;&nbsp; 24GB DDR3&mdash;50% more RAM</span>
+        <span class="gl">&#8227;&nbsp; 512GB NVMe + 500GB HDD</span>
+        <span class="gl">&#8227;&nbsp; WiFi 6 / Bluetooth 5.2</span>
+        <span class="gl">&#8227;&nbsp; Win 11 Pro [RR Turbo]&mdash;debloated</span>
+        <span class="gl">&#8227;&nbsp; Office 2019 Pro+ included</span>
+        <span class="gl">&#8227;&nbsp; Thermalright cooling</span>
+        <span style="color:var(--green);display:block;margin-top:.5rem;font-size:.62rem">$499 free shipping.&nbsp; Everything included.&nbsp; Zero hidden costs.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:2rem">
+    <p><span>This is a real machine.&nbsp; We&rsquo;re not calling it a scam.</span>&nbsp; The i7-7700 is a solid CPU.&nbsp; The GTX 1650 can game.&nbsp; But &ldquo;100+ FPS&rdquo; is a hypothetical&mdash;not a real-world number.&nbsp; Open a web browser, Discord, and Fortnite on 16GB of RAM with stock Windows 11 Home running Copilot, Recall, Edge, and telemetry in the background, and that 16GB becomes 11&ndash;12GB available.&nbsp; The GPU renders frames.&nbsp; The RAM can&rsquo;t keep up.&nbsp; Stutter.&nbsp; The spec sheet says 100+ FPS.&nbsp; Your eyes see 70.</p>
+  </div>
+
+  <div class="callout-red callout" style="margin-top:1rem">
+    <p><span style="color:var(--red)">The real cost of the $450 listing:</span></p>
+    <p style="margin-top:.5rem">
+      Purchase + shipping: $490<br>
+      Office 365 (3 years): $300<br>
+      WiFi 6 adapter: $15<br>
+      <strong style="color:var(--red)">3-year total: $805</strong><br><br>
+      The Revolt Relic at $499 includes all of that.&nbsp; Plus 50% more RAM, Thermalright cooling, secondary storage, a debloated OS, and free shipping.&nbsp; <strong style="color:var(--green)">3-year total: $499.</strong>
+    </p>
+  </div>
+
+  <p class="trap-note" style="margin-top:1.5rem">We don&rsquo;t advertise above 100 FPS until the Rogue (+) at $649.&nbsp; Not because our machines can&rsquo;t hit those numbers&mdash;but because we test under real-world conditions, not clean-room benchmarks.&nbsp; If we say 75 FPS, you&rsquo;ll see 75 FPS with Discord open.</p>
+</section>
+
+
+<!-- ===== SECTION 3: BALANCE WINS ===== -->
+<section class="fi">
+  <div class="sec-label">The Principle</div>
+  <h2 class="sec-title">Balance Beats Headlines.</h2>
+  <p class="sec-body" style="margin-bottom:2rem">A gaming PC is a system, not a collection of parts.&nbsp; The fastest GPU in the world can&rsquo;t outrun a RAM bottleneck, a thermal throttle, or an OS that&rsquo;s using 4GB before you launch anything.&nbsp; Every Revolt build is engineered for balance&mdash;the CPU, GPU, RAM, cooling, and software are matched to each other.</p>
+
+  <div class="bal-cards">
+    <div class="bal-card">
+      <div class="bal-icon">&#9889;</div>
+      <div class="bal-h"><span>RAM</span> feeds the GPU.</div>
+      <div class="bal-p">Single-channel DDR5-6000 at 48 GB/s starves an RTX 5060.&nbsp; Revolt&rsquo;s quad-channel X99 builds deliver 68.3&ndash;85.3 GB/s&mdash;42&ndash;78% more bandwidth&mdash;at half the price.&nbsp; Dual-channel is the minimum.&nbsp; We start there and go up.</div>
+    </div>
+    <div class="bal-card">
+      <div class="bal-icon">&#127777;&#65039;</div>
+      <div class="bal-h"><span>Cooling</span> sustains the clock.</div>
+      <div class="bal-p">A CPU that boosts to 4.9 GHz for 3 seconds and then drops to 3.8 GHz because the stock cooler can&rsquo;t keep up is not a 4.9 GHz CPU.&nbsp; Every Revolt build uses Thermalright cooling for sustained performance.</div>
+    </div>
+    <div class="bal-card">
+      <div class="bal-icon">&#128736;&#65039;</div>
+      <div class="bal-h"><span>Software</span> is half the machine.</div>
+      <div class="bal-p">Windows 11 Home runs Copilot, Recall, Edge, Teams, and telemetry before you launch a single app.&nbsp; That&rsquo;s 3&ndash;4GB of RAM gone.&nbsp; On a 16GB system, that&rsquo;s 20&ndash;25% of your memory consumed by software you didn&rsquo;t ask for.&nbsp; RR Turbo removes the unnecessary bloat.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SECTION 4: FPS BENCHMARKS ===== -->
+<div class="meter-section fi">
+  <div class="meter-inner">
+    <div class="sec-label">Fortnite &middot; 1080p &middot; High Settings</div>
+    <h2 class="sec-title" style="margin-bottom:.75rem">Frame Rates That Matter.</h2>
+    <p class="sec-body" style="margin-bottom:2rem">Estimated FPS under real-world conditions&mdash;Discord open, DuckDuckGo in the background, Windows running.&nbsp; Not a synthetic benchmark in a clean-room OS.&nbsp; The way you actually use your machine.</p>
+
+    <div class="meter-legend">
+      <div class="meter-legend-item"><div class="meter-legend-swatch" style="background:var(--purple)"></div>Revolt</div>
+      <div class="meter-legend-item"><div class="meter-legend-swatch" style="background:var(--red)"></div>New OEM ($899+) &mdash; advertised</div>
+      <div class="meter-legend-item"><div class="meter-legend-swatch" style="background:#ff8c00"></div>New OEM ($899+) &mdash; actual sustained</div>
+      <div class="meter-legend-item"><div class="meter-legend-swatch" style="background:#cc8800"></div>$450 eBay (i7 + GTX 1650)</div>
+      <div class="meter-legend-item"><div class="meter-legend-swatch" style="background:#666"></div>$279 eBay</div>
+    </div>
+
+    <!-- REFERENCE: the bad options -->
+    <div class="meter-group-hdr">The Alternatives</div>
+
+    <div class="meter-row">
+      <div class="meter-label">$279 eBay &ldquo;Gaming PC&rdquo;<small>GT 1030 2GB &middot; 8GB DDR3</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar ebay" style="width:12%">15&ndash;25</div></div>
+      <div class="meter-fps r">~20</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">$450 eBay &mdash; advertised<small>i7-7700 &middot; GTX 1650 &middot; 16GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar ebay-mid" style="width:50%">100+*</div></div>
+      <div class="meter-fps a">~100*</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">$450 eBay &mdash; real world<small>Discord + browser + Fortnite on 16GB</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar ebay-mid" style="width:38%">65&ndash;80</div></div>
+      <div class="meter-fps a">~72</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">OEM $899 &mdash; advertised<small>RTX 5060 &middot; 16GB SC DDR5-6000</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar oem" style="width:65%">120&ndash;145</div></div>
+      <div class="meter-fps r">~130</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">OEM $899 &mdash; real world*<small>Discord + browser + Fortnite on 16GB SC</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar oem-real" style="width:40%">60&ndash;90</div></div>
+      <div class="meter-fps a">~75*</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label" style="color:var(--dim);font-size:.55rem;grid-column:1/4;padding:.3rem 0 0;border:none">* Both the $450 eBay and $899 OEM ship 16GB with stock Windows 11 Home.&nbsp; Under multitasking load (Discord + web browser + game), available RAM drops to 11&ndash;12GB.&nbsp; Page file thrashing when RAM fills.&nbsp; Smooth for 30 seconds, then stutter spike, then smooth, then stutter.&nbsp; The FPS counter averages 90.&nbsp; Your eyes see 60&ndash;75.</div>
+    </div>
+
+    <!-- CONSOLE KILLERS -->
+    <div class="meter-group-hdr">Console Killer Series &middot; $349&ndash;$399</div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#9876;&#65039; Sword &mdash; $349<small>RX 470 4GB &middot; 24GB DDR3</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:35%">60&ndash;80</div></div>
+      <div class="meter-fps g">~70</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128737;&#65039; Shield &mdash; $399<small>RX 570 4GB &middot; 24GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:40%">65&ndash;85</div></div>
+      <div class="meter-fps g">~75</div>
+    </div>
+
+    <!-- REVENANT -->
+    <div class="meter-group-hdr">Revenant Series &middot; $499&ndash;$699</div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128128; Relic &mdash; $499<small>GTX 970 &middot; 24GB DDR3</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:38%">65&ndash;85</div></div>
+      <div class="meter-fps g">~75</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128125; Rogue &mdash; $549<small>GTX 980 &middot; 32GB DDR3</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:45%">75&ndash;100</div></div>
+      <div class="meter-fps g">~88</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128125; Rogue (+) &mdash; $649*<small>GTX 980 Ti 6GB &middot; 32GB DDR3</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt-opt" style="width:62%">120&ndash;155</div></div>
+      <div class="meter-fps g">~138*</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label" style="color:var(--purple);font-size:.55rem;grid-column:1/4;padding:.2rem 0 0;border:none">* Rogue (+) = optional GTX 980 Ti 6GB upgrade (+$100).&nbsp; <span style="background:repeating-linear-gradient(135deg,var(--purple),var(--purple) 4px,rgba(139,92,246,.3) 4px,rgba(139,92,246,.3) 8px);padding:0 6px;border-radius:2px">&nbsp;&nbsp;&nbsp;</span> = optional upgrade, not base spec.</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#127956;&#65039; Skylake &mdash; $599<small>RX 580 8GB &middot; 24GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:48%">80&ndash;110</div></div>
+      <div class="meter-fps g">~95</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128010; Apex &mdash; $699<small>GTX 1660S &middot; 32GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:65%">110&ndash;150</div></div>
+      <div class="meter-fps g">~130</div>
+    </div>
+
+    <!-- X79 NIGHTMARE -->
+    <div class="meter-group-hdr">X79 Nightmare Series &middot; $749&ndash;$1,099</div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128123; Phantom &mdash; $749<small>Vega 56 HBM2 &middot; 32GB DDR3-1333 QC</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:60%">100&ndash;140</div></div>
+      <div class="meter-fps g">~120</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128123; Phantom (+) &mdash; $849<small>Vega 64 HBM2 &middot; 48GB DDR3-1600 QC</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt-opt" style="width:68%">115&ndash;155</div></div>
+      <div class="meter-fps g">~135</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label" style="color:var(--purple);font-size:.55rem;grid-column:1/4;padding:.2rem 0 0;border:none">Phantom (+) = separate SKU: i7-4930K, Vega 56&rarr;64 flash, 48GB DDR3-1600 QC, 280mm AIO, 2&times;140mm fans.&nbsp; <span style="background:repeating-linear-gradient(135deg,var(--purple),var(--purple) 4px,rgba(139,92,246,.3) 4px,rgba(139,92,246,.3) 8px);padding:0 6px;border-radius:2px">&nbsp;&nbsp;&nbsp;</span> = premium variant.</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128128; Banshee &mdash; $1,099<small>RX 6700 XT &middot; 64GB DDR3 ECC QC</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:88%">150&ndash;200</div></div>
+      <div class="meter-fps g">~175</div>
+    </div>
+
+    <!-- X99 PERFORMANCE -->
+    <div class="meter-group-hdr">X99 Performance Series &middot; $699&ndash;$1,399</div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128052; Warhorse &mdash; $699<small>RX 590 &middot; 24GB QC DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:50%">85&ndash;115</div></div>
+      <div class="meter-fps g">~100</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#127988;&#8205;&#9760;&#65039; Marauder &mdash; $799<small>GTX 1070 &middot; 32GB QC DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:63%">110&ndash;140</div></div>
+      <div class="meter-fps g">~125</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#127911; Studio &mdash; $1,199<small>Vega 56&rarr;64 &middot; 96GB DDR4 QC</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:65%">110&ndash;150</div></div>
+      <div class="meter-fps g">~130</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128640; Flagship &mdash; $1,399<small>RX 6700 XT &middot; 96GB DDR4 QC</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:88%">150&ndash;200</div></div>
+      <div class="meter-fps g">~175</div>
+    </div>
+
+    <!-- COFFEE LAKE -->
+    <div class="meter-group-hdr">Coffee Lake Series &middot; $849&ndash;$1,149</div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#9749; Gamer &mdash; $849<small>GTX 1070 Ti &middot; 32GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:69%">120&ndash;155</div></div>
+      <div class="meter-fps g">~138</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#10052;&#65039; Whiteout &mdash; $949<small>GTX 1070 Ti &middot; 32GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:69%">120&ndash;155</div></div>
+      <div class="meter-fps g">~138</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128165; Refresh &mdash; $999<small>GTX 1080 &middot; 32GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:80%">140&ndash;180</div></div>
+      <div class="meter-fps g">~160</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#129398; Deep Freeze &mdash; $1,099<small>GTX 1080 Ti &middot; 32GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:85%">140&ndash;180</div></div>
+      <div class="meter-fps g">~160</div>
+    </div>
+
+    <div class="meter-row">
+      <div class="meter-label">&#128293; Titan &mdash; $1,149<small>GTX 1080 Ti &middot; 64GB DDR4</small></div>
+      <div class="meter-bar-wrap"><div class="meter-bar revolt" style="width:85%">140&ndash;180</div></div>
+      <div class="meter-fps g">~160</div>
+    </div>
+
+    <p style="font-family:var(--mono);font-size:.58rem;color:var(--dim);margin-top:1.5rem;line-height:1.8">FPS estimates based on published GPU benchmarks under representative multitasking conditions.&nbsp; Actual results will vary by game, settings, and background load.&nbsp; We will update with tested data from our bench rig as builds ship.&nbsp; All Revolt estimates assume RR Turbo debloated OS with ~25% fewer background processes and ~50% more available RAM headroom than stock Windows 11.&nbsp; Results may vary by hardware configuration.</p>
+  </div>
+</div>
+
+
+<!-- ===== SECTION 4b: CPU CORES & SIMULATION GAMING ===== -->
+<section class="fi">
+  <div class="sec-label">Real Cores vs. Marketing Cores</div>
+  <h2 class="sec-title">Not All Cores Are Created Equal.<br><span style="color:var(--purple)">And Not All Games Need Eight.</span></h2>
+  <p class="sec-body" style="margin-bottom:1.5rem">Modern Intel processors mix &ldquo;Performance&rdquo; cores and &ldquo;Efficiency&rdquo; cores.&nbsp; A 10-core i5-14400F has 6 P-cores and 4 E-cores&mdash;but those E-cores run at lower clocks with less cache.&nbsp; In gaming, they barely contribute.&nbsp; Our CPUs use true performance cores only.&nbsp; Every core works.</p>
+
+  <table>
+    <tr><th>Core Count</th><th>What It Runs</th><th>Who Needs It</th><th>Found In</th></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">4C/8T<br><small>i7-4770 &ndash; i7-7700K</small></td><td class="g">Fortnite, Valorant, CS2, Minecraft, Rocket League, Apex Legends, Warzone, GTA V.&nbsp; Any title that&rsquo;s primarily GPU-bound or relies on high single-thread clock speed.</td><td>Most gamers.&nbsp; Competitive and mainstream titles are optimized for 4 fast cores, not 8 slow ones.&nbsp; A 4C/8T i7 at 4.0&ndash;4.5 GHz outperforms a modern budget 6P+4E chip in these games.</td><td>Shield, Relic, Rogue, Skylake, Apex</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">6C/12T<br><small>i5-8600K &ndash; i7-6850K</small></td><td class="g">All of the above, plus: <strong>DCS World, Microsoft Flight Simulator, iRacing, Assetto Corsa Competizione, rFactor 2, IL-2 Sturmovik.</strong>&nbsp; Simulation titles that model physics, AI, weather, and terrain across multiple threads.</td><td>Sim pilots and sim racers.&nbsp; DCS and MSFS are notoriously CPU-hungry&mdash;they&rsquo;ll use 4&ndash;6 cores under heavy load (complex missions, dense scenery, AI wingmen, multiplayer).&nbsp; 6 real P-cores at high clocks is the sweet spot.</td><td>Warhorse, Marauder, Gamer, Whiteout, Phantom</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">8C/16T<br><small>i7-5960X &ndash; i7-6900K &middot; E5-1680v2</small></td><td class="g">Everything above, plus: streaming while gaming (OBS + game), heavily modded Skyrim/Fallout/Cities: Skylines, simultaneous background tasks (Discord voice + browser + game + recording).</td><td>Streamers, heavy multitaskers, and anyone who refuses to close anything.&nbsp; 8 real cores mean the OS, Discord, OBS, and the game each get dedicated threads&mdash;no contention, no stutter.</td><td>Banshee, Studio, Flagship, Deep Freeze, Titan</td></tr>
+  </table>
+
+  <div class="callout" style="margin-top:1.5rem">
+    <p><span>The simulation test:</span>&nbsp; DCS World with a complex mission (16+ AI units, dynamic weather, Caucasus map) will push a 4-core CPU to 90&ndash;100% utilization and stutter.&nbsp; The same mission on a 6-core i5-8600K or i7-6800K runs smooth&mdash;the extra two cores absorb the AI and weather simulation threads.&nbsp; If you fly DCS, race iRacing, or explore MSFS, start at the Warhorse ($699) or Gamer ($849).&nbsp; For everything else, 4 cores at high clocks is all you need.</p>
+  </div>
+
+  <p class="trap-note" style="margin-top:1rem">Looking for content creation comparisons?&nbsp; We built a dedicated page: <a href="Mac_Attack.html" style="color:var(--green)">Mac Attack &mdash; Content Creators &rarr;</a></p>
+</section>
+
+
+<!-- ===== SECTION 5: BANDWIDTH ===== -->
+<section class="fi">
+  <div class="sec-label">Memory Bandwidth</div>
+  <h2 class="sec-title">The Number They Don&rsquo;t Advertise.</h2>
+  <p class="sec-body" style="margin-bottom:2rem">Memory bandwidth determines how fast data moves between your RAM and CPU.&nbsp; More bandwidth means your CPU can keep your GPU fed with frames&mdash;fewer stutters, smoother gameplay, better 1% lows.&nbsp; New OEMs ship single-channel or dual-channel.&nbsp; Revolt ships quad-channel on HEDT platforms&mdash;at half the price.</p>
+
+  <div class="bw-row">
+    <div class="meter-label">$279 eBay<small>DDR3 Single-Ch</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar oem" style="width:12%"></div></div>
+    <div class="bw-val">12.8</div>
+  </div>
+  <div class="bw-row">
+    <div class="meter-label">$899 OEM<small>DDR5-6000 Single-Ch</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar oem" style="width:47%"></div></div>
+    <div class="bw-val">48.0</div>
+  </div>
+  <div class="bw-row">
+    <div class="meter-label">Revolt Phantom<small>DDR3-1333 Quad-Ch &middot; $749</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar rr" style="width:42%"></div></div>
+    <div class="bw-val">42.6</div>
+  </div>
+  <div class="bw-row">
+    <div class="meter-label">Revolt Banshee<small>DDR3-1600 Quad-Ch &middot; $1,099</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar rr" style="width:50%"></div></div>
+    <div class="bw-val">51.2</div>
+  </div>
+  <div class="bw-row">
+    <div class="meter-label">Revolt Studio<small>DDR4-2133 Quad-Ch</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar rr" style="width:67%"></div></div>
+    <div class="bw-val">68.3</div>
+  </div>
+  <div class="bw-row">
+    <div class="meter-label">Revolt Warhorse<small>DDR4-2133 Quad-Ch &middot; $699</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar rr" style="width:67%"></div></div>
+    <div class="bw-val">68.3</div>
+  </div>
+  <div class="bw-row" style="background:rgba(139,92,246,.06)">
+    <div class="meter-label" style="color:var(--purple)">Revolt Marauder<small>DDR4-2400 Quad-Ch &middot; <strong>$799</strong></small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar rr" style="width:75%"></div></div>
+    <div class="bw-val" style="color:var(--purple)">76.8</div>
+  </div>
+  <div class="bw-row">
+    <div class="meter-label">Revolt Flagship<small>DDR4-2667 Quad-Ch</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar rr" style="width:83%"></div></div>
+    <div class="bw-val">85.3</div>
+  </div>
+  <div class="bw-row">
+    <div class="meter-label">$1,099 Costco OEM<small>DDR5-5400 Dual-Ch</small></div>
+    <div class="bw-bar-wrap"><div class="bw-bar oem" style="width:84%"></div></div>
+    <div class="bw-val">86.4</div>
+  </div>
+
+  <p style="font-family:var(--mono);font-size:.6rem;color:var(--dim);margin-top:1rem;text-align:right">GB/s &middot; Higher is better</p>
+
+  <div class="callout" style="margin-top:2rem">
+    <p><span>The Revolt Marauder at $799</span> delivers 76.8 GB/s of quad-channel bandwidth with a GTX 1070 and 32GB RAM&mdash;60% more than the $899 OEM&rsquo;s single-channel DDR5-6000 (48 GB/s), $100 less, with twice the GPU VRAM.&nbsp; The $699 Warhorse delivers 68.3 GB/s&mdash;still 42% more than the OEM at $200 less.&nbsp; To match the Marauder, the OEM buyer needs to spend $1,099+ on a dual-channel DDR5 system&mdash;but check the balance there: the $1,099 Costco machine pairs dual-channel DDR5-5400 with a 4GB GPU (Arc B580).&nbsp; The Warhorse beats the pants off that machine for mixed use.&nbsp; To top the performance of our Banshee, Studio, or Flagship, you need a $3,000+ Xeon or Threadripper workstation.</p>
+  </div>
+</section>
+
+
+<!-- ===== SECTION 6: TCO ===== -->
+<section class="fi">
+  <div class="sec-label">Total Cost of Ownership</div>
+  <h2 class="sec-title">The Price You Pay Is Not the Cost You Bear.</h2>
+  <p class="sec-body" style="margin-bottom:2rem">Every Revolt build ships with everything included.&nbsp; No subscriptions, no upgrade traps, no surprise costs at month three.&nbsp; Here&rsquo;s what three years actually costs.</p>
+
+  <div class="tco-grid">
+    <div class="tco-col ebay">
+      <div class="tco-who d">$279 eBay</div>
+      <div class="tco-total" style="color:var(--dim)">$558+</div>
+      <div class="tco-detail">
+        Purchase: $279<br>
+        Office 365 (3 yr): $300<br>
+        Replacement in 18 mo: $279+<br>
+        WiFi adapter: $15<br>
+        Cooler: N/A (won&rsquo;t help)<br>
+        <strong style="color:var(--red)">Two machines.&nbsp; Still no gaming.</strong>
+      </div>
+    </div>
+    <div class="tco-col oem">
+      <div class="tco-who r">$899 New OEM</div>
+      <div class="tco-total" style="color:var(--red)">$1,679+</div>
+      <div class="tco-detail">
+        Purchase: $899<br>
+        Office 365 (3 yr): $300<br>
+        RAM upgrade (2&times;16GB DDR5 kit): $350+<br>
+        Cooler upgrade: $40<br>
+        Win 11 Pro (optional): $100<br>
+        McAfee removal: your sanity<br>
+        <strong style="color:var(--red)">$780+ in hidden costs.</strong>
+      </div>
+    </div>
+    <div class="tco-col revolt">
+      <div class="tco-who g">Revolt Coffee Lake Gamer $849</div>
+      <div class="tco-total" style="color:var(--green)">$849</div>
+      <div class="tco-detail">
+        Purchase: $849<br>
+        Office 2019 Pro+: $0 (included)<br>
+        RAM upgrade: $0 (32GB included)<br>
+        Cooler: $0 (Thermalright cooling)<br>
+        Win 11 Pro: $0 (included)<br>
+        Bloatware: $0 (none)<br>
+        <strong style="color:var(--green)">That&rsquo;s it.&nbsp; Done.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SECTION 7: WHAT THEY WIN ===== -->
+<section class="fi">
+  <div class="sec-label">Honest Assessment</div>
+  <h2 class="sec-title">Where New OEMs Win.&nbsp; <span style="color:var(--purple)">And Where They Don&rsquo;t.</span></h2>
+  <p class="sec-body" style="margin-bottom:2rem">We don&rsquo;t pretend refurbished beats new at everything.&nbsp; Here&rsquo;s where new OEMs have genuine advantages&mdash;and where our engineering makes them irrelevant.</p>
+
+  <table>
+    <tr><th>Category</th><th>New OEM ($899+)</th><th class="rr">Revolt</th></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">GPU Architecture</td><td class="g">RTX 5060: DLSS 4, ray tracing, AV1 encoding, newer drivers</td><td>GTX 970 through RX 6700 XT.&nbsp; No DLSS, no ray tracing (except Flagship RTX 3060 upgrade).</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.55rem;color:var(--purple)">Who needs this?</td><td colspan="2" style="font-size:.78rem;color:var(--muted)"><strong>DLSS 4:</strong> Gamers targeting 4K or high refresh rates who need AI frame generation.&nbsp; Not relevant at 1080p where raw GPU power is sufficient.&nbsp; <strong>Ray tracing:</strong> Gamers who prioritize visual fidelity in titles like Cyberpunk 2077.&nbsp; Most competitive games (Fortnite, Valorant, CS2) don&rsquo;t benefit.&nbsp; <strong>AV1:</strong> Streamers who need hardware encoding.&nbsp; The Flagship&rsquo;s RTX 3060 upgrade adds this for $100.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">CPU Single-Thread</td><td class="g">Arrow Lake / Zen 5: ~20&ndash;30% higher single-thread than our i7-7700K</td><td>Matters for heavily single-threaded games.&nbsp; Most modern titles are multi-threaded.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.55rem;color:var(--purple)">Who needs this?</td><td colspan="2" style="font-size:.78rem;color:var(--muted)">Gamers playing CPU-bound strategy games (Civilization, Cities: Skylines) or older engines with poor multi-threading.&nbsp; Most modern shooters, RPGs, and competitive titles scale across cores&mdash;where our 6-core and 8-core HEDT builds compete directly.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">Warranty</td><td class="a">2-year parts &amp; labor (CyberPowerPC)</td><td>30-day returns.&nbsp; <span style="color:var(--purple);font-weight:700">Allstate add-on warranty available</span> for extended coverage.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.55rem;color:var(--purple)">Who needs this?</td><td colspan="2" style="font-size:.78rem;color:var(--muted)">Buyers who want peace of mind beyond 30 days.&nbsp; The <span style="color:var(--purple);font-weight:700">Allstate add-on</span> closes this gap for buyers who prioritize warranty coverage.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">RAM Bandwidth (DC)</td><td class="g">DDR5-5400 DC = 86.4 GB/s on $1,099+ systems</td><td>Our Flagship QC DDR4-2667 = 85.3 GB/s.&nbsp; Virtually identical&mdash;at $300 less.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.55rem;color:var(--purple)">Who needs this?</td><td colspan="2" style="font-size:.78rem;color:var(--muted)">Simulation gamers (DCS, MSFS, iRacing) where the CPU is constantly streaming terrain, physics, and AI data from RAM.&nbsp; Also heavy multitaskers running Discord + browser + game simultaneously.&nbsp; For competitive shooters at 1080p, dual-channel is sufficient&mdash;but quad-channel eliminates stutter under load.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">Price &lt;$800</td><td class="r">Zero capable gaming PCs under $800 at any major retailer</td><td class="g">10 builds from $349&ndash;$699.&nbsp; All capable.&nbsp; All tested.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">Total Cost of Ownership</td><td class="r">$1,679+ over 3 years (Office, RAM kit, cooler, Pro upgrade)</td><td class="g">$349&ndash;$1,399.&nbsp; Everything included.&nbsp; Zero hidden costs.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">Software</td><td class="r">Win 11 Home, bloated.&nbsp; Copilot, Recall, Edge, McAfee.</td><td class="g">Win 11 Pro [RR Turbo].&nbsp; Debloated.&nbsp; Office 2019 Pro+.&nbsp; Zero subscriptions.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">Cooling</td><td class="r">Stock cooler.&nbsp; &ldquo;Loud, even at idle&rdquo; &mdash;Tom&rsquo;s Hardware</td><td class="g">Thermalright cooling.&nbsp; Quiet.&nbsp; Sustained boost clocks.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">RAM Capacity</td><td class="r">16&ndash;32GB (most ship 16GB)</td><td class="g">16&ndash;96GB.&nbsp; Quad-channel on HEDT builds.&nbsp; 64GB ECC on Banshee.</td></tr>
+    <tr><td style="font-family:var(--mono);font-size:.65rem;color:var(--dim)">E-Waste Impact</td><td class="r">New manufacturing.&nbsp; Old machine goes to landfill.</td><td class="g">Every build diverts enterprise hardware from the waste stream.&nbsp; 5&ndash;7 year extended life.</td></tr>
+  </table>
+</section>
+
+
+<!-- ===== CTA ===== -->
+<div class="cta-bar fi">
+  <h2>Ready to stop paying for marketing<br><span>and start paying for performance?</span></h2>
+  <p>Every Revolt build ships with everything included.&nbsp; No subscriptions.&nbsp; No surprises.&nbsp; No bloatware.&nbsp; The price you see is the price you pay.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="btn-p">Shop eBay &rarr;</a>
+    <a href="index.html#products" class="btn-s">See the Full Lineup</a>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <div><div class="foot-brand">RENEWABLE <span>REVOLT</span></div><div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER &middot; REVIVE &middot; REDEPLOY</div></div>
+    <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; eBay Charity ID: 391538<br>Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+    <div class="foot-links">
+      <a href="recover.html">Circular Economy</a>
+      <a href="revive.html">Build Process &amp; R&amp;D</a>
+      <a href="compare.html">Gaming Benchmarks</a>
+      <a href="Mac_Attack.html">Mac Attack</a>
+      <a href="index.html#donate">Donate</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="foot-pages">
+    <a href="recover.html" class="fp"><span class="fp-l">Recover &rarr;</span><span class="fp-n">Procurement &amp; the Circular Economy</span></a>
+    <a href="revive.html" class="fp"><span class="fp-l">Revive &rarr;</span><span class="fp-n">Build Process, R&amp;D &amp; Work Instructions</span></a>
+    <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="fp"><span class="fp-l">Shop &rarr;</span><span class="fp-n">eBay Store &mdash; Live Listings</span></a>
+    <a href="compare.html" class="fp"><span class="fp-l">Compare &rarr;</span><span class="fp-n">Gaming Benchmarks vs. OEM</span></a>
+    <a href="Mac_Attack.html" class="fp"><span class="fp-l">Mac Attack &rarr;</span><span class="fp-n">Content Creation vs. Mac Studio</span></a>
+    <a href="mission.html" class="fp"><span class="fp-l">Mission &rarr;</span><span class="fp-n">Donations at Work</span></a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobMenu');var h=document.querySelector('.hamburger');if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
