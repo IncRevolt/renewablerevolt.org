@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mac Attack — Renewable Revolt vs. Mac Studio</title>
-<meta name="description" content="The Mac Studio is the industry standard for content creators. We match their flagship. For $1,299. Blender, Resolve, Adobe Pro — application by application.">
+<meta name="description" content="The Mac Studio is the industry standard for content creators. Our Creator Workstation Ladder beats it at every tier — from $1,299 to $2,499. Blender, Resolve, Adobe CC — application by application.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,12,0.92
 .verdict{background:var(--surface2);border:1px solid var(--green);padding:1.2rem 1.5rem;border-radius:4px;margin-top:1.5rem;margin-bottom:3rem}.verdict p{font-size:0.88rem;color:var(--text);line-height:1.6}.verdict strong{color:var(--green)}
 .score-row{display:flex;align-items:center;gap:0;margin-bottom:0.5rem}.score-label{width:200px;min-width:200px;font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);line-height:1.3;padding-right:0.8rem}.score-label .sp{font-weight:700}.score-label .sp.rp{color:var(--green)}.score-label .sp.ap{color:var(--mac)}.score-label .sp.cp{color:var(--purple)}
 .score-track{flex:1;height:32px;background:var(--surface);border-radius:2px;overflow:visible}.score-fill{height:100%;border-radius:2px;display:flex;align-items:center;padding-left:10px;font-family:var(--display);font-size:0.9rem;font-weight:800;transition:width 0.8s ease}
-.score-fill.sr{background:linear-gradient(90deg,rgba(0,230,118,0.35),rgba(0,230,118,0.6));color:#fff}.score-fill.sm{background:linear-gradient(90deg,rgba(230,81,0,0.25),rgba(230,81,0,0.45));color:var(--mac)}.score-fill.sc{background:linear-gradient(90deg,rgba(179,136,255,0.35),rgba(179,136,255,0.6));color:#fff}
+.score-fill.sr{background:linear-gradient(90deg,rgba(0,230,118,0.35),rgba(0,230,118,0.6));color:#fff}.score-fill.sm{background:linear-gradient(90deg,rgba(230,81,0,0.25),rgba(230,81,0,0.45));color:var(--mac)}.score-fill.sc{background:linear-gradient(90deg,rgba(179,136,255,0.35),rgba(179,136,255,0.6));color:#fff}.score-fill.sn{background:linear-gradient(90deg,rgba(118,185,0,0.35),rgba(118,185,0,0.6));color:#fff}
 .ppd{font-family:var(--mono);font-size:0.55rem;color:var(--text-dim);margin-left:auto;padding-right:8px}
 .s-label{width:210px;min-width:210px;font-family:var(--mono);font-size:0.6rem;color:var(--text-muted);line-height:1.25;padding-right:0.8rem}.s-label .sp{font-weight:700;display:block}.s-label .sp.rp{color:var(--green)}.s-label .sp.mp{color:var(--mac)}.s-label .sp.cp{color:var(--purple)}
 .s-track{flex:1;height:30px;background:var(--surface);border-radius:2px;overflow:visible}
@@ -50,6 +50,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,12,0.92
 .s-fill.sr{background:linear-gradient(90deg,rgba(0,230,118,0.3),rgba(0,230,118,0.55));color:#fff}
 .s-fill.sm{background:linear-gradient(90deg,rgba(230,81,0,0.2),rgba(230,81,0,0.4));color:var(--mac)}
 .s-fill.sc{background:linear-gradient(90deg,rgba(179,136,255,0.35),rgba(179,136,255,0.6));color:#fff}
+.s-fill.sn{background:linear-gradient(90deg,rgba(118,185,0,0.3),rgba(118,185,0,0.55));color:#fff}
 .final-cta{text-align:center;padding:5rem 2rem;max-width:700px;margin:0 auto}.final-cta h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,3rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;line-height:1.05}.final-cta h2 .accent{color:var(--green)}.final-cta p{color:var(--text-muted);font-size:1rem;line-height:1.7;margin-bottom:2rem}.final-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem}.foot-brand{font-family:var(--display);font-weight:800;font-size:0.9rem}.foot-brand span{color:var(--green)}.foot-tag{font-family:var(--mono);font-size:0.52rem;color:var(--text-dim);letter-spacing:0.12em;margin-top:0.3rem}.foot-meta{font-family:var(--mono);font-size:0.58rem;color:var(--text-dim);line-height:1.8}.foot-links{display:flex;flex-direction:column;gap:0.4rem}.foot-links a{font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);letter-spacing:0.05em}.foot-links a:hover{color:var(--green);text-decoration:none}
 /* Collapsible app cards */
@@ -60,7 +61,7 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 .app-toggle .chevron{color:var(--text-dim);font-size:1.2rem;transition:transform 0.2s}
 .app-toggle.open .chevron{transform:rotate(180deg)}
 .app-preview{font-family:var(--mono);font-size:0.55rem;color:var(--text-dim);text-align:right;line-height:1.3;letter-spacing:0.03em}
-.app-preview .pw{display:block;font-weight:600;font-size:0.6rem}.pw.mac-w{color:var(--mac)}.pw.rr-w{color:var(--green)}.pw.ce-w{color:var(--purple)}
+.app-preview .pw{display:block;font-weight:600;font-size:0.6rem}.pw.mac-w{color:var(--mac)}.pw.rr-w{color:var(--green)}.pw.ce-w{color:var(--purple)}.pw.nv-w{color:var(--nv)}
 .app-preview .ps{font-family:var(--display);font-size:1.05rem;font-weight:800;color:var(--text)}
 .app-toggle.open .app-preview{display:none}
 .app-body{display:none;padding:1.5rem}
@@ -72,7 +73,29 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 .core-p.mc{background:linear-gradient(90deg,rgba(230,81,0,0.25),rgba(230,81,0,0.45));color:var(--mac)}
 .core-p.ce{background:linear-gradient(90deg,rgba(179,136,255,0.4),rgba(179,136,255,0.65));color:#fff}
 .core-e{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.62rem;font-weight:600;border:1px dashed rgba(230,81,0,0.4);border-left:none;background:transparent;color:var(--text-dim);border-radius:0 2px 2px 0;white-space:nowrap;transition:width 0.8s ease}
-@media(max-width:768px){.hero{padding:8rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.bar-label,.score-label,.s-label{width:130px;min-width:130px;font-size:0.52rem}.bar-fill,.score-fill,.s-fill{font-size:0.52rem}.bar-below{padding-left:130px;font-size:0.5rem}.stat-grid{grid-template-columns:1fr 1fr}.apple-quote,.reality,.callout{padding:1.2rem 1.5rem}footer{flex-direction:column}.core-p,.core-e{font-size:0.52rem}}
+/* Ladder cards */
+.ladder-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+.ladder-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;overflow:hidden}
+.ladder-card .card-top-bar{position:absolute;top:0;left:0;right:0;height:3px}
+.ladder-card.avail{border-color:var(--green)}
+.ladder-card.avail .card-top-bar{background:linear-gradient(90deg,var(--green),var(--g2))}
+.ladder-card.special{border-color:var(--purple)}
+.ladder-card.special .card-top-bar{background:linear-gradient(90deg,var(--purple),var(--p2))}
+.ladder-card.cuda{border-color:var(--nv)}
+.ladder-card.cuda .card-top-bar{background:linear-gradient(90deg,var(--nv),#a5d400)}
+.avail-tag{font-family:var(--mono);font-size:0.55rem;color:var(--green);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
+.special-tag{font-family:var(--mono);font-size:0.55rem;color:var(--purple);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
+.cuda-tag{font-family:var(--mono);font-size:0.55rem;color:var(--nv);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
+.card-name{font-family:var(--display);font-size:1.1rem;font-weight:800;margin-bottom:0.3rem}
+.card-price{font-family:var(--display);font-size:1.8rem;font-weight:900;color:var(--text);margin-bottom:1.2rem}
+.card-price .small{font-size:0.55em;color:var(--text-dim)}
+.card-list{list-style:none;margin-bottom:1.2rem}
+.card-list li{font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.card-list li:last-child{border-bottom:none}
+.card-list li strong{color:var(--text)}
+.card-vs{font-family:var(--mono);font-size:0.6rem;line-height:1.65}
+.ladder-full{grid-column:1/-1}
+@media(max-width:768px){.hero{padding:8rem 1.5rem 3rem}.section{padding:3rem 1.5rem}.bar-label,.score-label,.s-label{width:130px;min-width:130px;font-size:0.52rem}.bar-fill,.score-fill,.s-fill{font-size:0.52rem}.bar-below{padding-left:130px;font-size:0.5rem}.stat-grid{grid-template-columns:1fr 1fr}.apple-quote,.reality,.callout{padding:1.2rem 1.5rem}footer{flex-direction:column}.core-p,.core-e{font-size:0.52rem}.ladder-grid{grid-template-columns:1fr}}
 @media(max-width:480px){.bar-label,.score-label,.s-label{width:105px;min-width:105px;font-size:0.48rem}.stat-grid{grid-template-columns:1fr}.hero-cta{flex-direction:column}.bar-below{padding-left:105px}.core-p,.core-e{font-size:0.48rem}}
 </style>
 </head>
@@ -81,9 +104,9 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 
 <div class="hero">
 <div class="hero-label">Content Creator Showdown</div>
-<h1>The Mac Studio is the<br>industry standard.<br><span class="accent">We match it.</span></h1>
-<p class="hero-sub">Apple says &ldquo;the ultimate pro desktop&rdquo; starts at $1,999.  We go head-to-head with their top-end machine.  For $1,299.</p>
-<div class="hero-cta"><a href="https://www.apple.com/shop/buy-mac/mac-studio" target="_blank" rel="noopener" class="btn-mac">See Mac Studio Pricing &rarr;</a><a href="index.html#products" class="btn-rr">See Our Lineup &rarr;</a></div>
+<h1>The Mac Studio is the<br>industry standard.<br><span class="accent">We beat it.</span></h1>
+<p class="hero-sub">Five builds.  Five workflows.  Every tier wins on capability per dollar.  Starting at $1,299 &mdash; we put the chip that makes your workflow faster, not the chip with the biggest number on the box.</p>
+<div class="hero-cta"><a href="https://www.apple.com/shop/buy-mac/mac-studio" target="_blank" rel="noopener" class="btn-mac">See Mac Studio Pricing &rarr;</a><a href="#ladder" class="btn-rr">See the Ladder &rarr;</a></div>
 </div>
 
 <!-- S1: CLAIMS -->
@@ -93,16 +116,16 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 <div class="sec-sub">We went to <a href="https://www.apple.com/mac-studio/" target="_blank" rel="noopener">apple.com/mac-studio</a> and read every claim.  Then we tested them against what hardware actually renders your frames.</div>
 
 <div class="apple-quote"><p>"Phenomenal memory and storage &mdash; Get up to 128&nbsp;GB unified memory with M4&nbsp;Max."</p><div class="src"><a href="https://www.apple.com/mac-studio/" target="_blank" rel="noopener">apple.com/mac-studio</a></div></div>
-<div class="reality"><p><strong>The base M4&nbsp;Max ships with 36&nbsp;GB.</strong>  To reach 96&nbsp;GB costs $2,599.  128&nbsp;GB costs $2,999.  None of it is upgradeable &mdash; ever.  And that memory is <strong>shared between CPU and GPU</strong>.  When your GPU is rendering, your CPU starves.  Our Mac Killer ships with <strong>128&nbsp;GB of quad-channel ECC DDR3</strong> at $1,299 &mdash; plus a dedicated 12&nbsp;GB GDDR6 pool and a dedicated 16&nbsp;GB HBM2 pool.  That&rsquo;s 156&nbsp;GB total addressable memory, with zero contention between them.  And it&rsquo;s upgradeable to 256&nbsp;GB &mdash; a configuration no Mac at any price can offer.</p></div>
+<div class="reality"><p><strong>The base M4&nbsp;Max ships with 36&nbsp;GB.</strong>  To reach 96&nbsp;GB costs $2,599.  128&nbsp;GB costs $2,999.  None of it is upgradeable &mdash; ever.  And that memory is <strong>shared between CPU and GPU</strong>.  When your GPU is rendering, your CPU starves.  Our Flagship Creator ships with <strong>128&nbsp;GB of quad-channel DDR4</strong> at $2,499 &mdash; and our Banshee&nbsp;+ at $1,599 ships with <strong>128&nbsp;GB of ECC DDR3</strong> plus a separate 12&nbsp;GB GDDR6 pool and a 16&nbsp;GB HBM2 pool.  156&nbsp;GB total addressable.  Every pool is independent.  Upgradeable any time.</p></div>
 
 <div class="apple-quote"><p>"Plays it cool and quiet.  Within the 7.7-inch-square Mac Studio enclosure lies a thermal system designed to let M4&nbsp;Max fly through intensive tasks."</p><div class="src"><a href="https://www.apple.com/mac-studio/" target="_blank" rel="noopener">apple.com/mac-studio</a></div></div>
 <div class="reality"><p><strong>Quiet, yes.  Cool?  That depends.</strong>  The MacBook Pro with the same M4&nbsp;Max chip hits 106&ndash;108&deg;C and thermally throttles within a minute at full load.  The Mac Studio's chassis helps, but macOS runs <strong>kernel_task</strong> &mdash; a process that <em>actively consumes your CPU</em> to manage thermals, competing with your render.  We use open-source fan software &mdash; consuming less than 0.01% of your system resources &mdash; to maintain temperatures.  Indefinitely.</p></div>
 
 <div class="apple-quote"><p>"Up to 546&nbsp;GB/s memory bandwidth."</p><div class="src"><a href="https://www.apple.com/mac-studio/specs/" target="_blank" rel="noopener">apple.com/mac-studio/specs</a></div></div>
-<div class="reality"><p><strong>Shared.</strong>  546&nbsp;GB/s serves both CPU and GPU through one unified bus.  During a GPU render, the CPU gets whatever&rsquo;s left.  Our Mac Killer delivers <strong>42.6&nbsp;GB/s to the CPU</strong>, <strong>384&nbsp;GB/s to the display GPU</strong>, and <strong>484&nbsp;GB/s to the compute GPU</strong> &mdash; simultaneously, independently, zero contention.  <strong>910&nbsp;GB/s of non-competing bandwidth</strong> across three dedicated memory pools.  The Mac Studio&rsquo;s 546&nbsp;GB/s is shared.  We don&rsquo;t share.</p></div>
+<div class="reality"><p><strong>Shared.</strong>  546&nbsp;GB/s serves both CPU and GPU through one unified bus.  During a GPU render, the CPU gets whatever&rsquo;s left.  Our Flagship Creator delivers <strong>85.3&nbsp;GB/s to the CPU</strong>, <strong>384&nbsp;GB/s to the display GPU</strong>, and <strong>484&nbsp;GB/s to the compute GPU</strong> &mdash; simultaneously, independently, zero contention.  <strong>953&nbsp;GB/s of non-competing bandwidth</strong> across three dedicated memory pools.  The Mac Studio&rsquo;s 546&nbsp;GB/s is shared.  We don&rsquo;t share.</p></div>
 
 <div class="apple-quote"><p>"Choose from tens of thousands of apps optimized for Apple silicon &mdash; including DaVinci Resolve Studio, Final Cut Pro, and Adobe Photoshop."</p><div class="src"><a href="https://www.apple.com/mac-studio/" target="_blank" rel="noopener">apple.com/mac-studio</a></div></div>
-<div class="reality"><p>Those same apps run on Windows &mdash; often faster.  DaVinci Resolve uses <strong>CUDA and OpenCL</strong> natively.  Blender supports <strong>OptiX</strong> on NVIDIA GPUs (60&ndash;66% faster ray tracing).  Premiere Pro's Mercury Playback Engine prefers <strong>CUDA</strong>.  Metal has no equivalent to NVIDIA's dedicated RT cores.  Our machines ship with <strong>Office 2019 Pro+</strong>.  The Mac Studio ships with a power cord.</p></div>
+<div class="reality"><p>Those same apps run on Windows &mdash; often faster.  DaVinci Resolve uses <strong>CUDA and OpenCL</strong> natively.  Blender supports <strong>OptiX</strong> on NVIDIA GPUs (60&ndash;66% faster ray tracing).  Premiere Pro's Mercury Playback Engine prefers <strong>CUDA</strong>.  Metal has no equivalent to NVIDIA's dedicated RT cores.  Our Adobe Creator ships with an <strong>RTX 3060</strong> for CUDA-dependent workflows.  Every machine includes <strong>Office 2019 Pro+</strong>.  The Mac Studio ships with a power cord.</p></div>
 </div>
 
 <!-- S4: CAPABILITY SCORE + APP CARDS -->
@@ -114,14 +137,17 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 <div class="chart-group">
 <div class="chart-title">Capability Score &mdash; Sorted by Performance</div>
 
+<div class="score-row"><div class="s-label">Flagship Creator Ultra<br><span class="sp cp">$2,699 &middot; 22C &middot; dual AMD</span></div><div class="s-track"><div class="s-fill sc" style="width:87%">87<span class="ppd">$31/pt</span></div></div></div>
+<div class="score-row"><div class="s-label">Flagship Creator<br><span class="sp cp">$2,499 &middot; 16C &middot; dual AMD</span></div><div class="s-track"><div class="s-fill sc" style="width:85%">85<span class="ppd">$29/pt</span></div></div></div>
+<div class="score-row"><div class="s-label">Adobe Creator<br><span class="sp cp">$1,999 &middot; 12C &middot; RTX 3060</span></div><div class="s-track"><div class="s-fill sn" style="width:80%">80<span class="ppd">$25/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">Mac M4 Max 128GB<br><span class="sp mp">$2,999</span></div><div class="s-track"><div class="s-fill sm" style="width:78%">78<span class="ppd">$38/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">Mac M3 Ultra<br><span class="sp mp">$3,999</span></div><div class="s-track"><div class="s-fill sm" style="width:78%">78<span class="ppd">$51/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">Mac M4 Max 96GB<br><span class="sp mp">$2,599</span></div><div class="s-track"><div class="s-fill sm" style="width:75%">75<span class="ppd">$35/pt</span></div></div></div>
-<div class="score-row"><div class="s-label">Mac Killer BTO<br><span class="sp cp">$1,299 &middot; 10C &middot; dual AMD</span></div><div class="s-track"><div class="s-fill sc" style="width:73%">73<span class="ppd">$18/pt</span></div></div></div>
-<div class="score-row"><div class="s-label">Banshee Workstation<br><span class="sp rp">$1,299 &middot; 8C &middot; ISV</span></div><div class="s-track"><div class="s-fill sr" style="width:62%">62<span class="ppd">$21/pt</span></div></div></div>
-<div class="score-row"><div class="s-label">Banshee<br><span class="sp rp">$1,249 &middot; 8C &middot; 6700 XT</span></div><div class="s-track"><div class="s-fill sr" style="width:58%">58<span class="ppd">$22/pt</span></div></div></div>
+<div class="score-row"><div class="s-label">Banshee +<br><span class="sp rp">$1,599 &middot; 12C &middot; dual AMD</span></div><div class="s-track"><div class="s-fill sr" style="width:73%">73<span class="ppd">$22/pt</span></div></div></div>
 <div class="bar-divider"></div>
 <div class="score-row"><div class="s-label">Mac M4 Max base<br><span class="sp mp">$1,999 &middot; 36GB</span></div><div class="s-track"><div class="s-fill sm" style="width:60%">60<span class="ppd">$33/pt</span></div></div></div>
+<div class="score-row"><div class="s-label">Banshee<br><span class="sp rp">$1,299 &middot; 12C &middot; 6700 XT Pro</span></div><div class="s-track"><div class="s-fill sr" style="width:65%">65<span class="ppd">$20/pt</span></div></div></div>
+<div class="score-row"><div class="s-label">Banshee Workstation<br><span class="sp rp">$1,299 &middot; 8C &middot; ISV</span></div><div class="s-track"><div class="s-fill sr" style="width:62%">62<span class="ppd">$21/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">RR Titan<br><span class="sp rp">$1,099 &middot; 64GB &middot; 1080 Ti</span></div><div class="s-track"><div class="s-fill sr" style="width:53%">53<span class="ppd">$21/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">RR Ghoul<br><span class="sp rp">$1,149 &middot; 64GB ECC &middot; 1080 Ti</span></div><div class="s-track"><div class="s-fill sr" style="width:47%">47<span class="ppd">$24/pt</span></div></div></div>
 <div class="bar-divider"></div>
@@ -131,7 +157,6 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 <div class="score-row"><div class="s-label">Shadow Workstation<br><span class="sp rp">$1,049 &middot; 48GB ECC &middot; Vega 56 Pro</span></div><div class="s-track"><div class="s-fill sr" style="width:42%">42<span class="ppd">$25/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">RR Shadow<br><span class="sp rp">$999 &middot; 32GB ECC &middot; Vega 56</span></div><div class="s-track"><div class="s-fill sr" style="width:38%">38<span class="ppd">$26/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">RR Gamer<br><span class="sp rp">$849 &middot; 32GB &middot; 1070 Ti</span></div><div class="s-track"><div class="s-fill sr" style="width:37%">37<span class="ppd">$23/pt</span></div></div></div>
-<div class="score-row"><div class="s-label">RR Marauder<br><span class="sp rp">$749 &middot; 32GB &middot; GTX 1070</span></div><div class="s-track"><div class="s-fill sr" style="width:34%">34<span class="ppd">$22/pt</span></div></div></div>
 <div class="score-row"><div class="s-label">RR Phantom<br><span class="sp rp">$649 &middot; 32GB ECC &middot; RX 580</span></div><div class="s-track"><div class="s-fill sr" style="width:31%">31<span class="ppd">$21/pt</span></div></div></div>
 </div>
 
@@ -140,121 +165,125 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 <div class="app-card">
 <div class="app-toggle">
 <div><span class="app-name">Blender (Cycles)</span> <span class="app-tag">GPU-Dominant &middot; Ray Tracing</span></div>
-<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw mac-w">M4 Max</span><span class="ps">~4070</span></span><span class="chevron">&#9660;</span></div>
+<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw ce-w">Flagship Creator</span><span class="ps">85</span></span><span class="chevron">&#9660;</span></div>
 </div>
 <div class="app-body">
-<div class="app-what"><strong>What renders frames:</strong>  GPU compute and render API.  NVIDIA OptiX is 60&ndash;66% faster than AMD HIP or Apple Metal for path tracing.  VRAM determines max scene complexity.  Multiple AMD GPUs in OpenCL close the gap without OptiX.</div>
+<div class="app-what"><strong>What renders frames:</strong>  GPU compute and render API.  NVIDIA OptiX is 60&ndash;66% faster than AMD HIP or Apple Metal for path tracing.  Multiple AMD GPUs in OpenCL close the gap without OptiX.  22 cores over 16 on CPU rendering scales near-linearly &mdash; which is why the Ultra is an upsell worth having for overnight batches.</div>
 <div class="chart-group">
 <div class="chart-title">Blender GPU Rendering &mdash; Relative Performance</div>
-<div class="bar-row"><div class="bar-label">M4 Max (40-core)<br><span class="mp">$2,499 &middot; Metal</span></div><div class="bar-track"><div class="bar-fill mac" style="width:85%">~RTX 4070 class</div></div></div>
-<div class="bar-row"><div class="bar-label">Mac Killer BTO<br><span class="cp">$1,299 &middot; dual OpenCL</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:62%">6700 XT + WX 9100 HBM2</div></div></div>
-<div class="bar-row"><div class="bar-label">Banshee Workstation / Banshee<br><span class="price">$1,249&ndash;$1,299 &middot; 6700 XT</span></div><div class="bar-track"><div class="bar-fill g1" style="width:55%">HIP rendering &mdash; 12 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">Flagship Creator Ultra<br><span class="cp">$2,699 &middot; dual AMD &middot; 22C</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:88%">6700 XT + WX 9100 + 22C</div></div></div>
+<div class="bar-row"><div class="bar-label">Flagship Creator<br><span class="cp">$2,499 &middot; dual AMD &middot; 16C</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:82%">6700 XT + WX 9100 HBM2</div></div></div>
+<div class="bar-row"><div class="bar-label">M4 Max (40-core GPU)<br><span class="mp">$2,499 &middot; Metal</span></div><div class="bar-track"><div class="bar-fill mac" style="width:85%">~RTX 4070 class</div></div></div>
+<div class="bar-row"><div class="bar-label">Adobe Creator<br><span class="cp">$1,999 &middot; RTX 3060 &middot; OptiX</span></div><div class="bar-track"><div class="bar-fill nv" style="width:72%">OptiX RT acceleration</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee +<br><span class="price">$1,599 &middot; dual AMD</span></div><div class="bar-track"><div class="bar-fill p1" style="width:62%">6700 XT + WX 9100</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee / Banshee WS<br><span class="price">$1,299 &middot; 6700 XT</span></div><div class="bar-track"><div class="bar-fill g1" style="width:55%">HIP rendering &mdash; 12 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">M1 Max<br><span class="mp">$1,999 (2022)</span></div><div class="bar-track"><div class="bar-fill mac" style="width:45%">Metal</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Titan / Ghoul<br><span class="price">$1,099&ndash;$1,149 &middot; 1080 Ti</span></div><div class="bar-track"><div class="bar-fill p1" style="width:40%">CUDA &mdash; 11 GB</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Refresh<br><span class="price">$999 &middot; GTX 1080</span></div><div class="bar-track"><div class="bar-fill p2" style="width:30%">CUDA &mdash; 8 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">RR Titan / Ghoul<br><span class="price">$1,099&ndash;$1,149 &middot; 1080 Ti</span></div><div class="bar-track"><div class="bar-fill p2" style="width:40%">CUDA &mdash; 11 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">RR Shadow<br><span class="price">$999 &middot; Vega 56 HBM2</span></div><div class="bar-track"><div class="bar-fill g3" style="width:28%">OpenCL HBM2</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Gamer<br><span class="price">$849 &middot; 1070 Ti</span></div><div class="bar-track"><div class="bar-fill p3" style="width:26%">CUDA</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Marauder<br><span class="price">$749 &middot; GTX 1070</span></div><div class="bar-track"><div class="bar-fill p3" style="width:22%">CUDA</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Phantom<br><span class="price">$649 &middot; RX 580</span></div><div class="bar-track"><div class="bar-fill g2" style="width:18%">OpenCL</div></div></div>
 </div>
-<div class="verdict"><p><strong>Blender verdict:</strong>  The M4 Max GPU wins raw render speed &mdash; Metal has become genuinely competitive.  But the Mac Killer BTO at <strong>$1,299</strong> runs two AMD GPUs concurrently in OpenCL &mdash; the 6700&nbsp;XT handles scene complexity with 12&nbsp;GB GDDR6 while the WX&nbsp;9100 accelerates compute with 16&nbsp;GB of 484&nbsp;GB/s HBM2.  At 46% of the comparable Mac ($2,999), the dual-GPU configuration is the closer &mdash; without requiring OptiX.</p></div>
+<div class="verdict"><p><strong>Blender verdict:</strong>  The M4 Max GPU wins raw single-GPU render speed &mdash; Metal is genuinely competitive.  But the Flagship Creator at <strong>$2,499</strong> runs dual AMD in OpenCL — the 6700&nbsp;XT handles scene geometry with 12&nbsp;GB GDDR6 while the WX&nbsp;9100 accelerates compute with 16&nbsp;GB of 484&nbsp;GB/s HBM2, and 16 cores orchestrate both.  For CUDA-dependent workflows, the Adobe Creator's RTX 3060 brings OptiX at $1,999.  For overnight batch CPU rendering, the Ultra's 22 cores scale near-linearly &mdash; at $200 less than the comparable Mac.</p></div>
 </div>
 </div>
 
 <div class="app-card">
 <div class="app-toggle">
 <div><span class="app-name">DaVinci Resolve</span> <span class="app-tag">GPU for Color &middot; RAM for Temporal &middot; Hardware Encode</span></div>
-<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw ce-w">Mac Killer</span><span class="ps">82</span></span><span class="chevron">&#9660;</span></div>
+<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw ce-w">Flagship Creator</span><span class="ps">90</span></span><span class="chevron">&#9660;</span></div>
 </div>
 <div class="app-body">
-<div class="app-what"><strong>What renders frames:</strong>  GPU via <strong>OpenCL</strong> &mdash; Metal's advantage evaporates here.  RAM for temporal noise reduction (entire frame sequences load into memory).  Hardware encoders for export speed.  Multi-GPU OpenCL is natively supported and scales.</div>
+<div class="app-what"><strong>What renders frames:</strong>  GPU via <strong>OpenCL</strong> &mdash; Metal's advantage evaporates here.  RAM for temporal noise reduction (entire frame sequences load into memory).  Hardware encoders for export speed.  Multi-GPU OpenCL is natively supported and scales.  16 cores at 2.6&nbsp;GHz feed dual GPU queues without CPU bottlenecks.</div>
 <div class="chart-group">
 <div class="chart-title">Resolve &mdash; Color Grading &amp; Effects</div>
-<div class="bar-row"><div class="bar-label">Mac Killer BTO<br><span class="cp">$1,299 &middot; dual AMD &middot; 128 GB</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:82%">dual OpenCL &mdash; 28 GB VRAM</div></div></div>
-<div class="bar-row"><div class="bar-label">M4 Max (40-core)<br><span class="mp">$2,499</span></div><div class="bar-track"><div class="bar-fill mac" style="width:80%">Metal GPU</div></div></div>
-<div class="bar-row"><div class="bar-label">Banshee Workstation<br><span class="price">$1,299 &middot; 6700 XT Pro &middot; ISV</span></div><div class="bar-track"><div class="bar-fill g1h" style="width:68%">OpenCL &mdash; 12 GB &mdash; ISV cert</div></div></div>
-<div class="bar-row"><div class="bar-label">Banshee<br><span class="price">$1,249 &middot; 6700 XT &middot; 64 GB</span></div><div class="bar-track"><div class="bar-fill g1" style="width:62%">OpenCL &mdash; 12 GB</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Titan<br><span class="price">$1,099 &middot; 1080 Ti &middot; 32 GB</span></div><div class="bar-track"><div class="bar-fill p2" style="width:42%">CUDA &mdash; 11 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">Flagship Creator<br><span class="cp">$2,499 &middot; dual AMD &middot; 128 GB DDR4</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:90%">dual OpenCL &mdash; 28 GB VRAM &mdash; 85.3 GB/s</div></div></div>
+<div class="bar-row"><div class="bar-label">M4 Max (40-core GPU)<br><span class="mp">$2,499</span></div><div class="bar-track"><div class="bar-fill mac" style="width:80%">Metal GPU</div></div></div>
+<div class="bar-row"><div class="bar-label">Adobe Creator<br><span class="cp">$1,999 &middot; RTX 3060 &middot; 128 GB</span></div><div class="bar-track"><div class="bar-fill nv" style="width:72%">CUDA + NVENC + 128 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee +<br><span class="price">$1,599 &middot; dual AMD &middot; 128 GB DDR3</span></div><div class="bar-track"><div class="bar-fill p1" style="width:78%">dual OpenCL &mdash; 28 GB VRAM</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee Workstation<br><span class="price">$1,299 &middot; 6700 XT Pro &middot; ISV</span></div><div class="bar-track"><div class="bar-fill g1h" style="width:65%">OpenCL &mdash; 12 GB &mdash; ISV cert</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee<br><span class="price">$1,299 &middot; 6700 XT &middot; 64 GB</span></div><div class="bar-track"><div class="bar-fill g1" style="width:60%">OpenCL &mdash; 12 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">RR Refresh<br><span class="price">$999 &middot; GTX 1080</span></div><div class="bar-track"><div class="bar-fill g2" style="width:35%">CUDA</div></div></div>
 <div class="bar-row"><div class="bar-label">RR Shadow<br><span class="price">$999 &middot; Vega 56 &middot; 32 GB ECC</span></div><div class="bar-track"><div class="bar-fill g3" style="width:32%">OpenCL HBM2</div></div></div>
 </div>
-<div class="verdict"><p><strong>Resolve verdict:</strong>  OpenCL levels the field &mdash; Metal has no advantage here.  The Mac Killer&rsquo;s dual-AMD configuration lets the WX&nbsp;9100 handle color science while the 6700&nbsp;XT drives the timeline preview &mdash; no resource contention.  The real story is RAM: temporal NR loads entire sequences.  <strong>128&nbsp;GB at $1,299</strong> vs. Apple&rsquo;s $2,599&ndash;$2,999 for the same capacity.  Banshee Workstation is the production-ready ISV-certified alternative available today.</p></div>
+<div class="verdict"><p><strong>Resolve verdict:</strong>  This is where the ladder peaks.  OpenCL levels the field &mdash; Metal has no edge here &mdash; and dual AMD at DDR4-2667 bandwidth (85.3&nbsp;GB/s) gives the Flagship Creator a real advantage.  The WX&nbsp;9100 handles color math while the 6700&nbsp;XT drives the timeline preview, with 16 all-performance cores orchestrating both.  128&nbsp;GB at $2,499 vs. Apple's $2,999 for the same RAM capacity &mdash; and our 28&nbsp;GB of independent VRAM doesn&rsquo;t compete with your system RAM for a single clock cycle.</p></div>
 </div>
 </div>
 
 <div class="app-card">
 <div class="app-toggle">
-<div><span class="app-name">Adobe Premiere Pro</span> <span class="app-tag">CPU + GPU &middot; Mercury Playback Engine</span></div>
-<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw ce-w">Mac Killer</span><span class="ps">80</span></span><span class="chevron">&#9660;</span></div>
+<div><span class="app-name">Adobe Premiere Pro</span> <span class="app-tag">CPU + GPU &middot; Mercury Playback Engine &middot; CUDA-Preferred</span></div>
+<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw nv-w">Adobe Creator</span><span class="ps">88</span></span><span class="chevron">&#9660;</span></div>
 </div>
 <div class="app-body">
-<div class="app-what"><strong>What renders frames:</strong>  CPU multi-core + GPU via <strong>CUDA (preferred)</strong> or OpenCL.  RAM for multi-stream 4K.  Hardware encoder for exports.  CUDA builds have an edge for single-stream; RAM wins for complex timelines.</div>
+<div class="app-what"><strong>What renders frames:</strong>  CPU multi-core + GPU via <strong>CUDA (preferred)</strong> or OpenCL.  RAM for multi-stream 4K.  NVENC for fast H.264/H.265 exports.  This is the one application where CUDA gives a clear edge — the Adobe Creator is the right tool for Premiere-first pipelines.</div>
 <div class="chart-group">
 <div class="chart-title">Premiere &mdash; Multi-Stream 4K Editing</div>
-<div class="bar-row"><div class="bar-label">Mac Killer BTO<br><span class="cp">$1,299 &middot; OpenCL &middot; 128 GB</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:80%">dual AMD + 128 GB timeline RAM</div></div></div>
+<div class="bar-row"><div class="bar-label">Adobe Creator<br><span class="cp">$1,999 &middot; RTX 3060 &middot; CUDA &middot; 128 GB</span></div><div class="bar-track"><div class="bar-fill nv" style="width:90%">CUDA Mercury + NVENC + 128 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">Flagship Creator<br><span class="cp">$2,499 &middot; dual AMD &middot; 128 GB</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:82%">OpenCL + 128 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">M4 Max (base)<br><span class="mp">$1,999 &middot; 36 GB</span></div><div class="bar-track"><div class="bar-fill mac" style="width:75%">36 GB limits multi-stream</div></div></div>
-<div class="bar-row"><div class="bar-label">Banshee Workstation / Banshee<br><span class="price">$1,249&ndash;$1,299 &middot; 6700 XT &middot; 64 GB</span></div><div class="bar-track"><div class="bar-fill g1" style="width:68%">OpenCL + 64 GB</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Titan<br><span class="price">$1,099 &middot; 1080 Ti &middot; 32 GB</span></div><div class="bar-track"><div class="bar-fill p1" style="width:60%">CUDA + NVENC + 11 GB</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Ghoul<br><span class="price">$1,149 &middot; 1080 Ti &middot; 64 GB ECC</span></div><div class="bar-track"><div class="bar-fill p2" style="width:48%">CUDA + 11 GB + big RAM</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee +<br><span class="price">$1,599 &middot; dual AMD &middot; 128 GB</span></div><div class="bar-track"><div class="bar-fill p1" style="width:72%">OpenCL + 128 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee Workstation / Banshee<br><span class="price">$1,299 &middot; 6700 XT &middot; 64 GB</span></div><div class="bar-track"><div class="bar-fill g1" style="width:65%">OpenCL + 64 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">RR Titan<br><span class="price">$1,099 &middot; 1080 Ti &middot; 32 GB</span></div><div class="bar-track"><div class="bar-fill p2" style="width:55%">CUDA + NVENC + 11 GB</div></div></div>
 </div>
-<div class="verdict"><p><strong>Premiere verdict:</strong>  The M4 Max has faster single-thread IPC, but the base Mac&rsquo;s <strong>36&nbsp;GB</strong> ceiling limits multi-stream editing at 4K.  Mac Killer BTO at $1,299 delivers dual-GPU OpenCL with <strong>128&nbsp;GB</strong> &mdash; no timeline complexity it can&rsquo;t hold in RAM.  For CUDA workflows, the Titan at $1,099 keeps the Mercury Playback Engine happy with NVENC for fast exports.</p></div>
+<div class="verdict"><p><strong>Premiere verdict:</strong>  CUDA wins here, and the Adobe Creator at $1,999 is purpose-built for it.  RTX 3060 drives Mercury Playback Engine, NVENC accelerates H.264/H.265 exports, and 128&nbsp;GB of DDR4-2133 holds complex multi-stream 4K timelines without paging.  The M4 Max's base config at the same price offers 36&nbsp;GB of shared memory and no CUDA &mdash; a significant ceiling for multi-stream work.  For OpenCL Premiere pipelines, the Flagship Creator at $2,499 delivers 128&nbsp;GB DDR4-2667 and dual AMD.</p></div>
 </div>
 </div>
 
 <div class="app-card">
 <div class="app-toggle">
-<div><span class="app-name">Adobe After Effects</span> <span class="app-tag">RAM-Dominant &middot; Multi-Frame Rendering</span></div>
-<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw ce-w">Mac Killer</span><span class="ps">97</span></span><span class="chevron">&#9660;</span></div>
+<div><span class="app-name">Adobe After Effects</span> <span class="app-tag">RAM-Dominant &middot; Multi-Frame Rendering &middot; Clock-Sensitive</span></div>
+<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw nv-w">Adobe Creator</span><span class="ps">95</span></span><span class="chevron">&#9660;</span></div>
 </div>
 <div class="app-body">
-<div class="app-what"><strong>What renders frames:</strong>  <strong>RAM is king.</strong>  AE caches entire compositions in memory.  Multi-Frame Rendering uses CPU cores.  128&nbsp;GB is the clear sweet spot &mdash; no machine at this price runs AE like this.</div>
+<div class="app-what"><strong>What renders frames:</strong>  <strong>RAM is king</strong> &mdash; AE caches entire compositions in memory.  Multi-Frame Rendering uses CPU cores, but clock speed matters as much as count: 12 cores at 3.0&nbsp;GHz base beats 28 cores at 2.0&nbsp;GHz on interactive work thousands of times a day.  The 2687W v4's 3.5&nbsp;GHz turbo is the highest single-thread speed in the Creator Ladder.</div>
 <div class="chart-group">
 <div class="chart-title">After Effects &mdash; RAM Preview Cache</div>
-<div class="bar-row"><div class="bar-label">Mac Killer BTO<br><span class="cp">$1,299 &middot; 128 GB &middot; Turbo</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:100%">~126 GB &mdash; the AE machine</div></div></div>
+<div class="bar-row"><div class="bar-label">Adobe Creator / Flagship Creator<br><span class="cp">$1,999&ndash;$2,499 &middot; 128 GB</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:100%">~126 GB &mdash; the AE machines</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee +<br><span class="price">$1,599 &middot; 128 GB DDR3 ECC</span></div><div class="bar-track"><div class="bar-fill g1h" style="width:100%">~126 GB ECC</div></div></div>
 <div class="bar-row"><div class="bar-label">Mac M3 Ultra<br><span class="mp">$3,999 &middot; 96 GB</span></div><div class="bar-track"><div class="bar-fill mac" style="width:91%">~86 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">Mac M4 Max 96GB<br><span class="mp">$2,599</span></div><div class="bar-track"><div class="bar-fill mac" style="width:91%">~86 GB</div></div></div>
-<div class="bar-row"><div class="bar-label">Banshee Workstation / Banshee<br><span class="price">$1,249&ndash;$1,299 &middot; 64 GB ECC</span></div><div class="bar-track"><div class="bar-fill g1" style="width:66%">~62 GB</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee / Banshee WS<br><span class="price">$1,299 &middot; 64 GB ECC</span></div><div class="bar-track"><div class="bar-fill g1" style="width:66%">~62 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">RR Titan / Ghoul<br><span class="price">$1,099&ndash;$1,149 &middot; 64 GB</span></div><div class="bar-track"><div class="bar-fill p1" style="width:66%">~62 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">Shadow Workstation<br><span class="price">$1,049 &middot; 48 GB ECC</span></div><div class="bar-track"><div class="bar-fill g2" style="width:50%">~46 GB</div></div></div>
 <div class="bar-row"><div class="bar-label">Mac M4 Max base<br><span class="mp">$1,999 &middot; 36 GB total</span></div><div class="bar-track"><div class="bar-fill mac" style="width:30%"></div></div></div>
 <div class="bar-below">~28 GB &mdash; AE will page to disk at this capacity</div>
 </div>
-<div class="verdict"><p><strong>After Effects verdict:</strong>  RAM matters more than anything.  Mac Killer BTO delivers <strong>128&nbsp;GB at $1,299</strong> with 10 all-performance cores for Multi-Frame Rendering &mdash; more available cache than every Mac Studio at any price.  The base Mac&rsquo;s 36&nbsp;GB forces disk paging.  To match our capacity, Apple charges $2,999.</p></div>
+<div class="verdict"><p><strong>After Effects verdict:</strong>  RAM matters most, and clock speed matters almost as much.  Adobe Creator at <strong>$1,999</strong> delivers 128&nbsp;GB with a 3.5&nbsp;GHz Broadwell turbo &mdash; the fastest per-core speed in the Creator Ladder, on the architecture with the best AVX2 power management.  Every keyframe drag and slider pull responds at that speed.  Apple's base Mac at the same price ships with 36&nbsp;GB and forces disk paging under any serious composition.  To match 128&nbsp;GB, Apple charges $2,999.</p></div>
 </div>
 </div>
 
 <div class="app-card">
 <div class="app-toggle">
-<div><span class="app-name">Adobe Photoshop</span> <span class="app-tag">Single-Core &middot; GPU Canvas</span></div>
-<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw mac-w">M4 Max 128GB</span><span class="ps">88</span></span><span class="chevron">&#9660;</span></div>
+<div><span class="app-name">Adobe Photoshop</span> <span class="app-tag">Single-Core &middot; GPU Canvas &middot; Clock-Dominant</span></div>
+<div style="display:flex;align-items:center;gap:1rem"><span class="app-preview"><span class="pw mac-w">M4 Max</span><span class="ps">88</span></span><span class="chevron">&#9660;</span></div>
 </div>
 <div class="app-body">
-<div class="verdict"><p><strong>Photoshop verdict:</strong>  The M4 Max wins single-core &mdash; period.  But for large multi-layer 16-bit composites, our 64&ndash;128&nbsp;GB machines keep the entire file in RAM while the base Mac&rsquo;s 36&nbsp;GB forces disk swapping.  <strong>Faster per-filter.  We handle bigger files.</strong></p></div>
+<div class="app-what"><strong>What runs filters:</strong>  95% of Photoshop operations are single-thread.  Clock speed and IPC dominate.  GPU handles canvas acceleration and some AI filters.  RAM determines maximum file size without disk swap.</div>
+<div class="verdict"><p><strong>Photoshop verdict:</strong>  The M4 Max wins single-core performance &mdash; 2024 silicon beats 2016 silicon on per-core speed, full stop.  But Apple&rsquo;s base Mac at $1,999 ships with 36&nbsp;GB, and large 16-bit PSD composites will hit that ceiling fast.  Adobe Creator ships with 128&nbsp;GB at the same price &mdash; every layer in RAM, no disk swap, files so large Photoshop runs out of ideas before we run out of memory.  <strong>Apple wins per-filter speed.  We win file size ceiling.</strong></p></div>
 </div>
 </div>
 
 </div>
 
-<!-- S2: SILICON + CORES -->
+<!-- S2: SILICON + CORES — THE CLOCK THESIS -->
 <div class="section">
-<div class="sec-label">The Age Question</div>
-<div class="sec-h2">New is irrelevant.  <span class="accent">Performance is king.</span></div>
-<div class="sec-sub">Our processors are from 2012 to 2013 &mdash; the Xeon E5-2690&nbsp;v2, the E5-1680&nbsp;v2, the i7-3960X.  Apple's M4&nbsp;Max is from 2024.  Per-core, Apple wins.  But content creation is a system problem.  Blender renders on the GPU.  Resolve needs RAM.  Premiere needs bandwidth.  After Effects needs cache.  The CPU is one piece.  When you pair a proven, all-performance-core processor with the right supporting architecture &mdash; ECC RAM, dual discrete GPU, active cooling, debloated OS &mdash; proven silicon delivers modern results.</div>
+<div class="sec-label">The Clock Speed Argument</div>
+<div class="sec-h2">We put the chip that makes your <span class="accent">workflow faster.</span></div>
+<div class="sec-sub">Not the chip with the biggest number on the box.  Apple sells the M4 Ultra with 28 cores.  Our Adobe Creator has 12.  That&rsquo;s not a compromise &mdash; it&rsquo;s a deliberate choice.  Adobe applications show diminishing returns above 16 threads.  Photoshop is single-thread for 95% of operations.  Premiere and After Effects are I/O and RAM bottlenecked long before they run out of cores.  A 3.5&nbsp;GHz Broadwell CPU makes your Premiere timeline feel faster than any 28-core chip running at 2.0&nbsp;GHz base.  You feel that difference every time you drag a slider.</div>
+
+<div class="callout"><p><strong>The one exception:</strong>  Core count matters for batch Blender rendering and parallel Resolve exports.  That&rsquo;s exactly why we offer the <strong>Flagship Creator Ultra</strong> (22C) as an upsell &mdash; for workflows where overnight render throughput beats daytime responsiveness.  We don&rsquo;t hide it.  We price it honestly.  And we explain the tradeoff.</p></div>
 
 <div class="chart-group">
 <div class="chart-title">Performance Cores vs. Efficiency Cores</div>
+<div class="bar-row"><div class="bar-label">Flagship Creator Ultra<br><span class="cp">E5-2699A v4 &middot; $2,699</span></div><div class="core-track"><div class="core-p ce" style="width:61%">22P</div></div></div>
 <div class="bar-row"><div class="bar-label">M3 Ultra<br><span class="mp">$3,999</span></div><div class="core-track"><div class="core-p mc" style="width:56%">20P</div><div class="core-e" style="width:22%">8E</div></div></div>
+<div class="bar-row"><div class="bar-label">Flagship Creator<br><span class="cp">E5-2697A v4 &middot; $2,499</span></div><div class="core-track"><div class="core-p ce" style="width:44%">16P</div></div></div>
 <div class="bar-row"><div class="bar-label">M4 Max (16-core)<br><span class="mp">$2,499</span></div><div class="core-track"><div class="core-p mc" style="width:33%">12P</div><div class="core-e" style="width:11%">4E</div></div></div>
-<div class="bar-row"><div class="bar-label">Mac Killer BTO<br><span class="cp">E5-2690 v2 &middot; $1,299</span></div><div class="core-track"><div class="core-p ce" style="width:28%">10P</div></div></div>
+<div class="bar-row"><div class="bar-label">Adobe Creator<br><span class="cp">E5-2687W v4 &middot; $1,999</span></div><div class="core-track"><div class="core-p ce" style="width:33%">12P &middot; 3.0 GHz base</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee +<br><span class="price">E5-2697 v2 &middot; $1,599</span></div><div class="core-track"><div class="core-p rr" style="width:33%">12P</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee / Banshee WS<br><span class="price">E5-2697 v2 / E5-1680 v2</span></div><div class="core-track"><div class="core-p rr" style="width:33%">8&ndash;12P</div></div></div>
 <div class="bar-row"><div class="bar-label">M4 Max (base)<br><span class="mp">$1,999</span></div><div class="core-track"><div class="core-p mc" style="width:28%">10P</div><div class="core-e" style="width:11%">4E</div></div></div>
-<div class="bar-row"><div class="bar-label">Banshee Workstation<br><span class="price">E5-1680 v2 &middot; $1,299</span></div><div class="core-track"><div class="core-p rr" style="width:22%">8P</div></div></div>
-<div class="bar-row"><div class="bar-label">Banshee<br><span class="price">E5-1680 v2 &middot; $1,249</span></div><div class="core-track"><div class="core-p rr" style="width:22%">8P</div></div></div>
 <div class="bar-row"><div class="bar-label">M2 Max<br><span class="mp">$1,999 (2023)</span></div><div class="core-track"><div class="core-p mc" style="width:22%">8P</div><div class="core-e" style="width:11%">4E</div></div></div>
-<div class="bar-row"><div class="bar-label">M1 Max<br><span class="mp">$1,999 (2022)</span></div><div class="core-track"><div class="core-p mc" style="width:22%">8P</div><div class="core-e" style="width:6%">2E</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Shadow / Titan<br><span class="price">6C&ndash;8C Xeon / i7</span></div><div class="core-track"><div class="core-p rr" style="width:17%">6&ndash;8P</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Phantom<br><span class="price">E5-1650 v2 &middot; $649</span></div><div class="core-track"><div class="core-p rr" style="width:17%">6P</div></div></div>
 </div>
-<div class="callout"><p><strong>Mac Killer BTO matches the M4 Max base in performance core count &mdash; at $700 less.</strong>  The difference: Apple adds 4 efficiency cores that are invisible to render tasks.  Every RR core is a performance core.  No dead weight.</p></div>
+<div class="callout"><p>Every RR core is a performance core.  Apple&rsquo;s efficiency cores don&rsquo;t show up in render benchmarks &mdash; they handle background tasks.  The M4 Max base at $1,999 has 10 performance cores.  Our Adobe Creator has 12 &mdash; at the same price &mdash; running Broadwell AVX2 at 3.0&nbsp;GHz base.  <strong>More performance cores, a higher base clock, 128&nbsp;GB of RAM, and a CUDA GPU.  For the same money.</strong></p></div>
 </div>
 
 <!-- S3: OS OVERHEAD -->
@@ -268,64 +297,137 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 <div class="stat-card"><div class="num rn">~25%</div><div class="desc">Fewer background processes on RR Turbo v6 vs stock Windows 11 Pro</div></div>
 <div class="stat-card"><div class="num rn">~50%</div><div class="desc">More available RAM headroom at idle &mdash; more memory for your actual work</div></div>
 </div>
-<div class="callout"><p><strong>macOS processes you can't disable:</strong>  WindowServer (compositing), kernel_task (thermal throttling), Spotlight/mds_stores (indexing mid-render), iCloud sync, Apple Intelligence/Siri, analytics telemetry.  <strong>RR Turbo v6</strong> strips the Windows equivalents.  <a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener">Open source on GitHub.</a></p></div>
+<div class="callout"><p><strong>macOS processes you can&rsquo;t disable:</strong>  WindowServer (compositing), kernel_task (thermal throttling), Spotlight/mds_stores (indexing mid-render), iCloud sync, Apple Intelligence/Siri, analytics telemetry.  <strong>RR Turbo v6</strong> strips the Windows equivalents.  <a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener">Open source on GitHub.</a></p></div>
 <div class="chart-group">
 <div class="chart-title">Usable RAM After OS Overhead</div>
-<div class="bar-row"><div class="bar-label">Mac Killer BTO<br><span class="cp">$1,299 &middot; 128 GB &middot; Turbo</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:98%">~126 GB available</div></div></div>
+<div class="bar-row"><div class="bar-label">Adobe Creator<br><span class="cp">$1,999 &middot; 128 GB &middot; Turbo</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:98%">~126 GB available</div></div></div>
+<div class="bar-row"><div class="bar-label">Flagship Creator<br><span class="cp">$2,499 &middot; 128 GB &middot; Turbo</span></div><div class="bar-track"><div class="bar-fill p1h" style="width:98%">~126 GB available</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee +<br><span class="price">$1,599 &middot; 128 GB ECC &middot; Turbo</span></div><div class="bar-track"><div class="bar-fill g1h" style="width:98%">~126 GB available</div></div></div>
 <div class="bar-row"><div class="bar-label">Mac M4 Max 128GB<br><span class="mp">$2,999 &middot; macOS</span></div><div class="bar-track"><div class="bar-fill mac" style="width:92%">~118 GB available</div></div></div>
 <div class="bar-row"><div class="bar-label">Mac M3 Ultra<br><span class="mp">$3,999 &middot; 96 GB &middot; macOS</span></div><div class="bar-track"><div class="bar-fill mac" style="width:67%">~86 GB available</div></div></div>
 <div class="bar-row"><div class="bar-label">Mac M4 Max 96GB<br><span class="mp">$2,599 &middot; macOS</span></div><div class="bar-track"><div class="bar-fill mac" style="width:67%">~86 GB available</div></div></div>
 <div class="bar-divider"></div>
-<div class="bar-row"><div class="bar-label">Banshee Workstation / Banshee<br><span class="price">$1,249&ndash;$1,299 &middot; 64 GB ECC</span></div><div class="bar-track"><div class="bar-fill g1" style="width:48%">~62 GB available</div></div></div>
+<div class="bar-row"><div class="bar-label">Banshee / Banshee WS<br><span class="price">$1,299 &middot; 64 GB ECC</span></div><div class="bar-track"><div class="bar-fill g1" style="width:48%">~62 GB available</div></div></div>
 <div class="bar-row"><div class="bar-label">Shadow Workstation<br><span class="price">$1,049 &middot; 48 GB ECC</span></div><div class="bar-track"><div class="bar-fill g2" style="width:36%">~46 GB available</div></div></div>
 <div class="bar-row"><div class="bar-label">RR Shadow<br><span class="price">$999 &middot; 32 GB ECC</span></div><div class="bar-track"><div class="bar-fill p1" style="width:23%">~30 GB available</div></div></div>
-<div class="bar-row"><div class="bar-label">RR Phantom<br><span class="price">$649 &middot; 32 GB ECC</span></div><div class="bar-track"><div class="bar-fill p2" style="width:23%">~30 GB</div></div></div>
 <div class="bar-divider"></div>
 <div class="bar-row"><div class="bar-label">Mac M4 Max base<br><span class="mp">$1,999 &middot; 36 GB total</span></div><div class="bar-track"><div class="bar-fill mac" style="width:22%"></div></div></div>
 <div class="bar-below">~28 GB available &mdash; after macOS takes its cut from 36 GB</div>
 </div>
 </div>
 
-<!-- S5: NIGHTMARE CLASS / MAC KILLER -->
-<div class="section">
-<div class="sec-label" style="color:var(--purple)">Nightmare Class</div>
-<div class="sec-h2">Go head-to-head with <span class="ce-accent">Apple's flagship.</span></div>
-<div class="sec-sub">Our standard lineup already beats the base Mac Studio on content creation scores.  These two go further &mdash; matching or exceeding Apple&rsquo;s top-tier M4&nbsp;Max configurations at a fraction of the price.  One is available now.  One is build-to-order.</div>
+<!-- S5: CREATOR WORKSTATION LADDER -->
+<div class="section" id="ladder">
+<div class="sec-label" style="color:var(--purple)">Creator Workstation Ladder</div>
+<div class="sec-h2">Five tiers.  Every workflow <span class="ce-accent">covered.</span></div>
+<div class="sec-sub">The Banshee and Banshee&nbsp;+ ship from production stock.  The Adobe Creator, Flagship Creator, and Flagship Creator Ultra are built to your specifications &mdash; we don&rsquo;t keep them on the shelf, so lead time applies.  Contact us to confirm availability and place your order.</div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0">
-<div style="background:var(--surface);border:1px solid var(--purple);border-radius:4px;padding:2rem;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--g2))"></div>
-<div style="font-family:var(--mono);font-size:0.55rem;color:var(--green);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">Available Now</div>
-<h3 style="font-family:var(--display);font-size:1.1rem;font-weight:800;color:var(--green);margin-bottom:0.3rem">Banshee Workstation</h3>
-<div style="font-family:var(--display);font-size:1.8rem;font-weight:900;color:var(--text);margin-bottom:1rem">$1,299</div>
-<ul style="list-style:none;margin-bottom:1.5rem">
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)"><strong style="color:var(--text)">Xeon E5-1680 v2</strong> &mdash; 8 cores / 16 threads &middot; 3.0 / 3.6 GHz (E5-2697 v2 upgrade on request)</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)"><strong style="color:var(--text)">64 GB</strong> DDR3-1600 ECC quad-channel</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)"><strong style="color:var(--text)">RX 6700 XT</strong> 12 GB &mdash; ISV-certified Pro drivers</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)">Content Creator Score: <strong style="color:var(--green)">62</strong></li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)">ECC memory &middot; SolidWorks, AutoCAD, Revit certified</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0">Office 2019 Pro+ included</li>
+<div class="ladder-grid">
+
+<!-- Tier 1: Banshee -->
+<div class="ladder-card avail">
+<div class="card-top-bar"></div>
+<div class="avail-tag">Ships from Stock</div>
+<div class="card-name" style="color:var(--green)">Banshee</div>
+<div class="card-price">$1,299</div>
+<ul class="card-list">
+<li><strong>Xeon E5-2697 v2</strong> &mdash; 12C / 24T &middot; 2.7 / 3.5 GHz</li>
+<li><strong>64 GB</strong> DDR3-1333 ECC quad-channel &middot; 42.6 GB/s</li>
+<li><strong>RX 6700 XT</strong> 12 GB GDDR6 &mdash; AMD Pro drivers enabled</li>
+<li>ISV application profiles &middot; 10-bit color output</li>
+<li>1 TB NVMe &middot; 1050W PSU &middot; Office 2019 Pro+</li>
+<li>Content Creator Score: <strong>65</strong></li>
 </ul>
-<div style="font-family:var(--mono);font-size:0.6rem;color:var(--green);line-height:1.6"><strong>vs M4 Max base ($1,999):</strong> 2 points ahead, $700 less.<br><strong>vs M4 Max 96GB ($2,599):</strong> 2 points behind, $1,300 less.</div>
+<div class="card-vs" style="color:var(--green)"><strong>vs M4 Max base ($1,999):</strong> 5 pts ahead, $700 less.<br><strong>64 GB ECC vs 36 GB shared</strong> &mdash; four times Apple&rsquo;s base config at $700 below entry price.</div>
 </div>
 
-<div style="background:var(--surface);border:1px solid var(--purple);border-radius:4px;padding:2rem;position:relative;overflow:hidden"><div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--p2))"></div>
-<div style="font-family:var(--mono);font-size:0.55rem;color:var(--purple);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem">Build-to-Order</div>
-<h3 style="font-family:var(--display);font-size:1.1rem;font-weight:800;color:var(--purple);margin-bottom:0.3rem">Mac Killer</h3>
-<div style="font-family:var(--display);font-size:1.8rem;font-weight:900;color:var(--text);margin-bottom:1rem">$1,299 <span style="font-size:0.6em;color:var(--text-dim)">/ $1,399 &nbsp;256&nbsp;GB</span></div>
-<ul style="list-style:none;margin-bottom:1.5rem">
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)"><strong style="color:var(--text)">Xeon E5-2690 v2</strong> &mdash; 10 cores / 20 threads &middot; 3.0 / 3.6 GHz</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)"><strong style="color:var(--text)">128 GB</strong> DDR3 ECC (upgradeable to 256 GB)</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)"><strong style="color:var(--text)">RX 6700 XT</strong> 12 GB GDDR6 (display) + <strong style="color:var(--text)">WX 9100</strong> 16 GB HBM2 (compute)</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)">Content Creator Score: <strong style="color:var(--purple)">73</strong></li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04)">156 GB total addressable memory &middot; 910 GB/s independent bandwidth</li>
-<li style="font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);padding:0.3rem 0">IPMI remote management &middot; ECC &middot; Office 2019 Pro+</li>
+<!-- Tier 2: Banshee + -->
+<div class="ladder-card avail">
+<div class="card-top-bar"></div>
+<div class="avail-tag">Ships from Stock</div>
+<div class="card-name" style="color:var(--green)">Banshee +</div>
+<div class="card-price">$1,599</div>
+<ul class="card-list">
+<li><strong>Xeon E5-2697 v2</strong> &mdash; 12C / 24T &middot; 2.7 / 3.5 GHz</li>
+<li><strong>128 GB</strong> DDR3-1333 ECC quad-channel &middot; 42.6 GB/s</li>
+<li><strong>RX 6700 XT</strong> 12 GB GDDR6 (display) + <strong>WX&nbsp;9100</strong> 16 GB HBM2 (compute)</li>
+<li>156 GB total addressable memory &middot; 910 GB/s independent bandwidth</li>
+<li>DaVinci Resolve multi-GPU &middot; Blender dual-OpenCL</li>
+<li>Content Creator Score: <strong>73</strong></li>
 </ul>
-<div style="font-family:var(--mono);font-size:0.6rem;color:var(--purple);line-height:1.6"><strong>vs M4 Max 96GB ($2,599):</strong> 2 points behind, $1,300 less.<br><strong>vs M4 Max base ($1,999):</strong> 13 points ahead, $700 less.</div>
+<div class="card-vs" style="color:var(--green)"><strong>vs M4 Max 96GB ($2,599):</strong> 2 pts behind, $1,000 less.<br><strong>128 GB ECC + 28 GB VRAM</strong> at $1,000 less than Apple&rsquo;s 96 GB unified.</div>
 </div>
+
+<!-- Tier 3: Adobe Creator -->
+<div class="ladder-card cuda">
+<div class="card-top-bar"></div>
+<div class="cuda-tag">&#9632; Special Order &mdash; Built to Your Specs</div>
+<div class="card-name" style="color:var(--nv)">Adobe Creator</div>
+<div class="card-price">$1,999</div>
+<ul class="card-list">
+<li><strong>Xeon E5-2687W v4</strong> &mdash; 12C / 24T &middot; 3.0 / 3.5 GHz &middot; Broadwell-EP</li>
+<li><strong>128 GB</strong> DDR4-2133 ECC quad-channel &middot; 68.3 GB/s</li>
+<li><strong>NVIDIA RTX 3060</strong> 12 GB &mdash; CUDA + OptiX + NVENC</li>
+<li>CUDA-dependent workflows: Topaz AI, AE GPU effects, NVIDIA Broadcast</li>
+<li>3.5 GHz turbo &mdash; fastest interactive feel in the ladder</li>
+<li>Content Creator Score: <strong>80</strong></li>
+</ul>
+<div class="card-vs" style="color:var(--nv)"><strong>vs M4 Max base ($1,999):</strong> 20 pts ahead, same price.<br><strong>12 perf. cores vs 10, 128 GB vs 36 GB,</strong> CUDA vs no CUDA &mdash; at identical price.</div>
+</div>
+
+<!-- Tier 4: Flagship Creator -->
+<div class="ladder-card special">
+<div class="card-top-bar"></div>
+<div class="special-tag">&#9632; Special Order &mdash; Built to Your Specs</div>
+<div class="card-name" style="color:var(--purple)">Flagship Creator</div>
+<div class="card-price">$2,499</div>
+<ul class="card-list">
+<li><strong>Xeon E5-2697A v4</strong> &mdash; 16C / 32T &middot; 2.6 / 3.6 GHz &middot; Broadwell-EP</li>
+<li><strong>128 GB</strong> DDR4-2667 ECC quad-channel &middot; 85.3 GB/s</li>
+<li><strong>RX 6700 XT</strong> 12 GB GDDR6 (display) + <strong>WX&nbsp;9100</strong> 16 GB HBM2 (compute)</li>
+<li>953 GB/s independent bandwidth across three pools</li>
+<li>Highest-bandwidth DDR4 + highest-core AMD configuration</li>
+<li>Content Creator Score: <strong>85</strong></li>
+</ul>
+<div class="card-vs" style="color:var(--purple)"><strong>vs M4 Max 128GB ($2,999):</strong> 7 pts ahead, $500 less.<br><strong>vs M4 Max 96GB ($2,599):</strong> 10 pts ahead, $100 less.</div>
+</div>
+
+<!-- Tier 5: Flagship Creator Ultra — full width -->
+<div class="ladder-card special ladder-full">
+<div class="card-top-bar"></div>
+<div class="special-tag">&#9632; Special Order &mdash; Built to Your Specs &nbsp;&middot;&nbsp; Upsell from Flagship Creator</div>
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem">
+<div style="flex:1;min-width:280px">
+<div class="card-name" style="color:var(--purple)">Flagship Creator Ultra</div>
+<div class="card-price">$2,699 <span class="small">+$200 over Flagship Creator</span></div>
+<ul class="card-list">
+<li><strong>Xeon E5-2699A v4</strong> &mdash; 22C / 44T &middot; 2.4 / 3.6 GHz &middot; Broadwell-EP</li>
+<li><strong>128 GB</strong> DDR4-2667 ECC quad-channel &middot; 85.3 GB/s</li>
+<li><strong>RX 6700 XT</strong> 12 GB GDDR6 + <strong>WX&nbsp;9100</strong> 16 GB HBM2</li>
+<li>Same dual-GPU configuration as Flagship Creator</li>
+<li>Content Creator Score: <strong>87</strong></li>
+</ul>
+</div>
+<div style="flex:1;min-width:280px">
+<div style="font-family:var(--mono);font-size:0.6rem;color:var(--text-muted);line-height:1.8;margin-bottom:1rem"><strong style="color:var(--purple)">When 22 cores beat 16 cores:</strong><br>
+&bull; Overnight Blender Cycles CPU batch renders<br>
+&bull; Resolve CPU-mode exports with heavy temporal NR<br>
+&bull; After Effects MFR on frame-independent projects<br>
+&bull; Handbrake / FFmpeg batch transcoding</div>
+<div style="font-family:var(--mono);font-size:0.6rem;color:var(--text-muted);line-height:1.8"><strong style="color:var(--text-dim)">When 22 cores do NOT beat 16 cores:</strong><br>
+&bull; Interactive editing &mdash; scrubbing and slider response<br>
+&bull; Photoshop (95% single-thread)<br>
+&bull; Premiere export (GPU + I/O bottlenecked above 16T)<br>
+&bull; Daily desktop use</div>
+<div class="card-vs" style="color:var(--purple);margin-top:1rem"><strong>vs M4 Ultra ($4,999):</strong> competitive on render throughput, $2,300 less.<br><strong>vs M3 Ultra ($3,999):</strong> 9 pts ahead, $1,300 less.</div>
+</div>
+</div>
+</div>
+
 </div>
 
 <div class="callout" style="border-left-color:var(--purple);background:rgba(179,136,255,0.08)">
-<p>Mac Killer is build-to-order pending C602 board sourcing.  Banshee Workstation ships from production stock.  <strong><a href="index.html#contact" style="color:var(--purple)">Contact us to configure your Mac Studio replacement &rarr;</a></strong></p>
+<p style="color:var(--text)">Adobe Creator, Flagship Creator, and Flagship Creator Ultra are not shelf products &mdash; each one is sourced and assembled to order.  Lead time is typically 1&ndash;2 weeks.  <strong><a href="index.html#contact" style="color:var(--purple)">Contact us to configure and confirm availability &rarr;</a></strong></p>
 </div>
 </div>
 
@@ -333,8 +435,8 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1100px;mar
 <div class="section" style="border-bottom:none">
 <div class="final-cta">
 <h2>Built for creators.<br>Not for <span style="color:var(--mac)">markups.</span></h2>
-<p>More RAM.  Independent bandwidth.  Dedicated VRAM.  ECC memory.  All-performance cores.  Active cooling.  A debloated OS.  Upgradeable everything.  At a fraction of the price.</p>
-<div class="final-links"><a href="index.html#products" class="btn-rr">See the Full Lineup &rarr;</a><a href="index.html#contact" class="btn-rr">Configure Mac Killer &rarr;</a><a href="https://www.apple.com/shop/buy-mac/mac-studio" target="_blank" rel="noopener" class="btn-mac">See Mac Studio Pricing &rarr;</a></div>
+<p>Workflow-matched CPUs.  Independent memory pools.  Dedicated VRAM.  ECC where it matters.  Active cooling.  A debloated OS.  Upgradeable everything.  From $1,299 to $2,699.</p>
+<div class="final-links"><a href="index.html#products" class="btn-rr">See the Full Lineup &rarr;</a><a href="index.html#contact" class="btn-rr">Configure &amp; Order &rarr;</a><a href="https://www.apple.com/shop/buy-mac/mac-studio" target="_blank" rel="noopener" class="btn-mac">See Mac Studio Pricing &rarr;</a></div>
 <p style="font-family:var(--mono);font-size:0.82rem;color:var(--text-muted);margin-top:2.5rem;line-height:1.7">Need a small-footprint professional workstation instead?  See the <a href="sff-workstation.html" style="color:var(--green)">SFF Workstation</a> &mdash; hand-fabricated, ISV-certified, $749.</p>
 </div>
 </div>
