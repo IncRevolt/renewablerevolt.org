@@ -61,7 +61,7 @@ section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
 .callout p{font-family:var(--mono);font-size:.82rem;color:var(--text);line-height:1.85}
 .callout .hl{color:var(--purple)}
 
-/* EXPOSURE CARDS - the "what's happening on your PC" section */
+/* EXPOSURE CARDS */
 .exposure-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:2.5rem}
 .exposure-card{background:#0f0a0a;padding:1.75rem 2rem;display:grid;grid-template-columns:3rem 1fr;gap:1.5rem;align-items:start}
 .exposure-icon{font-size:1.8rem;text-align:center;padding-top:.1rem}
@@ -121,6 +121,14 @@ section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
 .answer-stat{font-family:var(--mono);font-size:1.4rem;color:var(--green);font-weight:700;display:block;margin-top:.75rem}
 .answer-stat-label{font-family:var(--mono);font-size:.55rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:.2rem}
 
+/* RAM TIER TABLE */
+.ram-tier{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);margin-top:2rem}
+.ram-tier-card{background:var(--surface2);padding:1.5rem;position:relative}
+.ram-tier-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green)}
+.ram-tier-amount{font-family:var(--disp);font-size:1.8rem;font-weight:800;color:var(--green);margin-bottom:.25rem}
+.ram-tier-builds{font-family:var(--mono);font-size:.62rem;color:var(--purple);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
+.ram-tier-desc{font-size:.82rem;color:var(--muted);line-height:1.7}
+
 .btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--purple);color:#fff;border:none;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}
 .btn-p:hover{opacity:.85}
 .btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.85rem 2rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent}
@@ -140,7 +148,7 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem}
 .fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
 .fi.vis{opacity:1;transform:none}
 
-@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.ba-grid{grid-template-columns:1fr}.cost-grid{grid-template-columns:1fr}.answer-grid{grid-template-columns:1fr}.exposure-card{grid-template-columns:2.5rem 1fr;gap:1rem}section{padding:3.5rem 1.5rem}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.ba-grid{grid-template-columns:1fr}.cost-grid{grid-template-columns:1fr}.answer-grid{grid-template-columns:1fr}.ram-tier{grid-template-columns:1fr}.exposure-card{grid-template-columns:2.5rem 1fr;gap:1rem}section{padding:3.5rem 1.5rem}}
 @media(max-width:480px){nav{padding:0 1.25rem}}
 </style>
 <script>
@@ -398,10 +406,10 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
     <div class="cost-card" style="border-top:2px solid var(--purple)">
       <div class="cost-type" style="color:var(--purple)">CPU Architecture</div>
       <div class="cost-h">Real Cores vs. &ldquo;Efficiency&rdquo; Cores</div>
-      <div class="cost-p">Intel&rsquo;s 10th&ndash;14th Gen processors use a hybrid design: &ldquo;Performance&rdquo; cores and &ldquo;Efficiency&rdquo; cores.&nbsp; A modern i5-14400F is marketed as a &ldquo;10-core&rdquo; CPU&mdash;but only 6 of those cores are performance cores.&nbsp; The other 4 are smaller, slower efficiency cores designed for background tasks and power savings.&nbsp; In gaming, which saturates P-cores and barely touches E-cores, the core count advantage is an illusion.</div>
+      <div class="cost-p">Intel&rsquo;s 12th&ndash;14th Gen processors use a hybrid design: &ldquo;Performance&rdquo; cores and &ldquo;Efficiency&rdquo; cores.&nbsp; A modern i5-14400F is marketed as a &ldquo;10-core&rdquo; CPU&mdash;but only 6 of those cores are performance cores.&nbsp; The other 4 are smaller, slower efficiency cores designed for background tasks and power savings.&nbsp; In gaming, which saturates P-cores and barely touches E-cores, the core count advantage is an illusion.</div>
       <div class="cost-detail">
-        <span>Our i7-6800K has <strong style="color:var(--green)">6 real performance cores.</strong></span>
-        <span>Our i7-7700K hits <strong style="color:var(--green)">4.5 GHz</strong> on all 4 cores.&nbsp; A budget i3-14100 hits 4.4 GHz on 4 cores.</span>
+        <span>Our Xeon E5-1650 v2 has <strong style="color:var(--green)">6 real performance cores</strong> (Phantom, $649).</span>
+        <span>Our i7-8700K hits <strong style="color:var(--green)">4.7 GHz turbo</strong> on 6 real cores (Titan, $1,099).</span>
         <span>Same gaming performance.&nbsp; Different decade.&nbsp; Different price.</span>
       </div>
     </div>
@@ -412,18 +420,18 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
       <div class="cost-p">Every consumer platform sold today&mdash;Intel LGA 1700, LGA 1851, AMD AM5&mdash;is dual-channel.&nbsp; Two memory channels.&nbsp; Our X79 and X99 builds use quad-channel: four simultaneous memory channels feeding the CPU.&nbsp; The only new systems with quad-channel are Xeon or Threadripper workstations starting at $3,000+.</div>
       <div class="cost-detail">
         <span>Dual-channel DDR4-3200: 51.2 GB/s</span>
-        <span><strong style="color:var(--green)">Quad-channel DDR4-2400: 76.8 GB/s</strong> (Warhorse, $699)</span>
-        <span>That&rsquo;s 50% more bandwidth at half the price.</span>
+        <span><strong style="color:var(--green)">Quad-channel DDR4-2133: 68.3 GB/s</strong> (Marauder, $749)</span>
+        <span>That&rsquo;s 33% more bandwidth at half the price.</span>
       </div>
     </div>
 
     <div class="cost-card" style="border-top:2px solid var(--purple)">
       <div class="cost-type" style="color:var(--purple)">RAM Speed</div>
       <div class="cost-h">&ldquo;Why Not DDR4-3200 in Everything?&rdquo;</div>
-      <div class="cost-p">Every CPU has a <strong>native memory speed</strong>&mdash;the fastest speed its memory controller officially supports.&nbsp; RAM faster than native gets downclocked to native speed automatically.&nbsp; Putting DDR4-3200 in a system with an i7-5960X (native DDR4-2133) doesn&rsquo;t give you 3200&mdash;it gives you 2133 and a higher price tag.&nbsp; We match RAM speed to what the CPU can actually use.&nbsp; You pay for performance, not wasted potential.</div>
+      <div class="cost-p">Every CPU has a <strong>native memory speed</strong>&mdash;the fastest speed its memory controller officially supports.&nbsp; RAM faster than native gets downclocked to native speed automatically.&nbsp; Putting DDR4-3200 in a system with an i7-6800K (native DDR4-2133) doesn&rsquo;t give you 3200&mdash;it gives you 2133 and a higher price tag.&nbsp; We match RAM speed to what the CPU can actually use.&nbsp; You pay for performance, not wasted potential.</div>
       <div class="cost-detail">
         <span>Haswell / Broadwell: native <strong style="color:var(--green)">DDR3-1600</strong></span>
-        <span>Skylake / X99: native <strong style="color:var(--green)">DDR4-2133</strong></span>
+        <span>X79 Xeon / X99: native <strong style="color:var(--green)">DDR3-1333 ECC / DDR4-2133</strong></span>
         <span>Kaby Lake: native <strong style="color:var(--green)">DDR4-2400</strong></span>
         <span>Coffee Lake: native <strong style="color:var(--green)">DDR4-2666</strong></span>
         <span>Faster speeds require Z-series motherboards with XMP&mdash;which most OEM boards don&rsquo;t support.&nbsp; We run RAM at the speed the silicon was designed for.&nbsp; No wasted money.&nbsp; No false advertising.</span>
@@ -432,11 +440,11 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
 
     <div class="cost-card" style="border-top:2px solid var(--purple)">
       <div class="cost-type" style="color:var(--purple)">Clock Speed</div>
-      <div class="cost-h">High-Clock Quad Cores Still Win Games</div>
-      <div class="cost-p">Fortnite, Valorant, and Minecraft are limited by single-thread clock speed, not core count.&nbsp; A 4-core i7 from 2015 running at 4.0&ndash;4.5 GHz has higher single-thread performance than a modern budget i3 at 3.2 GHz.&nbsp; The IPC gains over the last 8 years are real but smaller than the marketing implies&mdash;roughly 15&ndash;25% per clock.&nbsp; Clock speed still dominates.</div>
+      <div class="cost-h">High-Clock Cores Still Win Games</div>
+      <div class="cost-p">Fortnite, Valorant, and Minecraft are limited by single-thread clock speed, not core count.&nbsp; A 4-core i7 from 2014 running at 4.0 GHz has higher single-thread performance than a modern budget i3 at 3.2 GHz.&nbsp; The IPC gains over the last 8 years are real but smaller than the marketing implies&mdash;roughly 15&ndash;25% per clock.&nbsp; Clock speed still dominates.</div>
       <div class="cost-detail">
-        <span>i7-4790K: <strong style="color:var(--green)">4.4 GHz turbo</strong> (2014, Relic $499)</span>
-        <span>i7-7700K: <strong style="color:var(--green)">4.5 GHz turbo</strong> (2017, Apex $699)</span>
+        <span>i7-4790: <strong style="color:var(--green)">4.0 GHz turbo</strong> (2014, Relic $499)</span>
+        <span>i7-8700K: <strong style="color:var(--green)">4.7 GHz turbo</strong> (2018, Titan $1,099)</span>
         <span>These CPUs game as well as current-gen budget processors.</span>
       </div>
     </div>
@@ -453,15 +461,44 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
   </div>
 </section>
 
-<!-- ===== SECTION 4B: WHY 24GB ===== -->
+<!-- ===== SECTION 4B: RAM STRATEGY ===== -->
 <div class="dark-section fi" id="ram">
   <div class="dark-inner">
-    <div class="sec-label">&ldquo;Why 24GB?&rdquo;</div>
-    <h2 class="sec-title">Because 16GB Isn&rsquo;t Enough.&nbsp; <span style="color:var(--green)">Period.</span></h2>
-    <p class="sec-body">16GB of RAM is not enough for a gaming PC running Windows 11 in 2026.&nbsp; Not stock Windows.&nbsp; Not even with RR Turbo.&nbsp; The math doesn&rsquo;t work.</p>
+    <div class="sec-label">Our RAM Strategy</div>
+    <h2 class="sec-title">Every Build Gets More RAM<br><span style="color:var(--green)">Than the Price Tag Suggests.</span></h2>
+    <p class="sec-body">In 2026, DDR4 prices have spiked 2&ndash;5&times; due to AI-driven demand.&nbsp; Most OEMs responded by shipping 16GB and calling it a day.&nbsp; We didn&rsquo;t.&nbsp; We engineer each tier with the RAM it actually needs&mdash;not the RAM that looks cleanest on a price tag.</p>
+
+    <div class="ram-tier">
+      <div class="ram-tier-card">
+        <div class="ram-tier-amount">16 GB</div>
+        <div class="ram-tier-builds">Raider &middot; $399</div>
+        <div class="ram-tier-desc">Entry-level.&nbsp; Works because RR Turbo reclaims ~2GB at idle versus stock Windows.&nbsp; 16GB on Turbo performs like 18GB on stock&mdash;enough for Fortnite + Chrome + Discord at 1080p.</div>
+      </div>
+      <div class="ram-tier-card">
+        <div class="ram-tier-amount">24 GB</div>
+        <div class="ram-tier-builds">Relic &middot; $499</div>
+        <div class="ram-tier-desc">The engineering sweet spot.&nbsp; Eliminates page file stutter under every real-world gaming and productivity workload.&nbsp; 2&times;8GB + 2&times;4GB, matched pairs per channel.</div>
+      </div>
+      <div class="ram-tier-card">
+        <div class="ram-tier-amount">32&ndash;48 GB</div>
+        <div class="ram-tier-builds">Rogue through Shadow WS &middot; $599&ndash;$1,049</div>
+        <div class="ram-tier-desc">Standard across our mid-range and upper builds.&nbsp; Quad-channel on X79/X99 platforms for massive bandwidth.&nbsp; Shadow Workstation tops the tier at 48GB ECC.</div>
+      </div>
+      <div class="ram-tier-card">
+        <div class="ram-tier-amount">64 GB</div>
+        <div class="ram-tier-builds">Ghoul through Banshee Workstation &middot; $1,149&ndash;$1,299</div>
+        <div class="ram-tier-desc">Workstation-class.&nbsp; 4&times;16GB DDR3 ECC quad-channel.&nbsp; Ghoul pairs it with a GTX 1080 Ti.&nbsp; Try finding 64GB in a new PC under $2,000.&nbsp; You won&rsquo;t.</div>
+      </div>
+    </div>
+
+    <!-- 16GB IS NOT ENOUGH -->
+    <div style="margin-top:3rem">
+      <h3 style="font-family:var(--disp);font-size:1.4rem;font-weight:800;margin-bottom:1rem">Why 16GB Isn&rsquo;t Enough <span style="color:var(--red)">on a Stock PC.</span></h3>
+      <p class="sec-body">16GB of RAM is not enough for a gaming PC running stock Windows 11 in 2026.&nbsp; The math doesn&rsquo;t work.&nbsp; Our Raider escapes this trap because RR Turbo cuts idle consumption nearly in half&mdash;but on a stock OEM machine?&nbsp; You&rsquo;re already at the ceiling before your game loads.</p>
+    </div>
 
     <!-- STACKED BAR VISUALIZATION -->
-    <div style="margin-top:2.5rem;background:var(--surface2);padding:2.5rem;border:1px solid var(--border)">
+    <div style="margin-top:2rem;background:var(--surface2);padding:2.5rem;border:1px solid var(--border)">
 
       <!-- LEGEND -->
       <div style="display:flex;flex-wrap:wrap;gap:1.25rem;margin-bottom:2rem">
@@ -492,7 +529,6 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
           <div style="position:absolute;left:27.1%;top:0;bottom:0;width:20.8%;background:#d97706;display:flex;align-items:center;padding-left:.3rem;font-family:var(--mono);font-size:.5rem;color:rgba(255,255,255,.8);overflow:hidden;white-space:nowrap">Fortnite &middot; 5GB</div>
           <!-- SPIKE - crosses the 16GB line -->
           <div style="position:absolute;left:47.9%;top:0;bottom:0;width:12.5%;background:repeating-linear-gradient(135deg,#ff4444,#ff4444 2px,rgba(255,68,68,.3) 2px,rgba(255,68,68,.3) 4px);z-index:2;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.45rem;color:#fff;overflow:hidden;white-space:nowrap">&#9888; SPIKE</div>
-          <!-- Remaining: total = 14.5GB at 60.4%. Spike pushes to 17.5GB = 72.9% of 24GB scale -->
         </div>
         <div style="display:flex;justify-content:space-between;margin-top:.4rem">
           <span style="font-family:var(--mono);font-size:.5rem;color:var(--dim)">0 GB</span>
@@ -501,11 +537,11 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
         </div>
       </div>
 
-      <!-- REVOLT 24GB BAR -->
+      <!-- REVOLT 24GB BAR (Relic) -->
       <div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5rem">
-          <span style="font-family:var(--mono);font-size:.68rem;color:var(--green);font-weight:700;letter-spacing:.06em">Revolt &mdash; 24GB</span>
-          <span style="font-family:var(--mono);font-size:.55rem;color:var(--dim)">Win 11 Pro [RR Turbo]</span>
+          <span style="font-family:var(--mono);font-size:.68rem;color:var(--green);font-weight:700;letter-spacing:.06em">Relic &mdash; 24GB</span>
+          <span style="font-family:var(--mono);font-size:.55rem;color:var(--dim)">Win 11 Pro [RR Turbo] &middot; $499</span>
         </div>
         <div style="position:relative;height:40px;background:rgba(30,32,53,.3);overflow:visible">
           <!-- 24GB capacity line -->
@@ -535,7 +571,7 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
     <div style="margin-top:2.5rem">
       <h3 style="font-family:var(--disp);font-size:1.2rem;font-weight:800;margin-bottom:1rem">&ldquo;But 24GB looks funny on a spec sheet.&rdquo;</h3>
       <p class="sec-body">It does.&nbsp; 16 and 32 are round numbers.&nbsp; 24 isn&rsquo;t.&nbsp; Here&rsquo;s why we don&rsquo;t care.</p>
-      <p class="sec-body" style="margin-top:1rem">RAM is more expensive than it&rsquo;s ever been.&nbsp; The AI-driven shortage has pushed DDR4 prices up 2&ndash;5&times; since 2024.&nbsp; We&rsquo;re doing everything we can to keep this technology attainable.&nbsp; 32GB at today&rsquo;s prices would push our entry-level builds above $400.&nbsp; 16GB would keep the price down and guarantee you a machine that stutters within six months.&nbsp; Neither option serves you.</p>
+      <p class="sec-body" style="margin-top:1rem">RAM is more expensive than it&rsquo;s ever been.&nbsp; The AI-driven shortage has pushed DDR4 prices up 2&ndash;5&times; since 2024.&nbsp; We&rsquo;re doing everything we can to keep this technology attainable.&nbsp; 32GB at today&rsquo;s prices would push our Relic above $550.&nbsp; 16GB would keep the price down and guarantee you a machine that stutters within six months.&nbsp; Neither option serves you.</p>
       <p class="sec-body" style="margin-top:1rem">24GB is the engineering answer: enough capacity to eliminate page file stutter under every real-world gaming and productivity workload, at a price that keeps our builds accessible.</p>
     </div>
 
@@ -584,7 +620,7 @@ function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.
 <div class="cta-section fi">
   <div class="sec-label">Ready?</div>
   <h2 class="sec-title">You Deserve a Machine That<br><span style="color:var(--purple)">Works for You.&nbsp; Not on You.</span></h2>
-  <p>Every Renewable Revolt build ships with Win 11 Pro [RR Turbo], Office 2019 Pro+ (permanent, no subscription), premium Thermalright cooling, and controllable ARGB lighting.&nbsp; Zero bloatware.&nbsp; Zero subscriptions.&nbsp; Zero telemetry beyond Windows minimum.&nbsp; From $349.</p>
+  <p>Every Renewable Revolt build ships with Win 11 Pro [RR Turbo], Office 2019 Pro+ (permanent, no subscription), premium Thermalright cooling, and controllable ARGB lighting.&nbsp; Zero bloatware.&nbsp; Zero subscriptions.&nbsp; Zero telemetry beyond Windows minimum.&nbsp; 16 builds across 4 families.&nbsp; From $399.</p>
   <div class="cta-btns">
     <a href="index.html#products" class="btn-p">See the Full Lineup</a>
     <a href="revive.html" class="btn-s">How We Build Them &rarr;</a>
