@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renewable Revolt &mdash; Recover. Revive. Redeploy.</title>
+<meta name="description" content="IRS-approved 501(c)(3) nonprofit. Premium refurbished PCs for veterans, students, and anyone tired of overpriced, bloated tech. Hammond, Indiana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--amethyst:#9b59b6;--revenant:#8b5cf6;--imperial:#6d28d9;--royal:#7c3aed;--plum:#a855f7;--green:#00e676;--cyan:#00E5FF;--amber:#ffab00;--red:#ff4444;--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--cyan);color:var(--black)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--cyan)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.09) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.5rem}
+.hero h1{font-family:var(--disp);font-size:clamp(2rem,5.5vw,4.4rem);font-weight:800;line-height:1.06;letter-spacing:-.02em;margin-bottom:1.5rem}
+.accent{color:#00E5FF;display:block}
+.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:var(--muted);max-width:660px;line-height:1.75;margin-bottom:2.5rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+.badge{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .7rem;border:1px solid var(--border);color:var(--dim)}
+.badge.on{border-color:rgba(139,92,246,.4);color:var(--purple);background:rgba(139,92,246,.07)}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--cyan);color:var(--black);border:none;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}
+.btn-p:hover{opacity:.85}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.85rem 2rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent}
+.btn-s:hover{background:var(--cyan);color:var(--black)}
+
+.stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 2rem;display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem}
+.stat{text-align:center}
+.stat-n{font-family:var(--mono);font-size:1.7rem;color:var(--purple);display:block;font-weight:700;letter-spacing:-.02em}
+.stat-l{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;color:var(--dim);letter-spacing:.1em;display:block;margin-top:.25rem}
+
+section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-body{font-size:1rem;color:var(--muted);max-width:680px;line-height:1.75}
+
+/* COLLAPSIBLE ACCORDION */
+.acc-item{border:1px solid var(--border);margin-bottom:1px;background:var(--surface2)}
+.acc-trigger{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;cursor:pointer;gap:1rem;transition:background .2s;width:100%;text-align:left;background:none;border:none;color:var(--text)}
+.acc-trigger:hover{background:rgba(139,92,246,.06)}
+.acc-trigger.open{background:rgba(139,92,246,.06)}
+.acc-left{display:flex;align-items:center;gap:.85rem}
+.acc-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.acc-title{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.acc-sub{font-family:var(--mono);font-size:.6rem;color:var(--dim);margin-top:.2rem;letter-spacing:.05em}
+.acc-chev{color:var(--dim);font-size:.75rem;transition:transform .25s;flex-shrink:0}
+.acc-trigger.open .acc-chev{transform:rotate(180deg)}
+.acc-body{display:none;padding:0 1.5rem 1.25rem}
+.acc-item.open .acc-body{display:block}
+.acc-body p{font-size:.88rem;color:var(--muted);line-height:1.75}
+
+/* WHO / villain colored labels */
+.acc-title.clr-purple{color:var(--purple)}
+.acc-title.clr-red{color:var(--red)}
+
+/* VILLAIN SECTION */
+.v-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 2rem}
+.v-inner{max-width:1100px;margin:0 auto}
+
+/* COMPETITIVE CALLOUT - the punchy one */
+.punch-callout{max-width:1100px;margin:0 auto;padding:0 2rem 4rem}
+.punch-box{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.punch-col{padding:2rem 2.5rem}
+.punch-col.theirs{background:#140a0a}
+.punch-col.ours{background:#0a1409}
+.punch-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem}
+.punch-eyebrow.bad{color:var(--red)}
+.punch-eyebrow.good{color:var(--green)}
+.punch-price{font-family:var(--disp);font-size:2.8rem;font-weight:800;line-height:1;margin-bottom:.5rem}
+.punch-price.bad{color:#ff6b6b}
+.punch-price.good{color:var(--green)}
+.punch-detail{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.9}
+.punch-detail span{display:block}
+.punch-detail .bad-line{color:#ff8888}
+.punch-detail .good-line{color:var(--green)}
+.punch-detail .fair-line{color:var(--amber)}
+
+/* RECOVER/REVIVE/REDEPLOY */
+.rrr-section{padding:0 2rem 4rem;max-width:1100px;margin:0 auto}
+
+/* COMPARISON TABLES */
+.compare-wrap{max-width:1100px;margin:0 auto;padding:0 2rem 5rem}
+.compare-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.compare-title{font-family:var(--disp);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:.75rem;letter-spacing:-.01em}
+.compare-sub{font-size:.88rem;color:var(--muted);margin-bottom:1.75rem;max-width:600px;line-height:1.65}
+.ctable{width:100%;border-collapse:collapse;margin-bottom:2.5rem}
+.ctable th{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 1rem;border-bottom:1px solid var(--border);text-align:left;color:var(--dim);background:var(--surface2)}
+.ctable th.rr-col{color:var(--purple)}
+.ctable td{padding:.8rem 1rem;border-bottom:1px solid var(--border);font-size:.85rem;vertical-align:middle}
+.ctable td.row-label{font-family:var(--mono);font-size:.65rem;color:var(--dim);letter-spacing:.05em;background:var(--surface2)}
+.ctable td.col-oem{color:var(--red);font-size:.82rem}
+.ctable td.col-rr{color:var(--green);font-size:.82rem}
+.ctable td.col-rr strong{color:var(--green)}
+.ctable tr:hover td{background:rgba(139,92,246,.04)}
+.bw-val{font-weight:700}
+
+/* PRODUCTS */
+.prod-section{padding:5rem 2rem;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.prod-inner{max-width:1100px;margin:0 auto}
+
+/* Family blocks */
+.fam-block{margin-bottom:3rem}
+.fam-banner{margin-bottom:1.5rem;overflow:hidden;border:1px solid var(--border);border-radius:2px;position:relative}
+.fam-banner img{width:100%;height:auto;display:block}
+.fam-hdr{margin-bottom:1.25rem}
+.fam-top{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.3rem}
+.fam-name{font-family:var(--disp);font-size:1.4rem;font-weight:800;letter-spacing:-.01em}
+.fam-badge{font-family:var(--mono);font-size:.58rem;color:var(--dim);letter-spacing:.08em;padding:.2rem .6rem;border:1px solid var(--border)}
+.fam-desc{font-size:.85rem;color:var(--dim);line-height:1.65;max-width:720px;margin-bottom:.75rem}
+.fam-apps{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem}
+.app-chip{font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;padding:.2rem .55rem;background:var(--surface2);border:1px solid var(--border);color:var(--text-dim)}
+
+/* Product cards */
+.pc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)}
+.pc{background:var(--black);position:relative;cursor:pointer}
+.pc.live{border-top:2px solid var(--green)}
+.pc.prod{border-top:2px solid var(--amber)}
+.pc.soon{border-top:2px solid var(--border)}
+.pc-head{display:flex;align-items:flex-start;justify-content:space-between;padding:1.25rem 1.25rem 0;gap:.5rem}
+.pc-left{flex:1;min-width:0}
+.pc-emoji{font-size:4.5rem;margin-bottom:.3rem;display:block;line-height:1}
+.pc-tier{font-family:var(--mono);font-size:.585rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:.2rem}
+.pc-name{font-family:var(--disp);font-size:1.125rem;font-weight:800;letter-spacing:-.01em;transition:color .2s}
+.pc:hover .pc-name{color:var(--purple)}
+.pc.open .pc-name{color:var(--purple)}
+.pc-tagline{font-family:var(--mono);font-size:.63rem;color:var(--dim);margin-top:.15rem;letter-spacing:.04em;font-style:italic}
+.pc-price{font-family:var(--mono);font-size:1.125rem;font-weight:700;margin-top:.3rem}
+.pc-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0}
+.sbadge{font-family:var(--mono);font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .5rem;font-weight:700}
+.sbadge.slive{background:var(--green);color:var(--black)}
+.sbadge.sprod{background:var(--amber);color:var(--black)}
+.sbadge.ssoon{background:var(--border);color:var(--dim)}
+.chev{color:var(--dim);font-size:.75rem;transition:transform .25s;margin-top:.2rem}
+.pc.open .chev{transform:rotate(180deg)}
+.pc-sum{padding:.4rem 1.25rem 1rem;font-family:var(--mono);font-size:.63rem;color:var(--dim);letter-spacing:.05em;line-height:1.6}
+.pc-body{display:none;padding:.75rem 1.25rem 1.25rem;border-top:1px solid var(--border)}
+.pc.open .pc-body{display:block}
+.pc.open .pc-sum{display:none}
+.spec-list{list-style:none;margin-bottom:.75rem}
+.spec-list li{display:flex;gap:.5rem;padding:.28rem 0;border-bottom:1px solid rgba(30,32,53,.6);font-size:.8775rem}
+.spec-label{font-family:var(--mono);font-size:.675rem;color:var(--dim);letter-spacing:.05em;min-width:80px;flex-shrink:0;padding-top:.05rem}
+.spec-val{color:var(--muted);line-height:1.4}
+.spec-val.hl{color:var(--purple);font-weight:600}
+.spec-val.hlg{color:#22c55e;font-weight:700}
+.spec-val.hlw{color:#fff;font-weight:600}
+.hl-k{color:#00E5FF;font-weight:700}
+.hl-x{color:#00E5FF;font-weight:700}
+.hl-ti{color:#00E5FF;font-weight:700}
+.hl-xt{color:#00E5FF;font-weight:700}
+.hl-u{color:#00E5FF;font-weight:700}
+.pc-tagline-ex{font-family:var(--mono);font-size:.6975rem;color:var(--dim);padding:.6rem 0;font-style:italic;line-height:1.6}
+.pc-cta{display:inline-block;margin-top:.75rem;font-family:var(--mono);font-size:.6975rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);border:1px solid var(--green);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.pc-cta:hover{background:var(--green);color:var(--black)}
+.pc-note{font-family:var(--mono);font-size:.61875rem;color:var(--amber);margin-top:.5rem;line-height:1.6}
+
+/* PILLARS */
+.pil-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border)}
+.pil{background:var(--surface2);padding:0}
+.pil-trigger{display:flex;align-items:flex-start;justify-content:space-between;padding:1.5rem;cursor:pointer;gap:1rem;width:100%;text-align:left;background:none;border:none;color:var(--text);transition:background .2s}
+.pil-trigger:hover{background:rgba(139,92,246,.06)}
+.pil-trigger.open{background:rgba(139,92,246,.06)}
+.pil-num{font-family:var(--mono);font-size:clamp(.7rem,2.5vw,.8rem);letter-spacing:.18em;text-transform:uppercase;color:var(--purple);margin-bottom:.6rem}
+.pil-icon{font-size:1.8rem;margin-bottom:.5rem;display:block}
+.pil-title{font-family:var(--disp);font-size:clamp(1.2rem,4vw,1.4rem);font-weight:800}
+.pil-title span{color:var(--purple)}
+.pil-chev{color:var(--dim);font-size:.75rem;transition:transform .25s;flex-shrink:0;margin-top:.3rem}
+.pil-trigger.open .pil-chev{transform:rotate(180deg)}
+.pil-body{display:none;padding:0 1.5rem 1.5rem;border-top:1px solid var(--border)}
+.pil.open .pil-body{display:block}
+.pil-desc{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.pil-det{font-family:var(--mono);font-size:.62rem;color:var(--dim);line-height:2}
+.pil-det strong{color:var(--purple)}
+.pil-link{display:inline-block;margin-top:.75rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,229,255,.3)}
+
+/* DIFFS */
+.diff-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:1px;background:var(--border);margin-top:3rem}
+.diff-item{background:var(--surface2);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.diff-ck{font-family:var(--mono);font-size:.68rem;color:var(--purple);flex-shrink:0;margin-top:.15rem}
+.diff-txt{font-size:.85rem;color:var(--muted);line-height:1.75}
+.diff-txt strong{color:var(--text)}
+
+/* PARTNERS */
+.part-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);margin-bottom:2rem}
+.part-card{background:var(--surface2);padding:1.25rem}
+.part-name{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:.4rem}
+.part-desc{font-size:.8rem;color:var(--muted);line-height:1.6}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:var(--border)}
+.tool{background:var(--surface2);padding:.9rem;font-family:var(--mono);font-size:.62rem;color:var(--text)}
+.tool-n{color:var(--amber);display:block;margin-bottom:.2rem;font-weight:700}
+
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:4rem;align-items:start}
+.about-story p{font-size:.92rem;color:var(--muted);line-height:1.85;margin-bottom:1.5rem}
+.about-story strong{color:var(--text)}
+.about-story em{color:var(--purple);font-style:normal}
+.sb{border:1px solid var(--border);padding:1.25rem;margin-bottom:1px;background:var(--surface2)}
+.sb-l{font-family:var(--mono);font-size:.55rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.6rem}
+.sb-v{font-size:.82rem;color:var(--muted);line-height:1.8}
+
+/* DONATE */
+.donate-sec{padding:5rem 2rem;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.donate-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:5rem;align-items:start}
+.donate-txt p{font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:1rem}
+.donate-box{background:var(--surface2);padding:2.5rem;border:1px solid var(--border);position:relative}
+.donate-box::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--purple)}
+.donate-box h3{font-family:var(--disp);font-size:1.2rem;font-weight:800;margin-bottom:.6rem}
+.donate-box>p{font-size:.82rem;color:var(--dim);margin-bottom:1.75rem;line-height:1.7}
+.ein-tag{font-family:var(--mono);font-size:.55rem;color:var(--dim);letter-spacing:.08em;margin-top:1.5rem;text-transform:uppercase}
+
+/* DONATE IMPACT CARDS */
+.donate-impact{max-width:1100px;margin:0 auto;padding:0 2rem}
+.donate-impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2rem;margin-bottom:2rem}
+.di-card{background:var(--black);padding:1.75rem;position:relative}
+.di-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.di-card.di-revenue::before{background:var(--green)}
+.di-card.di-donation::before{background:var(--purple)}
+.di-card.di-hard::before{background:var(--red)}
+.di-icon{font-size:1.6rem;margin-bottom:.6rem;display:block}
+.di-label{font-family:var(--mono);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.di-label.revenue{color:var(--green)}
+.di-label.donation{color:var(--purple)}
+.di-label.hard{color:var(--red)}
+.di-title{font-family:var(--disp);font-size:1rem;font-weight:800;margin-bottom:.4rem}
+.di-desc{font-size:.8rem;color:var(--muted);line-height:1.7}
+.di-desc strong{color:var(--text)}
+
+/* DOLLAR TIERS */
+.dollar-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:1.5rem}
+.dt{background:var(--surface2);padding:1.1rem;text-align:center}
+.dt-amount{font-family:var(--mono);font-size:1rem;color:var(--purple);font-weight:700;display:block;margin-bottom:.35rem}
+.dt-desc{font-size:.72rem;color:var(--dim);line-height:1.5}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;margin-top:2.5rem}
+.contact-info p{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.25rem}
+.c-links{display:flex;flex-direction:column;gap:1px;margin-top:2rem}
+.c-link{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.1rem;background:var(--surface2);font-family:var(--mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:all .2s;border:1px solid var(--border)}
+.c-link:hover{color:var(--cyan);border-color:var(--cyan)}
+.c-arr{color:var(--purple)}
+.form-grp{margin-bottom:1.1rem}
+.form-lbl{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);display:block;margin-bottom:.45rem}
+.form-inp{width:100%;background:var(--surface2);border:1px solid var(--border);padding:.7rem 1rem;color:var(--text);font-family:var(--sans);font-size:.9rem;outline:none;transition:border-color .2s}
+.form-inp:focus{border-color:var(--purple)}
+textarea.form-inp{min-height:110px;resize:vertical}
+
+footer{border-top:1px solid var(--border);padding:4rem 2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:3rem}
+.foot-brand{font-family:var(--disp);font-size:1rem;font-weight:800;letter-spacing:.05em}
+.foot-brand span{color:var(--purple)}
+.foot-meta{font-family:var(--mono);font-size:.58rem;color:var(--dim);line-height:2;letter-spacing:.06em;text-align:center}
+.foot-links{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
+.foot-links a{font-family:var(--mono);font-size:.6rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.foot-links a:hover{color:var(--purple)}
+.foot-pages{border-top:1px solid var(--border);padding-top:2rem;margin-top:2rem;max-width:1100px;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;gap:1px;background:var(--border)}
+.fp{flex:1;min-width:160px;background:var(--surface2);padding:1rem 1.25rem;text-decoration:none;display:block}
+.fp:hover{background:#181a2a}
+.fp-l{font-family:var(--mono);font-size:.58rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:.25rem}
+.fp-n{font-size:.82rem;color:var(--muted)}
+
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fi.vis{opacity:1;transform:none}
+
+@media(max-width:1024px){.about-layout{grid-template-columns:1fr;gap:2.5rem}.donate-in{grid-template-columns:1fr;gap:3rem}.contact-grid{grid-template-columns:1fr;gap:2.5rem}.foot-in{grid-template-columns:1fr 1fr}.punch-box{grid-template-columns:1fr}.donate-impact-grid{grid-template-columns:1fr}.dollar-tiers{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.diff-grid{grid-template-columns:1fr}.foot-in{grid-template-columns:1fr}.foot-pages{flex-direction:column}section{padding:4rem 1.5rem}.punch-box{grid-template-columns:1fr}}
+@media(max-width:480px){.hero h1{font-size:2rem}.stat-n{font-size:1.3rem}nav{padding:0 1.25rem}}
+</style>
+<script>
+  function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.toggle('open')}
+  function toggleAcc(id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('open');var t=el.querySelector('.acc-trigger');if(t)t.classList.toggle('open')}
+  function togglePil(id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('open');var t=el.querySelector('.pil-trigger');if(t)t.classList.toggle('open')}
+  function toggleCard(c){if(c)c.classList.toggle('open')}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">RENEWABLE<span> REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="recover.html">Recover &rarr;</a></li>
+    <li><a href="revive.html">Revive &rarr;</a></li>
+    <li><a href="why.html">Why &rarr;</a></li>
+    <li><a href="#products">Shop &rarr;</a></li>
+    <li><a href="#donate">Donate &rarr;</a></li>
+    <li><a href="#contact">Contact &rarr;</a></li>
+  </ul>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="nav-cta">Shop eBay &rarr;</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="recover.html" onclick="toggleMenu()">Recover &rarr;</a>
+  <a href="revive.html" onclick="toggleMenu()">Revive &rarr;</a>
+  <a href="why.html" onclick="toggleMenu()">Why &rarr;</a>
+  <a href="#products" onclick="toggleMenu()">Shop &rarr;</a>
+  <a href="#donate" onclick="toggleMenu()">Donate &rarr;</a>
+  <a href="#contact" onclick="toggleMenu()">Contact &rarr;</a>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop eBay &rarr;</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="eyebrow">IRS-Approved 501(c)(3) &middot; EIN: 99-2777606 &middot; Veteran Owned &amp; Operated</div>
+    <h1>Tired of paying too much<br><span class="accent">for a machine that works against you?</span></h1>
+    <p class="hero-sub">You should own your computer&mdash;not rent it, not be surveilled by it, and not replace it in two years because the industry decided it was obsolete.&nbsp; We build machines that work for you.&nbsp; From $399.</p>
+    <div class="badges">
+      <span class="badge on">501(c)(3) Nonprofit</span>
+      <span class="badge on">100% eBay Positive Feedback</span>
+      <span class="badge on">Hammond, IN</span>
+      <span class="badge">NIST 800-88 / DoD 5220.22-M</span>
+      <span class="badge">eBay Trusted Nonprofit Partner</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#products" class="btn-p">See the Lineup &rarr;</a>
+      <a href="why.html" class="btn-s">See Why This Matters &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">19</span><span class="stat-l">Builds Across 4 Families</span></div>
+  <div class="stat"><span class="stat-n">~25%</span><span class="stat-l">Fewer Background Processes at Idle</span></div>
+  <div class="stat"><span class="stat-n">~50%</span><span class="stat-l">More Available RAM Headroom&mdash;From Software Alone</span></div>
+  <div class="stat"><span class="stat-n">$0</span><span class="stat-l">Subscriptions Required</span></div>
+  <div class="stat"><span class="stat-n">$399</span><span class="stat-l">Starting Price</span></div>
+</div>
+
+<!-- IS THIS YOU? -->
+<section class="fi" id="who">
+  <div class="sec-label">Is This You?</div>
+  <h2 class="sec-title">You&rsquo;re in the right place.</h2>
+  <div style="display:flex;flex-direction:column;gap:1px;margin-top:1.5rem">
+
+    <div class="acc-item" id="acc-gamers">
+      <button class="acc-trigger" onclick="toggleAcc('acc-gamers')">
+        <div class="acc-left"><span class="acc-icon">&#127918;</span><div><div class="acc-title clr-purple">Gamers</div><div class="acc-sub">Actual FPS. No asterisks. No $900 minimum.</div></div></div>
+        <span class="acc-chev">&#9660;</span>
+      </button>
+      <div class="acc-body">
+        <p>The cheapest new OEM with a capable GPU is $899 at Walmart &mdash; with a stock cooler that throttles under load and 16GB single-channel RAM that starves the GPU.&nbsp; We start at $399.&nbsp; Every build is benchmarked before it ships.&nbsp; Here&rsquo;s what that actually gets you:</p>
+        <ul style="margin:.9rem 0 .9rem 1.25rem;font-size:.85rem;color:var(--muted);line-height:2.1">
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_raider_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Raider &mdash; $399</strong>&nbsp; 60&ndash;80 FPS Fortnite 1080p (or better).&nbsp; No new OEM exists at this price.&nbsp; Literally none.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_relic_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Relic &mdash; $499</strong>&nbsp; 65&ndash;85 FPS.&nbsp; i7-4790 with 24GB DDR3.&nbsp; Still no OEM competition.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_rogue_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Rogue &mdash; $599</strong>&nbsp; 75&ndash;100 FPS.&nbsp; i7-5775C with 128MB eDRAM&mdash;faster in gaming than it has any right to be.&nbsp; 32GB DDR3.&nbsp; +$50 for GTX 980 Ti (120&ndash;155 FPS).</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/RR_Phantom_emoji_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Phantom &mdash; $649</strong>&nbsp; i7-3930K Extreme Edition (unlocked), RX 580 8GB, 32GB DDR3-1333 quad-channel.&nbsp; X79 platform enters the chat.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/RR_Marauder_emoji_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Marauder &mdash; $799</strong>&nbsp; 110&ndash;140 FPS with 32GB quad-channel DDR4 at 68.3 GB/s.&nbsp; Multitasks better than the $1,099 Costco CyberPowerPC &mdash; if you can find it in stock.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/coffee_lake_gamer_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Gamer &mdash; $849</strong>&nbsp; 120&ndash;155 FPS.&nbsp; Lower 3-year total cost than the $1,099 Costco machine&mdash;and that&rsquo;s before the Costco machine charges you $300 for Office.</li>
+        </ul>
+        <p><a href="compare.html" style="color:var(--cyan);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase">Full FPS &amp; benchmark comparison &rarr;</a></p>
+      </div>
+    </div>
+
+    <div class="acc-item" id="acc-parents">
+      <button class="acc-trigger" onclick="toggleAcc('acc-parents')">
+        <div class="acc-left"><span class="acc-icon">&#128106;</span><div><div class="acc-title clr-purple">Practical Parents</div><div class="acc-sub">Office for life. Replaces the console. No monthly bill.</div></div></div>
+        <span class="acc-chev">&#9660;</span>
+      </button>
+      <div class="acc-body">
+        <p>Every Revolt build includes Office 2019 Pro+&mdash;licensed, permanent, yours.&nbsp; Not a trial.&nbsp; Not a subscription that charges you $130 a year forever.&nbsp; Word, Excel, PowerPoint.&nbsp; Done.</p>
+        <p style="margin-top:.9rem">And before you spend $500 on a PS5 or Xbox, consider: Microsoft sells &ldquo;Xbox Online Only Editions&rdquo;&mdash;stripped-down PCs that can&rsquo;t run local software, can&rsquo;t do productivity, and are essentially deprecated the day you open the box.&nbsp; Meanwhile, Halo is on Windows now.&nbsp; Almost every &ldquo;Xbox exclusive&rdquo; is available on PC.&nbsp; A Revolt build replaces the console <em>and</em> the family computer.</p>
+        <ul style="margin:.9rem 0 .9rem 1.25rem;font-size:.85rem;color:var(--muted);line-height:2.1">
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_raider_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Raider &mdash; $399</strong>&nbsp; Less than a PS5.&nbsp; Runs Fortnite, Minecraft, Roblox, and Word.&nbsp; One device.&nbsp; No game subscription required.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_relic_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Relic &mdash; $499</strong>&nbsp; Faster than an Xbox Series S.&nbsp; Office 2019 Pro+, WiFi 6, 24GB DDR3.&nbsp; Still under $500.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_rogue_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Rogue &mdash; $599</strong>&nbsp; The household that games <em>and</em> needs real Office horsepower.&nbsp; 32GB, Office included, nothing to subscribe to.</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--dim);font-family:var(--mono)">3-year cost of a Revolt Raider: $399.&nbsp; 3-year cost of a $400 console + Microsoft 365: $700+.</p>
+      </div>
+    </div>
+
+        <div class="acc-item" id="acc-students">
+      <button class="acc-trigger" onclick="toggleAcc('acc-students')">
+        <div class="acc-left"><span class="acc-icon">&#128218;</span><div><div class="acc-title clr-purple">Students</div><div class="acc-sub">Real Office. Real RAM. Survives graduation.</div></div></div>
+        <span class="acc-chev">&#9660;</span>
+      </button>
+      <div class="acc-body">
+        <p>Office 2019 Pro+ doesn&rsquo;t expire when your .edu email does.&nbsp; It doesn&rsquo;t ask you to upgrade.&nbsp; It doesn&rsquo;t phone home.&nbsp; Full Word, Excel, PowerPoint, Access &mdash; yours permanently.&nbsp; The $500 Chromebooks retailers push every August are landfill in three years.&nbsp; These aren&rsquo;t.</p>
+        <ul style="margin:.9rem 0 .9rem 1.25rem;font-size:.85rem;color:var(--muted);line-height:2.1">
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_relic_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Relic &mdash; $499</strong>&nbsp; 24GB DDR3, Office 2019 Pro+, WiFi 6.&nbsp; Handles coursework and light gaming.&nbsp; Under $500 and built to last.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/emoji_rogue_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Rogue &mdash; $599</strong>&nbsp; 32GB DDR3 for heavier coursework&mdash;data science, engineering CAD, video editing labs.&nbsp; The workload that kills 8GB machines.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/RR_Phantom_emoji_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Phantom &mdash; $649</strong>&nbsp; i7-3930K Extreme Edition (unlocked), 32GB DDR3-1333 quad-channel at 42.6 GB/s.&nbsp; Blender, Python environments, Premiere Pro, and a browser with 20 tabs&mdash;simultaneously, without choking.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item" id="acc-veterans">
+      <button class="acc-trigger" onclick="toggleAcc('acc-veterans')">
+        <div class="acc-left"><span class="acc-icon">&#127894;</span><div><div class="acc-title clr-purple">Veterans</div><div class="acc-sub">Content creation, streaming, or just a machine that earns its place.</div></div></div>
+        <span class="acc-chev">&#9660;</span>
+      </button>
+      <div class="acc-body">
+        <p>Veterans today are podcasting, streaming to YouTube and X, or running side businesses post-service.&nbsp; The $849 RTX 5060 at Walmart is a trap for this use case.&nbsp; It&rsquo;s a 1080p gaming box.&nbsp; Open OBS, a browser, Discord, and your recording software at the same time and it runs out of RAM before you hit record.&nbsp; You paid $849 for a machine that can&rsquo;t do the actual job.</p>
+        <p style="margin-top:.9rem">Content creation needs multi-core CPU performance, memory bandwidth, and RAM headroom.&nbsp; The X79 line was built for exactly this:</p>
+        <ul style="margin:.9rem 0 .9rem 1.25rem;font-size:.85rem;color:var(--muted);line-height:2.1">
+          <li><strong style="color:var(--green)"><img src="/img/emoji/RR_Phantom_emoji_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Phantom &mdash; $649</strong>&nbsp; i7-3930K Extreme Edition (unlocked), 6 cores, 32GB DDR3-1333 quad-channel, RX 580 8GB.&nbsp; Handles Premiere + OBS + browser without breaking a sweat.&nbsp; $250 less than the machine that can&rsquo;t.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/RR_Banshee_emoji_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Banshee &mdash; $1,199</strong>&nbsp; Unlocked Xeon E5-1660 v2 (6C, 4.0 GHz turbo) or E5-1680 v2 8-core upgrade for $50, 64GB DDR3-1600 ECC quad-channel, RX 6700 XT 12GB.&nbsp; Legitimate 1080p/1440p content workstation.&nbsp; The $1,099 Costco machine has 8GB VRAM and a loud stock cooler.</li>
+          <li><strong style="color:var(--green)"><img src="/img/emoji/RR_BansheeWS_emoji_512.png" style="height:3em;vertical-align:-0.3em;margin-right:5px;" alt=""> Banshee Workstation &mdash; $1,299</strong>&nbsp; Xeon E5-2690 v2 (10C/20T base) or 12-core E5-2697 v2 upgrade for $100, Pro drivers, 64GB DDR3-1600 ECC QC, RX 6700 XT 12GB Pro drivers.&nbsp; DaVinci Resolve, Premiere Pro, and Blender simultaneously.&nbsp; Built for 1080p/1440p production work.</li>
+        </ul>
+        <p style="font-size:.8rem;color:var(--dim);font-family:var(--mono)">Veteran-owned and operated.&nbsp; Hammond, Indiana.&nbsp; No surveillance.&nbsp; No subscriptions.&nbsp; No fine print.</p>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.5rem">Content creators: <a href="Mac_Attack.html" style="color:var(--cyan)">see how our machines compare to Mac Studio &rarr;</a></p>
+      </div>
+    </div>
+
+        <div class="acc-item" id="acc-fedup">
+      <button class="acc-trigger" onclick="toggleAcc('acc-fedup')">
+        <div class="acc-left"><span class="acc-icon">&#128683;</span><div><div class="acc-title clr-purple">The Fed-Up Consumer</div><div class="acc-sub">Done replacing hardware every two years. Done being watched.</div></div></div>
+        <span class="acc-chev">&#9660;</span>
+      </button>
+      <div class="acc-body">
+        <p>You&rsquo;ve bought three laptops in five years.&nbsp; Each one slower than the last.&nbsp; Each one asking you to sign in, sync your data, and agree to a privacy policy you didn&rsquo;t read because no one does.&nbsp; You&rsquo;re a customer&mdash;not a data point.&nbsp; We build machines that work for you and stop there.</p>
+        <p style="margin-top:.9rem">The OEM playbook: ship you just enough machine to feel fast on day one, let Windows background processes eat the headroom, and have you back in 18 months.&nbsp; Gartner predicts the sub-$500 PC segment disappears entirely by 2028&mdash;not because demand dried up, but because OEMs stopped making anything worth buying at that price.&nbsp; We exist specifically to fill that gap.</p>
+        <ul style="margin:.9rem 0 .9rem 1.25rem;font-size:.85rem;color:var(--muted);line-height:2.1">
+          <li><strong style="color:var(--green)">RR Turbo OS</strong>&nbsp; ~25% fewer background processes at idle.&nbsp; ~50% more available RAM headroom.&nbsp; Verified against stock Win 11 + Office 365.&nbsp; On day one and in year three.&nbsp; <span style="font-family:var(--mono);font-size:.75em;color:var(--dim)">Results may vary by hardware configuration.</span></li>
+          <li><strong style="color:var(--green)">No trial software</strong>&nbsp; Office 2019 Pro+ is included and permanent.&nbsp; McAfee is not included.&nbsp; Not even as a popup.</li>
+          <li><strong style="color:var(--green)">Built to outlast the cycle</strong>&nbsp; Our hardware is rated for 5&ndash;7 more years of useful life.&nbsp; The industry declared it obsolete.&nbsp; We disagreed&mdash;and the benchmarks back us up.</li>
+        </ul>
+        <p><a href="why.html" style="color:var(--cyan);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase">See the full cost breakdown &rarr;</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VILLAIN SECTION -->
+<div id="problem" class="v-section">
+  <div class="v-inner">
+    <div class="sec-label">Why This Keeps Happening</div>
+    <h2 class="sec-title">The Industry Built This System<br><span style="color:var(--purple)">For Themselves. Not You.</span></h2>
+    <p class="sec-body" style="margin-bottom:2rem">Every frustration you&rsquo;ve had with a computer was a decision someone made.&nbsp; That decision wasn&rsquo;t made with you in mind.</p>
+    <div style="display:flex;flex-direction:column;gap:1px">
+
+      <div class="acc-item" id="v-os">
+        <button class="acc-trigger" onclick="toggleAcc('v-os')">
+          <div class="acc-left"><span class="acc-icon">&#128759;</span><div><div class="acc-title clr-red">The Default OS Problem</div><div class="acc-sub">Your new PC is already working against you</div></div></div>
+          <span class="acc-chev">&#9660;</span>
+        </button>
+        <div class="acc-body"><p>New PCs ship with software designed for the platform, not for you.&nbsp; Copilot monitors your screen.&nbsp; Recall logs everything you view.&nbsp; Edge opens by default.&nbsp; Teams runs in the background.&nbsp; Telemetry collects behavior data.&nbsp; You bought the machine&mdash;the OS is still working a different agenda.&nbsp; We remove all of it at the ISO level.&nbsp; Before the OS ever touches the drive.</p></div>
+      </div>
+
+      <div class="acc-item" id="v-oem">
+        <button class="acc-trigger" onclick="toggleAcc('v-oem')">
+          <div class="acc-left"><span class="acc-icon">&#128274;</span><div><div class="acc-title clr-red">OEMs</div><div class="acc-sub">Locked firmware. Proprietary connectors. Designed to trap you.</div></div></div>
+          <span class="acc-chev">&#9660;</span>
+        </button>
+        <div class="acc-body"><p>Locked firmware.&nbsp; Proprietary connectors.&nbsp; Non-standard PSU form factors.&nbsp; Software that only runs on their hardware.&nbsp; None of it is accidental.&nbsp; It&rsquo;s designed to ensure you can&rsquo;t upgrade without buying a new machine.&nbsp; From them.&nbsp; We use standard cases, standard PSUs, and standard components.&nbsp; You own it.&nbsp; You can upgrade it.</p></div>
+      </div>
+
+      <div class="acc-item" id="v-narrative">
+        <button class="acc-trigger" onclick="toggleAcc('v-narrative')">
+          <div class="acc-left"><span class="acc-icon">&#9881;&#65039;</span><div><div class="acc-title clr-red">The Upgrade Narrative</div><div class="acc-sub">Your hardware isn&rsquo;t broken. The narrative is.</div></div></div>
+          <span class="acc-chev">&#9660;</span>
+        </button>
+        <div class="acc-body"><p>Online &ldquo;experts&rdquo; are telling you to buy new.&nbsp; Your old hardware is trash.&nbsp; Support is ending.&nbsp; What they don&rsquo;t mention: many are sponsored by the companies selling new components.&nbsp; An i7-4790K from 2014 runs Windows 11 and Fortnite fine.&nbsp; We&rsquo;ve tested it.&nbsp; The hardware isn&rsquo;t broken.&nbsp; The narrative is.</p></div>
+      </div>
+
+      <div class="acc-item" id="v-cooling">
+        <button class="acc-trigger" onclick="toggleAcc('v-cooling')">
+          <div class="acc-left"><span class="acc-icon">&#127777;&#65039;</span><div><div class="acc-title clr-red">Cheap Stock Cooling</div><div class="acc-sub">You paid for performance you&rsquo;re not getting</div></div></div>
+          <span class="acc-chev">&#9660;</span>
+        </button>
+        <div class="acc-body"><p>Heat is the enemy of performance.&nbsp; New OEM systems ship with coolers sized to pass a compliance test&mdash;not keep your machine fast.&nbsp; Tom&rsquo;s Hardware called the CyberPowerPC Costco machine&rsquo;s cooler &ldquo;loud, even at idle.&rdquo;&nbsp; When it overheats, the CPU throttles automatically.&nbsp; You&rsquo;re paying for peak performance and getting sustained mediocrity.&nbsp; Every Revolt build uses Thermalright cooling.&nbsp; We solved the heat problem.</p>
+        <p style="margin-top:.9rem"><a href="cooling.html" style="color:#00E5FF;font-weight:700;text-decoration:none;border-bottom:1px solid #00E5FF;padding-bottom:2px">See our full cooling engineering approach &rarr;</a></p>
+        </div>
+      </div>
+
+      <div class="acc-item" id="v-rgb">
+        <button class="acc-trigger" onclick="toggleAcc('v-rgb')">
+          <div class="acc-left"><span class="acc-icon">&#128161;</span><div><div class="acc-title clr-red">The RGB Lock-In</div><div class="acc-sub">Proprietary controllers. Stay in the ecosystem or lose control.</div></div></div>
+          <span class="acc-chev">&#9660;</span>
+        </button>
+        <div class="acc-body"><p>Proprietary RGB controllers.&nbsp; Software that only works on their hardware.&nbsp; Stay inside the ecosystem or lose control of what you paid for.&nbsp; We install Nollie RGB RISC-V ARGB controllers on every build&mdash;configured in OpenRGB before it ships.&nbsp; Vendor-neutral.&nbsp; Open-source.&nbsp; No account required.&nbsp; You own it.</p>
+        <p style="margin-top:.9rem"><a href="lighting.html" style="color:#00E5FF;font-weight:700;text-decoration:none;border-bottom:1px solid #00E5FF;padding-bottom:2px">See our full lighting &amp; ARGB approach &rarr;</a></p>
+        </div>
+      </div>
+
+      <div class="acc-item" id="v-subs">
+        <button class="acc-trigger" onclick="toggleAcc('v-subs')">
+          <div class="acc-left"><span class="acc-icon">&#128230;</span><div><div class="acc-title clr-red">The Subscription Stack</div><div class="acc-sub">Office trial expires. Antivirus renews. The meter never stops.</div></div></div>
+          <span class="acc-chev">&#9660;</span>
+        </button>
+        <div class="acc-body"><p>Office trial expires in 30 days.&nbsp; Antivirus renews at $50 a year.&nbsp; McAfee starts sending popup threats.&nbsp; By year three, the &ldquo;affordable&rdquo; machine has cost you $400 more than the sticker.&nbsp; Every Revolt build ships with everything included.&nbsp; Office 2019 Pro+.&nbsp; No subscriptions.&nbsp; No surprises.&nbsp; The price you see is the price you pay.</p></div>
+      </div>
+
+    </div>
+    <div style="margin-top:2rem;padding:1.5rem 2rem;border-left:3px solid var(--purple);background:var(--surface2)">
+      <p style="font-family:var(--mono);font-size:.82rem;color:var(--text);line-height:1.85"><span style="color:var(--purple)">The gap we fill:</span>&nbsp; Rebuild the hardware.&nbsp; Strip the software.&nbsp; Restore full control.&nbsp; Hand it back at a price that makes sense.</p>
+    </div>
+  </div>
+</div>
+
+<!-- COMPETITIVE CALLOUT -->
+<div class="punch-callout fi">
+  <div style="padding:3rem 0 1rem">
+    <div class="sec-label" style="text-align:center">The Market Reality&mdash;April 2026</div>
+    <h2 class="sec-title" style="text-align:center;font-size:clamp(1.6rem,3vw,2.2rem)">What $484.70 Buys You Out There.<br>What $399 Buys You Here.</h2>
+  </div>
+  <div class="punch-box">
+    <div class="punch-col theirs">
+      <div class="punch-eyebrow bad">Austin&rsquo;s PC Warehouse &mdash; i7-7700 / GTX 1650 / 16GB &mdash; landed</div>
+      <div class="punch-price bad">$484.70</div>
+      <div class="punch-detail">
+        <span class="fair-line">&#8227;&nbsp; Intel Core i7-7700 &mdash; solid quad-core Kaby Lake</span>
+        <span class="fair-line">&#8227;&nbsp; GTX 1650 &mdash; capable 4GB gaming card</span>
+        <span class="fair-line">&#8227;&nbsp; 16GB dual-channel DDR4 &mdash; parity spec</span>
+        <span class="bad-line">&#8227;&nbsp; WiFi 5 only &mdash; no WiFi 6</span>
+        <span class="bad-line">&#8227;&nbsp; Windows 11 Home &mdash; bloated, telemetry on</span>
+        <span class="bad-line">&#8227;&nbsp; No Office &mdash; you pay separately or do without</span>
+        <span style="color:var(--dim);margin-top:.75rem;display:block;font-size:.62rem">$449.95 + $34.75 shipping = $484.70 landed</span>
+      </div>
+    </div>
+    <div class="punch-col ours">
+      <div class="punch-eyebrow good">Revolt Raider &mdash; capable gaming starts here</div>
+      <div class="punch-price good">$399</div>
+      <div class="punch-detail">
+        <span class="good-line">&#8227;&nbsp; Dedicated gaming graphics &mdash; 60+ FPS Fortnite 1080p (or better)</span>
+        <span class="good-line">&#8227;&nbsp; 16GB DDR3 (or better) &mdash; full dual-channel, zero cuts</span>
+        <span class="good-line">&#8227;&nbsp; Thermalright cooling &mdash; quiet, sustained performance</span>
+        <span class="good-line">&#8227;&nbsp; Win 11 Pro [RR Turbo] &mdash; debloated at ISO level</span>
+        <span class="good-line">&#8227;&nbsp; Office 2019 Pro+ &mdash; permanent license, no subscription</span>
+        <span class="good-line">&#8227;&nbsp; WiFi 6 / Bluetooth 5.2 &mdash; included, configured</span>
+        <span class="good-line">&#8227;&nbsp; ARGB LED lighting &mdash; configured before it ships</span>
+        <span style="color:var(--green);margin-top:.75rem;display:block;font-size:.62rem">3-year total cost: $399.&nbsp; $85 less than theirs&mdash;and better in every category.</span>
+      </div>
+    </div>
+  </div>
+  <p style="font-family:var(--mono);font-size:.65rem;color:var(--dim);text-align:center;margin-top:1rem">Below $799, there are zero new gaming desktops with capable GPUs at any major US retailer&mdash;Costco, Amazon, Best Buy, or Walmart.&nbsp; As of April 2026.</p>
+</div>
+
+<!-- RECOVER / REVIVE / REDEPLOY -->
+<div class="rrr-section fi">
+  <div class="sec-label">The Process</div>
+  <h2 class="sec-title" style="margin-bottom:1.25rem">Recover. Revive. Redeploy.</h2>
+  <p class="sec-body" style="margin-bottom:1.5rem">Three steps.&nbsp; Every machine goes through all of them.&nbsp; No exceptions.</p>
+  <div class="pil-grid" id="process">
+
+    <div class="pil" id="recover">
+      <button class="pil-trigger" onclick="togglePil('recover')">
+        <div>
+          <div class="pil-num">01 / RECOVER</div>
+          <div class="pil-icon">&#128274;</div>
+          <div class="pil-title"><span>Secure</span> Data Destruction</div>
+        </div>
+        <span class="pil-chev">&#9660;</span>
+      </button>
+      <div class="pil-body">
+        <p class="pil-desc">Every donated or surplus machine is wiped to military and federal standards before anything else happens.&nbsp; Your data is gone.&nbsp; Documented.&nbsp; Verified.</p>
+        <div class="pil-det"><strong>DoD 5220.22-M</strong>&mdash;Multi-pass overwrite<br><strong>NIST 800-88 Rev 1</strong>&mdash;Media sanitization<br><strong>Active@ KillDisk</strong>&mdash;Licensed, signed PDF certificate<br><strong>Chain of custody</strong>&mdash;Documented throughout</div>
+        <a href="recover.html" class="pil-link">The circular economy challenge &rarr;</a>
+      </div>
+    </div>
+
+    <div class="pil" id="revive">
+      <button class="pil-trigger" onclick="togglePil('revive')">
+        <div>
+          <div class="pil-num">02 / REVIVE</div>
+          <div class="pil-icon">&#9889;</div>
+          <div class="pil-title"><span>Engineer</span> the Upgrade</div>
+        </div>
+        <span class="pil-chev">&#9660;</span>
+      </button>
+      <div class="pil-body">
+        <p class="pil-desc">Not cleaning and reinstalling Windows.&nbsp; Component-level diagnosis, BIOS locks bypassed, thermal engineering, and a custom OS image built from scratch&mdash;tuned to the exact platform it runs on.&nbsp; Our oldest CPU in production: the i7-3960X from 2011.</p>
+        <div class="pil-det"><strong>Quad-channel config</strong>&mdash;2&times; the bandwidth of dual-channel<br><strong>BIOS locks bypassed</strong>&mdash;OEM power limits removed, performance restored<br><strong>Thermalright cooling</strong>&mdash;Modern thermals on legacy platforms<br><strong>Win 11 Pro [RR Turbo]</strong>&mdash;Our image.&nbsp; Privacy-first.&nbsp; Yours.</div>
+        <a href="revive.html" class="pil-link">Our build process &amp; R&amp;D &rarr;</a>
+      </div>
+    </div>
+
+    <div class="pil" id="redeploy-pil">
+      <button class="pil-trigger" onclick="togglePil('redeploy-pil')">
+        <div>
+          <div class="pil-num">03 / REDEPLOY</div>
+          <div class="pil-icon">&#127919;</div>
+          <div class="pil-title"><span>Premium</span> at a Fair Price</div>
+        </div>
+        <span class="pil-chev">&#9660;</span>
+      </button>
+      <div class="pil-body">
+        <p class="pil-desc">Near-cost pricing on professionally optimized systems.&nbsp; Every machine ships with Office 2019 Pro Plus&mdash;licensed, perpetual, no subscription.&nbsp; Quality technology at a fraction of retail.</p>
+        <div class="pil-det"><strong>Office 2019 Pro Plus</strong>&mdash;Licensed, no subscription<br><strong>100% positive eBay feedback</strong>&mdash;Verified<br><strong>Free shipping</strong>&mdash;All current listings<br><strong>Tax-deductible donations</strong>&mdash;501(c)(3) verified</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARISON TABLES -->
+<div class="compare-wrap fi">
+  <div class="compare-label">Us vs. The OEM</div>
+  <h2 class="compare-title">What&rsquo;s in the Box?</h2>
+  <p class="compare-sub">Same price bracket.&nbsp; Very different machines.&nbsp; Here&rsquo;s the line-by-line.</p>
+  <table class="ctable">
+    <thead>
+      <tr><th>Feature</th><th class="col-oem" style="color:var(--dim)">Big-Box OEM</th><th class="rr-col">Renewable Revolt</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-label">Operating System</td><td class="col-oem">Win 11 Home (bloated)</td><td class="col-rr">Win 11 Pro [RR Turbo]&mdash;debloated, privacy-first</td></tr>
+      <tr><td class="row-label">Office Suite</td><td class="col-oem">Microsoft 365 trial&mdash;$100+/yr after 30 days</td><td class="col-rr"><strong>Office 2019 Pro+ permanent license&mdash;$0 ongoing</strong></td></tr>
+      <tr><td class="row-label">RAM Config</td><td class="col-oem">8&ndash;16GB single-channel (half the bandwidth)</td><td class="col-rr"><strong>16&ndash;96GB dual or quad-channel</strong></td></tr>
+      <tr><td class="row-label">Cooling</td><td class="col-oem">Stock air cooler&mdash;loud, throttles under load</td><td class="col-rr"><strong>Thermalright cooling&mdash;quiet, sustained, tested</strong></td></tr>
+      <tr><td class="row-label">RGB Control</td><td class="col-oem">Rainbow cycle only, no software control</td><td class="col-rr"><strong>Nollie ARGB + OpenRGB&mdash;fully configured at ship</strong></td></tr>
+      <tr><td class="row-label">Bloatware</td><td class="col-oem">15+ pre-installed apps, McAfee, OEM suite</td><td class="col-rr"><strong>Zero bloatware. Zero.</strong></td></tr>
+      <tr><td class="row-label">AI Surveillance</td><td class="col-oem">Copilot, Recall, Edge&mdash;can&rsquo;t be fully removed</td><td class="col-rr"><strong>Removed at ISO level before install</strong></td></tr>
+      <tr><td class="row-label">Subscriptions</td><td class="col-oem">$100+/year ongoing (Office + maybe AV)</td><td class="col-rr"><strong>$0&mdash;everything included</strong></td></tr>
+      <tr><td class="row-label">Connectivity</td><td class="col-oem">WiFi 6, Bluetooth 5.3</td><td class="col-rr"><strong>WiFi 6 / Bluetooth 5.2&mdash;Intel AX200 or MT7921</strong></td></tr>
+      <tr><td class="row-label">BIOS</td><td class="col-oem">OEM-locked, performance caps, no OC</td><td class="col-rr"><strong>Unlocked&mdash;turbo boost restored, validated</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="compare-label" style="margin-top:2.5rem;color:var(--royal)">RAM Bandwidth&mdash;The Spec No One Talks About</div>
+  <p class="compare-sub">More bandwidth = more data to the CPU per second.&nbsp; Less stuttering.&nbsp; Faster multitasking.&nbsp; Smoother gameplay.&nbsp; No new consumer OEM ships quad-channel memory under $3,000.&nbsp; We have two quad-channel families starting at $649.</p>
+  <table class="ctable">
+    <thead>
+      <tr><th>Configuration</th><th>Bandwidth</th><th>Where You&rsquo;ll Find It</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-label">Single-Ch DDR5-6000</td><td style="color:var(--amber);font-family:var(--mono)" class="bw-val">48.0 GB/s</td><td style="color:var(--dim);font-size:.82rem">$700&ndash;$900 OEM gaming PCs&mdash;most common config.&nbsp; Single-channel halves the bandwidth of the kit.</td></tr>
+      <tr><td class="row-label">Quad-Ch DDR3-1333</td><td style="color:var(--green);font-family:var(--mono);font-weight:700" class="bw-val">42.6 GB/s</td><td style="color:var(--green);font-size:.82rem">X79 Nightmare Series&mdash;from $649&nbsp; <span style="color:var(--dim)">(quad-channel ECC; matches new OEM single-channel bandwidth)</span></td></tr>
+      <tr><td class="row-label">Quad-Ch DDR3-1600</td><td style="color:var(--green);font-family:var(--mono);font-weight:700" class="bw-val">51.2 GB/s</td><td style="color:var(--green);font-size:.82rem">X79 Nightmare Banshee Series&mdash;from $1,199&nbsp; <span style="color:var(--dim)">(+7% vs. new OEM single-channel)</span></td></tr>
+      <tr><td class="row-label">Quad-Ch DDR4-2133</td><td style="color:var(--royal);font-family:var(--mono);font-weight:700" class="bw-val">68.3 GB/s</td><td style="color:var(--royal);font-size:.82rem">X99 Performance Series&mdash;from $749&nbsp; <span style="color:var(--dim)">(+42% vs. new OEM single-channel)</span></td></tr>
+    </tbody>
+  </table>
+  <div style="text-align:right;margin-top:.5rem">
+    <a href="compare.html" class="btn-s" style="padding:.6rem 1.4rem;font-size:.65rem">Full FPS &amp; Benchmark Comparison &rarr;</a>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="prod-section" id="products">
+  <div class="prod-inner">
+    <div class="sec-label">19 Builds. 4 Families. One Mission.</div>
+    <h2 class="sec-title">Sometimes the Best Designs Are Re-Designs.</h2>
+    <p class="sec-body" style="margin-top:.5rem;margin-bottom:2rem">Click any build to expand full specs.&nbsp;
+      <span style="color:var(--green)">&#9679; Live on eBay.</span>&nbsp;
+      <span style="color:var(--amber)">&#9679; In production.</span>&nbsp;
+      <span style="color:var(--dim)">&#9679; Coming soon.</span>
+    </p>
+
+    <!-- PRODUCT PHOTOS -->
+    <div style="margin-bottom:2rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;background:var(--border)">
+        <img src="/img/photo/Revolt-Q300L_3.png" alt="Revolt build — Q300L" style="width:100%;display:block" loading="lazy">
+        <img src="/img/photo/Revolt-Q300L_2.png" alt="Revolt build — Q300L" style="width:100%;display:block" loading="lazy">
+        <img src="/img/photo/Revolt-Q300L_1.png" alt="Revolt build — Q300L" style="width:100%;display:block" loading="lazy">
+      </div>
+      <p style="font-family:var(--mono);font-size:.52rem;color:var(--dim);letter-spacing:.06em;margin-top:.4rem">&ast; Q300L case pictured &mdash; does not represent every build.</p>
+    </div>
+
+    <!-- REVENANT -->
+    <div class="fam-block">
+      <div class="fam-banner">
+        <picture>
+          <source media="(min-width: 1920px)" srcset="/img/banners/banner_revenant_2560.jpg">
+          <img src="/img/banners/banner_revenant_1920.jpg" alt="Revenant Series" loading="lazy">
+        </picture>
+      </div>
+      <div class="fam-hdr">
+        <div class="fam-top">
+          <div class="fam-name" style="color:var(--revenant)">Revenant Series</div>
+          <span class="fam-badge">Entry&ndash;Mid Gaming &middot; 16&ndash;32GB &middot; $399&ndash;$599</span>
+        </div>
+        <p class="fam-desc">Reports of their death were greatly exaggerated.&nbsp; From the entry Raider up through the i7-5775C Rogue&mdash;affordable 1080p gaming at every price point.&nbsp; All builds include Win 11 Pro [RR Turbo] and Office 2019 Pro+.</p>
+        <div class="fam-apps">
+          <span class="app-chip">Fortnite</span><span class="app-chip">Valorant</span><span class="app-chip">Minecraft</span><span class="app-chip">Apex Legends</span><span class="app-chip">CS2</span><span class="app-chip">MS Office</span><span class="app-chip">Discord</span><span class="app-chip">Streaming</span>
+        </div>
+      </div>
+      <div class="pc-grid">
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/emoji_raider_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Ditch the Console.</div><div class="pc-name">Raider</div><div class="pc-tagline">&ldquo;Fortnite.&nbsp; 1080p.&nbsp; 60+ FPS.&nbsp; Under $400.&rdquo;</div><div class="pc-price" style="color:var(--revenant)">$399</div></div><div class="pc-right"><span class="sbadge sprod">&#9203; In Production</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">Intel 4-core (4th&ndash;8th gen, Xeon E3 or i-series) &middot; 3.4+ GHz base / 3.8+ GHz turbo &middot; RX 470 4GB or better &middot; 16GB DDR3/DDR4 &middot; 256GB NVMe + 500GB HDD &middot; 60+ FPS Fortnite 1080p</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel 4-core (4th&ndash;8th gen, Xeon E3 or i-series) &middot; 3.4+ GHz base / <span class="hlg">3.8+ GHz turbo</span></span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">RX 470 <span class="hlg">&#128170; 4GB</span> or better &mdash; <span class="hlg">full PCIe x16 bus</span> &mdash; hand-tuned, undervolted &mdash; 60&ndash;80 FPS Fortnite 1080p</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hl">16GB DDR3 or DDR4</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">256GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie + LED strip</span></li>
+              <li><span class="spec-label">Case</span><span class="spec-val">Rosewill FBM-X2-400 (PSU included)</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The CPU spec listed is the floor.&nbsp; Every Raider ships with the best available Xeon E3 or i-series quad-core from our refurb pipeline&mdash;Haswell through Coffee Lake, validated to deliver the advertised FPS with the paired GPU.&nbsp; <a href="raider.html" style="color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,229,255,.3);font-weight:600">See the full Raider story &rarr;</a></div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/emoji_relic_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Old Man Strength</div><div class="pc-name">Relic</div><div class="pc-tagline">&ldquo;The original.&nbsp; Back from the dead.&rdquo;</div><div class="pc-price" style="color:var(--revenant)">$499</div></div><div class="pc-right"><span class="sbadge sprod">&#9203; In Production</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-4770 / 4790 (LGA 1150) &middot; GTX 970 4GB &middot; <span class="hlg">24GB DDR3-1333</span> &middot; 512GB NVMe + 500GB SSHD</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Core i7-4770 or i7-4790 (LGA 1150, 4C/8T)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">Nvidia GeForce GTX 970 4GB</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">24GB DDR3-1333 (2&times;8 + 2&times;4, full dual-channel)</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB SSHD (Seagate hybrid)</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright Assassin King 120 (black)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 500W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The original flagship.&nbsp; Back from the dead.&nbsp; 24GB and a GTX 970&mdash;65&ndash;85 FPS Fortnite 1080p.&nbsp; Still handles everything in 2026.</div>
+            <div class="pc-note">Optional upgrade: i7-4790K (unlocked, higher clocks) + upgraded cooling &mdash; ask before purchase.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/emoji_rogue_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Sleeper. Don&rsquo;t Turn Your Back.</div><div class="pc-name">Rogue</div><div class="pc-tagline">&ldquo;The oddball.&nbsp; Quietly brilliant.&rdquo;</div><div class="pc-price" style="color:var(--revenant)">$599</div></div><div class="pc-right"><span class="sbadge sprod">&#9203; In Production</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-5775<span class="hl-k">C</span> <span class="hl-u">[eDRAM Unlocked]</span> &middot; GTX 980 4GB &middot; <span class="hlg">32GB DDR3</span> &middot; 512GB NVMe + 500GB SSHD</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val hlg">i7-5775<span class="hl-k">C</span> <span class="hl-u">[eDRAM Unlocked]</span>&mdash;128MB eDRAM cache <strong style="color:#fff;font-weight:700">(benchmarks faster than i7-6700K in gaming)</strong></span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">Nvidia GeForce GTX 980 4GB</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR3</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB SSHD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright Assassin King 120 (black)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ 400W (Rosewill FBM-X2-400)</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">32GB DDR3 + GTX 980 gaming sleeper.&nbsp; The i7-5775C&rsquo;s 128MB eDRAM benchmarks faster in gaming than it has any right to.&nbsp; 75&ndash;100 FPS Fortnite 1080p.</div>
+            <div class="pc-note">GTX 980 Ti upgrade available &mdash; pushes performance to 120&ndash;155 FPS.&nbsp; PSU upgrade to 500W+ included with the swap.&nbsp; Ask before purchase.</div>
+            <div style="margin-top:1rem"><a href="rogue.html" style="color:var(--cyan);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(0,229,255,.3);padding-bottom:2px">Read the full Rogue story &rarr;</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MAC ATTACK CALLOUT -->
+    <div style="margin:0 0 2.5rem;padding:1.75rem 2rem;border-left:3px solid var(--green);background:var(--surface2);max-width:1100px;margin-left:auto;margin-right:auto" class="fi">
+      <div style="font-family:var(--mono);font-size:.6rem;color:var(--green);text-transform:uppercase;letter-spacing:.18em;margin-bottom:.75rem">Content Creators</div>
+      <h3 style="font-family:var(--disp);font-size:clamp(1.2rem,2.5vw,1.75rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.25">Mac Studio starts at $1,999.&nbsp; Our Banshee Workstation beats it.&nbsp; For $1,299.</h3>
+      <p style="font-size:.92rem;color:var(--text);line-height:1.7;max-width:680px;margin-bottom:1.5rem"><strong>We also beat their $2,599 and $3,999 models.&nbsp; Badly.</strong></p>
+      <div style="font-family:var(--mono);font-size:.6rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem">Built-to-Order Options</div>
+      <ul style="list-style:none;padding:0;margin:0 0 1.5rem;font-size:.86rem;color:var(--muted);line-height:1.65;max-width:760px">
+        <li style="padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06)"><strong style="color:var(--text)">22 performance cores</strong> (Xeon E5-2699P v4) &mdash; <span style="color:var(--cyan);font-weight:600">+$300</span> upgrade to Dreadnought</li>
+        <li style="padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,0.06)"><strong style="color:var(--text)">AMD dual GPU</strong> (RX 6700 XT + WX 9100) &mdash; <span style="color:var(--cyan);font-weight:600">+$300</span> upgrade to Banshee Workstation and Dreadnought</li>
+        <li style="padding:.55rem 0 .1rem;font-size:.78rem;color:var(--dim);font-style:italic">Up to <strong>256GB</strong> RAM available for Banshee Workstation, Ironclad, and Dreadnought.</li>
+      </ul>
+      <a href="Mac_Attack.html" style="display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--green);color:#07080c;padding:.5rem 1.25rem;text-decoration:none;font-weight:700;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">See the Mac Attack &rarr;</a>
+    </div>
+
+    <!-- X79 NIGHTMARE -->
+    <div class="fam-block">
+      <div class="fam-banner">
+        <picture>
+          <source media="(min-width: 1920px)" srcset="/img/banners/banner_nightmare_x79_2560.jpg">
+          <img src="/img/banners/banner_nightmare_x79_1920.jpg" alt="X79 Nightmare Series" loading="lazy">
+        </picture>
+      </div>
+      <div class="fam-hdr">
+        <div class="fam-top">
+          <div class="fam-name" style="color:var(--imperial)">X79 Nightmare Series</div>
+          <span class="fam-badge">DDR3 Quad-Channel ECC &middot; 42.6&ndash;51.2 GB/s &middot; $649&ndash;$1,299 &middot; OEM Nightmare</span>
+        </div>
+        <p class="fam-desc">Vintage 2011&ndash;2013 HEDT hardware brought back to life.&nbsp; Six-, eight-, ten-, and twelve-core Xeon and i7 processors with quad-channel bandwidth.&nbsp; From the entry Phantom at $649 to the Banshee Workstation at $1,299&mdash;the Nightmare lineup covers 1080p gaming all the way to ISV-certified creative workstations.&nbsp; All builds include Office 2019 Pro+.</p>
+        <div class="fam-apps">
+          <span class="app-chip">Fortnite</span><span class="app-chip">Valorant</span><span class="app-chip">Minecraft</span><span class="app-chip">MS Office</span><span class="app-chip">Photoshop</span><span class="app-chip">Lightroom</span><span class="app-chip">DaVinci Resolve</span><span class="app-chip">Premiere Pro</span><span class="app-chip">Streaming</span>
+        </div>
+      </div>
+      <div style="font-family:var(--mono);font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.25rem">These aren&rsquo;t just workstations.&nbsp; <a href="Mac_Attack.html" style="color:var(--green);text-decoration:none">They&rsquo;re Mac Studio replacements &rarr;</a></div>
+      <div class="pc-grid">
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_Phantom_emoji_512.png" style="height:10.125rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Unlocked Six-Core. Quad-Channel Entry.</div><div class="pc-name">Phantom</div><div class="pc-tagline">&ldquo;Extreme Edition.&nbsp; Entry price.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$649</div></div><div class="pc-right"><span class="sbadge sprod">&#9203; In Production</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-3930<span class="hl-x">K</span> <span class="hl-u">[Unlocked]</span> &middot; RX 580 <span class="hlg">&#128170; 8GB</span> &middot; <span class="hlg">32GB DDR3-1333 QC (42.6 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Core i7-3930<span class="hl-x">K</span>&mdash;6 cores, 12 threads (Sandy Bridge-E, LGA 2011, 3.2 GHz / <span class="hlg">3.8 GHz turbo</span>, <span class="hl-u">unlocked multiplier</span>)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">AMD Radeon RX 580 <span class="hlg">&#128170; 8GB</span></span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR3-1333 Quad-Channel</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">42.6 GB/s &mdash; DDR3-1333 quad-channel</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright Assassin King 120 (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 500W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Sandy Bridge-E Extreme Edition on an X79 quad-channel platform.&nbsp; Unlocked multiplier lets enthusiasts push this chip past 4 GHz.&nbsp; 32GB of quad-channel DDR3 at 42.6 GB/s&mdash;more memory bandwidth than most dual-channel DDR4 gaming PCs.&nbsp; RX 580 8GB for 1080p gaming.&nbsp; At $649 there is no new OEM equivalent.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/emoji_phantom_ws_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Six-Core Xeon. Pro Drivers. ISV Certified.</div><div class="pc-name">Phantom Workstation</div><div class="pc-tagline">&ldquo;Workstation entry for the price of a gaming card.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$699</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">Xeon E5-1650 v1 <span class="hl-u">[Unlocked]</span> or better &middot; RX 580 <span class="hlg">&#128170; 8GB</span> (Pro) &middot; <span class="hlg">32GB DDR3-1333 ECC QC (42.6 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Xeon E5-1650 v1 <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 12 threads (Sandy Bridge-EP, LGA 2011, 3.2 GHz / <span class="hlg">3.8 GHz turbo</span>, <span class="hl-u">unlocked multiplier</span>).&nbsp; Surprise upgrade tiers possible: E5-1660 v1 (3.3/3.9 GHz, 15MB L3) or E5-2643 v2 (Ivy Bridge, 25MB L3) when surplus hits.</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">AMD Radeon RX 580 <span class="hlg">&#128170; 8GB</span> with Pro drivers &mdash; ISV certified (SolidWorks, AutoCAD, Revit)</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR3-1333 ECC Quad-Channel</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">42.6 GB/s &mdash; DDR3-1333 quad-channel ECC</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright Assassin King 120 (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 500W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The workstation entry point on unlocked Xeon silicon.&nbsp; E5-1650 v1 is 6 cores of unlocked Sandy Bridge-EP Xeon with native ECC support&mdash;the same unlock DNA as the Banshee and Ghoul flagships at a third the price.&nbsp; Pro driver stack unlocks ISV certification for SolidWorks, AutoCAD, and Revit.&nbsp; Sustained workstation clocks for long-haul work&mdash;binned for continuous all-core operation, not peak-clock benchmarks.&nbsp; Shipped at stock; OC path is your next move if you want it.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_Spectre_emoji_512.png" style="height:10.125rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Unlocked Extreme Edition. Quad-Channel.</div><div class="pc-name">Spectre</div><div class="pc-tagline">&ldquo;Six cores unlocked.&nbsp; Ready for anything.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$749</div></div><div class="pc-right"><span class="sbadge sprod">&#9203; In Production</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-3960<span class="hl-x">X</span> <span class="hl-u">[Unlocked]</span> &middot; RX 590 GME <span class="hlg">&#128170; 8GB</span> &middot; <span class="hlg">32GB DDR3-1333 QC (42.6 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Core i7-3960<span class="hl-x">X</span> Extreme Edition&mdash;6 cores, 12 threads (Sandy Bridge-E, LGA 2011, 3.3 GHz / <span class="hlg">3.9 GHz turbo</span>, <span class="hl-u">unlocked multiplier</span>)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">AMD Radeon RX 590 GME <span class="hlg">&#128170; 8GB</span> (Adrenaline drivers)</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR3-1333 Quad-Channel</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">42.6 GB/s &mdash; DDR3-1333 quad-channel</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright Assassin King 120 (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 500W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Sandy Bridge-E Extreme Edition.&nbsp; Unlocked multiplier, 6 cores, 12 threads, 3.9 GHz turbo.&nbsp; 32GB quad-channel DDR3 at 42.6 GB/s.&nbsp; Photoshop, gaming, Premiere, and OBS running simultaneously.&nbsp; The platform that does it all.</div>
+          </div>
+        </div>
+
+        
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_SpectreWS_emoji_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">6-Core Xeon. Pro Drivers. ISV Certified.</div><div class="pc-name">Spectre Workstation</div><div class="pc-tagline">&ldquo;Same Xeon.&nbsp; Pro workflow.&nbsp; $50.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$799</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">Xeon E5-2643 v2 (6C/12T, 3.8 GHz turbo) &middot; RX 590 GME <span class="hlg">&#128170; 8GB</span> (Pro) &middot; <span class="hlg">32GB DDR3-1333 ECC QC (42.6 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Xeon E5-2643 v2&mdash;6 cores, 12 threads (Ivy Bridge-EP, LGA 2011, 3.5 GHz / <span class="hlg">3.8 GHz turbo</span>, 25MB L3 cache)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">AMD Radeon RX 590 GME <span class="hlg">&#128170; 8GB</span> with Pro drivers &mdash; ISV certified (SolidWorks, AutoCAD, Revit)</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR3-1333 ECC Quad-Channel</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">42.6 GB/s &mdash; DDR3-1333 quad-channel ECC</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright Assassin King 120 (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 550W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Same Xeon silicon as Spectre gaming, elevated by the professional driver stack.&nbsp; E5-2643 v2 runs 3.5 GHz base / 3.8 GHz turbo with 25MB L3 cache &mdash; Ivy Bridge-EP IPC on a Xeon binned for sustained all-core operation.&nbsp; RX 590 GME on <strong>Pro drivers</strong> unlocks ISV certification for SolidWorks, AutoCAD, and Revit.&nbsp; Native ECC.&nbsp; 32GB quad-channel at 42.6 GB/s.&nbsp; The $50 bump over Spectre gaming buys you the professional driver suite that matters to CAD users and engineering shops.</div>
+          </div>
+        </div>
+
+<div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/emoji_shadow_512.png" style="height:9rem;width:auto;display:block;" alt=""></span><div class="pc-tier">6C / 12T Unlocked. Vega HBM2.</div><div class="pc-name">Shadow</div><div class="pc-tagline">&ldquo;Ivy Bridge-E.&nbsp; Unlocked.&nbsp; HBM2.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$899</div></div><div class="pc-right"><span class="sbadge sprod">&#9203; In Production</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-4930<span class="hl-x">K</span> <span class="hl-u">[Unlocked]</span> &middot; Vega 56 <span class="hlg">&#128170; 8GB &#9889; HBM2</span> &middot; <span class="hlg">32GB DDR3-1333 QC (42.6 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Core i7-4930<span class="hl-x">K</span>&mdash;6 cores, 12 threads (Ivy Bridge-E, LGA 2011, 3.4 GHz / <span class="hlg">3.9 GHz turbo</span>, <span class="hl-u">unlocked multiplier</span>)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">AMD Radeon Vega 56 <span class="hlg">&#128170; 8GB</span> <span class="hlg">&#9889; HBM2</span></span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR3-1333 Quad-Channel</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">42.6 GB/s &mdash; DDR3-1333 quad-channel</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright 240mm AIO (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 650W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">32GB quad-channel DDR3.&nbsp; Vega 56 HBM2.&nbsp; Unlocked Ivy Bridge-E i7.&nbsp; 100&ndash;140 FPS Fortnite 1080p.&nbsp; The gaming variant of the Shadow platform&mdash;all the bandwidth, none of the workstation overhead.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_ShadowWS_emoji_512.png" style="height:9rem;width:auto;display:block;" alt=""></span><div class="pc-tier">8-Core Xeon. Vega Pro. 48GB ECC.</div><div class="pc-name">Shadow Workstation</div><div class="pc-tagline">&ldquo;Production compute.&nbsp; HBM2 bandwidth.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$999</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">Xeon E5-2667 v2 (8C/16T, 4.0 GHz turbo) or better &middot; Vega 56 <span class="hlg">&#128170; 8GB &#9889; HBM2</span> (Pro) &middot; <span class="hlg">48GB DDR3-1333 ECC QC (42.6 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Xeon E5-2667 v2&mdash;8 cores, 16 threads (Ivy Bridge-EP, LGA 2011, 3.3 GHz / <span class="hlg">4.0 GHz turbo</span>, 25MB L3).&nbsp; Surprise upgrade tiers possible: E5-2673 v2 (8C, 3.3/3.8 GHz, cooler 110W) or E5-2687W v2 (8C, 3.4/4.0 GHz, workstation bin) when surplus arrives.</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">AMD Radeon Vega 56 <span class="hlg">&#128170; 8GB</span> <span class="hlg">&#9889; HBM2</span> with Pro drivers (professional rendering &amp; compute)</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">48GB DDR3-1333 ECC Quad-Channel</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">42.6 GB/s &mdash; DDR3-1333 quad-channel ECC</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright 240mm AIO (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 650W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Eight Xeon cores with 4.0 GHz turbo&mdash;the genuine 8-core workstation tier at this price point.&nbsp; Workstation-binned silicon holds clocks through 4-hour Premiere exports and overnight Blender renders.&nbsp; Vega 56 HBM2 on Pro drivers.&nbsp; 48GB ECC quad-channel.&nbsp; Same Shadow chassis, workstation mission.</div>
+            <div class="pc-note">64GB RAM upgrade and Vega 56&rarr;64 flash upgrade available.&nbsp; Ask before purchase.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/ghoul_ws_512.png" style="height:9rem;width:auto;display:block;" alt=""></span><div class="pc-tier">CUDA Creator Workstation. Top-Tier Gaming.</div><div class="pc-name">Ghoul</div><div class="pc-tagline">&ldquo;Scary good at both.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$1,149</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">Xeon E5-1650 v2 <span class="hl-u">[Unlocked]</span> &middot; GTX 1080 <span class="hl-ti">Ti</span> <span class="hlg">&#128293; 11GB CUDA</span> &middot; <span class="hlg">64GB DDR3-1333 ECC QC (42.6 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel Xeon E5-1650 v2 <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 12 threads (Ivy Bridge-EP, LGA 2011, 3.5 GHz / <span class="hlg">3.9 GHz turbo</span>, <span class="hl-u">unlocked multiplier</span>).&nbsp; Surprise upgrade possible to E5-1660 v2 (3.7/4.0 GHz, 15MB L3) when surplus permits.</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">Nvidia GeForce GTX 1080 <span class="hl-ti">Ti</span> <span class="hlg">&#128293; 11GB</span>&mdash;3,584 CUDA cores, NVENC hardware encoder, OptiX denoising acceleration</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">64GB DDR3-1333 ECC Quad-Channel (4&times;16GB RDIMM)</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">42.6 GB/s &mdash; DDR3-1333 quad-channel ECC</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright 240mm AIO (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 700W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Two workloads, one machine.&nbsp; The unlocked Xeon E5-1650 v2 is the rare prosumer silicon Intel made for workstations that refused to compromise&mdash;3.9 GHz turbo with sustained-clock profile and native ECC support.&nbsp; The GTX 1080 Ti is still NVIDIA's best-value CUDA accelerator: Adobe with CUDA-dependent plugins (Red Giant, Element 3D, Neat Video, Topaz AI), Blender Cycles with OptiX (2-4&times; faster than CUDA backend on the same card), DaVinci Resolve Studio's Neural Engine, and the cheapest path to 11GB VRAM with a mature CUDA stack.&nbsp; When the work is done, it still pushes 150&ndash;185 FPS in Fortnite at 1080p.&nbsp; The crossover build.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_Banshee_emoji_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Unlocked Xeon. Your Choice. Creator Flagship.</div><div class="pc-name">Banshee</div><div class="pc-tagline">&ldquo;Two of Intel&rsquo;s rarest unlocked Xeons.&nbsp; Your pick.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$1,199</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">Xeon E5-1660 v2 (6C/12T, 4.0 GHz turbo) <span class="hl-u">[Unlocked]</span> &middot; E5-1680 v2 upgrade +$50 &middot; RX 6700 <span class="hl-xt">XT</span> <span class="hlg">&#128293; 12GB</span> &middot; <span class="hlg">64GB DDR3-1600 ECC QC (51.2 GB/s)</span></div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU (base)</span><span class="spec-val">Intel Xeon E5-1660 v2 <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 12 threads (Ivy Bridge-EP, LGA 2011, 3.7 GHz / <span class="hlg">4.0 GHz turbo</span>, 15MB L3, <span class="hl-u">unlocked multiplier</span>)</span></li>
+              <li><span class="spec-label">CPU (upgrade +$50)</span><span class="spec-val">Intel Xeon E5-1680 v2 <span class="hl-u">[Unlocked]</span>&mdash;<strong style="color:var(--green)">8 cores, 16 threads</strong> (Ivy Bridge-EP, LGA 2011, 3.0 GHz / <span class="hlg">3.9 GHz turbo</span>, 25MB L3, <span class="hl-u">unlocked multiplier</span>)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">AMD Radeon RX 6700 <span class="hl-xt">XT</span> <span class="hlg">&#128293; 12GB</span> (Adrenaline gaming drivers)</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">64GB DDR3-1600 ECC Quad-Channel (4&times;16GB RDIMM)</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">51.2 GB/s &mdash; DDR3-1600 quad-channel ECC</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">1TB NVMe + 1TB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright 120mm AIO (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 700W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The unlocked Xeon story, your way.&nbsp; The E5-1660 v2 is the clock-speed flagship of the v2 line&mdash;4.0 GHz turbo on Ivy Bridge-EP Xeon silicon, binned for sustained work.&nbsp; Optimal for Photoshop, After Effects, and Premiere timeline editing where single-thread speed wins.&nbsp; The +$50 E5-1680 v2 upgrade trades 100 MHz of turbo for <strong>two additional cores and 10MB more L3 cache</strong>&mdash;built for Blender renders, Premiere exports, and cache-sensitive Resolve work where cores and cache matter most.&nbsp; Both are 130W TDP, both unlocked, both push 4.4&ndash;4.6 GHz all-core on quality boards.&nbsp; Match the silicon to your actual workload, not the marketing.&nbsp; RX 6700 XT 12GB, 64GB DDR3-1600 ECC QC at 51.2 GB/s&mdash;the fastest DDR3 config in the lineup.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_BansheeWS_emoji_512.png" style="height:10.125rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Workstation Flagship. Pro Drivers. Upgrade Path.</div><div class="pc-name">Banshee Workstation</div><div class="pc-tagline">&ldquo;10 Xeon cores.&nbsp; 64GB ECC.&nbsp; Dual-GPU ready.&rdquo;</div><div class="pc-price" style="color:var(--imperial)">$1,299</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">Xeon E5-2690 v2 (10C/20T, 3.0/3.6 GHz) &middot; 12C upgrade +$100 &middot; RX 6700 <span class="hl-xt">XT</span> <span class="hlg">&#128293; 12GB</span> (Pro) &middot; <span class="hlg">64GB DDR3-1600 ECC QC (51.2 GB/s)</span> &middot; 1TB NVMe &middot; 1050W</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU (base)</span><span class="spec-val">Intel Xeon E5-2690 v2&mdash;10 cores, 20 threads (Ivy Bridge-EP, LGA 2011, 3.0 GHz base / <span class="hlg">3.6 GHz turbo</span>, 25MB L3).&nbsp; Optimized for Adobe workflows where clock speed beats core count.</span></li>
+              <li><span class="spec-label">CPU (upgrade +$100)</span><span class="spec-val">Intel Xeon E5-2697 v2&mdash;<strong style="color:var(--green)">12 cores, 24 threads</strong> (Ivy Bridge-EP, LGA 2011, 2.7 GHz base / 3.5 GHz turbo, 30MB L3).&nbsp; Recommended for Blender Cycles CPU rendering and heavy Fusion compositing in Resolve.</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">AMD Radeon RX 6700 <span class="hl-xt">XT</span> <span class="hlg">&#128293; 12GB</span> with Pro drivers (professional rendering &amp; compute)</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">64GB DDR3-1600 ECC Quad-Channel (4&times;16)</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">51.2 GB/s &mdash; DDR3-1600 quad-channel ECC</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">1TB NVMe + 1TB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright 120mm AIO (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val hl">80+ Bronze 1050W (dual-GPU ready &mdash; never needs swapping)</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Workload-matched silicon.&nbsp; The base 10-core E5-2690 v2 at 3.0 GHz base clock is the right chip for the Adobe majority&mdash;Photoshop, After Effects, and Premiere timeline work where clock speed beats core count.&nbsp; The +$100 12-core E5-2697 v2 upgrade is built for the ~20% of buyers doing heavy CPU rendering or Resolve Fusion compositing where cores and 30MB L3 cache win.&nbsp; Both on ISV-certified Pro drivers for the RX 6700 XT.&nbsp; The 1050W PSU means every upgrade path is already sized&mdash;no PSU swap required.&nbsp; Mac Attack entry point at $1,299.</div>
+            <div class="pc-note" style="color:var(--purple);margin-top:.75rem;border-top:1px solid var(--border);padding-top:.75rem">
+              <span style="color:var(--plum);font-weight:700">Upgrade Paths Available</span><br>
+              &bull;&nbsp; CPU upgrade to <strong>12-core E5-2697 v2</strong> &mdash; +$100 at checkout<br>
+              &bull;&nbsp; RAM expansion to <strong>96GB</strong> DDR3-1600 ECC Quad-Channel<br>
+              &bull;&nbsp; RAM expansion to <strong>128GB</strong> DDR3-1600 ECC Quad-Channel<br>
+              &bull;&nbsp; Add <strong>AMD Instinct MI25 &rarr; Radeon Pro WX 9100</strong> flash (16GB HBM2, 484 GB/s) &mdash; 28GB total independent VRAM<br>
+              Ask before purchase.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- X99 FLEET -->
+    <div class="fam-block">
+      <div class="fam-banner">
+        <picture>
+          <source media="(min-width: 1920px)" srcset="/img/banners/banner_fleet_x99_2560.jpg">
+          <img src="/img/banners/banner_fleet_x99_1920.jpg" alt="X99 Fleet Series" loading="lazy">
+        </picture>
+      </div>
+      <div class="fam-hdr">
+        <div class="fam-top">
+          <div class="fam-name" style="color:var(--royal)">X99 Fleet Series</div>
+          <span class="fam-badge">DDR4 Quad-Channel &middot; 68.3&ndash;76.8 GB/s &middot; $799&ndash;$1,699</span>
+        </div>
+        <p class="fam-desc">Workstation-class quad-channel DDR4 bandwidth meets a platform designed to grow with you.&nbsp; The Marauder at $799 is the entry.&nbsp; The Ironclad at $1,499 is the CUDA creator workstation.&nbsp; The Dreadnought at $1,699 is the AMD-first flagship with a dual-GPU upgrade path and a 1050W PSU that never needs swapping.&nbsp; Buyers who need the top of the chart choose <strong style="color:var(--cyan)">Dreadnought+</strong> ($1,999, includes free 16-core CPU upgrade) &mdash; which <a href="Mac_Attack.html" style="color:var(--cyan)">tops our Mac Attack Capability Score at 85</a>, beating every production Mac Studio configuration.&nbsp; All three share the same X99 DNA&mdash;real quad-channel memory, real upgrade headroom, no subscriptions.&nbsp; All builds include Office 2019 Pro+.</p>
+        <div class="fam-apps">
+          <span class="app-chip">Fortnite</span><span class="app-chip">Valorant</span><span class="app-chip">Red Dead Redemption 2</span><span class="app-chip">MS Office</span><span class="app-chip">Photoshop</span><span class="app-chip">DaVinci Resolve</span><span class="app-chip">Premiere Pro</span><span class="app-chip">Blender</span><span class="app-chip">Topaz AI</span><span class="app-chip">After Effects</span><span class="app-chip">Streaming</span>
+        </div>
+      </div>
+      <div class="pc-grid">
+
+        <div class="pc prod" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_Marauder_emoji_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">The Captain</div><div class="pc-name">Marauder</div><div class="pc-tagline">&ldquo;Takes what it wants.&rdquo;</div><div class="pc-price" style="color:var(--royal)">$799</div></div><div class="pc-right"><span class="sbadge sprod">&#9203; In Production</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-6800<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span> (6C/12T, LC) &middot; GTX 1070 <span class="hlg">&#128170; 8GB</span> &middot; <span class="hlg">32GB DDR4-2133 QC (68.3 GB/s)</span> &middot; 512GB NVMe</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel i7-6800<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 12 threads (Broadwell-E, LGA 2011-v3, Liquid Cooled)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">Nvidia GeForce GTX 1070 <span class="hlg">&#128170; 8GB</span></span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR4-2133 Quad-Channel</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">68.3 GB/s&mdash;+42% vs. new OEM single-ch DDR5</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB SSHD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright 120mm AIO (black)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 550W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The gamer that can do productivity.&nbsp; Four channels beat two&mdash;always.&nbsp; 32GB quad-channel DDR4 on the i7-6800K outruns 32GB dual-channel in every bandwidth-sensitive benchmark.&nbsp; 110&ndash;140 FPS Fortnite 1080p.&nbsp; The X99 DDR4 option between the X79 DDR3 Shadow tier and the Coffee Lake Gamer&mdash;newer platform, quad-channel bandwidth, six real HEDT cores.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_Ironclad_emoji_512.png" style="height:16.875rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">CUDA Creator Workstation. BTO.</div><div class="pc-name">Ironclad</div><div class="pc-tagline">&ldquo;NVIDIA where NVIDIA matters.&rdquo;</div><div class="pc-price" style="color:var(--royal)">$1,499</div></div><div class="pc-right"><span class="sbadge ssoon">Build to Order</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-5960<span class="hl-x">X</span> (8C/16T) &middot; RTX 3060 <span class="hlg">&#128293; 12GB CUDA</span> &middot; <span class="hlg">64GB DDR4-2133 QC (68.3 GB/s)</span> &middot; 1TB NVMe</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel i7-5960<span class="hl-x">X</span>&mdash;8 cores, 16 threads (Haswell-E, LGA 2011-v3, 3.0 GHz base / 3.5 GHz turbo)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">NVIDIA GeForce RTX 3060 <span class="hlg">&#128293; 12GB</span>&mdash;CUDA enabled for Mercury Playback Engine, Topaz AI, NVIDIA Broadcast, Resolve Studio AI</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">64GB DDR4-2133 Quad-Channel (4&times;16GB)</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">68.3 GB/s &mdash; DDR4-2133 quad-channel</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">1TB NVMe</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright 240mm AIO (black)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 650W (AresGame AGV650)</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The CUDA creator workstation.&nbsp; RTX 3060 12GB unlocks the Mercury Playback Engine in Premiere Pro, Topaz AI denoising and upscaling, NVIDIA Broadcast for streaming, and Resolve Studio&rsquo;s AI Magic Mask.&nbsp; Buyers whose workflow requires CUDA cannot use AMD-based builds.&nbsp; At $1,499, the Ironclad undercuts Apple&rsquo;s Mac Studio base ($1,999) by $500 with more RAM, a discrete 12GB GPU, and a platform that accepts real upgrades.</div>
+            <div class="pc-note" style="color:var(--purple);margin-top:.75rem;border-top:1px solid var(--border);padding-top:.75rem">
+              <span style="color:var(--plum);font-weight:700">Upgrade Paths Available</span><br>
+              &bull;&nbsp; CPU upgrade to <strong>Xeon E5-2687W v3</strong> (10C/20T, 3.1/3.5 GHz, Haswell-EP workstation bin, native ECC)<br>
+              &bull;&nbsp; CPU upgrade to <strong>Xeon E5-2687W v4</strong> (12C/24T, 3.0/3.5 GHz, Broadwell-EP workstation bin, native ECC)<br>
+              &bull;&nbsp; RAM expansion to <strong>96GB</strong> or <strong>128GB</strong> DDR4-2133 Quad-Channel<br>
+              Ask before purchase.
+            </div>
+            <div class="pc-note">Build-to-order with extended lead time.&nbsp; List confirms in advance.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/RR_Dreadnought_emoji_512.png" style="height:16.875rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Expandable Flagship Workstation. BTO.</div><div class="pc-name">Dreadnought</div><div class="pc-tagline">&ldquo;A workstation that grows with your career.&rdquo;</div><div class="pc-price" style="color:var(--royal)">$1,699</div></div><div class="pc-right"><span class="sbadge ssoon">Build to Order</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-6900<span class="hl-k">K</span> (8C/16T) &middot; RX 6700 <span class="hl-xt">XT</span> <span class="hlg">&#128293; 12GB</span> &middot; <span class="hlg">64GB DDR4-2400 QC (76.8 GB/s)</span> &middot; 1TB NVMe &middot; 1050W</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel i7-6900<span class="hl-k">K</span>&mdash;8 cores, 16 threads (Broadwell-E, LGA 2011-v3, 3.2 GHz base / 3.7 GHz turbo)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">AMD Radeon RX 6700 <span class="hl-xt">XT</span> <span class="hlg">&#128293; 12GB</span>&mdash;upgradeable to dual-GPU configuration</span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">64GB DDR4-2400 Quad-Channel (4&times;16GB)</span></li>
+              <li><span class="spec-label">Bandwidth</span><span class="spec-val hl">76.8 GB/s &mdash; DDR4-2400 quad-channel</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">1TB NVMe</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright 240mm AIO (black)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val hl">80+ Bronze 1050W (sized for every upgrade path &mdash; never needs swapping)</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The platform promise.&nbsp; The Mac Studio M4 Max base is $1,999 and upgradeable to nothing.&nbsp; The Dreadnought is $1,699, ships with 78% more RAM, and accepts real upgrades&mdash;more cores, more memory, a second GPU&mdash;whenever your workload demands it.&nbsp; The 1050W PSU is sized for every configuration we offer.&nbsp; Start with single-GPU, grow to dual-GPU, grow your career&mdash;all without opening the case for a power supply swap.</div>
+            <div class="pc-note" style="color:var(--purple);margin-top:.75rem;border-top:1px solid var(--border);padding-top:.75rem">
+              <span style="color:var(--plum);font-weight:700">Upgrade Paths Available</span><br>
+              &bull;&nbsp; CPU upgrade to <strong>Xeon E5-2697 v3</strong> (14C/28T, 2.6/3.6 GHz, Haswell-EP, native ECC)<br>
+              &bull;&nbsp; CPU upgrade to <strong>Xeon E5-2697A v4</strong> (16C/32T, 2.6/3.6 GHz, Broadwell-EP, native ECC)<br>
+              &bull;&nbsp; CPU upgrade to <strong>Xeon E5-2696 v3</strong> (18C/36T, 2.3/3.8 GHz, Haswell-EP OEM bin, native ECC)<br>
+              &bull;&nbsp; CPU upgrade to <strong>Xeon E5-2699P v4</strong> (22C/44T, HPE OEM, 300W &mdash; requires 1200W PSU and 360mm AIO)<br>
+              &bull;&nbsp; RAM expansion to <strong>96GB</strong> or <strong>128GB</strong> DDR4-2667 Quad-Channel (bandwidth bump included)<br>
+              &bull;&nbsp; Add <strong>AMD Instinct MI25 &rarr; Radeon Pro WX 9100</strong> flash as second GPU (16GB HBM2 at 484 GB/s &mdash; 28GB total independent VRAM)<br>
+              Ask before purchase.
+            </div>
+            <div class="pc-note">Build-to-order with extended lead time.&nbsp; List confirms in advance.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COFFEE LAKE -->
+    <div class="fam-block">
+      <div class="fam-banner">
+        <picture>
+          <source media="(min-width: 1920px)" srcset="/img/banners/coffee_lake_banner_2560.jpg">
+          <img src="/img/banners/coffee_lake_banner_1920.jpg" alt="Coffee Lake Series" loading="lazy">
+        </picture>
+      </div>
+      <div class="fam-hdr">
+        <div class="fam-top">
+          <div class="fam-name" style="color:var(--plum)">Coffee Lake Series</div>
+          <span class="fam-badge">Premium Gaming &middot; DDR4 32GB &middot; $849&ndash;$1,199</span>
+        </div>
+        <p class="fam-desc">Affordable high-end.&nbsp; 8th and 9th gen Intel with the highest single-thread clocks in the lineup&mdash;built for gamers who want raw frame rates.&nbsp; 1440p+ capable.&nbsp; Available in white.&nbsp; All builds include Office 2019 Pro+.</p>
+        <div class="fam-apps">
+          <span class="app-chip">Fortnite</span><span class="app-chip">Valorant</span><span class="app-chip">Minecraft</span><span class="app-chip">Red Dead Redemption 2</span><span class="app-chip">Cyberpunk 2077</span><span class="app-chip">Hogwarts Legacy</span><span class="app-chip">GTA V</span><span class="app-chip">Elden Ring</span><span class="app-chip">iRacing</span><span class="app-chip">Assetto Corsa</span><span class="app-chip">MS Office</span>
+        </div>
+      </div>
+      <div class="pc-grid">
+
+        <div class="pc live" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/coffee_lake_gamer_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Winner. Winner.</div><div class="pc-name">Gamer</div><div class="pc-tagline">&ldquo;1080p Powerhouse.&rdquo;</div><div class="pc-price" style="color:var(--plum)">$849</div></div><div class="pc-right"><span class="sbadge slive">&#9989; Live</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i5-8600<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span> (6C/6T) &middot; GTX 1070 <span class="hl-ti">Ti</span> <span class="hlg">&#128170; 8GB</span> &middot; <span class="hlg">32GB DDR4-2400</span> &middot; 512GB NVMe + 500GB Optane</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel i5-8600<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 6 threads (Coffee Lake)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">Nvidia GeForce GTX 1070 <span class="hl-ti">Ti</span> <span class="hlg">&#128170; 8GB</span></span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val"><span class="hlg">32GB</span> DDR4-2400 (2&times;16 or 4&times;8)</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB Optane-boosted HDD</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright Assassin King 120 (black)</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Clear side panel</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 650W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">GTX 1070 <span class="hl-ti">Ti</span> at 1080p.&nbsp; i5-8600<span class="hl-k">K</span> at full throttle.&nbsp; An OS that doesn&rsquo;t fight for your resources.&nbsp; 120&ndash;155 FPS Fortnite 1080p.</div>
+            <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="pc-cta" onclick="event.stopPropagation()">View on eBay &rarr;</a>
+          </div>
+        </div>
+
+        <div class="pc prod" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/coffee_lake_whiteout_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Same Performance.&nbsp; Better Build.</div><div class="pc-name">Whiteout</div><div class="pc-tagline">&ldquo;Same power.&nbsp; Clean aesthetic.&nbsp; Future-proof.&rdquo;</div><div class="pc-price" style="color:var(--plum)">$949</div></div><div class="pc-right"><span class="sbadge slive">&#9989; Live</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i5-8600<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span> (6C/6T) &middot; GTX 1070 <span class="hl-ti">Ti</span> <span class="hlg">&#128170; 8GB</span> &middot; <span class="hlg">32GB DDR4-2400</span> &middot; 240mm AIO &middot; 700W PSU &middot; Premium White Case</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel i5-8600<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 6 threads (Coffee Lake, 3.6 GHz / <span class="hlg">4.3 GHz turbo</span>)&mdash;matches Gamer silicon</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val">Nvidia GeForce GTX 1070 <span class="hl-ti">Ti</span> <span class="hlg">&#128170; 8GB</span></span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val"><span class="hlg">32GB</span> DDR4-2400</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB Optane-boosted HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">White mesh side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val hlw">Thermalright 240mm AIO (white)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val hlw">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val hl">80+ Bronze 700W (Raidmax Vortex &mdash; headroom for future GPU upgrade)</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Same gaming performance as the Gamer.&nbsp; Better build, cleaner aesthetic, future-proof.&nbsp; $100 more than the Gamer buys three real upgrades: the DarkRock MH200 premium white mid-tower with tempered glass, Thermalright 240mm AIO cooling (quieter under load, lower delta-T for extended gaming), and a 700W Raidmax Vortex PSU with headroom for a future GPU upgrade without a PSU swap.&nbsp; Honest product&mdash;not premium paint over identical guts.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/coffee_lake_refresh_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">We Fed the Gamer After Midnight...</div><div class="pc-name">Refresh</div><div class="pc-tagline">&ldquo;Pure speed.&rdquo;</div><div class="pc-price" style="color:var(--plum)">$999</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i5-9600<span class="hl-k">K</span>F <span class="hl-u">[Unlocked]</span> (6C/6T) &middot; GTX 1080 <span class="hlg">&#128170; 8GB</span> &middot; <span class="hlg">32GB DDR4-2667</span> &middot; 512GB NVMe + 500GB Optane-boosted HDD</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel i5-9600<span class="hl-k">K</span>F <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 6 threads (9th gen Coffee Lake)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">Nvidia GeForce GTX 1080 <span class="hlg">&#128170; 8GB</span></span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val"><span class="hlg">32GB</span> DDR4-2667</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">512GB NVMe + 500GB Optane-boosted HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright 240mm AIO (black)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 700W</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">Pure gamer wanting raw single-thread speed and a GTX 1080 at 1080p.&nbsp; 140&ndash;180 FPS Fortnite 1080p.&nbsp; An OS that doesn&rsquo;t steal headroom.&nbsp; A price that doesn&rsquo;t steal your savings.</div>
+          </div>
+        </div>
+
+        <div class="pc soon" onclick="toggleCard(this)">
+          <div class="pc-head"><div class="pc-left"><span class="pc-emoji"><img src="/img/emoji/coffee_lake_titan_512.png" style="height:9rem;width:auto;vertical-align:middle;" alt=""></span><div class="pc-tier">Pure Gaming Halo.&nbsp; Peak Clocks.</div><div class="pc-name">Titan</div><div class="pc-tagline">&ldquo;Peak clocks.&nbsp; Premium RAM.&nbsp; Pure gaming.&rdquo;</div><div class="pc-price" style="color:var(--plum)">$1,199</div></div><div class="pc-right"><span class="sbadge ssoon">Coming Soon</span><span class="chev">&#9660;</span></div></div>
+          <div class="pc-sum">i7-8700<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span> (6C/12T, <span class="hlg">4.7 GHz turbo</span>) &middot; GTX 1080 <span class="hl-ti">Ti</span> <span class="hlg">&#128293; 11GB</span> &middot; <span class="hlg">32GB DDR4-3200</span> &middot; 1TB NVMe</div>
+          <div class="pc-body">
+            <ul class="spec-list">
+              <li><span class="spec-label">CPU</span><span class="spec-val">Intel i7-8700<span class="hl-k">K</span> <span class="hl-u">[Unlocked]</span>&mdash;6 cores, 12 threads (Coffee Lake, 3.7 GHz / <span class="hlg">4.7 GHz turbo</span>, Liquid Cooled)</span></li>
+              <li><span class="spec-label">GPU</span><span class="spec-val hlg">Nvidia GeForce GTX 1080 <span class="hl-ti">Ti</span> <span class="hlg">&#128293; 11GB</span></span></li>
+              <li><span class="spec-label">RAM</span><span class="spec-val hlg">32GB DDR4-3200 (premium speed tier)</span></li>
+              <li><span class="spec-label">Storage</span><span class="spec-val">1TB NVMe SSD + 1TB HDD</span></li>
+              <li><span class="spec-label">Side Panel</span><span class="spec-val">Tempered glass side panel</span></li>
+              <li><span class="spec-label">Cooling</span><span class="spec-val">Thermalright 240mm AIO (black)</span></li>
+              <li><span class="spec-label">WiFi</span><span class="spec-val">WiFi 6 / Bluetooth 5.2</span></li>
+              <li><span class="spec-label">ARGB</span><span class="spec-val">Nollie 8 + Thermalright ARGB fans + OpenRGB</span></li>
+              <li><span class="spec-label">PSU</span><span class="spec-val">80+ Bronze 700W (Raidmax Vortex)</span></li>
+              <li><span class="spec-label">OS</span><span class="spec-val hl">Win 11 Pro [RR Turbo] + Office 2019 Pro+</span></li>
+            </ul>
+            <div class="pc-tagline-ex">The pure gaming machine.&nbsp; Peak single-thread clocks at 4.7 GHz&mdash;the highest turbo in the entire RR lineup.&nbsp; DDR4-3200&mdash;the fastest RAM speed we ship.&nbsp; GTX 1080 Ti 11GB for 1080p/1440p at maximum settings.&nbsp; 150&ndash;190 FPS Fortnite 1080p.&nbsp; No workstation compromises, no DDR3 tradeoffs, no Xeon sustained-clock profile&mdash;the Titan is purpose-built for buyers who want the latest silicon and the fastest clocks in the refurb lineup.</div>
+            <div class="pc-note" style="color:#b8860b;margin-top:.75rem;border-top:1px solid var(--border);padding-top:.75rem">
+              <span style="color:#d4a017;font-weight:700">Upgrade Available</span><br>
+              &bull;&nbsp; RAM expansion to <strong>64GB DDR4-3200 Dual-Channel (2&times;32GB)</strong> &mdash; preserves full 3200 MHz bandwidth with double the capacity<br>
+              Ask before purchase.
+            </div>
+            <div class="pc-note" style="color:var(--purple);margin-top:.5rem;font-size:.875rem">
+              Looking for more RAM at a lower price?&nbsp; Check the <strong>Ghoul ($1,149)</strong> or <strong>Banshee ($1,199)</strong> DDR3 platforms&mdash;64GB ECC at less money on unlocked Xeon silicon.&nbsp; Older silicon, abundant surplus, deeper sustainability case.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- HAVING TROUBLE DECIDING? -->
+    <div style="margin-top:2.5rem;padding:1.75rem 2rem;background:linear-gradient(135deg,var(--surface2) 0%,var(--surface) 100%);border:1px solid var(--border);border-left:3px solid var(--purple);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px">
+        <div style="font-family:var(--disp);font-size:1.25rem;font-weight:800;margin-bottom:.35rem">Having trouble deciding?</div>
+        <div style="font-family:var(--mono);font-size:.78rem;color:var(--dim);letter-spacing:.02em;line-height:1.55">Answer one question: what will you do with the machine?&nbsp; We&rsquo;ll show you the ladder.</div>
+      </div>
+      <a href="decide.html" style="font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--black);background:var(--cyan);padding:.85rem 1.75rem;text-decoration:none;border:1px solid var(--cyan);transition:all .2s;white-space:nowrap" onmouseover="this.style.background='#00b8d4';this.style.borderColor='#00b8d4'" onmouseout="this.style.background='var(--cyan)';this.style.borderColor='var(--cyan)'">Pick My Path &rarr;</a>
+    </div>
+
+    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="btn-p">View Live eBay Listings &rarr;</a>
+      <a href="compare.html" class="btn-s">Full Benchmark Comparison &rarr;</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- DIFFERENTIATORS -->
+<section class="fi">
+  <div class="sec-label">What You Actually Get</div>
+  <h2 class="sec-title">Things Nobody Else Bothered to Build.</h2>
+  <p class="sec-body">The industry moved on from legacy hardware.&nbsp; We stayed&mdash;and built capabilities that didn&rsquo;t exist until we needed them.</p>
+  <div class="diff-grid">
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>Your machine works for you&mdash;not the OS vendor.</strong>&nbsp; Copilot, Recall, Edge, Teams, and all background telemetry removed at the ISO level.&nbsp; Not uninstalled&mdash;never installed.</span></div>
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>Quad-channel bandwidth that beats brand-new dual-channel.</strong>&nbsp; Every X79 and X99 build delivers 42.6&ndash;68.3 GB/s.&nbsp; A brand-new $1,100 single-channel gaming PC runs at 48.0 GB/s.&nbsp; We match or beat it&mdash;starting at $649.</span></div>
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>~25% fewer background processes.&nbsp; ~50% more available RAM headroom.</strong>&nbsp; From 53 background processes at idle to 40.&nbsp; Idle RAM usage from 68% to 52%&mdash;purely from our OS image.&nbsp; <span style="font-family:var(--mono);font-size:.75em;color:var(--dim)">Results may vary by hardware configuration.</span></span></div>
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>BIOS locks bypassed.&nbsp; Performance recaptured.</strong>&nbsp; OEM firmware caps turbo boost across platforms.&nbsp; We bypass those locks using TechPowerUp, validate with CPU-Z and Throttlestop, stress-test with MSI Kombustor.</span></div>
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>Modern thermal solutions on legacy platforms.</strong>&nbsp; Thermalright coolers on hardware the market called &ldquo;too hot.&rdquo;&nbsp; We solved the heat problem.&nbsp; You get sustained performance, not peak then throttle.</span></div>
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>GPU deep-clean&mdash;not just a driver swap.</strong>&nbsp; DDU in Safe Mode, NV CleanInstall, validated with GPU-Z and MSI Afterburner.&nbsp; No ghost drivers.&nbsp; No artifacts.</span></div>
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>ARGB&mdash;fully installed, configured, and tested.</strong>&nbsp; Nollie RGB RISC-V controller with OpenRGB running on every gaming build.&nbsp; Done before it ships.&nbsp; No account required.</span></div>
+    <div class="diff-item"><span class="diff-ck">[&#10003;]</span><span class="diff-txt"><strong>Office 2019 Pro Plus.&nbsp; No subscription.&nbsp; Ever.</strong>&nbsp; Fully licensed, perpetual productivity software on every build.&nbsp; No Microsoft 365 nudges.&nbsp; No expiration date.</span></div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="fi" style="background:var(--surface);margin:0 -2rem;padding:4rem 2rem;max-width:none">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="sec-label">Tools &amp; Partners</div>
+    <h2 class="sec-title">Brands We Use.<br>Trust Earned, Not Paid.</h2>
+    <div class="part-grid" style="margin-top:1.5rem">
+      <div class="part-card"><div class="part-name">Nollie RGB</div><div class="part-desc">RISC-V ARGB controllers.&nbsp; OpenRGB-compatible.&nbsp; Installed, configured, and tested on every gaming build.</div></div>
+      <div class="part-card"><div class="part-name">Thermalright</div><div class="part-desc">Modern cooling on legacy platforms.&nbsp; The reason our builds run cool and quiet&mdash;even on hardware the market called &ldquo;too hot.&rdquo;</div></div>
+      <div class="part-card"><div class="part-name">TechPowerUp</div><div class="part-desc">The definitive GPU database and BIOS flashing resource.&nbsp; VBIOS library and GPU-Z for full hardware validation.</div></div>
+      <div class="part-card"><div class="part-name">Active@ KillDisk</div><div class="part-desc">DoD 5220.22-M certified drive sanitization.&nbsp; Every drive ships with a digitally signed PDF certificate.&nbsp; Licensed&mdash;not freeware.</div></div>
+      <div class="part-card"><div class="part-name">OpenRGB</div><div class="part-desc">Vendor-neutral RGB control.&nbsp; Open-source, unified, and already running on every ARGB-equipped system we build.</div></div>
+    </div>
+    <div class="sec-label" style="color:var(--amber);margin-bottom:.75rem;margin-top:2rem">Our Build Stack</div>
+    <div class="tools-grid">
+      <div class="tool"><span class="tool-n">DDU</span>Display Driver Uninstaller</div>
+      <div class="tool"><span class="tool-n">Throttlestop</span>Thermal &amp; power management</div>
+      <div class="tool"><span class="tool-n">NV CleanInstall</span>Clean Nvidia driver deploy</div>
+      <div class="tool"><span class="tool-n">MSI Afterburner</span>GPU OC &amp; monitoring</div>
+      <div class="tool"><span class="tool-n">MSI Kombustor</span>GPU stress validation</div>
+      <div class="tool"><span class="tool-n">UUP Dump</span>Clean Windows ISO sourcing</div>
+      <div class="tool"><span class="tool-n">NTLite</span>ISO customization &amp; debloat</div>
+      <div class="tool"><span class="tool-n">GPU-Z</span>GPU validation &amp; diagnostics</div>
+      <div class="tool"><span class="tool-n">CPU-Z</span>CPU &amp; memory verification</div>
+      <div class="tool"><span class="tool-n">UserBenchmark</span>Real-world performance profiling</div>
+      <div class="tool"><span class="tool-n">Fan Control v250</span>Pre-installed on every build</div>
+      <div class="tool"><span class="tool-n">AMD Driver Utility</span>Clean AMD driver deployment</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fi">
+  <div class="sec-label">Our Story</div>
+  <h2 class="sec-title">Built in a Basement.<br>Scaled with a Purpose.</h2>
+  <div class="about-layout">
+    <div class="about-story">
+      <p>The e-waste bins at work fill up every week.&nbsp; I started paying attention to what was in them&mdash;and to where it was coming from.</p>
+      <p>Most of what went into those bins wasn&rsquo;t broken.&nbsp; It was <em>obsolete by declaration</em>&mdash;hardware that hit the end of someone&rsquo;s support window, or failed a diagnostic that defaulted to replacement instead of repair.&nbsp; Components with years of useful life, headed for shredding.</p>
+      <p>Most of our processors aren&rsquo;t on Microsoft&rsquo;s official Windows 11 supported CPU list.&nbsp; We select components based on one criteria: <strong>capability</strong>.&nbsp; Does it run Windows 11?&nbsp; Yes.&nbsp; Does it run it well?&nbsp; Better than most machines Microsoft would prefer you buy instead.&nbsp; We verified it ourselves.&nbsp; Every build ships with a fully activated, licensed copy.</p>
+      <p>We built our own Windows image with NTLite and UUP Dump.&nbsp; Teams, Edge, Copilot, Recall, and all background telemetry removed at the ISO level before the OS ever touches the drive.&nbsp; <strong>Your machine isn&rsquo;t reporting home.&nbsp; It&rsquo;s running for you.</strong></p>
+      <div style="margin-top:1.5rem;padding:1.25rem 1.5rem;border-left:3px solid var(--purple);background:var(--surface2)">
+        <div style="font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem">Open Source &mdash; MIT License</div>
+        <div style="font-family:var(--disp);font-size:1rem;font-weight:800;margin-bottom:.4rem"><span style="color:var(--cyan);font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.35rem">These go to eleven.</span>Win 11 Pro [RR Turbo] v6</div>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.7;margin-bottom:.75rem">The same image we ship on every build.&nbsp; Published so refurbishers, nonprofits, and individuals can use, modify, and build on it.&nbsp; 9+ months of production deployment.&nbsp; Stable on legacy platforms back to Haswell.</p>
+        <a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.4rem 1rem;text-decoration:none;display:inline-block;transition:all .2s" onmouseover="this.style.background='var(--cyan)';this.style.color='var(--black)'" onmouseout="this.style.background='';this.style.color='var(--cyan)'">View on GitHub &rarr;</a>
+      </div>
+    </div>
+    <div>
+      <div class="sb"><div class="sb-l">Organization</div><div class="sb-v">Renewable Revolt, Incorporated<br>IRS-Approved 501(c)(3)<br>EIN: 99-2777606<br>Active since September 2024</div></div>
+      <div class="sb"><div class="sb-l">Team</div><div class="sb-v">5 Builders / 5 Sites<br>Veteran Owned &amp; Operated<br>Hammond, Indiana</div></div>
+      <div class="sb"><div class="sb-l">Win 11 Pro [RR Turbo]</div><div class="sb-v"><span style="color:var(--cyan);font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.35rem">These go to eleven.</span>v6 &mdash; Built from scratch.&nbsp; Not just cleaned up.<br><span style="color:#ff4444">Teams &#10007;</span> &nbsp;|&nbsp; <span style="color:#ff4444">Edge &#10007;</span> &nbsp;|&nbsp; <span style="color:#ff4444">Copilot &#10007;</span><br><span style="color:#ff4444">Recall &#10007;</span> &nbsp;|&nbsp; <span style="color:#ff4444">Telemetry &#10007;</span><br><span style="color:var(--green)">Office 2019 Pro+ &#10003;</span><br><span style="font-size:.6rem;color:var(--dim);margin-top:.5rem;display:block">Removed at the ISO level&mdash;not just uninstalled.</span><br><a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.6rem;color:var(--cyan);letter-spacing:.06em">github.com/IncRevolt/R-R-Turbo &rarr;</a></div></div>
+      <div class="sb"><div class="sb-l">eBay Store</div><div class="sb-v"><a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">renewable-revolt-inc &rarr;</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<div style="padding:5rem 2rem 0;background:var(--surface);border-top:1px solid var(--border)">
+  <div class="donate-impact">
+    <div class="sec-label">Where the Money Goes</div>
+    <h2 class="sec-title">Three Engines.&nbsp; One Mission.</h2>
+    <p style="font-size:.95rem;color:var(--muted);line-height:1.8;max-width:700px">Gaming PCs fund operations.&nbsp; Donations build family PCs for veterans, students, and families who need them.&nbsp; Grant funding tackles the hardest problem&mdash;consumer devices with negative repair margins that nobody else will touch.</p>
+    <div class="donate-impact-grid">
+      <div class="di-card di-revenue">
+        <span class="di-icon">&#9889;</span>
+        <div class="di-label revenue">Self-Sustaining</div>
+        <div class="di-title">Gaming PC Sales</div>
+        <div class="di-desc">Gaming PCs keep the lights on.&nbsp; This revenue funds builders, components, workspace, and shipping.&nbsp; The engine runs itself.</div>
+      </div>
+      <div class="di-card di-donation">
+        <span class="di-icon">&#128156;</span>
+        <div class="di-label donation">Donation-Funded</div>
+        <div class="di-title">Family Donation PCs</div>
+        <div class="di-desc">Purpose-built systems for veterans, students, and families&mdash;<strong>not leftover inventory.</strong>&nbsp; Same premium cooling, ARGB lighting, and debloated software as our gaming builds.&nbsp; Machines kids are proud to own.</div>
+      </div>
+      <div class="di-card di-hard">
+        <span class="di-icon">&#128187;</span>
+        <div class="di-label hard">Grant-Funded</div>
+        <div class="di-title">Consumer Device Recovery</div>
+        <div class="di-desc">Laptops, tablets, and phones with <strong>negative repair margins.</strong>&nbsp; Cracked screens, soldered RAM, personal data never wiped.&nbsp; The for-profit market won&rsquo;t touch them.&nbsp; That&rsquo;s exactly why we do.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="donate-sec" id="donate">
+  <div class="donate-in">
+    <div class="donate-txt">
+      <div class="sec-label">Support the Mission</div>
+      <h2 class="sec-title">The Hard Problems Don&rsquo;t Pay for Themselves.</h2>
+      <p>Gaming PCs keep the lights on&mdash;our margins are just enough for that, and no more.&nbsp; If gaming PCs were our only mission, this would be a very short story.&nbsp; They&rsquo;re not.&nbsp; The work we actually care about&mdash;family donation PCs, laptops, tablets, phones&mdash;doesn&rsquo;t pay for itself.&nbsp; Nobody else is doing it because the margins are negative.&nbsp; That&rsquo;s exactly why it needs to be done.</p>
+      <p>Donations fund the builds, the rework, and the devices that will never turn a profit but will end up in the hands of someone who needs them.</p>
+      <div class="dollar-tiers">
+        <div class="dt"><span class="dt-amount">$25</span><span class="dt-desc">WiFi + Bluetooth module for one build</span></div>
+        <div class="dt"><span class="dt-amount">$50</span><span class="dt-desc">GPU for a donation gaming build</span></div>
+        <div class="dt"><span class="dt-amount">$100</span><span class="dt-desc">Complete component kit for one family PC</span></div>
+        <div class="dt"><span class="dt-amount">$250</span><span class="dt-desc">Fully built donation PC&mdash;ready for homework, gaming, and life</span></div>
+      </div>
+      <a href="mission.html" class="btn-s" style="display:inline-block;margin-top:1.5rem">Our Full Mission &rarr;</a>
+    </div>
+    <div class="donate-box">
+      <h3>Tax-Deductible Donation</h3>
+      <p>Renewable Revolt, Inc. is an IRS-approved 501(c)(3) nonprofit.&nbsp; All donations are fully tax-deductible to the extent permitted by law.</p>
+      <div id="donate-button" style="margin-bottom:1rem"></div>
+      <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+      <script>if(typeof PayPal!=='undefined'){PayPal.Donation.Button({env:'production',hosted_button_id:'9MPACUWVF5NZ8',image:{src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',alt:'Donate with PayPal button',title:'PayPal - The safer, easier way to pay online!'}}).render('#donate-button')}</script>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=9MPACUWVF5NZ8" target="_blank" rel="noopener" class="btn-s" style="width:100%;text-align:center;display:block;margin-top:.5rem">Direct PayPal Link &rarr;</a>
+      <div class="ein-tag">EIN: 99-2777606 &middot; Charity ID: 391538 &middot; Hammond, IN</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="fi">
+  <div class="sec-label">Get In Touch</div>
+  <h2 class="sec-title">Let&rsquo;s Talk.</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Whether you&rsquo;re a business with surplus electronics to donate, a parent looking for affordable and reliable tech, or someone who just wants a machine that isn&rsquo;t fighting them&mdash;we want to hear from you.</p>
+      <p>We&rsquo;re always looking for partnership opportunities with organizations aligned with digital equity, sustainable tech, and veteran services.</p>
+      <div class="c-links">
+        <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="c-link"><span>Shop Our eBay Store</span><span class="c-arr">&rarr;</span></a>
+        <a href="https://www.ebay.com/usr/renewable-revolt-inc" target="_blank" rel="noopener" class="c-link"><span>eBay Seller Profile</span><span class="c-arr">&rarr;</span></a>
+        <a href="#donate" class="c-link"><span>Make a Donation</span><span class="c-arr">&rarr;</span></a>
+        <a href="/cdn-cgi/l/email-protection#92fbfcf4fdd2e0f7fcf7e5f3f0fef7e0f7e4fdfee6bcfde0f5" class="c-link"><span><span class="__cf_email__" data-cfemail="1970777f76596b7c777c6e787b757c6b7c6f76756d37766b7e">[email&#160;protected]</span></span><span class="c-arr">&rarr;</span></a>
+      </div>
+    </div>
+    <div>
+      <div class="form-grp"><label class="form-lbl">Name</label><input type="text" class="form-inp" placeholder="Your name"></div>
+      <div class="form-grp"><label class="form-lbl">Email</label><input type="email" class="form-inp" placeholder="your@email.com"></div>
+      <div class="form-grp"><label class="form-lbl">Message</label><textarea class="form-inp" placeholder="Donation, purchase, partnership, or just a question."></textarea></div>
+      <a href="/cdn-cgi/l/email-protection#2e474048416e5c4b404b594f4c424b5c4b5841425a00415c49" class="btn-p" style="text-align:center;display:block">Send Message &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div><div class="foot-brand">RENEWABLE <span>REVOLT</span></div><div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER &middot; REVIVE &middot; REDEPLOY</div></div>
+    <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; eBay Charity ID: 391538<br>Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+    <div class="foot-links">
+      <a href="recover.html">Circular Economy &rarr;</a>
+      <a href="revive.html">Build Process &amp; R&amp;D &rarr;</a>
+      <a href="why.html">Why Renewable Revolt &rarr;</a>
+      <a href="compare.html">Gaming Benchmarks &rarr;</a>
+      <a href="Mac_Attack.html">Mac Attack &mdash; Content Creators &rarr;</a>
+      <a href="rogue.html">The Rogue Story &rarr;</a>
+      <a href="#donate">Donate &rarr;</a>
+      <a href="#contact">Contact &rarr;</a>
+    </div>
+  </div>
+  <div class="foot-pages">
+    <a href="recover.html" class="fp"><span class="fp-l">Recover &rarr;</span><span class="fp-n">Procurement &amp; the Circular Economy</span></a>
+    <a href="revive.html" class="fp"><span class="fp-l">Revive &rarr;</span><span class="fp-n">Build Process, R&amp;D &amp; Work Instructions</span></a>
+    <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="fp"><span class="fp-l">Shop &rarr;</span><span class="fp-n">eBay Store &mdash; Live Listings</span></a>
+    <a href="compare.html" class="fp"><span class="fp-l">Gaming Benchmarks &rarr;</span><span class="fp-n">FPS, Bandwidth &amp; Software vs. OEM</span></a>
+    <a href="Mac_Attack.html" class="fp"><span class="fp-l">Mac Attack &rarr;</span><span class="fp-n">Content Creator Comparison vs. Mac Studio</span></a>
+    <a href="mission.html" class="fp"><span class="fp-l">Mission &rarr;</span><span class="fp-n">Donations at Work</span></a>
+    <a href="rogue.html" class="fp"><span class="fp-l">Rogue Story &rarr;</span><span class="fp-n">The eDRAM Sleeper &mdash; $599 Case Study</span></a>
+  </div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" target="_blank" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555">Interserver</a></div>
+</footer>
+
+
+
+<script>
+  document.addEventListener('click',function(e){
+    var m=document.getElementById('mobMenu');
+    var h=document.querySelector('.hamburger');
+    if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))
+      m.classList.remove('open');
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href');
+      if(id==='#')return;
+      var el=document.querySelector(id);
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});
+  },{threshold:0.06});
+  document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
