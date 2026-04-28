@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raider &mdash; Our Signature Build &mdash; Renewable Revolt</title>
+<meta name="description" content="The Raider is our signature build.  $399.  60+ FPS Fortnite 1080p medium, zero subscriptions, upgradable one part at a time.  Designed to outlast your favorite pair of jeans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--revenant:#8b5cf6;--green:#00e676;--amber:#ffab00;--red:#ff4444;--cyan:#00E5FF;--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}.nav-links a:hover{color:var(--purple)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.4rem 1rem;text-decoration:none;transition:all .2s}.nav-cta:hover{background:var(--purple);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+
+.page-hero{padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.page-hero-glow{position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.1) 0%,rgba(0,230,118,.03) 40%,transparent 70%);top:40%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.page-hero-content{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.5rem}
+.page-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem}
+.jeans-line{font-family:var(--disp);font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:800;color:var(--cyan);line-height:1.2;margin-bottom:2rem;letter-spacing:-.01em}
+.accent{color:var(--purple)}
+.accent-g{color:var(--green)}
+.accent-r{color:var(--red)}
+.accent-c{color:var(--cyan)}
+.page-hero-sub{font-size:clamp(1rem,2vw,1.1rem);color:var(--muted);max-width:720px;line-height:1.8;margin-bottom:1.5rem}
+.breadcrumb{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2rem}
+.breadcrumb a{color:var(--dim);text-decoration:none}.breadcrumb a:hover{color:var(--purple)}
+.breadcrumb .sep{margin:0 .5rem;color:var(--border)}
+.hero-price{font-family:var(--disp);font-size:3rem;font-weight:800;color:var(--green);margin-bottom:.25rem}
+.hero-price-sub{font-family:var(--mono);font-size:.65rem;color:var(--dim);letter-spacing:.08em}
+
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-label-red{font-family:var(--mono);font-size:.6rem;color:var(--red);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-label-green{font-family:var(--mono);font-size:.6rem;color:var(--green);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-label-cyan{font-family:var(--mono);font-size:.6rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-body{font-size:.95rem;color:var(--muted);max-width:720px;line-height:1.8}
+.sec-body+.sec-body{margin-top:1rem}
+.dark-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem}
+.dark-inner{max-width:1100px;margin:0 auto}
+.callout{padding:1.5rem 2rem;border-left:3px solid var(--purple);background:var(--surface2);margin-top:2rem}
+.callout p{font-family:var(--mono);font-size:.82rem;color:var(--text);line-height:1.85}
+.callout .hl{color:var(--purple)}
+.callout .hlg{color:var(--green)}
+.callout .hlr{color:var(--red)}
+.callout .hlc{color:var(--cyan)}
+.callout.g{border-left-color:var(--green)}
+.callout.r{border-left-color:var(--red);background:#180a0a}
+.callout.c{border-left-color:var(--cyan)}
+
+/* RAIDER PROMISE */
+.promise-wrap{background:linear-gradient(135deg,#0a140f 0%,#0e0f16 50%,#0a140f 100%);border:1px solid rgba(0,230,118,.2);padding:3rem 2.5rem;margin-top:2.5rem;position:relative}
+.promise-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--cyan),var(--green))}
+.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1.5rem}
+.promise-card{text-align:left}
+.promise-check{font-family:var(--disp);font-size:1.75rem;font-weight:800;color:var(--green);line-height:1;margin-bottom:.5rem}
+.promise-head{font-family:var(--disp);font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:.5rem;line-height:1.2}
+.promise-body{font-size:.82rem;color:var(--muted);line-height:1.7}
+.oem-contrast{font-family:var(--mono);font-size:.78rem;color:var(--muted);line-height:1.85;padding:1.25rem 1.5rem;background:#180a0a;border-left:3px solid var(--red);margin-bottom:2rem}
+.oem-contrast strong{color:#ff8888}
+
+/* TWO CHOICES */
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2.5rem}
+.choice-col{padding:2.5rem;background:var(--surface2)}
+.choice-col.old{border-top:3px solid var(--red)}
+.choice-col.new{border-top:3px solid var(--green)}
+.choice-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem;color:var(--dim)}
+.choice-col.old .choice-label{color:var(--red)}
+.choice-col.new .choice-label{color:var(--green)}
+.choice-title{font-family:var(--disp);font-size:1.5rem;font-weight:800;margin-bottom:1rem;line-height:1.15}
+.choice-col.old .choice-title{color:#ff8888}
+.choice-col.new .choice-title{color:var(--green)}
+.choice-list{list-style:none;margin-top:1rem}
+.choice-list li{font-family:var(--mono);font-size:.72rem;color:var(--muted);padding:.5rem 0;border-bottom:1px solid rgba(30,32,53,.4);line-height:1.6;padding-left:1.25rem;position:relative}
+.choice-col.old .choice-list li::before{content:'\00d7';position:absolute;left:0;color:#ff6b6b;font-weight:700;font-size:.95rem;top:.4rem}
+.choice-col.new .choice-list li::before{content:'\2713';position:absolute;left:0;color:var(--green);font-weight:700;font-size:.8rem;top:.5rem}
+
+/* PLATFORM STRIP */
+.platform-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);margin-top:2rem}
+.platform-cell{background:var(--surface2);padding:1.5rem 1.25rem;text-align:center;border-top:2px solid var(--purple)}
+.platform-cell.future{border-top-color:var(--cyan);background:linear-gradient(180deg,rgba(0,229,255,.05) 0%,var(--surface2) 100%)}
+.platform-name{font-family:var(--disp);font-size:.88rem;font-weight:800;color:var(--text);margin-bottom:.3rem;line-height:1.2}
+.platform-type{font-family:var(--mono);font-size:.56rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
+.platform-cell.future .platform-name{color:var(--cyan)}
+
+/* ENGINEERING COLLAPSIBLES */
+.ac-stack{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.ac-card{background:var(--surface2);border:1px solid var(--border);border-radius:0;transition:border-color .2s}
+.ac-card[open]{border-color:var(--purple)}
+.ac-card summary{list-style:none;cursor:pointer;padding:1.5rem 1.75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;transition:background .2s}
+.ac-card summary::-webkit-details-marker{display:none}
+.ac-card summary:hover{background:rgba(139,92,246,.05)}
+.ac-card-left{flex:1}
+.ac-card-label{font-family:var(--mono);font-size:.58rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem}
+.ac-card-title{font-family:var(--disp);font-size:1.2rem;font-weight:800;color:var(--text);line-height:1.25;margin-bottom:.35rem}
+.ac-card-tag{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.6}
+.ac-card-tag strong{color:var(--green)}
+.ac-chev{font-family:var(--mono);font-size:.85rem;color:var(--purple);flex-shrink:0;transition:transform .3s;padding-top:.25rem}
+.ac-card[open] .ac-chev{transform:rotate(180deg)}
+.ac-body{padding:0 1.75rem 1.75rem;color:var(--muted);font-size:.92rem;line-height:1.85;border-top:1px solid var(--border);padding-top:1.5rem;margin:0 0}
+.ac-body p+p{margin-top:.9rem}
+.ac-body strong{color:var(--text)}
+.ac-body .hlg{color:var(--green)}
+.ac-body .hlc{color:var(--cyan)}
+.ac-body .hlr{color:#ff8888}
+.ac-body ul{list-style:none;margin-top:1rem}
+.ac-body ul li{padding:.35rem 0 .35rem 1.25rem;position:relative;font-family:var(--mono);font-size:.78rem;color:var(--muted);line-height:1.65}
+.ac-body ul li::before{content:'\2192';position:absolute;left:0;color:var(--purple);font-weight:700}
+.ac-body .mini-callout{background:#0a140f;border-left:3px solid var(--green);padding:1rem 1.25rem;margin-top:1rem;font-family:var(--mono);font-size:.76rem;color:var(--text);line-height:1.8}
+.ac-body .mini-callout.c{background:#0a131a;border-left-color:var(--cyan)}
+.ac-body .mini-callout.r{background:#180a0a;border-left-color:var(--red)}
+.ac-body a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,229,255,.3)}
+
+/* SECRET SAUCE TRIO */
+.trio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:1.5rem}
+.trio-cell{background:var(--surface2);padding:1.5rem 1.25rem;text-align:center;border-top:2px solid var(--cyan)}
+.trio-name{font-family:var(--disp);font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:.4rem}
+.trio-claim{font-family:var(--mono);font-size:.68rem;color:var(--cyan);letter-spacing:.04em;line-height:1.5}
+.scorecard{margin-top:1.5rem;background:#0a131a;border-left:3px solid var(--cyan);padding:1.5rem 1.75rem;font-family:var(--mono);font-size:.82rem;line-height:2}
+.scorecard-line{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.scorecard-line.us{color:var(--cyan);font-weight:700;font-size:.9rem;padding-top:.5rem;border-top:1px solid rgba(0,229,255,.2);margin-top:.25rem}
+.scorecard-who{color:var(--muted)}
+.scorecard-score{color:#ff8888;font-weight:700;font-size:.88rem}
+.scorecard-line.us .scorecard-score{color:var(--green)}
+
+/* WIFI COMPARE MINI */
+.wifi-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:1rem}
+.wifi-col{background:var(--surface2);padding:1.25rem 1.5rem}
+.wifi-col.old{border-top:2px solid #666}
+.wifi-col.new{border-top:2px solid var(--cyan)}
+.wifi-head{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.wifi-col.old .wifi-head{color:var(--dim)}
+.wifi-col.new .wifi-head{color:var(--cyan)}
+.wifi-stat{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-bottom:.35rem}
+.wifi-col.old .wifi-stat{color:#aaa}
+.wifi-col.new .wifi-stat{color:var(--cyan)}
+.wifi-note{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:1.6}
+
+/* SIGNATURE LINKS (cooling / lighting) */
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2rem}
+.sig-card{background:var(--surface2);padding:2rem 2rem;border-top:2px solid var(--amber);text-decoration:none;color:var(--text);transition:background .2s;display:block}
+.sig-card:hover{background:#161820}
+.sig-label{font-family:var(--mono);font-size:.6rem;color:var(--amber);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+.sig-title{font-family:var(--disp);font-size:1.25rem;font-weight:800;margin-bottom:.5rem;color:var(--text)}
+.sig-desc{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:.85rem}
+.sig-cta{font-family:var(--mono);font-size:.68rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+
+/* COMPARISON TABLES */
+.comp-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:2rem;font-family:var(--mono)}
+.comp-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1rem;align-items:center;padding:.9rem 1rem;background:var(--surface2)}
+.comp-row.head{background:var(--surface);padding:1.1rem 1rem}
+.comp-row.head div{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+.comp-row.head .us{color:var(--green)}
+.comp-row.head .them{color:var(--red)}
+.comp-label{font-size:.7rem;color:var(--muted);letter-spacing:.03em}
+.comp-us{font-size:.72rem;color:var(--green);font-weight:700}
+.comp-them{font-size:.72rem;color:#ff8888}
+.comp-us .note,.comp-them .note{display:block;font-size:.55rem;color:var(--dim);font-weight:400;margin-top:.15rem}
+
+/* TCO */
+.tco-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:2rem}
+.tco-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;align-items:center;padding:.9rem 1.25rem;background:var(--surface2);font-family:var(--mono);font-size:.72rem}
+.tco-row.head{background:var(--surface);padding:1rem 1.25rem}
+.tco-row.head div{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+.tco-row.head .us{color:var(--green)}
+.tco-row.head .them{color:var(--red)}
+.tco-row.total{background:#0a1a0f;border-top:2px solid var(--green);font-weight:700;font-size:.8rem}
+.tco-row.total .us{color:var(--green)}
+.tco-row.total .them{color:#ff8888}
+.tco-label{color:var(--muted)}
+.tco-us{color:var(--green)}
+.tco-them{color:#ff8888}
+
+/* UPGRADE PATH */
+.upg-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:2rem}
+.upg-row{display:grid;grid-template-columns:100px 1.4fr 1fr 1fr;gap:1rem;align-items:center;padding:.85rem 1.25rem;background:var(--surface2);font-family:var(--mono);font-size:.7rem}
+.upg-row.head{background:var(--surface);padding:1rem 1.25rem}
+.upg-row.head div{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+.upg-when{color:var(--purple);font-weight:700}
+.upg-gpu{color:var(--text)}
+.upg-price{color:var(--amber)}
+.upg-fps{color:var(--green);font-weight:700}
+
+/* PRICE PANEL */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2.5rem}
+.price-col{background:var(--surface2);padding:2.5rem}
+.price-col.ours{border-top:3px solid var(--green)}
+.price-col.theirs{border-top:3px solid var(--red)}
+.price-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem;color:var(--dim)}
+.price-tag.g{color:var(--green)}
+.price-tag.r{color:var(--red)}
+.price-amount{font-family:var(--disp);font-size:2.5rem;font-weight:800;margin-bottom:.75rem}
+.price-amount.g{color:var(--green)}
+.price-amount.r{color:#ff6b6b}
+.price-specs{list-style:none}
+.price-specs li{font-family:var(--mono);font-size:.68rem;color:var(--muted);padding:.3rem 0;border-bottom:1px solid rgba(30,32,53,.4);line-height:1.6}
+.price-specs li strong{color:var(--text)}
+.price-specs li .g{color:var(--green);font-weight:700}
+.price-specs li .r{color:#ff8888;font-weight:700}
+
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--purple);color:#fff;border:none;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}.btn-p:hover{opacity:.85}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.85rem 2rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent}.btn-s:hover{background:var(--purple);color:#fff}
+.btn-g{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--green);color:#07080c;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}.btn-g:hover{opacity:.85}
+
+/* THREE STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem}
+.step-card{background:var(--surface2);padding:2rem;border-top:3px solid var(--green)}
+.step-num{font-family:var(--disp);font-size:2.5rem;font-weight:800;color:var(--green);line-height:1;margin-bottom:.75rem}
+.step-title{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.step-p{font-size:.85rem;color:var(--muted);line-height:1.7}
+
+footer{border-top:1px solid var(--border);padding:3rem 2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.foot-brand{font-family:var(--disp);font-size:1rem;font-weight:800;letter-spacing:.05em}.foot-brand span{color:var(--purple)}
+.foot-meta{font-family:var(--mono);font-size:.55rem;color:var(--dim);line-height:2;letter-spacing:.06em;text-align:right}
+
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.fi.vis{opacity:1;transform:none}
+@media(max-width:768px){
+.nav-links{display:none}.hamburger{display:flex}
+section{padding:3.5rem 1.5rem}
+.promise-wrap{padding:2rem 1.5rem}
+.promise-grid{grid-template-columns:1fr;gap:1.25rem}
+.choice-grid{grid-template-columns:1fr}
+.trio-grid{grid-template-columns:1fr}
+.wifi-compare{grid-template-columns:1fr}
+.sig-grid{grid-template-columns:1fr}
+.comp-row{grid-template-columns:1fr;gap:.3rem}
+.comp-row.head{display:none}
+.comp-label{font-size:.55rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.comp-us::before{content:'RR: ';color:var(--dim);font-weight:400}
+.comp-them::before{content:'HP: ';color:var(--dim);font-weight:400}
+.tco-row{grid-template-columns:1fr 80px 80px;font-size:.6rem}
+.upg-row{grid-template-columns:70px 1fr;gap:.5rem}
+.upg-row .upg-price,.upg-row .upg-fps{grid-column:1/3;text-align:left;padding-left:70px}
+.upg-row.head{display:none}
+.price-grid{grid-template-columns:1fr}
+.ac-card summary{padding:1.25rem 1.25rem}
+.ac-body{padding:0 1.25rem 1.25rem;padding-top:1.25rem}
+}
+</style>
+<script>function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.toggle('open')}</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">RENEWABLE <span>REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="recover.html">Recover</a></li>
+    <li><a href="revive.html">Revive</a></li>
+    <li><a href="why.html">Why</a></li>
+    <li><a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Contact</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a>
+  <a href="recover.html">Recover</a>
+  <a href="revive.html">Revive</a>
+  <a href="why.html">Why</a>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="index.html#revenant">Revenant Series</a><span class="sep">/</span>Raider</div>
+    <div class="eyebrow">&#9876;&#65039; Our Signature Build</div>
+    <h1>Introducing the <span class="accent">Raider.</span></h1>
+    <div class="jeans-line">Designed to outlast your favorite pair of jeans.</div>
+    <p class="page-hero-sub">This is the Raider.&nbsp; Our entry-level gaming PC, built on refurbished business-class silicon, engineered to a performance floor, and delivered at a devastatingly low price.&nbsp; It&rsquo;s the machine that Renewable Revolt Incorporated was built for.</p>
+    <div class="hero-price">$399</div>
+    <div class="hero-price-sub">Renewable Revolt Revenant Series &middot; Signature Build</div>
+  </div>
+</div>
+
+<!-- THE RAIDER PROMISE -->
+<section>
+  <div class="sec-label-green">The Raider Promise</div>
+  <h2 class="sec-title">Not a spec sheet.&nbsp; <span class="accent-g">A contract.</span></h2>
+  <p class="sec-body">OEMs design and build to a spec sheet.&nbsp; We engineer a result.&nbsp; That distinction shows up in every decision &mdash; what silicon we accept, what we refuse, what we tune, and what we guarantee.&nbsp; Here&rsquo;s what every Raider promises you, out of the box.</p>
+
+  <div class="promise-wrap">
+    <div class="oem-contrast">
+      <strong>OEMs stake their reputation on one promise: your machine won&rsquo;t die for 12 months.</strong>&nbsp; After 365 days, if it dies, it dies.&nbsp; That&rsquo;s the warranty window &mdash; and, not coincidentally, about how long their budget desktops stay competitive before the spec sheet catches up to them.&nbsp; We engineer for a different promise.
+    </div>
+
+    <div class="promise-grid">
+      <div class="promise-card">
+        <div class="promise-check">&#10003;</div>
+        <div class="promise-head">60+ FPS Fortnite 1080p medium</div>
+        <div class="promise-body">Out of the box.&nbsp; Every build clears this floor before it ships, bench-verified on the exact hardware you&rsquo;ll receive.</div>
+      </div>
+      <div class="promise-card">
+        <div class="promise-check">&#10003;</div>
+        <div class="promise-head">Zero subscriptions.&nbsp; Ever.</div>
+        <div class="promise-body">Office 2019 Pro+ included, permanent license.&nbsp; No Microsoft 365.&nbsp; No cloud gating.&nbsp; No renewals.&nbsp; What you buy is yours.</div>
+      </div>
+      <div class="promise-card">
+        <div class="promise-check">&#10003;</div>
+        <div class="promise-head">Upgradable &mdash; one part at a time</div>
+        <div class="promise-body">Standard-ATX case.&nbsp; Multi-rail PSU.&nbsp; Full-width PCIe x16.&nbsp; Every part swaps with parts you buy anywhere &mdash; no proprietary traps.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO CHOICES -->
+<div class="dark-section">
+  <div class="dark-inner">
+    <div class="sec-label">The Fork in the Road</div>
+    <h2 class="sec-title">Two ways to buy a gaming PC.</h2>
+    <p class="sec-body">One of them is a subscription to a manufacturer&rsquo;s replacement schedule.&nbsp; The other is a machine you own, understand, and grow with.&nbsp; Here&rsquo;s the real comparison.</p>
+
+    <div class="choice-grid">
+      <div class="choice-col old">
+        <div class="choice-label">Choice One</div>
+        <div class="choice-title">Buy new.  Replace in three years.</div>
+        <ul class="choice-list">
+          <li>Proprietary power supply &mdash; upgrades blocked</li>
+          <li>4 GB GPU designed for laptops &mdash; crippled PCIe x4 bus</li>
+          <li>8 GB of memory at base price &mdash; 16 GB requires a pricier config</li>
+          <li>Non-standard motherboard &mdash; not repairable with normal parts</li>
+          <li>Windows Home with the telemetry, ads, and bloat turned on</li>
+          <li>No Office &mdash; $70/year to subscribe</li>
+          <li>One year of warranty, then you&rsquo;re on your own</li>
+          <li><strong style="color:#ff8888">In three years: recycled, replaced, repeated</strong></li>
+        </ul>
+      </div>
+      <div class="choice-col new">
+        <div class="choice-label">Choice Two</div>
+        <div class="choice-title">Buy the Raider.  Own it for a decade.</div>
+        <ul class="choice-list">
+          <li>Multi-rail OEM PSU with 6-pin PCIe &mdash; vast selection of GPU upgrades</li>
+          <li>Hand-tuned dedicated graphics on a full PCIe x16 bus</li>
+          <li>16 GB of dual-channel memory &mdash; the right amount for modern gaming now.&nbsp; Upgrade anytime</li>
+          <li>Business-class motherboard &mdash; built to last</li>
+          <li>RR Turbo Windows 11 Pro &mdash; telemetry stripped, bloat gone</li>
+          <li>Office 2019 Pro+ included &mdash; yours to keep forever</li>
+          <li>One part at a time, upgrade whenever you&rsquo;re ready</li>
+          <li><strong style="color:var(--green)">In ten years: still yours, still playing</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PLATFORMS -->
+<section>
+  <div class="sec-label">The Raider Platforms</div>
+  <h2 class="sec-title">We engineer to a target.&nbsp; Not a spec sheet.</h2>
+  <p class="sec-body">The Raider is a recipe, not a bill of materials.&nbsp; Every build starts with a business-class refurbished machine &mdash; a tower or mid-tower originally sold into engineering firms, architecture practices, CAD shops, and Fortune 500 IT departments.&nbsp; These were <span style="color:var(--cyan);font-weight:700">$1,000&ndash;$1,800</span> machines when new, engineered to run forty hours a week on corporate support contracts.&nbsp; We source them at significant discount, patch their BIOSes, rebuild their software stacks, and return them to service.</p>
+  <p class="sec-body">Specific model week-to-week depends on what&rsquo;s moving through our pipeline.&nbsp; All of them clear the same engineering floor before they ship.</p>
+
+  <div class="platform-strip">
+    <div class="platform-cell">
+      <div class="platform-name">HP Z-Series</div>
+      <div class="platform-type">Workstation Tower</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">HP EliteDesk / ProDesk</div>
+      <div class="platform-type">Business Desktop</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">Dell OptiPlex / Precision</div>
+      <div class="platform-type">Enterprise Desktop</div>
+    </div>
+    <div class="platform-cell">
+      <div class="platform-name">Lenovo ThinkCentre</div>
+      <div class="platform-type">Business Desktop</div>
+    </div>
+    <div class="platform-cell future">
+      <div class="platform-name">+ More</div>
+      <div class="platform-type">Future Platforms &middot; Same Selection Criteria</div>
+    </div>
+  </div>
+
+  <div class="callout c">
+    <p>Our aspirational goal is a corporate donation pipeline that supplies this fleet at scale.&nbsp; Today, we&rsquo;re in <span class="hlc">low-rate production</span>, sourcing carefully at volume discounts.&nbsp; Every Raider is a machine that would otherwise eventually have been destroyed &mdash; <strong>back from the dead, redefining &ldquo;entry-level.&rdquo;</strong></p>
+  </div>
+</section>
+
+<!-- HOW WE ENGINEER A RESULT -->
+<div class="dark-section">
+  <div class="dark-inner">
+    <div class="sec-label">How We Engineer a Result</div>
+    <h2 class="sec-title">The floor is the commitment.&nbsp; <span class="accent">Everything above it is upside.</span></h2>
+    <p class="sec-body">Below are the specs that every Raider ships with, guaranteed.&nbsp; Click any card to see the engineering behind it &mdash; the magic that makes refurbished silicon punch above its weight, and the design decisions that separate us from every other sub-$500 gaming PC on the market.</p>
+
+    <div class="ac-stack">
+
+      <!-- CPU FLOOR -->
+      <details class="ac-card">
+        <summary>
+          <div class="ac-card-left">
+            <div class="ac-card-label">01 &middot; The CPU Floor</div>
+            <div class="ac-card-title">Intel 4-core quad, 3.4+ GHz base / 3.8+ GHz turbo.</div>
+            <div class="ac-card-tag">Typical chips: <strong>i5-4670, i5-6600, i5-7600, i3-8350K, Xeon E3-1270 v3/v5/v6.</strong></div>
+          </div>
+          <div class="ac-chev">&#9660;</div>
+        </summary>
+        <div class="ac-body">
+          <p>The CPU spec listed is the <strong>floor</strong>.&nbsp; Every Raider ships with a chip from our qualified list &mdash; Haswell through Coffee Lake, validated to deliver the advertised FPS with the paired GPU.&nbsp; Typical chips include the i5-4670, i5-6600, i5-7600, i3-8350K, and Xeon E3-1270 v3/v5/v6.&nbsp; Better silicon (i7, unlocked K-series) rotates through our pipeline as surplus allows &mdash; those ship as a customer surprise, not an advertised feature.</p>
+          <p>At this performance tier the <strong>GPU is the bottleneck, not the CPU</strong>.&nbsp; Which means every chip that qualifies delivers identical gaming performance.&nbsp; You get a true gaming PC at a bare-bones price.</p>
+          <div class="mini-callout">
+            <strong>Engineering magic: ThrottleStop.</strong>&nbsp; HP and Dell lock their BIOSes to enforce conservative thermal throttle limits &mdash; limits that made sense in a sealed OEM chassis with stock cooling.&nbsp; We transplant the silicon into a Rosewill FBM-X2 with better airflow, then use ThrottleStop to recover the 200&ndash;400 MHz of sustained clock the OEM deliberately capped.&nbsp; Same chip.&nbsp; 5&ndash;10% more real-world performance.
+          </div>
+        </div>
+      </details>
+
+      <!-- GPU FLOOR -->
+      <details class="ac-card">
+        <summary>
+          <div class="ac-card-left">
+            <div class="ac-card-label">02 &middot; The GPU Floor</div>
+            <div class="ac-card-title">A tuned card that clears 60+ FPS Fortnite 1080p medium.</div>
+            <div class="ac-card-tag">Floor card: <strong>RX 470 4GB hand-tuned.</strong>&nbsp; Transparent upgrades you might see: <strong>RX 570 4GB, GTX 1060 3GB, or GTX 1650.</strong>&nbsp; The card rotates with platform and PSU pairing.&nbsp; <strong>The promise doesn&rsquo;t.</strong></div>
+          </div>
+          <div class="ac-chev">&#9660;</div>
+        </summary>
+        <div class="ac-body">
+          <p>We ship a performance <strong>result</strong>, not a specific card.&nbsp; Every GPU we deploy clears the same bench test: 60+ FPS in Fortnite at 1080p medium, on the exact machine you&rsquo;ll receive, before it ships.&nbsp; Your Raider&rsquo;s floor card is the <strong>RX 470 4GB hand-tuned</strong> &mdash; it meets the spec comfortably and represents the broadest share of our pipeline.&nbsp; Depending on platform pairing, you might also see an <strong>RX 570 4GB</strong>, <strong>GTX 1060 3GB</strong>, or <strong>GTX 1650</strong>.&nbsp; We show all four in the open, because transparency is the whole point.&nbsp; <strong class="hlg">The cards rotate.&nbsp; The promises don&rsquo;t.</strong></p>
+          <p><strong class="hlr">What we refuse to ship.</strong>&nbsp; AMD&rsquo;s RX 6400 and RX 6500 XT ship in budget OEM gaming desktops everywhere.&nbsp; We refuse to put them in the Raider &mdash; our entry-level, floor-priced build.&nbsp; That should tell you something.</p>
+          <p>This is NOT a rebuke of AMD.&nbsp; Their products anchor our product lines.&nbsp; Polaris &mdash; the RX 470, 570, and 580 generation &mdash; is the best budget gaming silicon they ever made.&nbsp; Ten years later, a tuned RX 570 still beats a new RX 6400 at the same task.&nbsp; The 6400 is a retreat from everything Polaris got right: 4 GB of VRAM on a crippled PCIe x4 bus, no hardware encoders, two display outputs, a laptop chip in a desktop costume.&nbsp; Same company, worse card, new price.</p>
+          <div class="mini-callout">
+            <strong>Engineering magic: MSI Afterburner + Kombustor.</strong>&nbsp; Every Polaris GPU that leaves our bench has been hand-tuned.&nbsp; -100 to -125 mV on the core, -50 MHz on the memory strap, custom fan curve.&nbsp; Verified with a 30-minute Kombustor furry-donut stress run at 1080p.&nbsp; Result: <span class="hlg">30&ndash;40W lower draw, 3&ndash;5% higher performance, 5&ndash;8&deg;C lower core temperature</span>.&nbsp; Battle-tested silicon used to mine cryptocurrency, given a second life as a cool, quiet, high-performance gaming GPU.
+          </div>
+        </div>
+      </details>
+
+      <!-- PSU FLOOR -->
+      <details class="ac-card">
+        <summary>
+          <div class="ac-card-left">
+            <div class="ac-card-label">03 &middot; The PSU Floor</div>
+            <div class="ac-card-title">Multi-rail OEM power supply with 6-pin PCIe capability.</div>
+            <div class="ac-card-tag">Delivered <strong>natively or via bench-engineered adapter</strong> &mdash; cable work already solved.</div>
+          </div>
+          <div class="ac-chev">&#9660;</div>
+        </summary>
+        <div class="ac-body">
+          <p>OEMs ship power supplies as liabilities.&nbsp; Proprietary 310W single-rail units that lock you out of upgrades and fail under modern graphics-card transient loads.&nbsp; We ship an <strong>engineering solution</strong>: a multi-rail OEM workstation PSU capable of powering at least a 6-pin PCIe graphics card &mdash; whether through a native connector or a bench-engineered adapter.</p>
+          <p>The specific PSU in your build depends on which platform you receive.&nbsp; All of them share the architecture that matters: <span class="hlg">independent 12V rails for CPU, GPU, and system</span>, so a hungry graphics card never starves the rest of the machine.&nbsp; This is the same architecture that runs enterprise workstations for a decade &mdash; now it runs your games.</p>
+          <div class="mini-callout">
+            <strong>Engineering magic: the connector-adapter problem is already solved.</strong>&nbsp; OEM PSUs use proprietary main connectors keyed to their original motherboards.&nbsp; Adapting them to power modern 6-pin PCIe GPUs is a solvable cable-engineering problem &mdash; one we&rsquo;ve already done the work on.&nbsp; When your Raider ships, the GPU has the power it needs, the rails are balanced, and your upgrade path is open.&nbsp; You never see the adapter.&nbsp; You never have to.
+          </div>
+        </div>
+      </details>
+
+      <!-- BIOS PATCHING -->
+      <details class="ac-card">
+        <summary>
+          <div class="ac-card-left">
+            <div class="ac-card-label">04 &middot; BIOS Patching</div>
+            <div class="ac-card-title">Modern boot paths on legacy silicon.</div>
+            <div class="ac-card-tag"><strong>NVMe boot</strong> on boards that never supported it.&nbsp; <strong>UEFI boot</strong> on older GPUs that shipped without it.</div>
+          </div>
+          <div class="ac-chev">&#9660;</div>
+        </summary>
+        <div class="ac-body">
+          <p>Older business-class motherboards &mdash; the ones that power our Haswell and early Skylake Raiders &mdash; pre-date NVMe boot support in the factory BIOS.&nbsp; Which means out of the box, they can&rsquo;t boot from the fast storage we want to put in them.</p>
+          <p>We fix that.&nbsp; Every Raider on a pre-Skylake platform gets a <strong>Clover or DUET UEFI shim</strong> injected between the BIOS and the bootloader.&nbsp; The shim teaches the legacy firmware how to see and boot from an NVMe drive at full PCIe speed.&nbsp; From your perspective, the machine boots in under 20 seconds like any modern PC.&nbsp; Under the hood, it&rsquo;s a 10-year-old motherboard running a 2025 boot chain.</p>
+          <p>Same story for GPU boot behavior.&nbsp; Older graphics cards shipped with VGA BIOSes that only supported legacy boot &mdash; modern UEFI systems can&rsquo;t initialize them cleanly.&nbsp; We <strong>patch the GPU VBIOS</strong> to enable UEFI boot paths, unlocking secure-boot compatibility and modern display initialization on silicon that was never designed for it.</p>
+          <div class="mini-callout c">
+            <strong>Why this matters.</strong>&nbsp; Every shortcut an OEM takes to hit a price point &mdash; old BIOS, slow boot drive, legacy VGA BIOS &mdash; we engineer around.&nbsp; The result is a machine that <span class="hlc">behaves modern</span> even when the silicon is older than your sister&rsquo;s kids.
+          </div>
+        </div>
+      </details>
+
+      <!-- 3D-PRINTED I/O -->
+      <details class="ac-card">
+        <summary>
+          <div class="ac-card-left">
+            <div class="ac-card-label">05 &middot; 3D-Printed I/O</div>
+            <div class="ac-card-title">Custom fabrication for clean transplants.</div>
+            <div class="ac-card-tag">OEM motherboard meets aftermarket case.&nbsp; <strong>We bridge the gap in plastic.</strong></div>
+          </div>
+          <div class="ac-chev">&#9660;</div>
+        </summary>
+        <div class="ac-body">
+          <p>When we transplant an HP or Dell business motherboard into a Rosewill FBM-X2 chassis, the stock I/O shield from the OEM doesn&rsquo;t exist as a consumer part.&nbsp; HP and Dell never sold spares.&nbsp; A generic ATX shield leaves gaps around the rear I/O &mdash; not just cosmetic, but a real airflow and dust-ingress problem.</p>
+          <p>We solve it the same way we solve every problem the OEM didn&rsquo;t solve for us: <strong>we design our own part and 3D-print it</strong>.&nbsp; Every platform in our production pipeline has a custom I/O plate templated to its exact port layout.&nbsp; Printed per-unit, snapped in before the board mounts, and indistinguishable from a factory shield once the case is closed.</p>
+          <p>3D printing is a capability that&rsquo;s growing across our product line.&nbsp; We&rsquo;re currently in R&amp;D on <strong>GPU support braces</strong> for long sag-prone cards and <strong>custom cooling solutions for repurposed compute GPUs</strong> &mdash; Tesla K20/K40/K80 and AMD Instinct MI25-class silicon that shipped without consumer fans because they were designed for server rack airflow.&nbsp; There&rsquo;s a decade of underutilized compute hardware out there that nobody&rsquo;s figured out how to put in a desktop.&nbsp; We&rsquo;re working on it.</p>
+          <div class="mini-callout">
+            <strong>Why this matters.</strong>&nbsp; There&rsquo;s a decade of enterprise compute silicon out there &mdash; data-center GPUs that ran AI workloads in racks, then got retired wholesale when the next generation arrived.&nbsp; Solving the cooling and bracketing problems is what unlocks that supply for desktop builders.&nbsp; <span class="hlc">If we can put a 16 GB Tesla in a workstation for $400, we change the economics of refurbished compute entirely.</span>&nbsp; That&rsquo;s where the 3D printer earns its keep.
+          </div>
+        </div>
+      </details>
+
+      <!-- SECRET SAUCE TRIO -->
+      <details class="ac-card">
+        <summary>
+          <div class="ac-card-left">
+            <div class="ac-card-label">06 &middot; The Secret Sauce Trio</div>
+            <div class="ac-card-title">NVMe + WiFi 6 + RR Turbo.</div>
+            <div class="ac-card-tag"><strong>This is the difference between OEM done right and a machine that screams.</strong></div>
+          </div>
+          <div class="ac-chev">&#9660;</div>
+        </summary>
+        <div class="ac-body">
+          <p>Three things OEMs skip at this price point &mdash; even when they get the CPU and GPU right.&nbsp; Each one adds real-world speed that benchmarks don&rsquo;t always measure but you feel every time you use the machine.&nbsp; Every Raider ships with all three.</p>
+
+          <div class="trio-grid">
+            <div class="trio-cell">
+              <div class="trio-name">NVMe Dual Storage</div>
+              <div class="trio-claim">Fast boot + hybrid backup</div>
+            </div>
+            <div class="trio-cell">
+              <div class="trio-name">WiFi 6 Floor</div>
+              <div class="trio-claim">Not WiFi 5.&nbsp; Not optional.</div>
+            </div>
+            <div class="trio-cell">
+              <div class="trio-name">RR Turbo 11 Pro</div>
+              <div class="trio-claim">Windows, debloated at ISO level</div>
+            </div>
+          </div>
+
+          <div class="scorecard">
+            <div class="scorecard-line"><span class="scorecard-who">Other refurbished PCs ship</span><span class="scorecard-score">0 / 3</span></div>
+            <div class="scorecard-line"><span class="scorecard-who">High-end OEMs ship</span><span class="scorecard-score" style="color:var(--amber)">2 / 3</span></div>
+            <div class="scorecard-line us"><span class="scorecard-who">Every machine we build ships with</span><span class="scorecard-score">3 / 3</span></div>
+          </div>
+
+          <p style="margin-top:1.75rem"><strong>NVMe + Hybrid Storage Strategy.</strong>&nbsp; Every Raider ships with a 256 GB NVMe boot drive &mdash; <span class="hlg">PCIe 3.0 x4 speed, 3&ndash;5&times; faster than a SATA SSD</span> &mdash; plus a 500 GB secondary HDD for game libraries, documents, and bulk storage.&nbsp; On eligible Skylake/Kaby Lake boards, the secondary slot can pair with an <strong>Intel Optane</strong> cache module that accelerates the mechanical drive to near-SSD speeds.&nbsp; OEMs ship a single drive at this price.&nbsp; We ship a tiered storage strategy.</p>
+
+          <p style="margin-top:1.25rem"><strong>WiFi 6 Floor.</strong>&nbsp; WiFi 5 (the 802.11ac standard) was state-of-the-art in 2014.&nbsp; It&rsquo;s still shipping in new $800 gaming desktops in 2026.&nbsp; WiFi 6 (802.11ax) is faster, lower-latency, and crucially better at handling the crowded 2.4/5 GHz spectrum in a modern home with dozens of connected devices.</p>
+
+          <div class="wifi-compare">
+            <div class="wifi-col old">
+              <div class="wifi-head">WiFi 5 &middot; What OEMs ship</div>
+              <div class="wifi-stat">~867 Mbps peak</div>
+              <div class="wifi-note">Single-user at a time (SU-MIMO).&nbsp; Congestion-prone in crowded homes.&nbsp; 2014 technology.</div>
+            </div>
+            <div class="wifi-col new">
+              <div class="wifi-head">WiFi 6 &middot; What we ship</div>
+              <div class="wifi-stat">~1.2 Gbps peak</div>
+              <div class="wifi-note">Multi-user simultaneously (MU-MIMO + OFDMA).&nbsp; Designed for 2020+ home network density.&nbsp; Actually useful.</div>
+            </div>
+          </div>
+
+          <p style="margin-top:1.25rem"><strong>RR Turbo 11 Pro.</strong>&nbsp; Our hand-built Windows 11 image.&nbsp; Teams, Edge, Copilot, Recall, and all background telemetry removed at the ISO level before the OS ever touches the drive.&nbsp; Idle RAM use drops from ~6.5 GB on stock Windows to ~3.2 GB on RR Turbo.&nbsp; Background process count drops by roughly 25%.&nbsp; We learned this building gaming experiences for 4 GB budget laptops from 2020 &mdash; if you can make those feel new, you can make a desktop scream.</p>
+
+          <div class="mini-callout c">
+            <strong>RR Turbo v6 is open source.</strong>&nbsp; Published on GitHub under the MIT license so any refurbisher, nonprofit, or individual can use, modify, and deploy it.&nbsp; <a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener">github.com/IncRevolt/R-R-Turbo &rarr;</a>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</div>
+
+<!-- SIGNATURE TOUCHES (cooling + lighting) -->
+<section>
+  <div class="sec-label">Our Signature Touches</div>
+  <h2 class="sec-title">The details you feel, even when you don&rsquo;t see them.</h2>
+  <p class="sec-body">Two more places where we spend the engineering time an OEM won&rsquo;t.&nbsp; Both live on their own pages because each has its own story worth telling.</p>
+
+  <div class="sig-grid">
+    <a href="cooling.html" class="sig-card">
+      <div class="sig-label">Thermals</div>
+      <div class="sig-title">Positive Pressure &amp; Tuned Case Cooling</div>
+      <div class="sig-desc">Fan curves engineered per platform.&nbsp; Positive-pressure airflow so dust goes where we want it.&nbsp; Thermalright cooling on every CPU.&nbsp; The quiet you hear is the engineering you didn&rsquo;t have to do.</div>
+      <div class="sig-cta">Read the thermals story &rarr;</div>
+    </a>
+    <a href="lighting.html" class="sig-card">
+      <div class="sig-label">Lighting</div>
+      <div class="sig-title">Open-Source, Controllable ARGB</div>
+      <div class="sig-desc">Every Raider ships with ARGB lighting configured before the box leaves.&nbsp; Nothing proprietary.&nbsp; Nothing cloud-locked.&nbsp; Your computer.&nbsp; Your colors.&nbsp; Your rules.</div>
+      <div class="sig-cta">Read the lighting story &rarr;</div>
+    </a>
+  </div>
+</section>
+
+<!-- HEAD TO HEAD vs VICTUS -->
+<div class="dark-section">
+  <div class="dark-inner">
+    <div class="sec-label">Head to Head</div>
+    <h2 class="sec-title">OEMs design to a spec sheet.&nbsp; <span class="accent-g">We engineer to a result.</span></h2>
+    <p class="sec-body">The <a href="https://www.hp.com/us-en/shop/mdp/victus-by-hp-15l-gaming-desktop" target="_blank" rel="noopener" style="color:var(--purple)">HP Victus 15L</a> is the gaming desktop HP recommends to first-time buyers.&nbsp; The base $779 configuration ships with 8&nbsp;GB of RAM &mdash; which isn&rsquo;t enough for modern gaming.&nbsp; That&rsquo;s not a fair fight.&nbsp; So we&rsquo;re comparing against the <strong style="color:var(--green)">$899 configuration</strong> &mdash; same machine, bumped to 16&nbsp;GB.&nbsp; The Raider still wins.</p>
+
+    <div class="comp-grid">
+      <div class="comp-row head"><div>Specification</div><div class="us">Raider</div><div class="them">HP Victus 15L (16 GB)</div></div>
+      <div class="comp-row"><div class="comp-label">Price</div><div class="comp-us">$399</div><div class="comp-them">$899</div></div>
+      <div class="comp-row"><div class="comp-label">CPU</div><div class="comp-us">Intel 4-core quad (4th&ndash;8th gen)<span class="note">3.4+ GHz base / 3.8+ GHz turbo</span></div><div class="comp-them">Ryzen 5 5600G<span class="note">6C/12T &middot; 4.4 GHz</span></div></div>
+      <div class="comp-row"><div class="comp-label">Memory</div><div class="comp-us">16 GB DDR3 or DDR4<span class="note">Matched &mdash; for $500 less</span></div><div class="comp-them">16 GB DDR4-3200<span class="note">Required upgrade from 8 GB base</span></div></div>
+      <div class="comp-row"><div class="comp-label">GPU</div><div class="comp-us">Hand-tuned Polaris class<span class="note">Full PCIe 3.0 x16 &mdash; 4&times; the bus width</span></div><div class="comp-them">RX 6400 4GB<span class="note">Same VRAM, crippled x4 bus</span></div></div>
+      <div class="comp-row"><div class="comp-label">Storage</div><div class="comp-us">256GB NVMe + 500GB secondary</div><div class="comp-them">256GB NVMe (no secondary)</div></div>
+      <div class="comp-row"><div class="comp-label">Power Supply</div><div class="comp-us">Multi-rail OEM<span class="note">Upgrade headroom &middot; 6-pin PCIe capable</span></div><div class="comp-them">310W proprietary single-rail<span class="note">No headroom for GPU upgrades</span></div></div>
+      <div class="comp-row"><div class="comp-label">WiFi</div><div class="comp-us">WiFi 6<span class="note">2020+ technology</span></div><div class="comp-them">WiFi 5 (some configs)<span class="note">2014 technology</span></div></div>
+      <div class="comp-row"><div class="comp-label">Operating System</div><div class="comp-us">Win 11 Pro [RR Turbo] + Office 2019 Pro+</div><div class="comp-them">Win 11 Home (no Office)</div></div>
+      <div class="comp-row"><div class="comp-label">Subscriptions</div><div class="comp-us">Zero</div><div class="comp-them">Microsoft 365 &mdash; $70/yr</div></div>
+      <div class="comp-row"><div class="comp-label">Fortnite 1080p Medium</div><div class="comp-us">60&ndash;80 FPS</div><div class="comp-them">50&ndash;65 FPS</div></div>
+    </div>
+
+    <div class="callout g">
+      <p>The Victus has more CPU cores.&nbsp; The Raider has <span class="hlg">four times the GPU bus width, a multi-rail PSU with upgrade headroom, WiFi 6, and Office 2019 Pro+ included</span>.&nbsp; Memory is a wash &mdash; both at 16&nbsp;GB.&nbsp; In the benchmark that matters &mdash; Fortnite at 1080p medium &mdash; the Raider wins.&nbsp; <strong>For $500 less.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- UPGRADE PATH -->
+<div class="dark-section">
+  <div class="dark-inner">
+    <div class="sec-label">Your Upgrade Path</div>
+    <h2 class="sec-title">You own this.&nbsp; You decide when it grows.</h2>
+    <p class="sec-body">The Raider ships with a multi-rail OEM power supply and cable engineering we&rsquo;ve already solved.&nbsp; Your next GPU is a fifteen-minute swap &mdash; not a project.&nbsp; Here&rsquo;s the path, mapped through 2030.</p>
+
+    <div class="upg-grid">
+      <div class="upg-row head"><div>Window</div><div>GPU</div><div>Est. Cost</div><div>Fortnite 1080p</div></div>
+      <div class="upg-row"><div class="upg-when">Today</div><div class="upg-gpu">RX 470 4GB hand-tuned (included) &mdash; or RX 570 4GB, GTX 1060 3GB, GTX 1650</div><div class="upg-price">$0</div><div class="upg-fps">60&ndash;80 FPS</div></div>
+      <div class="upg-row"><div class="upg-when">2027</div><div class="upg-gpu">RX 6600 / RTX 3050 8GB</div><div class="upg-price">$110&ndash;$150</div><div class="upg-fps">110&ndash;130 FPS</div></div>
+      <div class="upg-row"><div class="upg-when">2029</div><div class="upg-gpu">Arc B580 12GB / RX 7600</div><div class="upg-price">$150&ndash;$220</div><div class="upg-fps">130&ndash;150 FPS</div></div>
+      <div class="upg-row"><div class="upg-when">2030</div><div class="upg-gpu">Next-gen used mid-range</div><div class="upg-price">$200&ndash;$280</div><div class="upg-fps">150+ FPS</div></div>
+    </div>
+
+    <div class="callout">
+      <p>The Victus upgrade path stops at the RX 6500 XT unless you find <span class="hl">HP&rsquo;s specific 500W proprietary PSU on eBay</span> for $80&ndash;$200.&nbsp; The Raider upgrade path is one GPU, any brand, any size &mdash; <strong>plug and play, for the next ten years</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE PANEL -->
+<section>
+  <div class="sec-label-green">The Full Configuration</div>
+  <h2 class="sec-title">What $399 buys.&nbsp; What $899 doesn&rsquo;t.</h2>
+
+  <div class="price-grid">
+    <div class="price-col ours">
+      <div class="price-tag g">Renewable Revolt Raider</div>
+      <div class="price-amount g">$399</div>
+      <ul class="price-specs">
+        <li><strong>Intel 4-core quad</strong> &mdash; <span class="g">4th&ndash;8th gen, 3.8+ GHz turbo</span></li>
+        <li><strong>16 GB DDR3 or DDR4</strong> &mdash; matched to platform</li>
+        <li><strong>Hand-tuned gaming GPU</strong> &mdash; <span class="g">full PCIe x16 bus</span></li>
+        <li><strong>256 GB NVMe + 500 GB secondary</strong></li>
+        <li><strong>Multi-rail OEM PSU</strong> &mdash; <span class="g">upgrade-ready</span></li>
+        <li><strong>WiFi 6 / Bluetooth 5.2</strong></li>
+        <li><strong>RR Turbo 11 Pro</strong> &mdash; <span class="g">debloated Windows</span></li>
+        <li><strong>Office 2019 Pro+</strong> &mdash; <span class="g">yours forever</span></li>
+        <li><strong>60&ndash;80 FPS Fortnite 1080p medium</strong></li>
+      </ul>
+      <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="btn-g" style="margin-top:1.5rem">Order on eBay &rarr;</a>
+    </div>
+    <div class="price-col theirs">
+      <div class="price-tag r">HP Victus 15L (16 GB)</div>
+      <div class="price-amount r">$899</div>
+      <ul class="price-specs">
+        <li>Ryzen 5 5600G &mdash; <span class="r">consumer APU</span></li>
+        <li>16 GB DDR4-3200 &mdash; <span class="r">required upgrade from 8 GB base</span></li>
+        <li>RX 6400 4GB &mdash; <span class="r">laptop chip in desktop</span></li>
+        <li>256 GB NVMe only &mdash; <span class="r">no secondary drive</span></li>
+        <li>310W proprietary PSU &mdash; <span class="r">upgrades blocked</span></li>
+        <li>WiFi 5 or 6 depending on config</li>
+        <li>Win 11 Home &mdash; <span class="r">telemetry on</span></li>
+        <li>No Office &mdash; <span class="r">$70/yr subscription</span></li>
+        <li>50&ndash;65 FPS Fortnite 1080p medium</li>
+      </ul>
+      <div style="font-family:var(--mono);font-size:.6rem;color:var(--dim);margin-top:1.5rem;letter-spacing:.08em">Source: hp.com current configuration</div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE STEPS -->
+<div class="dark-section">
+  <div class="dark-inner">
+    <div class="sec-label-green">How You Get There</div>
+    <h2 class="sec-title">Three steps.&nbsp; <span class="accent-g">Ten years.</span></h2>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Order your Raider</div>
+        <p class="step-p">Find us on eBay, message directly, or reach out through renewablerevolt.org.&nbsp; Every Raider ships benchmarked, tuned, and ready to boot.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Play. Work. Create.</div>
+        <p class="step-p">Fortnite.&nbsp; Minecraft.&nbsp; Valorant.&nbsp; Office for homework.&nbsp; 4K streaming.&nbsp; Photo editing.&nbsp; Discord with your friends.&nbsp; No subscription.&nbsp; No ecosystem trap.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Grow it when you&rsquo;re ready</div>
+        <p class="step-p">More RAM when you need it.&nbsp; A faster GPU in 2028?&nbsp; Drop one in &mdash; any brand, any size.&nbsp; This machine was built to be grown, not replaced.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1rem;margin-top:3rem;flex-wrap:wrap">
+      <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="btn-g">Shop Raider on eBay &rarr;</a>
+      <a href="index.html#revenant" class="btn-s">See the Full Revenant Series &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION FOOTER -->
+<section style="text-align:center;max-width:720px">
+  <div class="sec-label-green" style="text-align:center">The Bigger Picture</div>
+  <h2 class="sec-title">You bought a gaming PC.&nbsp; You also <span class="accent-g">kept a landfill empty.</span></h2>
+  <p class="sec-body" style="margin-left:auto;margin-right:auto">Renewable Revolt is a 501(c)(3) nonprofit.&nbsp; Every Raider diverts a full business desktop from the landfill and puts it back to work &mdash; that&rsquo;s real recycling.&nbsp; <strong style="color:var(--green)">The smart choice for your wallet is also the smart choice for the planet.</strong></p>
+  <div style="margin-top:2rem"><a href="mission.html" class="btn-s">Read the mission &rarr;</a></div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <div class="foot-brand">RENEWABLE <span>REVOLT</span></div>
+      <div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER &middot; REVIVE &middot; REDEPLOY</div>
+    </div>
+    <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; eBay Charity ID: 391538<br>Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+  </div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" target="_blank" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555">Interserver</a></div>
+</footer>
+
+<script>
+var fi = document.querySelectorAll('section, .dark-section, .comp-grid, .choice-grid, .platform-strip, .ac-stack, .sig-grid, .tco-grid, .upg-grid, .steps-grid, .price-grid, .promise-wrap');
+fi.forEach(function(el){ el.classList.add('fi'); });
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vis'); } });
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+fi.forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
