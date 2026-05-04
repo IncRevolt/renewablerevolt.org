@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renewable Revolt &mdash; The Showdown</title>
+<meta name="description" content="Renewable Revolt vs Mac Mini M4 Pro, Xbox, PlayStation, new OEMs, and eBay gaming PCs.  Three Revolt builds against the field.  Ten categories.  One honest scoreboard.  Read the fine print.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;
+  --purple:#8b5cf6;--royal:#7c3aed;--plum:#a855f7;
+  --green:#00e676;--cyan:#00E5FF;--amber:#ffab00;--red:#ff4444;
+  --mac:#e65100;--console:#0ea5e9;
+  --text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;
+  --mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--cyan);color:var(--black)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-title span{color:var(--purple)}
+.sec-body{font-size:1rem;color:var(--muted);max-width:720px;line-height:1.75;margin-bottom:1rem}
+.sec-body span{color:var(--text);font-weight:600}
+
+/* HERO */
+.c-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.c-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.c-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.09) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.c-hero-content{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.c-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.c-hero h1 span{color:var(--purple);display:block}
+.c-hero-sub{font-size:clamp(1rem,1.8vw,1.1rem);color:var(--muted);max-width:620px;line-height:1.75;margin-bottom:2rem}
+
+/* CALLOUTS */
+.callout{background:var(--surface);border-left:3px solid var(--purple);padding:1.2rem 1.5rem;border-radius:0 4px 4px 0;margin:1.5rem 0}
+.callout p{font-size:.92rem;color:var(--muted);line-height:1.7}
+.callout p span{color:var(--text);font-weight:700}
+.callout-green{border-left-color:var(--green)}
+.callout-red{border-left-color:var(--red)}
+.callout-amber{border-left-color:var(--amber)}
+.callout-mac{border-left-color:var(--mac)}
+.callout-console{border-left-color:var(--console)}
+
+/* COLLAPSIBLE CARDS (shared pattern from Mac Attack + index) */
+.acc{border:1px solid var(--border);border-radius:4px;margin-bottom:.75rem;overflow:hidden;background:var(--surface)}
+.acc-trigger{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.4rem;cursor:pointer;background:var(--surface);transition:background .2s;gap:1rem}
+.acc-trigger:hover{background:var(--surface2)}
+.acc-title{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:-.01em;color:var(--text);line-height:1.2}
+.acc-tag{font-family:var(--mono);font-size:.55rem;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;margin-top:.25rem;display:block}
+.acc-preview{font-family:var(--mono);font-size:.6rem;color:var(--dim);text-align:right;line-height:1.4;letter-spacing:.04em;display:flex;align-items:center;gap:.9rem}
+.acc-preview .pw{font-family:var(--disp);font-size:.95rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
+.acc-preview .pw.rr{color:var(--green)}
+.acc-preview .pw.mac{color:var(--mac)}
+.acc-preview .pw.console{color:var(--console)}
+.acc-preview .pw.red{color:var(--red)}
+.acc-preview .pw.amber{color:var(--amber)}
+.acc-preview .pw.purple{color:var(--purple)}
+.chevron{color:var(--dim);font-size:1.1rem;transition:transform .2s;display:inline-block}
+.acc-trigger.open .chevron{transform:rotate(180deg)}
+.acc-trigger.open .acc-preview{display:none}
+.acc-body{display:none;padding:1.4rem;border-top:1px solid var(--border);background:var(--surface2)}
+.acc-body.open{display:block}
+.acc-body p{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:.9rem}
+.acc-body p:last-child{margin-bottom:0}
+.acc-body p span{color:var(--text);font-weight:600}
+.acc-body p span.g{color:var(--green)}
+.acc-body p span.r{color:#ff8888}
+.acc-body p span.m{color:var(--mac)}
+.acc-body p span.c{color:var(--console)}
+.acc-body ul{list-style:none;padding:0;margin:.5rem 0}
+.acc-body li{font-family:var(--mono);font-size:.7rem;color:var(--muted);line-height:1.85;padding-left:1rem;position:relative}
+.acc-body li::before{content:'\2023';color:var(--purple);position:absolute;left:0;font-size:1.1rem;line-height:1}
+
+/* Ranking bar chart (Mac Attack style) */
+.rank-chart{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.5rem;margin:1.5rem 0}
+.rank-title{font-family:var(--mono);font-size:.62rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:1.25rem}
+.rank-row{display:flex;align-items:center;gap:0;margin-bottom:.55rem}
+.rank-label{width:230px;min-width:230px;font-family:var(--mono);font-size:.62rem;color:var(--muted);line-height:1.3;padding-right:.8rem}
+.rank-label .sp{font-weight:700;display:block;color:var(--text);font-size:.7rem;letter-spacing:-.01em}
+.rank-label .sb{font-size:.55rem;color:var(--dim);margin-top:.1rem;display:block}
+.rank-track{flex:1;height:32px;background:var(--black);border-radius:2px;overflow:visible;position:relative}
+.rank-fill{height:100%;border-radius:2px;display:flex;align-items:center;padding-left:10px;font-family:var(--disp);font-size:.9rem;font-weight:800;transition:width .8s ease;min-width:52px;color:#fff}
+.rank-fill.rr{background:linear-gradient(90deg,rgba(139,92,246,.4),rgba(139,92,246,.7))}
+.rank-fill.rr-top{background:linear-gradient(90deg,rgba(0,230,118,.35),rgba(0,230,118,.65));color:var(--text)}
+.rank-fill.mac{background:linear-gradient(90deg,rgba(230,81,0,.25),rgba(230,81,0,.5));color:var(--mac)}
+.rank-fill.console{background:linear-gradient(90deg,rgba(14,165,233,.3),rgba(14,165,233,.55));color:#fff}
+.rank-fill.oem{background:linear-gradient(90deg,rgba(255,68,68,.3),rgba(255,68,68,.55));color:#fff}
+.rank-fill.amber{background:linear-gradient(90deg,rgba(255,171,0,.3),rgba(255,171,0,.5));color:var(--amber)}
+.ppd{font-family:var(--mono);font-size:.55rem;color:var(--dim);margin-left:auto;padding-right:10px;align-self:center}
+.rank-foot{font-family:var(--mono);font-size:.55rem;color:var(--dim);margin-top:1.25rem;letter-spacing:.04em;line-height:1.7}
+
+/* Inner bar charts inside category cards */
+.bar-row{display:flex;align-items:center;gap:0;margin-bottom:.4rem}
+.bar-label{width:200px;min-width:200px;font-family:var(--mono);font-size:.58rem;color:var(--muted);line-height:1.3;padding-right:.7rem}
+.bar-label .sp{display:block;font-weight:700;color:var(--text);font-size:.65rem}
+.bar-label .sp.rr{color:var(--green)}
+.bar-label .sp.mac{color:var(--mac)}
+.bar-label .sp.console{color:var(--console)}
+.bar-label .sp.red{color:var(--red)}
+.bar-label .sp.amber{color:var(--amber)}
+.bar-track{flex:1;height:26px;background:var(--black);border-radius:2px;overflow:visible;position:relative}
+.bar-fill{height:100%;border-radius:2px;display:flex;align-items:center;padding-left:8px;font-family:var(--mono);font-size:.6rem;font-weight:700;transition:width .8s ease;min-width:40px;color:#fff}
+.bar-fill.rr{background:linear-gradient(90deg,rgba(139,92,246,.4),rgba(139,92,246,.65))}
+.bar-fill.rr-top{background:linear-gradient(90deg,rgba(0,230,118,.35),rgba(0,230,118,.6));color:var(--text)}
+.bar-fill.mac{background:linear-gradient(90deg,rgba(230,81,0,.25),rgba(230,81,0,.5));color:var(--mac)}
+.bar-fill.console{background:linear-gradient(90deg,rgba(14,165,233,.3),rgba(14,165,233,.5));color:#fff}
+.bar-fill.oem{background:linear-gradient(90deg,rgba(255,68,68,.3),rgba(255,68,68,.55));color:#fff}
+.bar-fill.amber{background:linear-gradient(90deg,rgba(255,171,0,.3),rgba(255,171,0,.5));color:var(--amber)}
+.bar-fill.zero{background:repeating-linear-gradient(45deg,rgba(255,68,68,.18),rgba(255,68,68,.18) 6px,transparent 6px,transparent 12px);color:var(--red);border:1px dashed rgba(255,68,68,.4);font-size:.55rem}
+.chart-title{font-family:var(--mono);font-size:.58rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin:1rem 0 .75rem;padding-top:.5rem;border-top:1px solid var(--border)}
+.chart-title:first-of-type{border-top:none;padding-top:0;margin-top:0}
+
+/* Stacked segmented bars (for RAM availability visualization) */
+.seg-row{display:flex;align-items:center;gap:0;margin-bottom:.5rem}
+.seg-label{width:200px;min-width:200px;font-family:var(--mono);font-size:.58rem;color:var(--muted);line-height:1.3;padding-right:.7rem}
+.seg-label .sp{display:block;font-weight:700;color:var(--text);font-size:.65rem}
+.seg-label .sp.rr{color:var(--green)}
+.seg-label .sp.mac{color:var(--mac)}
+.seg-label .sp.console{color:var(--console)}
+.seg-label .sp.red{color:var(--red)}
+.seg-label .sp.amber{color:var(--amber)}
+.seg-track{flex:1;height:26px;background:var(--black);border-radius:2px;overflow:hidden;display:flex;position:relative}
+.seg-os{background:repeating-linear-gradient(45deg,rgba(255,68,68,.25),rgba(255,68,68,.25) 4px,rgba(255,68,68,.1) 4px,rgba(255,68,68,.1) 8px);font-family:var(--mono);font-size:.52rem;color:var(--red);display:flex;align-items:center;padding-left:6px;font-weight:700}
+.seg-gpu{background:repeating-linear-gradient(45deg,rgba(230,81,0,.25),rgba(230,81,0,.25) 4px,rgba(230,81,0,.1) 4px,rgba(230,81,0,.1) 8px);font-family:var(--mono);font-size:.52rem;color:var(--mac);display:flex;align-items:center;padding-left:6px;font-weight:700}
+.seg-free{background:linear-gradient(90deg,rgba(0,230,118,.25),rgba(0,230,118,.45));font-family:var(--mono);font-size:.6rem;color:#fff;font-weight:700;display:flex;align-items:center;padding-left:6px}
+.seg-legend{font-family:var(--mono);font-size:.52rem;color:var(--dim);margin-top:.6rem;display:flex;gap:1.25rem;flex-wrap:wrap;letter-spacing:.04em}
+.seg-legend span{display:flex;align-items:center;gap:.35rem}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px}
+.sw-os{background:repeating-linear-gradient(45deg,rgba(255,68,68,.25),rgba(255,68,68,.25) 2px,rgba(255,68,68,.1) 2px,rgba(255,68,68,.1) 4px)}
+.sw-gpu{background:repeating-linear-gradient(45deg,rgba(230,81,0,.25),rgba(230,81,0,.25) 2px,rgba(230,81,0,.1) 2px,rgba(230,81,0,.1) 4px)}
+.sw-free{background:linear-gradient(90deg,rgba(0,230,118,.25),rgba(0,230,118,.45))}
+
+/* Dual-bar sub-metric (for CPU card: P-cores + single-core both in one) */
+.dual-note{font-family:var(--mono);font-size:.58rem;color:var(--purple);letter-spacing:.1em;text-transform:uppercase;margin:1.25rem 0 .6rem}
+.dual-note:first-of-type{margin-top:0}
+
+/* TCO table / grid */
+.tco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:1rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.tco-col{background:var(--surface);padding:1.1rem;display:flex;flex-direction:column;gap:.4rem}
+.tco-col.win{background:#0a1409}
+.tco-eyebrow{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.tco-eyebrow.g{color:var(--green)}
+.tco-eyebrow.r{color:#ff8888}
+.tco-eyebrow.m{color:var(--mac)}
+.tco-eyebrow.c{color:var(--console)}
+.tco-eyebrow.a{color:var(--amber)}
+.tco-price{font-family:var(--disp);font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.tco-price.g{color:var(--green)}
+.tco-price.r{color:#ff8888}
+.tco-price.m{color:var(--mac)}
+.tco-price.c{color:var(--console)}
+.tco-price.a{color:var(--amber)}
+.tco-row{font-family:var(--mono);font-size:.62rem;color:var(--muted);line-height:1.6;padding:.15rem 0;border-top:1px dashed rgba(139,92,246,.12)}
+.tco-row:first-of-type{border-top:none;padding-top:0}
+.tco-total{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-top:.5rem;padding-top:.5rem;border-top:2px solid var(--border)}
+.tco-total.g{color:var(--green)}
+.tco-total.r{color:#ff8888}
+.tco-total.m{color:var(--mac)}
+.tco-total.c{color:var(--console)}
+.tco-total.a{color:var(--amber)}
+
+/* Contender intro spec block */
+.spec-grid{display:grid;grid-template-columns:140px 1fr;gap:.4rem .9rem;font-family:var(--mono);font-size:.65rem;margin:.75rem 0}
+.spec-k{color:var(--dim);letter-spacing:.04em}
+.spec-v{color:var(--muted)}
+.spec-v.g{color:var(--green)}
+.spec-v.r{color:#ff8888}
+.spec-v.m{color:var(--mac)}
+
+/* Verdict inline badge */
+.verdict{background:var(--surface);border:1px solid var(--green);border-left:3px solid var(--green);padding:.9rem 1.2rem;border-radius:0 4px 4px 0;margin:1rem 0 0}
+.verdict p{font-size:.85rem;color:var(--text);line-height:1.65;font-family:var(--sans)}
+.verdict p strong{color:var(--green)}
+.verdict.amber{border-color:var(--amber);border-left-color:var(--amber)}
+.verdict.amber p strong{color:var(--amber)}
+.verdict.red{border-color:var(--red);border-left-color:var(--red)}
+.verdict.red p strong{color:var(--red)}
+.verdict.mac{border-color:var(--mac);border-left-color:var(--mac)}
+.verdict.mac p strong{color:var(--mac)}
+
+/* Utility callouts: attack zinger in bold purple, subscription $ in orange */
+.zing{color:var(--purple)!important;font-weight:700}
+.sub{color:#ff8c1a!important;font-weight:700}
+
+/* Final CTA */
+.final-cta{text-align:center;padding:5rem 2rem;max-width:780px;margin:0 auto}
+.final-cta h2{font-family:var(--disp);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.08}
+.final-cta h2 .accent{color:var(--purple)}
+.final-cta p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:2rem}
+.final-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.final-links a{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 1.4rem;text-decoration:none;border:1px solid var(--purple);color:var(--purple);transition:all .2s;border-radius:2px}
+.final-links a:hover{background:var(--purple);color:#fff}
+.final-links a.primary{background:var(--purple);color:#fff}
+.final-links a.primary:hover{background:var(--royal);border-color:var(--royal)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;background:#050609}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.foot-brand{font-family:var(--disp);font-weight:800;font-size:1rem}
+.foot-brand span{color:var(--purple)}
+.foot-tag{font-family:var(--mono);font-size:.55rem;color:var(--dim);letter-spacing:.12em;margin-top:.3rem}
+.foot-meta{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:1.8;margin-top:1rem}
+.foot-links{display:flex;flex-direction:column;gap:.4rem;align-items:flex-end}
+.foot-links a{font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.05em;text-decoration:none}
+.foot-links a:hover{color:var(--purple)}
+.foot-pages{max-width:1100px;margin:2.5rem auto 0;display:flex;gap:.5rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
+.fp{flex:1;min-width:180px;display:flex;flex-direction:column;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);text-decoration:none;transition:all .2s;border-radius:2px}
+.fp:hover{border-color:var(--purple);background:var(--surface2)}
+.fp-l{font-family:var(--disp);font-weight:800;font-size:.95rem;color:var(--text)}
+.fp-n{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.04em;margin-top:.25rem}
+
+/* Fade in */
+.fi{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.fi.vis{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section{padding:3.5rem 1.25rem}
+  .c-hero{padding:6rem 1.25rem 3rem}
+  .foot-in{grid-template-columns:1fr}
+  .foot-links{align-items:flex-start}
+  .foot-pages{flex-direction:column}
+  .rank-label,.bar-label,.seg-label{width:130px;min-width:130px;font-size:.52rem}
+  .rank-label .sp,.bar-label .sp,.seg-label .sp{font-size:.58rem}
+  .rank-fill{font-size:.72rem}
+  .bar-fill,.seg-free,.seg-os,.seg-gpu{font-size:.52rem}
+  .ppd{font-size:.5rem;padding-right:6px}
+  .tco-grid{grid-template-columns:1fr 1fr}
+  .spec-grid{grid-template-columns:110px 1fr;font-size:.58rem}
+  .acc-trigger{padding:.9rem 1rem}
+  .acc-title{font-size:1rem}
+  .acc-preview{font-size:.52rem}
+  .acc-preview .pw{font-size:.8rem}
+  .acc-body{padding:1.1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="index.html" class="logo">RENEWABLE<span> REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Lineup</a></li>
+    <li><a href="revive.html">Revive</a></li>
+    <li><a href="recover.html">Recover</a></li>
+    <li><a href="compare.html" style="color:var(--purple)">Showdown</a></li>
+    <li><a href="Mac_Attack.html">Mac Attack</a></li>
+    <li><a href="mission.html">Mission</a></li>
+  </ul>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="nav-cta">Shop eBay</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Lineup</a>
+  <a href="revive.html">Revive &mdash; Build &amp; R&amp;D</a>
+  <a href="recover.html">Recover &mdash; Circular Economy</a>
+  <a href="compare.html" style="color:var(--purple)">Showdown</a>
+  <a href="Mac_Attack.html">Mac Attack</a>
+  <a href="mission.html">Mission</a>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop on eBay</a>
+</div>
+
+<!-- ===== HERO (OLD SPEC SHEET OPENER) ===== -->
+<div class="c-hero">
+  <div class="c-hero-grid"></div>
+  <div class="c-hero-glow"></div>
+  <div class="c-hero-content">
+    <div class="sec-label">The Showdown</div>
+    <h1>The spec sheet says one thing.<span>Your experience says another.</span></h1>
+    <p class="c-hero-sub">You&rsquo;ve been taught to buy the newest chip and the flashiest GPU.&nbsp; But the machine you game on doesn&rsquo;t care about launch dates.&nbsp; It cares about balance.&nbsp; Real FPS.&nbsp; Real titles.&nbsp; Real prices.&nbsp; And an honest scoreboard against everything else you could spend your money on.</p>
+  </div>
+</div>
+
+<section style="padding:1rem 2rem 0;max-width:1100px;margin:0 auto">
+  <div class="callout callout-green">
+    <p><span>Looking for content creation?</span>&nbsp; We built a dedicated comparison against the Mac Studio for Blender, Resolve, Premiere, and more.&nbsp; <a href="Mac_Attack.html" style="color:var(--green);font-weight:700">See the Mac Attack &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ===== BALANCE PRINCIPLE ===== -->
+<section class="fi">
+  <div class="sec-label">The Principle</div>
+  <h2 class="sec-title">Balance Beats Headlines.</h2>
+  <p class="sec-body" style="margin-bottom:2rem">A gaming PC is a system, not a collection of parts.&nbsp; The fastest GPU in the world can&rsquo;t outrun a RAM bottleneck, a thermal throttle, or an OS that&rsquo;s using 4GB of memory before you launch anything.&nbsp; Every Revolt build is engineered for balance&mdash;the CPU, GPU, RAM, cooling, and software are matched to each other.&nbsp; Tap each card below to see what &ldquo;balanced&rdquo; actually means.</p>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#9889;&nbsp; RAM feeds the GPU.</div>
+        <span class="acc-tag">Memory Bandwidth &middot; Dual vs. Quad Channel</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">Dual is the floor</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Single-channel DDR5-6000 at 48 GB/s starves an RTX 5060.&nbsp; The GPU renders frames faster than the memory subsystem can feed it&mdash;so frames drop, textures pop in late, and the spec sheet you paid for evaporates.&nbsp; Revolt&rsquo;s quad-channel X99 builds deliver <span class="g">68.3 to 85.3 GB/s</span>, which is 42&ndash;78% more memory bandwidth than a $899 new OEM&mdash;at half the price.</p>
+      <p><span>Dual-channel is the floor.&nbsp; We start there and go up.</span>&nbsp; Every Revolt build above the Raider runs quad-channel ECC memory on a workstation-class platform.&nbsp; Not because it&rsquo;s trendy&mdash;because it&rsquo;s how the GPU actually gets fed.</p>
+    </div>
+  </div>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#127777;&#65039;&nbsp; Cooling sustains the clock.</div>
+        <span class="acc-tag">Thermal Headroom &middot; Throttling &middot; Noise</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">Thermalright standard</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>A CPU that boosts to 4.9 GHz for 3 seconds and then drops to 3.8 GHz because the stock cooler can&rsquo;t keep up is not a 4.9 GHz CPU.&nbsp; It&rsquo;s a 3.8 GHz CPU that lies on the spec sheet.&nbsp; Every Revolt build ships with Thermalright cooling&mdash;air or AIO, matched to the thermal envelope of the chip it&rsquo;s sitting on.</p>
+      <p>Apple admits the Mac Mini M4 Pro thermally throttles in sustained gaming loads&mdash;that&rsquo;s what <span class="m">&ldquo;Game Mode&rdquo;</span> is.&nbsp; A stock $899 OEM air cooler does the same thing.&nbsp; <span class="g">We don&rsquo;t ship throttled.</span></p>
+    </div>
+  </div>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#128736;&#65039;&nbsp; Software is half the machine.</div>
+        <span class="acc-tag">OS Overhead &middot; RR Turbo &middot; Office Included</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">~25% less bloat</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Windows 11 Home runs Copilot, Recall, Edge, Teams, and telemetry before you launch a single app.&nbsp; That&rsquo;s <span>3&ndash;4GB of RAM gone.</span>&nbsp; On a 16GB system, that&rsquo;s 20&ndash;25% of your memory consumed by software you didn&rsquo;t ask for and probably can&rsquo;t easily remove.</p>
+      <p><a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" style="color:var(--purple);font-weight:700">RR Turbo</a> removes it permanently&mdash;at the foundational level, before Windows ever touches the drive.&nbsp; Result: <span class="g">~25% fewer background processes</span> and <span class="g">~50% more available RAM headroom</span> on the same hardware.&nbsp; Every Revolt build also ships with <span>Office 2019 Professional Plus</span> preinstalled.&nbsp; No subscription.&nbsp; No trial expiration.&nbsp; No missing productivity suite.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== MEET THE CONTENDERS ===== -->
+<section class="fi" id="contenders">
+  <div class="sec-label">Meet the Contenders</div>
+  <h2 class="sec-title">Eight Machines.<span>One Honest Look at Each.</span></h2>
+  <p class="sec-body" style="margin-bottom:2rem">Before we score anything, let&rsquo;s introduce the field.&nbsp; Three Revolts, two consoles, two off-the-shelf PCs, and the one Apple Silicon box that&rsquo;s actually priced in the same conversation.&nbsp; Tap a card to see what it is and what it costs as advertised.&nbsp; The fine print comes later.</p>
+
+  <!-- 1. Mac Mini M4 Pro -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--mac)">Apple Mac Mini M4 Pro</div>
+        <span class="acc-tag">Apple Silicon &middot; macOS Sequoia &middot; Unified Memory</span>
+      </div>
+      <div class="acc-preview"><span class="pw mac">$1,399</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Apple&rsquo;s M4 Pro delivers the fastest single-core CPU performance on this page and a solid 273 GB/s of unified memory bandwidth.&nbsp; If you live in the Apple ecosystem, write code, edit photos, or run light creative workloads, it&rsquo;s genuinely excellent at being a Mac.&nbsp; <span class="zing">It games about as well as Private Pyle runs an obstacle course.</span></p>
+      <div class="spec-grid">
+        <div class="spec-k">Starting price</div><div class="spec-v m">$1,399 (12-core M4 Pro, 24GB, 512GB)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">M4 Pro &mdash; 8 performance + 4 efficiency cores</div>
+        <div class="spec-k">GPU</div><div class="spec-v">16-core integrated (no discrete option)</div>
+        <div class="spec-k">Memory</div><div class="spec-v">24GB unified LPDDR5X-8533</div>
+        <div class="spec-k">Bandwidth</div><div class="spec-v m">273 GB/s (256-bit bus)</div>
+        <div class="spec-k">Storage</div><div class="spec-v">512GB SSD</div>
+        <div class="spec-k">OS</div><div class="spec-v">macOS Sequoia</div>
+        <div class="spec-k">Productivity</div><div class="spec-v">Microsoft 365 sold separately (<span class="sub">$99</span>/yr)</div>
+        <div class="spec-k">Form factor</div><div class="spec-v">5&rdquo; &times; 5&rdquo; &times; 2&rdquo;, ~45W under load</div>
+        <div class="spec-k">Product page</div><div class="spec-v"><a href="https://www.apple.com/shop/buy-mac/mac-mini" target="_blank" rel="noopener" style="color:var(--mac)">apple.com/shop/buy-mac/mac-mini &rarr;</a></div>
+      </div>
+      <p>Positioned as the &ldquo;entry pro&rdquo; desktop for Apple.&nbsp; The Mac Mini M4 and M4 Pro are the only desktops Apple offers below $1,999.</p>
+    </div>
+  </div>
+
+  <!-- 2. Xbox Series X -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--console)">Xbox Series X</div>
+        <span class="acc-tag">AMD Custom SoC &middot; Game Pass Ecosystem</span>
+      </div>
+      <div class="acc-preview"><span class="pw console">$499 + subs</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="c">A purpose-built 4K gaming appliance with one of the best price-to-performance ratios on this list for the narrow thing it does.</span>&nbsp; The Xbox Series X runs an optimized closed OS, has no background bloat, and was engineered from day one to sustain full gaming load without thermal throttling.&nbsp; If all you want is to play console games on a TV, it&rsquo;s genuinely hard to beat.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Starting price</div><div class="spec-v c">$499 (base); $599&ndash;$699 (Pro variants)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">AMD Zen 2 &mdash; 8 cores / 16 threads @ 3.8 GHz</div>
+        <div class="spec-k">GPU</div><div class="spec-v">RDNA 2 &mdash; ~12 TFLOPS</div>
+        <div class="spec-k">Memory</div><div class="spec-v">16GB GDDR6 unified (10GB @ 560 GB/s, 6GB @ 336 GB/s)</div>
+        <div class="spec-k">Storage</div><div class="spec-v">1TB NVMe (proprietary expansion)</div>
+        <div class="spec-k">OS</div><div class="spec-v">Xbox OS &mdash; closed ecosystem</div>
+        <div class="spec-k">Online play</div><div class="spec-v r">Game Pass Core <span class="sub">$74.99</span>/yr required</div>
+        <div class="spec-k">Peripherals</div><div class="spec-v">Controller only (most titles)</div>
+        <div class="spec-k">Product page</div><div class="spec-v"><a href="https://www.xbox.com/en-US/consoles/xbox-series-x" target="_blank" rel="noopener" style="color:var(--console)">xbox.com &rarr;</a></div>
+      </div>
+      <p>Cannot run Office, a full browser, or general productivity software.&nbsp; Subscription required to play most games online.</p>
+    </div>
+  </div>
+
+  <!-- 3. PlayStation 5 -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--console)">Sony PlayStation 5</div>
+        <span class="acc-tag">AMD Custom SoC &middot; PlayStation Network</span>
+      </div>
+      <div class="acc-preview"><span class="pw console">$499 + subs</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="c">Sony&rsquo;s flagship gaming console and home to the best curated first-party library in the industry.</span>&nbsp; The PS5 is highly optimized, ships with liquid metal thermal interface material, and gives you access to exclusives you simply cannot play anywhere else.&nbsp; Like the Xbox, it does one thing and does it well.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Starting price</div><div class="spec-v c">$499 (Disc); $449 (Digital); $699 (Pro)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">AMD Zen 2 &mdash; 8 cores / 16 threads @ 3.5 GHz</div>
+        <div class="spec-k">GPU</div><div class="spec-v">RDNA 2 &mdash; 10.3 TFLOPS (Pro: ~16.7 TFLOPS)</div>
+        <div class="spec-k">Memory</div><div class="spec-v">16GB GDDR6 unified @ 448 GB/s</div>
+        <div class="spec-k">Storage</div><div class="spec-v">825GB NVMe (Gen4 SSD expansion slot)</div>
+        <div class="spec-k">OS</div><div class="spec-v">PlayStation OS &mdash; closed ecosystem</div>
+        <div class="spec-k">Online play</div><div class="spec-v r">PlayStation Plus Essential <span class="sub">$79.99</span>/yr required</div>
+        <div class="spec-k">Peripherals</div><div class="spec-v">DualSense controller (mouse/KB not supported in most games)</div>
+        <div class="spec-k">Product page</div><div class="spec-v"><a href="https://www.playstation.com/en-us/ps5/" target="_blank" rel="noopener" style="color:var(--console)">playstation.com/ps5 &rarr;</a></div>
+      </div>
+      <p>Same ecosystem constraints as Xbox.&nbsp; No productivity software, no standalone browser apps, no upgrade path beyond SSD.</p>
+    </div>
+  </div>
+
+  <!-- 4. Austin's PC Warehouse -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--amber)">Austin&rsquo;s PC Warehouse Special</div>
+        <span class="acc-tag">eBay Gaming PC &middot; i7-7700 &middot; GTX 1650</span>
+      </div>
+      <div class="acc-preview"><span class="pw amber">~$490</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span>This is a real machine.&nbsp; We&rsquo;re not calling it a scam.</span>&nbsp; At roughly $490 shipped, it&rsquo;s a legitimate used build with a real discrete GPU, a genuine quad-core i7, and an RGB case that looks the part.&nbsp; On paper, the specs tempt you.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Advertised price</div><div class="spec-v a">$450 + shipping (~$490 delivered)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">Intel i7-7700 &mdash; 4 cores / 8 threads @ 4.2 GHz boost (2017)</div>
+        <div class="spec-k">GPU</div><div class="spec-v">NVIDIA GTX 1650 &mdash; 4GB GDDR5</div>
+        <div class="spec-k">Memory</div><div class="spec-v">16GB DDR4 (channel config not specified)</div>
+        <div class="spec-k">Storage</div><div class="spec-v">512GB SATA SSD</div>
+        <div class="spec-k">Network</div><div class="spec-v">WiFi 5</div>
+        <div class="spec-k">OS</div><div class="spec-v">Windows 11 Home &mdash; stock install</div>
+        <div class="spec-k">Productivity</div><div class="spec-v r">Not included</div>
+        <div class="spec-k">Listing</div><div class="spec-v"><a href="https://ebay.us/m/jWxOyN" target="_blank" rel="noopener" style="color:var(--amber)">ebay.us/m/jWxOyN</a></div>
+      </div>
+      <p>Advertised as &ldquo;100+ FPS Gaming.&rdquo;&nbsp; We&rsquo;ll get to that.</p>
+    </div>
+  </div>
+
+  <!-- 5. $899 New OEM -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:#ff8888">$899 New OEM Gaming PC</div>
+        <span class="acc-tag">Best Buy / Costco / Amazon &middot; Ryzen + RTX 5060</span>
+      </div>
+      <div class="acc-preview"><span class="pw red">$899</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span>The bestselling &ldquo;gaming PC&rdquo; at every major retailer right now.</span>&nbsp; Typically an AMD Ryzen 5 or 7, an RTX 5060, 16GB of DDR5-6000, and an RGB tempered-glass case.&nbsp; On the spec sheet, it reads like a modern gaming machine.&nbsp; And at $899, it&rsquo;s genuinely priced to move.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Advertised price</div><div class="spec-v r">$899 (typical major-retailer SKU)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">AMD Ryzen 5 or Ryzen 7 (varies by SKU)</div>
+        <div class="spec-k">GPU</div><div class="spec-v">NVIDIA RTX 5060 &mdash; 8GB GDDR7</div>
+        <div class="spec-k">Memory</div><div class="spec-v r">16GB DDR5-6000 &mdash; single channel (1 DIMM)</div>
+        <div class="spec-k">Bandwidth</div><div class="spec-v r">48 GB/s (single channel)</div>
+        <div class="spec-k">Storage</div><div class="spec-v">512GB or 1TB NVMe</div>
+        <div class="spec-k">Cooling</div><div class="spec-v r">Stock air cooler</div>
+        <div class="spec-k">OS</div><div class="spec-v">Windows 11 Home &mdash; full bloatware + trial apps</div>
+        <div class="spec-k">Productivity</div><div class="spec-v r">Microsoft 365 &mdash; 30-day trial only</div>
+        <div class="spec-k">Typical listings</div><div class="spec-v"><a href="https://www.bestbuy.com/site/computers-pcs/gaming-desktops/pcmcat748301444775.c" target="_blank" rel="noopener" style="color:#ff8888">bestbuy.com/gaming-desktops &rarr;</a></div>
+      </div>
+      <p>Everything in that spec list is real.&nbsp; Most of what it doesn&rsquo;t say is where the problems are.&nbsp; <span class="zing">Hint &hellip; look at the balance.</span></p>
+    </div>
+  </div>
+
+  <!-- 6. Revolt Raider -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Revolt Raider</div>
+        <span class="acc-tag">Entry Gaming Build &middot; Console-Killer Price</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">$429</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">A real gaming PC for console money.</span>&nbsp; The Raider is our entry-level build: Intel Xeon E3 on LGA 1150, 16GB of dual-channel DDR3 ECC, a capable discrete GPU, Thermalright cooling, RR Turbo Windows 11, and Office 2019 Professional Plus preinstalled.&nbsp; No subscriptions.&nbsp; No trials.&nbsp; Full upgrade path.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Price</div><div class="spec-v g">$429 (no subscriptions, ever)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">Xeon E3-1241 v3 or better &mdash; 4C/8T, 3.9 GHz turbo, ECC (LGA 1150)</div>
+        <div class="spec-k">GPU</div><div class="spec-v">RX 470 4GB or better &mdash; hand-tuned, full PCIe x16</div>
+        <div class="spec-k">Memory</div><div class="spec-v g">16GB DDR3-1333 ECC or better, dual-channel (21.3&ndash;25.6 GB/s)</div>
+        <div class="spec-k">Storage</div><div class="spec-v g">256GB NVMe + 500GB HDD</div>
+        <div class="spec-k">Power</div><div class="spec-v g">Standard ATX 400W &mdash; any GPU upgrade plugs straight in</div>
+        <div class="spec-k">Cooling</div><div class="spec-v g">Thermalright air cooler</div>
+        <div class="spec-k">OS</div><div class="spec-v g">RR Turbo Windows 11 Pro &mdash; debloated at the foundational level</div>
+        <div class="spec-k">Productivity</div><div class="spec-v g">Office 2019 Professional Plus included</div>
+        <div class="spec-k">Upgrades</div><div class="spec-v g">RAM / GPU / SSD / CPU all user-serviceable &mdash; standard ATX throughout</div>
+        <div class="spec-k">Shop listing</div><div class="spec-v"><a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" style="color:var(--green)">Revolt store on eBay &rarr;</a></div>
+      </div>
+      <p>The direct answer to &ldquo;I have $429 and I want to game.&rdquo;&nbsp; Guaranteed 60+ FPS at 1080p medium, bench-verified on the exact hardware you receive before it ships.&nbsp; Want the quad-channel bandwidth story?&nbsp; See the Phantom below.</p>
+    </div>
+  </div>
+
+  <!-- 7. Revolt Phantom -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Revolt Phantom</div>
+        <span class="acc-tag">Unlocked Six-Core &middot; Quad-Channel Entry</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">$649</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">Extreme Edition silicon at entry-tier pricing.</span>&nbsp; The Phantom brings the Raider buyer the step up they ask about most: six unlocked cores, quad-channel memory, and the bandwidth headroom that separates a capable gaming PC from a balanced workstation.&nbsp; It slots neatly between $429 Raider and $799 Marauder&mdash;$220 more than the entry tier for double the cores and 40% more memory bandwidth, or $150 less than the Marauder if DDR4 and a GTX 1070 aren&rsquo;t on your must-have list.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Price</div><div class="spec-v g">$649 (no subscriptions, ever)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">Intel i7-3930K &mdash; 6 cores / 12 threads unlocked (X79 platform, 3.8 GHz turbo)</div>
+        <div class="spec-k">GPU</div><div class="spec-v">AMD Radeon RX 580 &mdash; 8GB GDDR5</div>
+        <div class="spec-k">Memory</div><div class="spec-v g">32GB DDR3-1333 quad-channel (42.6 GB/s)</div>
+        <div class="spec-k">Storage</div><div class="spec-v">NVMe + SATA</div>
+        <div class="spec-k">Cooling</div><div class="spec-v g">Thermalright air cooler</div>
+        <div class="spec-k">OS</div><div class="spec-v g">RR Turbo Windows 11</div>
+        <div class="spec-k">Productivity</div><div class="spec-v g">Office 2019 Professional Plus included</div>
+        <div class="spec-k">Upgrades</div><div class="spec-v g">Full X79 workstation upgrade path</div>
+        <div class="spec-k">Shop listing</div><div class="spec-v"><a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" style="color:var(--green)">Revolt store on eBay &rarr;</a></div>
+      </div>
+      <p>Headline stat: <span class="g">42.6 GB/s quad-channel DDR3 plus 256 GB/s VRAM on the RX 580</span>&mdash;a ~300 GB/s dual-pool total for $649.&nbsp; <span class="zing">Quad-channel at sub-$699.&nbsp; Most-sustainable platform we ship.</span></p>
+    </div>
+  </div>
+
+  <!-- 8. Revolt Marauder -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Revolt Marauder</div>
+        <span class="acc-tag">Mid-Tier Gaming &middot; X99 Workstation Platform</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">$799</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">Our direct answer to the $899 OEM and the Mac Mini M4.</span>&nbsp; The Marauder puts 32GB of quad-channel DDR4, an unlocked 6C/12T i7-6800K, a GTX 1070, and a 120mm AIO into a platform designed for sustained workstation loads&mdash;not just benchmark bursts.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Price</div><div class="spec-v g">$799 (no subscriptions, ever)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">Intel i7-6800K &mdash; 6 cores / 12 threads unlocked (X99 platform)</div>
+        <div class="spec-k">GPU</div><div class="spec-v">NVIDIA GTX 1070 &mdash; 8GB GDDR5</div>
+        <div class="spec-k">Memory</div><div class="spec-v g">32GB DDR4-2400 quad-channel</div>
+        <div class="spec-k">Bandwidth</div><div class="spec-v g">76.8 GB/s (quad channel)</div>
+        <div class="spec-k">Storage</div><div class="spec-v">NVMe + SATA</div>
+        <div class="spec-k">Cooling</div><div class="spec-v g">Thermalright 120mm AIO</div>
+        <div class="spec-k">OS</div><div class="spec-v g">RR Turbo Windows 11</div>
+        <div class="spec-k">Productivity</div><div class="spec-v g">Office 2019 Professional Plus included</div>
+        <div class="spec-k">Upgrades</div><div class="spec-v g">Full workstation upgrade path</div>
+        <div class="spec-k">Shop listing</div><div class="spec-v"><a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" style="color:var(--green)">Revolt store on eBay &rarr;</a></div>
+      </div>
+      <p>Headline stat: <span class="g">76.8 GB/s memory bandwidth</span>&mdash;60% more than the single-channel $899 OEM.&nbsp; <span class="zing">$100 less than OEM.&nbsp; No bottlenecks.&nbsp; Built to last.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE SCOREBOARD ===== -->
+<section class="fi" id="scoreboard">
+  <div class="sec-label">The Scoreboard</div>
+  <h2 class="sec-title">Ten Categories.<span>One Hundred Points.</span></h2>
+  <p class="sec-body">We scored every contender across ten categories worth ten points each.&nbsp; The categories cover game library, real-world FPS, available RAM, total bandwidth, balance under multitasking, cooling, software ecosystem, upgradeability, CPU performance, and three-year cost of ownership.&nbsp; <span>Higher is better.&nbsp; Lower cost-per-point is better.</span>&nbsp; All three RR builds hold the top three scores.&nbsp; The Raider at $429 holds the best cost-per-point on the board.</p>
+
+  <div class="rank-chart">
+    <div class="rank-title">Total Score &middot; Out of 100 &middot; Sorted High to Low</div>
+
+    <div class="rank-row"><div class="rank-label"><span class="sp">Revolt Marauder</span><span class="sb">$799 &middot; i7-6800K unlocked &middot; GTX 1070 &middot; 32GB DDR4 QC</span></div><div class="rank-track"><div class="rank-fill rr-top" style="width:89%">89<span class="ppd">$8.98 / pt</span></div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">Revolt Phantom</span><span class="sb">$649 &middot; i7-3930K unlocked &middot; RX 580 8GB &middot; 32GB DDR3 QC</span></div><div class="rank-track"><div class="rank-fill rr-top" style="width:84%">84<span class="ppd">$7.73 / pt</span></div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">Revolt Raider</span><span class="sb">$429 &middot; Haswell i5/i7 &middot; 16GB DDR3 DC &middot; RR Turbo</span></div><div class="rank-track"><div class="rank-fill rr" style="width:78%">78<span class="ppd" style="color:var(--green)">$5.50 / pt &mdash; best value</span></div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">$899 New OEM</span><span class="sb">Ryzen + RTX 5060 + 16GB single-channel</span></div><div class="rank-track"><div class="rank-fill oem" style="width:54%">54<span class="ppd">$16.65 / pt</span></div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">Mac Mini M4 Pro</span><span class="sb">$1,399 &middot; 12-core M4 Pro &middot; 24GB unified</span></div><div class="rank-track"><div class="rank-fill mac" style="width:53%">53<span class="ppd">$26.40 / pt</span></div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">PlayStation 5</span><span class="sb">$499 + $80/yr PS+ &middot; 16GB unified</span></div><div class="rank-track"><div class="rank-fill console" style="width:53%">53<span class="ppd">$9.42 / pt (base)</span></div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">Xbox Series X</span><span class="sb">$499 + $75/yr Game Pass &middot; 16GB unified</span></div><div class="rank-track"><div class="rank-fill console" style="width:52%">52<span class="ppd">$9.60 / pt (base)</span></div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">Austin&rsquo;s PC Warehouse</span><span class="sb">~$490 &middot; i7-7700 &middot; GTX 1650 4GB &middot; stock Win</span></div><div class="rank-track"><div class="rank-fill amber" style="width:51%">51<span class="ppd">$9.61 / pt</span></div></div></div>
+
+    <div class="rank-foot">Scores are out of 100 &middot; 10 categories worth 10 points each.&nbsp; Cost-per-point uses advertised MSRP; see the <strong>3-Year TCO</strong> card for full cost of ownership including subscriptions and hidden line items.</div>
+  </div>
+
+  <div class="callout callout-green">
+    <p><span>What the scoreboard tells you.</span>&nbsp; The Marauder wins outright at 89.&nbsp; The Phantom at $649 delivers 84 points&mdash;essentially Marauder-class compute on the most sustainable platform we ship.&nbsp; The Raider at $429 delivers 78 points&mdash;a higher score than the Mac Mini M4 Pro, the $899 OEM, and both consoles&mdash;at roughly a quarter to a third of their price.&nbsp; The next five contenders cluster between 51 and 54 points.&nbsp; That middle tier is a jump ball&mdash;what separates them is <em>which tradeoffs you&rsquo;re willing to accept</em>.&nbsp; The cards below break down every category so you can decide for yourself.</p>
+  </div>
+
+  <h3 style="font-family:var(--disp);font-size:1.4rem;font-weight:800;margin:3rem 0 1rem;letter-spacing:-.01em">How Each Category Scored</h3>
+  <p class="sec-body" style="margin-bottom:1.5rem">Tap a card to see the scoring logic, the bar chart, and the honest commentary for each dimension.</p>
+
+  <!-- CATEGORY 1: GAME LIBRARY -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#127918;&nbsp; 1. Game Library &mdash; Can You Play?</div>
+        <span class="acc-tag">Catalog Breadth &middot; Platform Compatibility</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">RR: 10 / 10</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Before benchmarks, before FPS, before any of the clever stuff&mdash;the first question is <span>can the machine run the game you want to play?</span>&nbsp; Windows PCs get 10 of 10 by default: Steam, Epic, GOG, Battle.net, Xbox PC Game Pass, Riot, Ubisoft Connect, every storefront works.&nbsp; Every AAA title ships day-one on Windows.&nbsp; Every indie does too.</p>
+      <p>Consoles lose points not because of quality but because of <span>exclusivity lockout</span>.&nbsp; A PS5 can&rsquo;t play Halo.&nbsp; An Xbox can&rsquo;t play Spider-Man 2.&nbsp; Neither can play Nintendo anything.&nbsp; Mac loses the most here by far: <span class="m">the overwhelming majority of commercial games either don&rsquo;t have a native macOS build or require Apple&rsquo;s Game Porting Toolkit plus CrossOver plus tuning</span>, and performance varies wildly.</p>
+      <div class="chart-title">Score &mdash; Catalog Breadth</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider / Phantom / Marauder</span>Windows PC &middot; every storefront</div><div class="bar-track"><div class="bar-fill rr-top" style="width:100%">10 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">Austin PC / $899 OEM</span>Windows PC &middot; same catalog</div><div class="bar-track"><div class="bar-fill oem" style="width:100%">10 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox Series X</span>Xbox + Game Pass catalog</div><div class="bar-track"><div class="bar-fill console" style="width:60%">6 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">PlayStation 5</span>PSN catalog + exclusives</div><div class="bar-track"><div class="bar-fill console" style="width:60%">6 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac Mini M4 Pro</span>Native macOS + Porting Toolkit</div><div class="bar-track"><div class="bar-fill mac" style="width:30%">3 / 10</div></div></div>
+      <div class="verdict"><p><strong>Verdict:</strong>  If you want to play what everyone else plays, a Windows PC is the only answer.  Consoles are a curated subset.  Mac is a much smaller curated subset.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 2: REAL-WORLD FPS -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#128200;&nbsp; 2. Real-World FPS &mdash; How Well Does It Play?</div>
+        <span class="acc-tag">Fortnite 1080p &middot; Background Apps Open &middot; Not Synthetic</span>
+      </div>
+      <div class="acc-preview"><span class="pw console">Console: 8 / 10</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Estimated FPS under real-world conditions&mdash;Discord open, browser in the background, the OS doing its normal thing.&nbsp; Not a clean-room synthetic benchmark.&nbsp; The way you actually use your machine.&nbsp; <span>For the Mac, we used Resident Evil 4 (native port) as the representative title&mdash;benchmark numbers exist and are honest</span>, even though the game library problem above still stands.</p>
+      <div class="chart-title">Fortnite &mdash; 1080p High &mdash; Real-World Estimate</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox Series X</span>4K/60 optimized &middot; closed OS</div><div class="bar-track"><div class="bar-fill console" style="width:100%">120&#8239;FPS</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">PlayStation 5</span>4K/60 optimized</div><div class="bar-track"><div class="bar-fill console" style="width:96%">115&#8239;FPS</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Revolt Marauder</span>$799 &middot; GTX 1070 + 32GB DDR4 QC</div><div class="bar-track"><div class="bar-fill rr-top" style="width:92%">110&#8239;FPS</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Revolt Phantom</span>$649 &middot; RX 580 8GB + 32GB DDR3 QC</div><div class="bar-track"><div class="bar-fill rr-top" style="width:79%">95&#8239;FPS</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">$899 OEM</span>RTX 5060 + starved RAM</div><div class="bar-track"><div class="bar-fill oem" style="width:75%">90&#8239;FPS actual</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Revolt Raider</span>$429 &middot; RR Turbo</div><div class="bar-track"><div class="bar-fill rr" style="width:63%">75&#8239;FPS</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp amber">Austin PC Warehouse</span>GTX 1650 4GB + stock Win</div><div class="bar-track"><div class="bar-fill amber" style="width:58%">70&#8239;FPS real</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>Resident Evil 4 native &middot; benchmark</div><div class="bar-track"><div class="bar-fill mac" style="width:50%">60&#8239;FPS @ 1080p High</div></div></div>
+      <div class="verdict amber"><p><strong>Verdict:</strong>  Consoles win raw FPS inside their optimized library.  The Marauder punches above its weight at 110&#8239;FPS against a $899 OEM that advertises 120+ but delivers 90 under real conditions.  The Mac at 60&#8239;FPS in a native title is honest&mdash;it&rsquo;s not zero, but it&rsquo;s not competitive either.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 3: RAM AVAILABILITY -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#129518;&nbsp; 3. RAM Availability &mdash; What&rsquo;s Actually Free After OS Overhead</div>
+        <span class="acc-tag">After OS &middot; After GPU Reservation &middot; Before You Launch Anything</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Raider beats Mac</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>The spec sheet number is never the number.&nbsp; Every system reserves memory for the OS, firmware, and integrated GPU before you launch a single application.&nbsp; This is where RR Turbo becomes a feature and where Apple&rsquo;s unified memory architecture becomes a liability on a 24GB machine.</p>
+      <p><span class="g">The Raider at 16GB with RR Turbo has more application RAM available than a $1,399 Mac Mini M4 Pro at 24GB running macOS.</span>&nbsp; Read that sentence again.</p>
+      <div class="chart-title">Available RAM After Baseline Overhead</div>
+      <div class="seg-row"><div class="seg-label"><span class="sp rr">Marauder 32GB</span>RR Turbo &middot; DDR4 QC</div><div class="seg-track"><div class="seg-os" style="width:6%">2</div><div class="seg-free" style="width:94%">30 GB available</div></div></div>
+      <div class="seg-row"><div class="seg-label"><span class="sp rr">Phantom 32GB</span>RR Turbo &middot; DDR3 QC</div><div class="seg-track"><div class="seg-os" style="width:6%">2</div><div class="seg-free" style="width:94%">30 GB available</div></div></div>
+      <div class="seg-row"><div class="seg-label"><span class="sp rr">Raider 16GB</span>RR Turbo &middot; DDR3 DC</div><div class="seg-track"><div class="seg-os" style="width:10%">1.5</div><div class="seg-free" style="width:90%">14.5 GB available</div></div></div>
+      <div class="seg-row"><div class="seg-label"><span class="sp mac">Mac M4 Pro 24GB</span>macOS + shared GPU</div><div class="seg-track"><div class="seg-os" style="width:17%">4 OS</div><div class="seg-gpu" style="width:25%">6 GPU</div><div class="seg-free" style="width:58%">14 GB available</div></div></div>
+      <div class="seg-row"><div class="seg-label"><span class="sp red">$899 OEM 16GB</span>Stock Win 11 Home</div><div class="seg-track"><div class="seg-os" style="width:28%">4.5 bloat</div><div class="seg-free" style="width:72%">11.5 GB available</div></div></div>
+      <div class="seg-row"><div class="seg-label"><span class="sp amber">Austin PC 16GB</span>Stock Win 11 Home</div><div class="seg-track"><div class="seg-os" style="width:28%">4.5 bloat</div><div class="seg-free" style="width:72%">11.5 GB available</div></div></div>
+      <div class="seg-row"><div class="seg-label"><span class="sp console">PS5 / Xbox 16GB</span>Unified GDDR6 &middot; OS reserve</div><div class="seg-track"><div class="seg-os" style="width:15%">2.5 OS</div><div class="seg-gpu" style="width:38%">6 GPU</div><div class="seg-free" style="width:47%">~7.5 GB app</div></div></div>
+      <div class="seg-legend"><span><span class="sw sw-os"></span>OS / firmware overhead</span><span><span class="sw sw-gpu"></span>GPU memory claim (unified systems)</span><span><span class="sw sw-free"></span>Available for your applications</span></div>
+      <div class="verdict"><p><strong>Verdict:</strong>  A 16GB Revolt Raider with RR Turbo has <strong>14.5 GB free</strong>.  A 24GB Mac Mini M4 Pro, after OS overhead and GPU claims, has about <strong>14 GB free</strong> for application workloads.  The Marauder at 32GB doesn&rsquo;t even enter the same conversation &mdash; 30 GB headroom is effectively unlimited for gaming and most productivity.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 4: TOTAL BANDWIDTH -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#128269;&nbsp; 4. Total Memory Bandwidth &mdash; RAM + GPU Combined</div>
+        <span class="acc-tag">Unified vs. Discrete &middot; Pooled vs. Dedicated</span>
+      </div>
+      <div class="acc-preview"><span class="pw mac">Apple wins here</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>On a discrete GPU system, system RAM bandwidth and GPU VRAM bandwidth are <span>separate pools</span>&mdash;CPU workloads use one, GPU workloads use the other, both run at full speed concurrently.&nbsp; On a unified memory system (Mac, Xbox, PS5), CPU and GPU share one pool.&nbsp; <span class="zing">Wins on the spec sheet, not in real life.</span></p>
+      <p><span class="m">Apple&rsquo;s 273 GB/s of unified LPDDR5X is solid on paper&mdash;second only to the consoles in this group.</span>&nbsp; But that pool has to serve the CPU, the integrated GPU, the neural engine, and the display controller simultaneously.&nbsp; On a Marauder, the 76.8 GB/s quad-channel DDR4 is dedicated to the CPU side, and the GTX 1070&rsquo;s 256 GB/s of GDDR5 is dedicated to the GPU side.&nbsp; On the Phantom, 42.6 GB/s quad-channel DDR3 pairs with the RX 580&rsquo;s 256 GB/s of VRAM&mdash;same dual-pool architecture, sub-$699 price.&nbsp; <span>Two lanes, full speed each.</span></p>
+      <div class="chart-title">Peak Combined Bandwidth (RAM + GPU VRAM)</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox Series X</span>560 / 336 GB/s split-pool</div><div class="bar-track"><div class="bar-fill console" style="width:100%">560 GB/s GPU, 336 sys</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">PlayStation 5</span>448 GB/s unified</div><div class="bar-track"><div class="bar-fill console" style="width:80%">448 GB/s shared pool</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Marauder</span>76.8 + 256 GB/s &middot; discrete</div><div class="bar-track"><div class="bar-fill rr-top" style="width:59%">~333 GB/s dual-pool</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Phantom</span>42.6 + 256 GB/s &middot; discrete</div><div class="bar-track"><div class="bar-fill rr-top" style="width:53%">~299 GB/s dual-pool</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>273 GB/s unified</div><div class="bar-track"><div class="bar-fill mac" style="width:49%">273 GB/s shared pool</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">$899 OEM</span>48 + 224 GB/s &middot; discrete</div><div class="bar-track"><div class="bar-fill oem" style="width:49%">~272 GB/s dual-pool</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider</span>25.6 + 192 GB/s &middot; discrete</div><div class="bar-track"><div class="bar-fill rr" style="width:39%">~218 GB/s dual-pool</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp amber">Austin PC</span>38.4 + 128 GB/s &middot; discrete</div><div class="bar-track"><div class="bar-fill amber" style="width:30%">~166 GB/s dual-pool</div></div></div>
+      <div class="verdict mac"><p><strong>Honest verdict:</strong>  The Xbox wins peak bandwidth outright at 560 GB/s; the PS5 is next.  Apple&rsquo;s 273 GB/s comes third and is real&mdash;it helps on-device LLM inference and unified-memory workloads that benefit from CPU/GPU living in the same pool.  For gaming specifically, the Marauder&rsquo;s dual-pool discrete architecture gives the GPU its own 256 GB/s channel nothing else can touch &mdash; which is why it posts 110 FPS in the category above.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 5: BALANCE / MULTITASK -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#9878;&#65039;&nbsp; 5. Balance &mdash; Discord + Browser + Fortnite Without Stutter</div>
+        <span class="acc-tag">Page File &middot; Memory Pressure &middot; Multitasking Reality</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Marauder: 10 / 10</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>This is the category that separates real experiences from spec-sheet experiences.&nbsp; Can you run Discord, a web browser with a dozen tabs, and Fortnite at the same time&mdash;and have the game not stutter when a notification fires?&nbsp; This is about memory headroom, OS behavior, and whether the system hits the page file (or Apple&rsquo;s swap file, or a console&rsquo;s suspended-game state) under real load.</p>
+      <p>Windows 11 Home on 16GB with Copilot, Recall, Edge, and telemetry eating 4.5GB means <span class="r">Discord + browser + Fortnite = 14GB used, 2GB headroom</span>.&nbsp; One background update, one notification, one Windows Defender scan&mdash;and the system swaps to disk.&nbsp; You get a stutter.&nbsp; <span class="g">RR Turbo fixes this at the foundational level.</span>&nbsp; Consoles don&rsquo;t stutter because they don&rsquo;t run background apps.&nbsp; The Mac doesn&rsquo;t stutter in light use; it starts to strain when game + streaming + productivity exceed 18GB.</p>
+      <div class="chart-title">Score &mdash; Multitasking Without Stutter</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Marauder 32GB + RR Turbo</span>30GB free &middot; zero page file</div><div class="bar-track"><div class="bar-fill rr-top" style="width:100%">10 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Phantom 32GB + RR Turbo</span>30GB free &middot; zero page file</div><div class="bar-track"><div class="bar-fill rr-top" style="width:100%">10 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider 16GB + RR Turbo</span>14.5GB free &middot; debloated</div><div class="bar-track"><div class="bar-fill rr" style="width:80%">8 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox Series X</span>Closed OS &middot; no bg apps</div><div class="bar-track"><div class="bar-fill console" style="width:70%">7 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">PlayStation 5</span>Closed OS &middot; no bg apps</div><div class="bar-track"><div class="bar-fill console" style="width:70%">7 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>24GB unified &middot; shared GPU</div><div class="bar-track"><div class="bar-fill mac" style="width:60%">6 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp amber">Austin PC 16GB</span>Stock Win &middot; 11.5GB free</div><div class="bar-track"><div class="bar-fill amber" style="width:40%">4 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">$899 OEM 16GB</span>Stock Win + thermal throttle compound</div><div class="bar-track"><div class="bar-fill oem" style="width:30%">3 / 10</div></div></div>
+      <div class="verdict"><p><strong>Verdict:</strong>  This is where RR Turbo earns its keep.  The Raider at $429 beats a $1,399 Mac and both $500 consoles (despite the consoles&rsquo; closed-OS advantage) because it has roughly 2x the application RAM free after baseline overhead.  The Marauder is effectively stutter-free by design.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 6: COOLING & THERMAL SUSTAIN -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#127777;&#65039;&nbsp; 6. Cooling &amp; Thermal Sustainment</div>
+        <span class="acc-tag">Can It Run Without Throttling? &middot; Sustained vs. Burst</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Marauder: 9 / 10</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Consoles are purpose-built thermal platforms&mdash;they were engineered from day one to sustain 100% gaming load for hours.&nbsp; Both the Xbox Series X and the PS5 use liquid metal thermal interface material, massive heatsinks, and serious fans.&nbsp; They score high.&nbsp; Revolt builds use Thermalright cooling sized for the chip.&nbsp; Marauder runs a 120mm AIO on an unlocked 6C/12T i7-6800K&mdash;overkill by design.&nbsp; Phantom and Raider use Thermalright air towers that handle six-core Sandy Bridge-E and Haswell silicon comfortably.</p>
+      <p><span class="m">Apple explicitly acknowledges thermal throttling in macOS&rsquo;s Game Mode settings</span>&mdash;which reduce background activity specifically because the M4 Pro&rsquo;s thermal budget can&rsquo;t otherwise sustain gaming load.&nbsp; Independent testing has documented GPU temps of 100&ndash;106&deg;C during sustained gaming on the Mac Mini M4 Pro.&nbsp; It&rsquo;s a small quiet box; it isn&rsquo;t built to dissipate sustained 65W+ loads.&nbsp; The $899 OEM uses a stock air cooler sized to the price point, not the silicon.&nbsp; Documented throttling is routine.</p>
+      <div class="chart-title">Score &mdash; Sustained Load Without Throttling</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Marauder</span>Thermalright 120mm AIO</div><div class="bar-track"><div class="bar-fill rr-top" style="width:90%">9 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox Series X</span>Purpose-built cooling</div><div class="bar-track"><div class="bar-fill console" style="width:80%">8 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">PlayStation 5</span>Liquid metal TIM + massive fan</div><div class="bar-track"><div class="bar-fill console" style="width:80%">8 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Phantom</span>Thermalright air tower</div><div class="bar-track"><div class="bar-fill rr" style="width:75%">7.5 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider</span>Thermalright air tower</div><div class="bar-track"><div class="bar-fill rr" style="width:70%">7 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>Game Mode warns about thermals</div><div class="bar-track"><div class="bar-fill mac" style="width:30%">3 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp amber">Austin PC</span>Stock OEM cooler</div><div class="bar-track"><div class="bar-fill amber" style="width:30%">3 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">$899 OEM</span>Stock air &middot; documented throttle</div><div class="bar-track"><div class="bar-fill oem" style="width:20%">2 / 10</div></div></div>
+      <div class="verdict mac"><p><strong>Verdict:</strong>  If &ldquo;Game Mode&rdquo; exists in your OS to tell the system not to do other things while you&rsquo;re playing, that&rsquo;s an admission of thermal constraint.  Consoles are genuinely excellent thermal platforms.  Every Revolt build ships with cooling sized for its silicon.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 7: SOFTWARE ECOSYSTEM -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#128187;&nbsp; 7. Software Ecosystem &mdash; Is This a Real Computer?</div>
+        <span class="acc-tag">Gaming + Productivity + Web + Dev &middot; Everything, Or Just One Thing?</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Full PC wins</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>The Xbox and PS5 are excellent gaming appliances.&nbsp; They are not computers.&nbsp; You cannot write a document, run a spreadsheet, code, use Zoom for work, or browse the web comfortably on either.&nbsp; That&rsquo;s fine if that&rsquo;s not what you bought it for&mdash;but it&rsquo;s a <span>real limitation</span> when your teenager needs the same box for both schoolwork and Fortnite.</p>
+      <p>Every Revolt build ships with <span class="g">Office 2019 Professional Plus preinstalled</span>: Word, Excel, PowerPoint, Outlook, Access, Publisher.&nbsp; No subscription.&nbsp; No 30-day trial.&nbsp; No upsell prompts.&nbsp; The $899 OEM gives you a 30-day Microsoft 365 trial and then charges you $99/year thereafter.&nbsp; The Mac Mini ships with Pages/Numbers/Keynote (good software, not Office) and requires $99/year for Microsoft 365 if you need cross-compatibility for work or school.</p>
+      <div class="chart-title">Score &mdash; Breadth of Real-World Usability</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider / Phantom / Marauder</span>Full Win + Office 2019 Pro+ &middot; dev-ready</div><div class="bar-track"><div class="bar-fill rr-top" style="width:100%">10 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">Austin PC / $899 OEM</span>Full Win, no Office included</div><div class="bar-track"><div class="bar-fill oem" style="width:70%">7 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>macOS + Pages suite &middot; M365 sold separately</div><div class="bar-track"><div class="bar-fill mac" style="width:70%">7 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox Series X</span>Gaming only &middot; no productivity</div><div class="bar-track"><div class="bar-fill console" style="width:20%">2 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">PlayStation 5</span>Gaming only &middot; no productivity</div><div class="bar-track"><div class="bar-fill console" style="width:20%">2 / 10</div></div></div>
+      <div class="verdict"><p><strong>Verdict:</strong>  A $429 Raider is a full computer.  It games, codes, writes papers, runs Excel, hosts a Plex server, edits photos, joins a Zoom call.  A $499 console is a gaming appliance.  A $1,399 Mac Mini is a full computer with a smaller game library.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 8: UPGRADEABILITY -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#128295;&nbsp; 8. Upgradeability &mdash; Can You Fix or Improve It?</div>
+        <span class="acc-tag">RAM &middot; GPU &middot; SSD &middot; CPU</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">RR: 10 / 10</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Every Revolt build is a standard ATX platform with standard DIMMs, standard PCIe slots, and standard power connectors.&nbsp; RAM swap: 5 minutes.&nbsp; GPU swap: 10 minutes.&nbsp; SSD swap: 2 minutes.&nbsp; CPU swap: 20 minutes.&nbsp; This is why we can build them, and it&rsquo;s why you can keep them for a decade.</p>
+      <p>Apple Silicon Macs have <span class="m">zero user-serviceable components</span>.&nbsp; The RAM is soldered on-package.&nbsp; The SSD is soldered to the board.&nbsp; You cannot add a GPU.&nbsp; You cannot swap the CPU.&nbsp; When the SSD wears out, the machine is done.&nbsp; Xbox and PS5 allow SSD expansion via a proprietary slot&mdash;that&rsquo;s it.&nbsp; The $899 OEM has DIMM slots and a PCIe GPU slot but often uses proprietary motherboards, non-standard power connectors, and small PSUs that can&rsquo;t feed a real GPU upgrade.</p>
+      <div class="chart-title">Score &mdash; User-Serviceable Upgrades</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider / Phantom / Marauder</span>Full ATX &middot; every component</div><div class="bar-track"><div class="bar-fill rr-top" style="width:100%">10 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp amber">Austin PC</span>Tower case &middot; most swaps possible</div><div class="bar-track"><div class="bar-fill amber" style="width:60%">6 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">$899 OEM</span>Proprietary MB / PSU limits</div><div class="bar-track"><div class="bar-fill oem" style="width:50%">5 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">PlayStation 5</span>Gen4 NVMe SSD expansion only</div><div class="bar-track"><div class="bar-fill console" style="width:20%">2 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox Series X</span>Proprietary storage card only</div><div class="bar-track"><div class="bar-fill console" style="width:10%">1 / 10</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>Nothing user-serviceable</div><div class="bar-track"><div class="bar-fill mac" style="width:10%">1 / 10</div></div></div>
+      <div class="verdict"><p><strong>Verdict:</strong>  A Revolt build can be upgraded piecemeal over years.  Add a bigger GPU in year two, more RAM in year three, a faster NVMe in year four.  Most competitors here are a fixed capability bought once.  The Mac is truly fixed &mdash; what you buy is what you keep until replacement.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 9: CPU PERFORMANCE (P-cores + Single-core) -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#129504;&nbsp; 9. CPU Performance &mdash; Cores + Clocks</div>
+        <span class="acc-tag">P-Core Count for Multitasking &middot; Single-Core for Responsiveness</span>
+      </div>
+      <div class="acc-preview"><span class="pw mac">Apple: 9 / 10</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Two separate questions live inside &ldquo;CPU performance,&rdquo; so we show both.&nbsp; <span>P-core count</span> tells you whether the system can handle serious multitasking&mdash;compile code, run a VM, render a video, game while streaming.&nbsp; <span>Single-core speed</span> tells you whether the system feels snappy&mdash;game logic, UI responsiveness, web browsing, everything that&rsquo;s bottlenecked by one fast thread.</p>
+      <p><span class="m">The M4 Pro has the fastest single-core score on this entire page</span>&mdash;roughly 4,000 Geekbench 6 single-core, 2&times; what our HEDT builds post.&nbsp; That&rsquo;s a real advantage for UI fluidity and single-threaded workloads.&nbsp; Our unlocked Intel HEDT silicon wins on <span class="g">raw P-core count</span> and on sustained multi-threaded workloads where 12 threads at 3.8&ndash;4.0 GHz turbo beats 8 P-cores at burst.&nbsp; The $899 OEM&rsquo;s Ryzen is the best all-around modern silicon in this price range.</p>
+      <p><span class="g">Our unlocked Intel HEDT and Xeon silicon is specifically selected to give you the best mix of performance and value.</span>&nbsp; Single-core speed is one thing; cost-per-thread, ECC memory support, platform longevity, and refurbished availability at scale are the other things.&nbsp; An unlocked X99 or X79 six-core CPU at $40&ndash;$80 with quad-channel memory support is a ridiculous value proposition that has no modern equivalent&mdash;and it&rsquo;s why we can deliver a Phantom at $649 and a Marauder at $799.</p>
+      <div class="dual-note">P-Core Count &mdash; Sustained Multitasking</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>8P + 4E cores</div><div class="bar-track"><div class="bar-fill mac" style="width:80%">8 P-cores</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox / PS5</span>Zen 2 8C/16T</div><div class="bar-track"><div class="bar-fill console" style="width:80%">8 cores, 16 threads</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Marauder</span>i7-6800K 6C/12T unlocked</div><div class="bar-track"><div class="bar-fill rr-top" style="width:60%">6 cores, 12 threads</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Phantom</span>i7-3930K 6C/12T unlocked</div><div class="bar-track"><div class="bar-fill rr-top" style="width:60%">6 cores, 12 threads</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">$899 OEM</span>Ryzen 5 / 7 (varies)</div><div class="bar-track"><div class="bar-fill oem" style="width:60%">6&ndash;8 cores</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider</span>Haswell i5/i7 4C/4&ndash;8T</div><div class="bar-track"><div class="bar-fill rr" style="width:40%">4 cores</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp amber">Austin PC</span>i7-7700 4C/8T</div><div class="bar-track"><div class="bar-fill amber" style="width:40%">4 cores, 8 threads</div></div></div>
+
+      <div class="dual-note">Single-Core Speed &mdash; Responsiveness</div>
+      <div class="bar-row"><div class="bar-label"><span class="sp mac">Mac M4 Pro</span>~4,000 GB6 single</div><div class="bar-track"><div class="bar-fill mac" style="width:100%">100%</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp red">$899 OEM</span>Ryzen 5/7 &middot; modern</div><div class="bar-track"><div class="bar-fill oem" style="width:68%">~68%</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Marauder</span>i7-6800K 3.8 GHz turbo</div><div class="bar-track"><div class="bar-fill rr-top" style="width:55%">~55%</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Raider</span>Haswell 3.5&ndash;4.0 GHz turbo</div><div class="bar-track"><div class="bar-fill rr" style="width:52%">~52%</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp amber">Austin PC</span>i7-7700 4.2 GHz boost</div><div class="bar-track"><div class="bar-fill amber" style="width:50%">~50%</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp console">Xbox / PS5</span>Zen 2 3.5&ndash;3.8 GHz</div><div class="bar-track"><div class="bar-fill console" style="width:48%">~48%</div></div></div>
+      <div class="bar-row"><div class="bar-label"><span class="sp rr">Phantom</span>i7-3930K 3.8 GHz turbo</div><div class="bar-track"><div class="bar-fill rr-top" style="width:45%">~45%</div></div></div>
+      <div class="verdict mac"><p><strong>Honest verdict:</strong>  Apple wins single-core decisively and it matters for UI snappiness and single-threaded tasks.  Our unlocked HEDT silicon wins cost-per-core for sustained multi-thread workloads.  Single-core speed is one of the two categories where the Mac earns a premium score on this page.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY 10: 3-YEAR TCO -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#128176;&nbsp; 10. 3-Year Total Cost of Ownership</div>
+        <span class="acc-tag">Purchase + Subscriptions + Hidden Upgrades</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">RR: no subs, ever</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>The advertised price is the start of the conversation.&nbsp; What does each machine <span>actually cost</span> over three years of typical use, including the software you&rsquo;ll need to buy, the subscriptions required to use it fully, and the upgrades the spec sheet forces you into?</p>
+      <div class="tco-grid">
+        <div class="tco-col win">
+          <div class="tco-eyebrow g">REVOLT RAIDER</div>
+          <div class="tco-price g">$429</div>
+          <div class="tco-row">+ Office 2019: included</div>
+          <div class="tco-row">+ Subscriptions: none</div>
+          <div class="tco-row">+ Cooling upgrade: not needed</div>
+          <div class="tco-row">+ RAM upgrade: optional</div>
+          <div class="tco-total g">$429 / 3 yrs</div>
+        </div>
+        <div class="tco-col win">
+          <div class="tco-eyebrow g">REVOLT PHANTOM</div>
+          <div class="tco-price g">$649</div>
+          <div class="tco-row">+ Office 2019: included</div>
+          <div class="tco-row">+ Subscriptions: none</div>
+          <div class="tco-row">+ Cooling: sized right</div>
+          <div class="tco-row">+ RAM: 32GB stock</div>
+          <div class="tco-total g">$649 / 3 yrs</div>
+        </div>
+        <div class="tco-col win">
+          <div class="tco-eyebrow g">REVOLT MARAUDER</div>
+          <div class="tco-price g">$799</div>
+          <div class="tco-row">+ Office 2019: included</div>
+          <div class="tco-row">+ Subscriptions: none</div>
+          <div class="tco-row">+ Cooling: already upgraded</div>
+          <div class="tco-row">+ RAM: 32GB stock</div>
+          <div class="tco-total g">$799 / 3 yrs</div>
+        </div>
+        <div class="tco-col">
+          <div class="tco-eyebrow a">AUSTIN&rsquo;S PC</div>
+          <div class="tco-price a">$490</div>
+          <div class="tco-row">+ Office: <span class="sub">$99</span> &times; 3 = <span class="sub">$297</span></div>
+          <div class="tco-row">+ Subscriptions: none base</div>
+          <div class="tco-row">+ Cooling: $30&ndash;50 suggested</div>
+          <div class="tco-row">+ RR Turbo: DIY only</div>
+          <div class="tco-total a">~$820 / 3 yrs</div>
+        </div>
+        <div class="tco-col">
+          <div class="tco-eyebrow r">$899 OEM</div>
+          <div class="tco-price r">$899</div>
+          <div class="tco-row">+ Office: <span class="sub">$99</span> &times; 3 = <span class="sub">$297</span></div>
+          <div class="tco-row">+ Cooling upgrade: $30&ndash;50</div>
+          <div class="tco-row">+ RAM 2&times;16 kit: $350+</div>
+          <div class="tco-row">+ Resell 1&times;16: &ndash;$50</div>
+          <div class="tco-total r">~$1,580+ / 3 yrs</div>
+        </div>
+        <div class="tco-col">
+          <div class="tco-eyebrow m">MAC M4 PRO</div>
+          <div class="tco-price m">$1,399</div>
+          <div class="tco-row">+ M365: <span class="sub">$99</span> &times; 3 = <span class="sub">$297</span></div>
+          <div class="tco-row">+ AppleCare+: <span class="sub">$150</span> (3 yr)</div>
+          <div class="tco-row">+ RAM upgrade (48GB): <span class="sub">$200</span> at buy</div>
+          <div class="tco-row">+ SSD upgrade: <span class="sub">$200</span>+ at buy</div>
+          <div class="tco-total m">~$2,050 / 3 yrs</div>
+        </div>
+        <div class="tco-col">
+          <div class="tco-eyebrow c">XBOX SERIES X</div>
+          <div class="tco-price c">$499</div>
+          <div class="tco-row">+ Game Pass Core: <span class="sub">$75</span>/yr = <span class="sub">$225</span></div>
+          <div class="tco-row">+ Game Pass Ultimate: <span class="sub">$240</span>/yr = <span class="sub">$720</span></div>
+          <div class="tco-row">+ 1TB storage expansion: <span class="sub">$150</span></div>
+          <div class="tco-row">(Pick one GP tier)</div>
+          <div class="tco-total c">$874&ndash;$1,369 / 3 yrs</div>
+        </div>
+        <div class="tco-col">
+          <div class="tco-eyebrow c">PLAYSTATION 5</div>
+          <div class="tco-price c">$499</div>
+          <div class="tco-row">+ PS+ Essential: <span class="sub">$80</span>/yr = <span class="sub">$240</span></div>
+          <div class="tco-row">+ PS+ Extra: <span class="sub">$135</span>/yr = <span class="sub">$405</span></div>
+          <div class="tco-row">+ 1TB NVMe SSD: <span class="sub">$80</span></div>
+          <div class="tco-row">(Pick one PS+ tier)</div>
+          <div class="tco-total c">$819&ndash;$1,119 / 3 yrs</div>
+        </div>
+      </div>
+      <div class="verdict"><p><strong>Verdict:</strong>  The Marauder at $799 is cheaper over 3 years than every console with a subscription, the $899 OEM with its forced RAM upgrade, the Austin PC with its added software cost, and the Mac by nearly $1,250.  The Phantom at $649 undercuts them all on sticker and stays that way&mdash;no subscriptions, no forced upgrades.  The Raider at $429 is the cheapest real computer on this page.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== READ THE FINE PRINT ===== -->
+<section class="fi" id="fineprint">
+  <div class="sec-label">Read the Fine Print</div>
+  <h2 class="sec-title">The Details the Spec Sheet<span>Doesn&rsquo;t Advertise.</span></h2>
+  <p class="sec-body" style="margin-bottom:2rem">Every competitor on this page is a real product that does real things well.&nbsp; None of them are scams.&nbsp; But what ships in the box and what&rsquo;s advertised on the shelf aren&rsquo;t always the same thing.&nbsp; Tap each card to see the facts we&rsquo;d want to know before writing a check.&nbsp; Draw your own conclusions.</p>
+
+  <!-- FP 1: Mac Mini M4 Pro -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--mac)">Mac Mini M4 Pro &mdash; Fine Print</div>
+        <span class="acc-tag">$1,399 Advertised &middot; What You&rsquo;re Actually Buying</span>
+      </div>
+      <div class="acc-preview"><span class="pw mac">Apple</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="m">The good:</span>&nbsp; Outstanding single-core CPU.&nbsp; Solid 273 GB/s memory bandwidth.&nbsp; Smallest form factor.&nbsp; Quietest operation.&nbsp; Lowest power draw (~45W peak).&nbsp; macOS is a real strength for development, writing, and light creative work.&nbsp; For that specific user, the Mac Mini M4 Pro is a legitimate pick.&nbsp; <span class="zing">As a gaming machine, it&rsquo;s Private Pyle on the obstacle course.</span></p>
+      <p><span class="m">The details the ad doesn&rsquo;t highlight:</span></p>
+      <ul>
+        <li>Base model ships with <strong>24GB</strong> of unified memory, not the 36GB or 48GB that some reviews feature.&nbsp; Upgrading to 48GB at order time is <strong>+<span class="sub">$200</span></strong>.&nbsp; 64GB is <strong>+<span class="sub">$400</span></strong>.&nbsp; None of it is upgradeable after the sale.</li>
+        <li>SSD starts at <strong>512GB</strong>.&nbsp; 1TB is <strong>+<span class="sub">$200</span></strong>.&nbsp; 2TB is <strong>+<span class="sub">$600</span></strong>.&nbsp; Soldered to the board.</li>
+        <li>After 8&ndash;10 years when the SSD wears out (Apple Silicon SSDs see heavy swap wear), <strong>the machine is not serviceable</strong>.</li>
+        <li>No discrete GPU.&nbsp; Integrated 16-core GPU is capable but shares the 273 GB/s memory pool with the CPU and everything else on the SoC.</li>
+        <li>macOS has Game Mode precisely because the thermal envelope can&rsquo;t sustain background activity plus gaming simultaneously.&nbsp; Independent testing has documented GPU temps of 100&ndash;106&deg;C during sustained gaming.</li>
+        <li>Microsoft 365 for Mac: <strong><span class="sub">$99</span>/year subscription</strong>.&nbsp; Pages/Numbers/Keynote are included but are not Office, and file compatibility with work/school is a per-document gamble.</li>
+        <li>Game library: overwhelming majority of modern AAA and indie titles require the Game Porting Toolkit plus CrossOver plus per-title tuning.&nbsp; Performance is a per-game gamble.</li>
+        <li>No AppleCare+ = limited coverage after 1 year.&nbsp; AppleCare+ for Mac mini is ~<span class="sub">$99</span>&ndash;<span class="sub">$149</span> for 3 years.</li>
+      </ul>
+      <p>Buy it if you want a compact, quiet, efficient, beautifully-built macOS workstation.&nbsp; Don&rsquo;t buy it if you expect it to be a gaming PC or if you might want to upgrade anything, ever.</p>
+    </div>
+  </div>
+
+  <!-- FP 2: Xbox Series X -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--console)">Xbox Series X &mdash; Fine Print</div>
+        <span class="acc-tag">$499 Advertised &middot; What You&rsquo;re Actually Buying</span>
+      </div>
+      <div class="acc-preview"><span class="pw console">Microsoft</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="c">The good:</span>&nbsp; Outstanding price-to-performance for the specific thing it does.&nbsp; Excellent thermal platform&mdash;purpose-built cooling sustains full gaming load for hours.&nbsp; Game Pass is a legitimately great value <em>for subscribers</em>&mdash;Day One access to major first-party titles, rotating library of hundreds of third-party games.&nbsp; Quick Resume, cloud saves, instant-on.&nbsp; For players who stay inside the Xbox ecosystem, it&rsquo;s genuinely a bargain.</p>
+      <p><span class="c">The details the ad doesn&rsquo;t highlight:</span></p>
+      <ul>
+        <li>Online multiplayer for most games requires <strong>Xbox Game Pass Core</strong> (<span class="sub">$74.99</span>/yr) or <strong>Ultimate</strong> (<span class="sub">$239.88</span>/yr).&nbsp; Call of Duty, Fortnite, Destiny, and most competitive shooters <em>are</em> free-to-play online, but most other online titles need the sub.</li>
+        <li>Storage expansion requires a <strong>proprietary Seagate Storage Expansion Card</strong>.&nbsp; 1TB = ~<span class="sub">$150</span>.&nbsp; 2TB = ~<span class="sub">$280</span>.&nbsp; Standard NVMe drives don&rsquo;t work internally.</li>
+        <li>Disc drive reads discs but all installs still require the internal or expansion SSD&mdash;discs are license tokens more than data.</li>
+        <li>No keyboard/mouse support in most games.&nbsp; No browser that works like a real browser.&nbsp; No Office or productivity software.</li>
+        <li>Nothing you buy on Xbox is portable&mdash;Game Pass titles vanish when your sub lapses.&nbsp; Digital purchases are license-only.</li>
+        <li>No user-upgradeable components beyond the proprietary SSD.</li>
+        <li>When Microsoft ends support (typically 8&ndash;10 years post-launch), online services shut down.&nbsp; Some games become unplayable.</li>
+      </ul>
+      <p>Buy it if you want to play Xbox games on a TV without thinking about specs.&nbsp; Don&rsquo;t buy it if you want one machine to do schoolwork and gaming, or if you&rsquo;d prefer to own (not rent) your software.</p>
+    </div>
+  </div>
+
+  <!-- FP 3: PlayStation 5 -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--console)">PlayStation 5 &mdash; Fine Print</div>
+        <span class="acc-tag">$499 Advertised &middot; What You&rsquo;re Actually Buying</span>
+      </div>
+      <div class="acc-preview"><span class="pw console">Sony</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="c">The good:</span>&nbsp; Best first-party exclusive library in the industry&mdash;God of War, Spider-Man, Horizon, Last of Us.&nbsp; Excellent thermal platform with liquid metal TIM.&nbsp; Standard Gen4 NVMe SSD expansion (unlike Xbox&rsquo;s proprietary cards).&nbsp; DualSense controller is genuinely a generational upgrade in haptics.&nbsp; 4K/60 performance in optimized titles is class-leading.</p>
+      <p><span class="c">The details the ad doesn&rsquo;t highlight:</span></p>
+      <ul>
+        <li>Online multiplayer requires <strong>PlayStation Plus Essential</strong> (<span class="sub">$79.99</span>/yr).&nbsp; Extra tier is <strong><span class="sub">$134.99</span>/yr</strong>, Premium is <strong><span class="sub">$159.99</span>/yr</strong> with streaming access to PS3/PS2/PS1/PSP classics.</li>
+        <li>Base model: <strong>825GB</strong> SSD, of which <strong>~667GB is usable</strong> after system reserve.&nbsp; Modern AAA games routinely take 100&ndash;150GB each.&nbsp; You&rsquo;ll need expansion within 6&ndash;8 major installs.</li>
+        <li>SSD expansion: Gen4 NVMe M.2 with a proper heatsink is required&mdash;not just any NVMe.&nbsp; Budget ~$80&ndash;$120 for 1TB with compatible heatsink.</li>
+        <li>Game installs remain <strong>locked to the console</strong>.&nbsp; Digital purchases are license-only.</li>
+        <li>No keyboard/mouse support in most games.&nbsp; No real web browser.&nbsp; No productivity software.</li>
+        <li>Backward compatibility is PS4 only.&nbsp; PS3 / PS2 / PS1 catalog access requires the Premium subscription tier.</li>
+        <li>PSN outages take the console offline for more than you&rsquo;d think.&nbsp; Digital-only buyers can&rsquo;t play their own games when Sony&rsquo;s infrastructure is down.</li>
+      </ul>
+      <p>Buy it if you want Sony&rsquo;s exclusive library and don&rsquo;t mind the ongoing subscription.&nbsp; Don&rsquo;t buy it if you&rsquo;re looking for a computer or want freedom to tinker.</p>
+    </div>
+  </div>
+
+  <!-- FP 4: Austin's PC Warehouse -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--amber)">Austin&rsquo;s PC Warehouse &mdash; Fine Print</div>
+        <span class="acc-tag">~$490 Advertised &middot; What You&rsquo;re Actually Buying</span>
+      </div>
+      <div class="acc-preview"><span class="pw amber">eBay</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span>The good:</span>&nbsp; This is a real machine.&nbsp; The i7-7700 is a solid quad-core.&nbsp; The GTX 1650 can genuinely game at 1080p medium in most titles.&nbsp; 16GB of DDR4 is a reasonable starting point.&nbsp; The ARGB case looks the part.&nbsp; At $490 shipped, it&rsquo;s a legitimate entry-level gaming PC.&nbsp; We&rsquo;re not calling it a scam.</p>
+      <p><span>The details the listing doesn&rsquo;t highlight:</span></p>
+      <ul>
+        <li>&ldquo;100+ FPS&rdquo; is a hypothetical&mdash;not a real-world number.&nbsp; Open Discord, a browser, and Fortnite simultaneously on 16GB of stock Windows 11 Home, and the 16GB becomes <strong>11&ndash;12GB available</strong>.&nbsp; The GPU renders frames; the RAM can&rsquo;t keep up.&nbsp; You see 70&#8239;FPS with stutters.</li>
+        <li>i7-7700 is a <strong>2017 CPU</strong>.&nbsp; Still capable, but 8 years old, won&rsquo;t support Windows 12 officially, and lacks modern instruction sets that some newer titles depend on.</li>
+        <li>GTX 1650 has only <strong>4GB of VRAM</strong>.&nbsp; Modern AAA titles at 1080p high routinely exceed 4GB&mdash;you&rsquo;ll hit texture-streaming stutters in titles from 2023 onward.</li>
+        <li>512GB SATA SSD is not the same as NVMe.&nbsp; Load times measurably slower&mdash;3&ndash;5&times; in modern games.</li>
+        <li>WiFi 5 only.&nbsp; No WiFi 6/6E, no 2.5GbE.</li>
+        <li>Windows 11 Home is a stock install.&nbsp; You get every piece of Microsoft&rsquo;s bloatware, Copilot, Recall, Edge pinning, telemetry.&nbsp; No debloat done.</li>
+        <li>Office is <strong>not included</strong>.&nbsp; <span class="sub">$99</span>/year Microsoft 365 or a <span class="sub">$150</span> one-time Office Home purchase.</li>
+        <li>Often no paperwork or warranty documentation&mdash;if something fails, you&rsquo;re negotiating with an eBay seller.</li>
+        <li>Look carefully at the photos: a SATA cable coiled inside when the listing advertises only one drive usually means there&rsquo;s a hidden HDD bay you&rsquo;d want to populate yourself.</li>
+      </ul>
+      <p>Buy it if you have $490 and want a real gaming PC today, you&rsquo;re handy enough to debloat Windows yourself, and you&rsquo;re fine running 2023-era titles at medium settings.&nbsp; Don&rsquo;t buy it expecting the 100+ FPS claim to survive contact with a real workload.</p>
+    </div>
+  </div>
+
+  <!-- FP 5: $899 OEM -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:#ff8888">$899 New OEM &mdash; Fine Print</div>
+        <span class="acc-tag">$899 Advertised &middot; What You&rsquo;re Actually Buying</span>
+      </div>
+      <div class="acc-preview"><span class="pw red">Best Buy et al.</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span>The good:</span>&nbsp; Brand-new parts, manufacturer warranty, RTX 5060 is a genuinely capable modern GPU, modern Ryzen silicon is excellent, RGB tempered-glass case looks like a gaming PC because it is one, one-year warranty through the retailer.&nbsp; Walk into Best Buy and out with a machine the same day.</p>
+      <p><span>The details the shelf tag doesn&rsquo;t highlight:</span></p>
+      <ul>
+        <li>16GB of DDR5 is a <strong>single 16GB stick</strong>.&nbsp; Single-channel memory runs at roughly <strong>48 GB/s</strong>&mdash;half the bandwidth of dual-channel.&nbsp; The RTX 5060 is routinely starved for data, dropping actual FPS well below advertised.</li>
+        <li>To fix this, you need to buy a matched 2&times;16GB DDR5-6000 kit.&nbsp; Best Buy doesn&rsquo;t sell single 16GB DDR5 sticks&mdash;you can&rsquo;t just buy a second one.&nbsp; A full kit is <strong>$350+</strong>.&nbsp; Then you have to resell the original stick.&nbsp; The RAM upgrade alone is 40% of the cost of the machine.</li>
+        <li>Even after that, dual-channel DDR5-6000 delivers 96 GB/s.&nbsp; Our $799 Marauder with quad-channel DDR4 already delivers <strong>76.8 GB/s</strong>&mdash;80% of the way there, out of the box, with the matching CPU and GPU.</li>
+        <li>Stock air cooler is sized to the price point, not the chip&rsquo;s thermal envelope.&nbsp; Thermal throttling under sustained gaming is documented across nearly every major-retailer SKU.&nbsp; Replacement cooler: $30&ndash;$50 plus installation.</li>
+        <li>Windows 11 Home ships with full bloatware&mdash;Copilot, Recall, Edge, Teams, McAfee/Norton trial, and manufacturer-specific apps.&nbsp; 3&ndash;4GB of RAM consumed at idle.&nbsp; Debloating manually is 2&ndash;4 hours of work if you know what you&rsquo;re doing.</li>
+        <li>Microsoft 365 trial expires in 30 days.&nbsp; <span class="sub">$99</span>/year thereafter&mdash;or buy Office 2019 for <span class="sub">$150</span>&ndash;<span class="sub">$250</span> one-time.</li>
+        <li>Proprietary motherboard layouts and small-form-factor PSUs in some SKUs limit future GPU upgrades.&nbsp; Check the PSU wattage before you think you can drop in a 4070 Ti in year two.</li>
+      </ul>
+      <p>Real-world 3-year cost after the RAM upgrade, cooler replacement, and Office subscription lands around <strong>$1,580&ndash;$1,680</strong>.&nbsp; That&rsquo;s a good machine hiding behind the $899 sticker.&nbsp; It&rsquo;s also more than our Banshee Workstation at $1,299, which ships balanced from day one.&nbsp; <span class="zing">Hint &hellip; look at the balance.</span></p>
+    </div>
+  </div>
+
+  <!-- FP 6: Revolt Raider -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Revolt Raider &mdash; Honest Limits</div>
+        <span class="acc-tag">$429 &middot; Where This Build Does and Doesn&rsquo;t Fit</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Renewable Revolt</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">The good:</span>&nbsp; Full computer at console price.&nbsp; RR Turbo Windows 11 leaves 14.5GB of the 16GB actually available for apps.&nbsp; Thermalright cooling sustains clocks.&nbsp; Office 2019 Professional Plus preinstalled&mdash;no subscription, ever.&nbsp; Every component user-serviceable and user-upgradeable.&nbsp; Donation program eligibility for qualifying households.</p>
+      <p><span class="g">The details worth knowing before you buy:</span></p>
+      <ul>
+        <li>Haswell i5/i7 is not a modern Ryzen 7.&nbsp; Single-core speed trails the Mac M4 Pro significantly and trails a modern Ryzen by roughly 30%.&nbsp; UI feels less snappy than a Mac.&nbsp; Game logic ceiling in heavily single-threaded titles is lower.</li>
+        <li>DDR3-1600 dual-channel delivers 25.6 GB/s&mdash;enough to feed the discrete GPU well at 1080p, but not the bandwidth story you get from our quad-channel builds like the Phantom ($649) or Marauder ($799).&nbsp; If memory bandwidth matters to your workload, step up to Phantom.</li>
+        <li>LGA 1150 platform is roughly 2013&ndash;2015 desktop silicon refurbished.&nbsp; We test and validate every unit, but it&rsquo;s used hardware with a used hardware&rsquo;s lifecycle.&nbsp; Our build warranty applies; the chip silicon itself is past OEM warranty.</li>
+        <li>Entry-tier discrete GPU is sized for <strong>1080p medium/high</strong> in most titles.&nbsp; 1440p is a stretch.&nbsp; 4K is not what this build is for.</li>
+        <li>No Thunderbolt, no WiFi 6E unless you add an adapter, no USB 4.&nbsp; Modern connectivity is a bolt-on.</li>
+        <li>This is a tower, not a 5&rdquo;-cube.&nbsp; Wants a desk and a power outlet and a little airflow.</li>
+      </ul>
+      <p>Buy it if you want a real PC for console money, you value your teenager having one box for Fortnite and homework, or you want the cheapest legitimate gaming computer with zero subscription strings.&nbsp; If you want 4K/144 or Apple Silicon single-core speed, look higher up the Revolt lineup or elsewhere.</p>
+    </div>
+  </div>
+
+  <!-- FP 6.5: Revolt Phantom -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Revolt Phantom &mdash; Honest Limits</div>
+        <span class="acc-tag">$649 &middot; Where This Build Does and Doesn&rsquo;t Fit</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Renewable Revolt</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">The good:</span>&nbsp; Unlocked i7-3930K six-core at 3.8 GHz turbo&mdash;Sandy Bridge-E &ldquo;Extreme Edition&rdquo; silicon at an entry price.&nbsp; 32GB of DDR3-1333 quad-channel at 42.6 GB/s gives you real workstation memory architecture for $649.&nbsp; RX 580 8GB handles 1080p high in nearly every modern title.&nbsp; Full ATX upgrade path.&nbsp; The most sustainable build in the lineup: X79 platform has enormous surplus availability, and every component we ship is refurbished from enterprise or enthusiast sources.&nbsp; Office 2019 Professional Plus preinstalled&mdash;no subscription, ever.</p>
+      <p><span class="g">The details worth knowing before you buy:</span></p>
+      <ul>
+        <li>i7-3930K is 2012 Sandy Bridge-E silicon.&nbsp; Single-core speed trails modern Ryzen and M4 Pro significantly.&nbsp; If your workloads are single-thread bound, this isn&rsquo;t the build.</li>
+        <li>DDR3-1333 quad-channel is excellent bandwidth for the tier but higher latency than modern DDR4/DDR5.&nbsp; Competitive esports players looking for absolute minimum input lag will want a modern platform.</li>
+        <li>X79 platform is 2012&ndash;2013 HEDT silicon refurbished&mdash;13-year-old chips.&nbsp; We test and validate every unit with our build warranty; the chip itself is a decade past OEM coverage.</li>
+        <li>RX 580 does not support ray tracing or DLSS/FSR 3 frame generation.&nbsp; 1080p high is the sweet spot; 1440p is a stretch in demanding titles.</li>
+        <li>No Thunderbolt, no WiFi 6E without an adapter, no USB 4.&nbsp; Native I/O is USB 3.0 era.</li>
+        <li>Thermalright air tower cools the unlocked six-core at stock turbo comfortably&mdash;if you want to push the multiplier beyond factory turbo, plan on a cooler upgrade.</li>
+      </ul>
+      <p>Buy it if you want the cheapest quad-channel build we make, you value the sustainability story (most-refurbished platform in the lineup), or you want the Raider&rsquo;s price-point advantages but need 32GB of RAM and six cores for multitasking.&nbsp; Move up to Marauder if you need DDR4, a GTX 1070, and AIO cooling for the same money plus $150.</p>
+    </div>
+  </div>
+
+  <!-- FP 7: Revolt Marauder -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Revolt Marauder &mdash; Honest Limits</div>
+        <span class="acc-tag">$799 &middot; Where This Build Does and Doesn&rsquo;t Fit</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Renewable Revolt</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">The good:</span>&nbsp; 32GB of DDR4-2400 quad-channel at 76.8 GB/s is workstation-class memory subsystem at a mid-gaming price.&nbsp; GTX 1070 8GB handles 1080p/1440p in nearly every title, and 4K is possible in older or optimized games.&nbsp; 120mm AIO cooling sustains boost clocks indefinitely.&nbsp; The unlocked i7-6800K (6C/12T Broadwell-E) crushes the Ryzen 5 in sustained multi-threaded workloads.&nbsp; Full ATX upgrade path for future GPU refresh.</p>
+      <p><span class="g">The details worth knowing before you buy:</span></p>
+      <ul>
+        <li>i7-6800K single-core speed is notably below a modern Ryzen 5 or Mac M4 Pro.&nbsp; If your workloads are bottlenecked by one fast thread (some older games, some encoding paths), you&rsquo;ll feel it.</li>
+        <li>GTX 1070 is 2016 silicon.&nbsp; It&rsquo;s excellent for 1080p/1440p today, but it <strong>does not support ray tracing</strong> or DLSS 3/4.&nbsp; If ray tracing or frame generation are on your must-have list, you want an RTX-class GPU and should look at a higher-tier Revolt build.</li>
+        <li>X99 platform is 2015&ndash;2016 HEDT silicon refurbished.&nbsp; Used hardware lifecycle applies; build warranty covers our work, not the OEM silicon.</li>
+        <li>No Thunderbolt.&nbsp; USB 3.0 is standard; no USB 4 / USB-C native.&nbsp; WiFi typically added via PCIe or M.2 adapter.</li>
+        <li>Full-tower ATX case&mdash;not small.&nbsp; Needs a proper desk.</li>
+        <li>Office 2019 Pro+ is not Office 365&mdash;it&rsquo;s the perpetual license (Word, Excel, PowerPoint, Outlook, Access, Publisher).&nbsp; Works offline, no subscription, supports current file formats, but will eventually fall behind feature additions in the subscription product.</li>
+      </ul>
+      <p>Buy it if you want the best all-around Revolt value&mdash;gaming, productivity, light content creation, home server host, family hand-me-down durability.&nbsp; Look up the lineup to Banshee or Ironclad if you need ray tracing, modern-platform IO, or a dedicated workstation GPU.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<div class="final-cta fi">
+  <h2>Ten categories.&nbsp; <span class="accent">One scoreboard.</span><br>Your call.</h2>
+  <p>Every card on this page is honest about where each machine wins and where it doesn&rsquo;t.&nbsp; If the Mac wins your priorities, buy the Mac.&nbsp; If the console ecosystem is worth the subscription to you, buy the console.&nbsp; If you want the most computer per dollar with no subscriptions, no throttling, and a full upgrade path, check out the full lineup.&nbsp; Link below.</p>
+  <div class="final-links">
+    <a href="index.html#products" class="primary">See the Full Lineup &rarr;</a>
+    <a href="decide.html">Having Trouble Deciding?</a>
+    <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop Revolt on eBay</a>
+    <a href="Mac_Attack.html">Mac Attack &mdash; Content Creation</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-in">
+    <div>
+      <div class="foot-brand">RENEWABLE<span>/</span>REVOLT</div>
+      <div class="foot-tag">ENGINEERING RESILIENCE, MULTIPLYING JUSTICE</div>
+      <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; eBay Charity ID: 391538<br>Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+    </div>
+    <div class="foot-links">
+      <a href="recover.html">Circular Economy</a>
+      <a href="revive.html">Build Process &amp; R&amp;D</a>
+      <a href="compare.html">The Showdown</a>
+      <a href="Mac_Attack.html">Mac Attack</a>
+      <a href="decide.html">Pick Your Path</a>
+      <a href="index.html#donate">Donate</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="foot-pages">
+    <a href="recover.html" class="fp"><span class="fp-l">Recover &rarr;</span><span class="fp-n">Procurement &amp; the Circular Economy</span></a>
+    <a href="revive.html" class="fp"><span class="fp-l">Revive &rarr;</span><span class="fp-n">Build Process, R&amp;D &amp; Work Instructions</span></a>
+    <a href="decide.html" class="fp"><span class="fp-l">Decide &rarr;</span><span class="fp-n">Three Ladders &mdash; Pick Your Path</span></a>
+    <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="fp"><span class="fp-l">Shop &rarr;</span><span class="fp-n">eBay Store &mdash; Live Listings</span></a>
+    <a href="Mac_Attack.html" class="fp"><span class="fp-l">Mac Attack &rarr;</span><span class="fp-n">Content Creation vs. Mac Studio</span></a>
+    <a href="mission.html" class="fp"><span class="fp-l">Mission &rarr;</span><span class="fp-n">Donations at Work</span></a>
+  </div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" target="_blank" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555">Interserver</a></div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobMenu');var h=document.querySelector('.hamburger');if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
+function toggleAcc(el){el.classList.toggle('open');var body=el.nextElementSibling;if(body)body.classList.toggle('open');}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');e.target.querySelectorAll('.rank-fill,.bar-fill').forEach(function(b){var w=b.style.width;b.style.width='0%';setTimeout(function(){b.style.width=w},80)});obs.unobserve(e.target)}});},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
