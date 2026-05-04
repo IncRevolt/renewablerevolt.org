@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Mission &mdash; Renewable Revolt</title>
+<meta name="description" content="Why Renewable Revolt exists. The market failure, the e-waste crisis, and how grant funding and donations power the work the for-profit market can't touch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--amethyst:#9b59b6;--revenant:#8b5cf6;--imperial:#6d28d9;--royal:#7c3aed;--plum:#a855f7;--green:#00e676;--amber:#ffab00;--red:#ff4444;--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--purple)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--purple);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+
+/* HERO */
+.hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.09) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.5rem}
+.hero h1{font-family:var(--disp);font-size:clamp(2rem,5.5vw,4rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.accent{color:var(--purple);display:block}
+.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:var(--muted);max-width:700px;line-height:1.75;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--purple);color:#fff;border:none;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}
+.btn-p:hover{opacity:.85}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.85rem 2rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent}
+.btn-s:hover{background:var(--purple);color:#fff}
+
+/* SECTIONS */
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-body{font-size:1rem;color:var(--muted);max-width:700px;line-height:1.75}
+
+/* FULL-WIDTH SECTIONS */
+.fw-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem}
+.fw-inner{max-width:1100px;margin:0 auto}
+
+/* STATS BAR */
+.stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 2rem;display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem}
+.stat{text-align:center}
+.stat-n{font-family:var(--mono);font-size:1.7rem;color:var(--purple);display:block;font-weight:700;letter-spacing:-.02em}
+.stat-l{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;color:var(--dim);letter-spacing:.1em;display:block;margin-top:.25rem}
+
+/* COLLAPSIBLE AUDIENCE CARDS */
+.aud-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);margin-top:2rem}
+.aud-card{background:var(--surface2);position:relative}
+.aud-trigger{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 1.75rem;cursor:pointer;gap:1rem;width:100%;text-align:left;background:none;border:none;color:var(--text);transition:background .2s}
+.aud-trigger:hover{background:rgba(139,92,246,.06)}
+.aud-trigger.open{background:rgba(139,92,246,.06)}
+.aud-left{display:flex;align-items:center;gap:1rem}
+.aud-icon{font-size:1.8rem;line-height:1;flex-shrink:0}
+.aud-meta{display:flex;flex-direction:column;gap:.15rem}
+.aud-title{font-family:var(--disp);font-size:1.15rem;font-weight:800;letter-spacing:-.01em}
+.aud-sub{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.05em}
+.aud-chev{color:var(--dim);font-size:.75rem;transition:transform .25s;flex-shrink:0}
+.aud-trigger.open .aud-chev{transform:rotate(180deg)}
+.aud-body{display:none;padding:0 1.75rem 1.75rem;border-top:1px solid var(--border)}
+.aud-card.open .aud-body{display:block}
+.aud-body p{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.aud-body p:last-child{margin-bottom:0}
+.aud-body strong{color:var(--text)}
+.aud-body .highlight{color:var(--purple);font-weight:600}
+.aud-body .stat-inline{font-family:var(--mono);font-size:.75rem;color:var(--green);letter-spacing:.05em}
+
+/* ACTION ITEMS INSIDE CARDS */
+.aud-actions{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.aud-actions-title{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem}
+.aud-action{display:flex;gap:.75rem;padding:.5rem 0;border-bottom:1px solid rgba(30,32,53,.6);align-items:flex-start}
+.aud-action:last-child{border-bottom:none}
+.aud-ck{font-family:var(--mono);font-size:.7rem;color:var(--purple);flex-shrink:0;margin-top:.1rem}
+.aud-action-text{font-size:.82rem;color:var(--muted);line-height:1.65}
+.aud-action-text strong{color:var(--text)}
+.aud-cta{display:inline-block;margin-top:1rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);border:1px solid var(--green);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.aud-cta:hover{background:var(--green);color:var(--black)}
+
+/* THE PROBLEM / TWO-COLUMN */
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2rem}
+.prob-col{padding:2rem 2.5rem}
+.prob-col.theirs{background:#140a0a}
+.prob-col.ours{background:#0a1409}
+.prob-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem}
+.prob-eyebrow.bad{color:var(--red)}
+.prob-eyebrow.good{color:var(--green)}
+.prob-title{font-family:var(--disp);font-size:1.6rem;font-weight:800;line-height:1.1;margin-bottom:.75rem}
+.prob-title.bad{color:#ff6b6b}
+.prob-title.good{color:var(--green)}
+.prob-detail{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:1.9}
+.prob-detail span{display:block}
+.prob-detail .bad-line{color:#ff8888}
+.prob-detail .good-line{color:var(--green)}
+
+/* NEGATIVE MARGIN SECTION */
+.neg-section{padding:5rem 2rem}
+.neg-inner{max-width:1100px;margin:0 auto}
+.neg-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);margin-top:2rem}
+.neg-card{background:var(--surface2);padding:1.75rem}
+.neg-icon{font-size:2rem;margin-bottom:.75rem;display:block}
+.neg-title{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.neg-desc{font-size:.85rem;color:var(--muted);line-height:1.75}
+.neg-stat{font-family:var(--mono);font-size:.9rem;color:var(--red);margin-top:.75rem;display:block;font-weight:700}
+
+/* CALLOUT BOX */
+.callout{border-left:3px solid var(--purple);background:rgba(139,92,246,.06);padding:1.5rem 2rem;margin:2rem 0}
+.callout p{font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:.75rem}
+.callout p:last-child{margin-bottom:0}
+.callout strong{color:var(--text)}
+.callout .callout-title{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem}
+
+/* MODEL SECTION */
+.model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2rem}
+.model-card{background:var(--surface2);padding:1.75rem;text-align:center}
+.model-step{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:.6rem}
+.model-icon{font-size:2.4rem;margin-bottom:.75rem;display:block}
+.model-title{font-family:var(--disp);font-size:1.15rem;font-weight:800;margin-bottom:.5rem}
+.model-desc{font-size:.82rem;color:var(--muted);line-height:1.65}
+.model-margin{font-family:var(--mono);font-size:.72rem;margin-top:.75rem;font-weight:700}
+.model-margin.positive{color:var(--green)}
+.model-margin.negative{color:var(--red)}
+.model-margin.funded{color:var(--purple)}
+
+/* DONATE BOX */
+.donate-sec{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem}
+.donate-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.donate-txt p{font-size:.95rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.donate-box{background:var(--surface2);border:1px solid var(--border);padding:2rem}
+.donate-box h3{font-family:var(--disp);font-size:1.2rem;font-weight:800;margin-bottom:.75rem}
+.donate-box p{font-size:.82rem;color:var(--dim);margin-bottom:1rem;line-height:1.65}
+.ein-tag{font-family:var(--mono);font-size:.56rem;color:var(--dim);letter-spacing:.08em;margin-top:1rem;text-align:center}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2rem}
+
+/* CASE STUDY */
+.cs-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem}
+.cs-inner{max-width:1100px;margin:0 auto}
+.cs-wrong-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2rem}
+.cs-wrong{background:#0f0a0a;padding:1.5rem;position:relative}
+.cs-wrong::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red)}
+.cs-wrong-label{font-family:var(--mono);font-size:.55rem;color:var(--red);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.4rem}
+.cs-wrong-spec{font-family:var(--disp);font-size:1.05rem;font-weight:800;color:#ff6b6b;margin-bottom:.4rem}
+.cs-wrong-p{font-size:.8rem;color:var(--muted);line-height:1.7}
+.cs-right-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:1px}
+.cs-right{background:#0a0f0a;padding:1.5rem;position:relative}
+.cs-right::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green)}
+.cs-right-label{font-family:var(--mono);font-size:.55rem;color:var(--green);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.4rem}
+.cs-right-spec{font-family:var(--disp);font-size:1.05rem;font-weight:800;color:var(--green);margin-bottom:.4rem}
+.cs-right-p{font-size:.8rem;color:var(--muted);line-height:1.7}
+
+/* FABRICATION / MFG */
+.mfg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);margin-top:2rem}
+.mfg-card{background:var(--surface2);padding:1.75rem;position:relative}
+.mfg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.mfg-card.active::before{background:var(--green)}
+.mfg-card.next::before{background:var(--amber)}
+.mfg-icon{font-size:1.8rem;margin-bottom:.6rem;display:block}
+.mfg-label{font-family:var(--mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem}
+.mfg-label.active{color:var(--green)}
+.mfg-label.next{color:var(--amber)}
+.mfg-title{font-family:var(--disp);font-size:1rem;font-weight:800;margin-bottom:.4rem}
+.mfg-desc{font-size:.8rem;color:var(--muted);line-height:1.7}
+.info-card{background:var(--surface2);padding:1.5rem}
+.info-label{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:.5rem}
+.info-val{font-size:.88rem;color:var(--muted);line-height:1.65}
+.info-val a{color:var(--purple);text-decoration:none}
+.info-val a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem 2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.foot-brand{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em}
+.foot-brand span{color:var(--purple)}
+.foot-meta{font-family:var(--mono);font-size:.56rem;color:var(--dim);letter-spacing:.08em;line-height:1.8;text-align:right}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .problem-grid,.donate-in,.info-grid,.model-grid,.cs-wrong-grid,.cs-right-grid,.mfg-grid{grid-template-columns:1fr}
+  .neg-cards{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(1.8rem,7vw,3rem)}
+  .prob-col{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">RENEWABLE<span> REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="recover.html">Recover</a></li>
+    <li><a href="revive.html">Revive</a></li>
+    <li><a href="index.html#products">Shop</a></li>
+    <li><a href="index.html#donate">Donate</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="nav-cta">Shop eBay &rarr;</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="recover.html" onclick="toggleMenu()">Recover</a>
+  <a href="revive.html" onclick="toggleMenu()">Revive</a>
+  <a href="index.html#products" onclick="toggleMenu()">Shop</a>
+  <a href="index.html#donate" onclick="toggleMenu()">Donate</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="eyebrow">501(c)(3) &middot; EIN: 99-2777606</div>
+    <h1>Gaming PCs Keep the Lights On.
+    <span class="accent">Donations Fund the Work That Matters.</span></h1>
+    <p class="hero-sub">Our gaming builds generate revenue.&nbsp; Grant funding and donations power the work the for-profit market refuses to touch&mdash;recovering consumer devices with broken screens, soldered RAM, and negative repair margins that would otherwise enter landfills with personal data intact.</p>
+    <div class="hero-btns">
+      <a href="#donate" class="btn-p">Make a Tax-Deductible Donation &rarr;</a>
+      <a href="#partner" class="btn-s">Partner With Us &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">$0</span><span class="stat-l">Price of a Capable Sub-$800 OEM Gaming PC</span></div>
+  <div class="stat"><span class="stat-n">19</span><span class="stat-l">Products from $429&ndash;$1,699</span></div>
+  <div class="stat"><span class="stat-n">5&ndash;7 yr</span><span class="stat-l">Useful Life Extension Per Unit</span></div>
+  <div class="stat"><span class="stat-n">$250&ndash;$440</span><span class="stat-l">Software/Hardware OEMs Don&rsquo;t Include</span></div>
+</div>
+
+<!-- WHY WE EXIST -->
+<section>
+  <div class="sec-label">Why We Exist</div>
+  <h2 class="sec-title">The Industry Left.<br>We Stayed.</h2>
+  <p class="sec-body" style="margin-bottom:1.5rem">Below $800, there are zero new gaming desktops with capable GPUs at any major US retailer.&nbsp; The sub-$500 entry-level PC segment is projected to disappear by 2028.&nbsp; And the &ldquo;budget&rdquo; machines the industry <em>does</em> sell are designed to disappoint&mdash;spec-sheet bait with single-channel RAM, stock coolers, and bloated software that starts stuttering within 18 months.</p>
+  <p class="sec-body">Renewable Revolt exists because the market failed.&nbsp; We recover enterprise hardware that still has years of useful life, engineer it into machines that outperform the new OEMs at every comparable price point, and deliver them with everything included&mdash;no subscriptions, no bloatware, no compromises.</p>
+</section>
+
+<!-- CASE STUDY: THE ROGUE -->
+<div class="cs-section">
+  <div class="cs-inner">
+    <div class="sec-label">Case Study</div>
+    <h2 class="sec-title">Three Components the Industry Called Dead.<br><span style="color:var(--green)">One Machine That Proves Them Wrong.</span></h2>
+    <p class="sec-body">Our Rogue build is the purest expression of what Renewable Revolt does.&nbsp; Every component in it was declared obsolete&mdash;by forums, by manufacturers, by an industry that profits from selling you something new.&nbsp; We tested every component.&nbsp; We benchmarked every component.&nbsp; We put them together in a configuration the market says shouldn&rsquo;t work.&nbsp; <strong style="color:var(--green)">It outperforms machines that cost twice as much.</strong></p>
+
+    <div class="cs-wrong-grid">
+      <div class="cs-wrong">
+        <div class="cs-wrong-label">CPU &mdash; &ldquo;Obsolete&rdquo;</div>
+        <div class="cs-wrong-spec">i7-5775C &mdash; 3.3 GHz</div>
+        <div class="cs-wrong-p">A 2015 CPU from a one-generation footnote.&nbsp; Intel shipped Broadwell desktop, replaced it with Skylake a month later, and forgot it existed.&nbsp; The market called it dead.&nbsp; <strong style="color:var(--text)">It has 128MB of on-die eDRAM that no other consumer CPU has ever shipped.</strong></div>
+      </div>
+      <div class="cs-wrong">
+        <div class="cs-wrong-label">RAM &mdash; &ldquo;E-Waste&rdquo;</div>
+        <div class="cs-wrong-spec">32GB DDR3-1066</div>
+        <div class="cs-wrong-p">The slowest DDR3 specification ever produced.&nbsp; Enterprise surplus that nobody wants.&nbsp; The enthusiast community calls it a bottleneck.&nbsp; <strong style="color:var(--text)">But 32GB means the page file never activates.&nbsp; No stutter.&nbsp; No micro-freezes.&nbsp; Ever.</strong></div>
+      </div>
+      <div class="cs-wrong">
+        <div class="cs-wrong-label">GPU &mdash; &ldquo;Dead&rdquo;</div>
+        <div class="cs-wrong-spec">GTX 980 &mdash; 5 Gens Old</div>
+        <div class="cs-wrong-p">Nvidia&rsquo;s 2014 flagship.&nbsp; Five architecture generations behind.&nbsp; Dropped from current driver support.&nbsp; No DLSS, no ray tracing.&nbsp; <strong style="color:var(--text)">Still pushes ~88 FPS in Fortnite at 1080p High.&nbsp; Still faster than every budget OEM GPU sold today.</strong></div>
+      </div>
+    </div>
+
+    <div class="cs-right-grid">
+      <div class="cs-right">
+        <div class="cs-right-label">What the eDRAM Actually Does</div>
+        <div class="cs-right-spec">50 GB/s &middot; 2&ndash;3 ns Latency</div>
+        <div class="cs-right-p">The L4 cache catches requests that would otherwise wait 40&ndash;50 ns for main memory.&nbsp; The CPU&rsquo;s hot data lives almost entirely in eDRAM.&nbsp; It outperforms the i7-6700K in gaming despite being one generation older and 700 MHz slower.</div>
+      </div>
+      <div class="cs-right">
+        <div class="cs-right-label">What 32GB Actually Does</div>
+        <div class="cs-right-spec">Zero Page File Activity</div>
+        <div class="cs-right-p">Fortnite + Discord + Chrome (10 tabs) + Spotify = ~18GB.&nbsp; A 16GB OEM is page-file thrashing.&nbsp; The Rogue has 14GB of headroom.&nbsp; The DDR3-1066 speed is irrelevant because the system never needs to swap to disk.</div>
+      </div>
+      <div class="cs-right">
+        <div class="cs-right-label">What $599 Actually Buys</div>
+        <div class="cs-right-spec">Matches $849 Systems</div>
+        <div class="cs-right-p">The Rogue&rsquo;s gaming CPU score beats processors in our $649 Phantom and $799 Marauder.&nbsp; With the GTX 980 Ti upgrade (Rogue+ at $649), it matches our $849 Coffee Lake Gamer.&nbsp; <a href="rogue.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid rgba(0,230,118,.3)">See the full benchmarks &rarr;</a></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:2rem">
+      <div class="callout-title" style="font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem">This Is What We Do</div>
+      <p>We use the components that are considered obsolete&mdash;because we&rsquo;re putting them into a system that makes them effective.&nbsp; Greater than the sum of their parts.&nbsp; The Rogue isn&rsquo;t an exception.&nbsp; It&rsquo;s the thesis.&nbsp; Every build in our lineup exists because we tested hardware that someone else threw away and discovered it still performs.&nbsp; <strong>This is the engineering that grant funding and donations make possible.</strong></p>
+      <p style="margin-top:.75rem">The Rogue isn&rsquo;t the only build using components the market considers e-waste.&nbsp; <strong>DDR3-1333</strong> powers our Phantom and Relic builds in quad-channel and dual-channel configurations that exceed modern DDR4 dual-channel bandwidth.&nbsp; <strong>4GB DDR3 and DDR4 DIMMs</strong> fill empty DIMM slots across our lineup, preserving channel configuration and adding capacity from sticks that most builders discard.&nbsp; Enterprise surplus RAM that nobody wants becomes the foundation of workstation-class memory configurations no OEM sells under $3,000.</p>
+      <p style="margin-top:.75rem">Our debloated Windows image&mdash;<strong style="color:var(--green)">RR Turbo v6</strong>&mdash;is open-sourced under the MIT license on GitHub.&nbsp; The build methodology, scripts, and documentation are free for anyone to use.&nbsp; We don&rsquo;t just build better machines.&nbsp; We publish how we do it so the community can too.&nbsp; <a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(139,92,246,.3)">github.com/IncRevolt/R-R-Turbo &rarr;</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- MANUFACTURING & FABRICATION -->
+<section>
+  <div class="sec-label">Manufacturing</div>
+  <h2 class="sec-title">From Hand Tools to Production Line.</h2>
+  <p class="sec-body" style="margin-bottom:0">We don&rsquo;t just refurbish hardware.&nbsp; We fabricate it.&nbsp; Our <a href="sff-workstation.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid rgba(0,230,118,.3)">SFF Workstation</a> is a custom-built small form factor desktop&mdash;hand-cut from a Dell Precision chassis, fitted with a server-grade UL-listed 80+ Gold PSU, Xeon eDRAM processor, 32GB ECC RAM, and Quadro professional graphics.&nbsp; It&rsquo;s a $749 machine that no OEM sells and no other refurbisher builds.&nbsp; Our Raider builds use 3D-printed I/O panels and magnetic standoffs to mount standard motherboards in OEM chassis.&nbsp; A used CNC machine would transform both product lines from hand-built prototypes into scalable production.</p>
+
+  <div class="mfg-grid">
+    <div class="mfg-card active">
+      <span class="mfg-icon">&#127912;</span>
+      <div class="mfg-label active">Active &mdash; 3D Printing</div>
+      <div class="mfg-title">Raider I/O Panels</div>
+      <div class="mfg-desc">Custom 3D-printed I/O shield panels solve the OEM-to-ATX mounting compatibility problem.&nbsp; Combined with magnetic standoffs and 1&ndash;2 standard case standoffs, this method has shipped on 1+ year of Raider and Revenant builds.&nbsp; No case modification required.</div>
+    </div>
+    <div class="mfg-card active">
+      <span class="mfg-icon">&#9881;&#65039;</span>
+      <div class="mfg-label active">Active &mdash; Hand Fabrication</div>
+      <div class="mfg-title">SFF Workstation Cases</div>
+      <div class="mfg-desc">Each SFF case is hand-cut and fabricated by IPC-certified builders.&nbsp; Angle grinder, file, hand drill.&nbsp; I/O cutout, PSU bracket, cooler clearance, custom front panel&mdash;approximately 2 hours of skilled labor per unit.&nbsp; <a href="sff-workstation.html" style="color:var(--green);text-decoration:none;border-bottom:1px solid rgba(0,230,118,.3)">See the full build &rarr;</a></div>
+    </div>
+    <div class="mfg-card active">
+      <span class="mfg-icon">&#128161;</span>
+      <div class="mfg-label active">Active &mdash; PSU Engineering</div>
+      <div class="mfg-title">OEM vs. Consumer Standards</div>
+      <div class="mfg-desc">Our SFF Workstation runs a Delta DPS-400AB-12&mdash;a 1U server-grade PSU with <strong style="color:var(--gold)">80+ Gold efficiency</strong> and <strong style="color:var(--gold)">UL Listed</strong> certification.&nbsp; Independent safety testing by Underwriters Laboratories.&nbsp; Two full tiers above the 80+ Bronze consumer PSUs the rest of our lineup uses.&nbsp; The best PSU we&rsquo;ve ever shipped.</div>
+    </div>
+    <div class="mfg-card next">
+      <span class="mfg-icon">&#128736;</span>
+      <div class="mfg-label next">Future Goal &mdash; Seeking Funding</div>
+      <div class="mfg-title">CNC Machine Acquisition</div>
+      <div class="mfg-desc">A used CNC machine would convert the 2-hour hand fabrication into 15 minutes of automated cutting.&nbsp; The SFF Workstation goes from limited-production prototype to scalable product line.&nbsp; Revenant-series panels get precision-cut metal options.&nbsp; <strong>This is the single highest-impact equipment investment we need to scale.</strong></div>
+    </div>
+  </div>
+</section>
+  </div>
+</div>
+
+<!-- THE TWO TRAPS -->
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem 4rem">
+  <div class="sec-label">The Market Failure</div>
+  <h2 class="sec-title">Two Traps.&nbsp; One Exit.</h2>
+  <p class="sec-body" style="margin-bottom:0">Every consumer looking for an affordable PC falls into one of two traps.&nbsp; We built the only way out.</p>
+  <div class="problem-grid">
+    <div class="prob-col theirs">
+      <div class="prob-eyebrow bad">Trap #1 &mdash; The $279 eBay Special</div>
+      <div class="prob-title bad">A Slideshow in a Box</div>
+      <div class="prob-detail">
+        <span class="bad-line">&#10007; GT 1030 2GB &mdash; 15&ndash;25 FPS at 720p</span>
+        <span class="bad-line">&#10007; 8GB single-channel DDR3</span>
+        <span class="bad-line">&#10007; Dell OEM board with no upgrade path</span>
+        <span class="bad-line">&#10007; Stock Intel cooler &mdash; loud under load</span>
+        <span class="bad-line">&#10007; Win 11 Home, bloated, no Office</span>
+        <span class="bad-line">&#10007; Rainbow RGB tape &mdash; not addressable</span>
+        <span style="display:block;margin-top:.75rem;color:var(--red);font-weight:700">Cannot meaningfully game at any resolution.</span>
+        <span style="display:block;color:var(--dim);margin-top:.25rem">You will buy a second one within 18 months.</span>
+      </div>
+    </div>
+    <div class="prob-col theirs">
+      <div class="prob-eyebrow bad">Trap #2 &mdash; The $899 OEM &ldquo;Deal&rdquo;</div>
+      <div class="prob-title bad">A Bottleneck by Design</div>
+      <div class="prob-detail">
+        <span class="bad-line">&#10007; RTX 5060 &mdash; capable GPU, but&hellip;</span>
+        <span class="bad-line">&#10007; 16GB single-channel DDR5 = page file thrashing</span>
+        <span class="bad-line">&#10007; Stock air cooler &mdash; &ldquo;loud, even at idle&rdquo;</span>
+        <span class="bad-line">&#10007; Win 11 Home + McAfee + CoPilot + Recall</span>
+        <span class="bad-line">&#10007; No Office &mdash; $100/yr subscription required</span>
+        <span class="bad-line">&#10007; RGB, not ARGB &mdash; no user control</span>
+        <span style="display:block;margin-top:.75rem;color:var(--red);font-weight:700">3-year cost with Office: $1,200+</span>
+        <span style="display:block;color:var(--dim);margin-top:.25rem">A Ferrari engine with bicycle tires.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE THREE AUDIENCES -->
+<div class="fw-section" id="partner">
+  <div class="fw-inner">
+    <div class="sec-label">How You Can Help</div>
+    <h2 class="sec-title">Three Ways to Power the Mission.</h2>
+    <p class="sec-body">Every path leads to the same outcome: capable technology in the hands of people who need it, built from hardware the industry abandoned.</p>
+
+    <div class="aud-grid">
+
+      <!-- CARD 1: GRANT OFFICERS -->
+      <div class="aud-card" id="aud-grants">
+        <button class="aud-trigger" onclick="toggleAud('aud-grants')">
+          <div class="aud-left">
+            <span class="aud-icon">&#127891;</span>
+            <div class="aud-meta">
+              <div class="aud-title">Grant &amp; Foundation Partners</div>
+              <div class="aud-sub">Digital equity &middot; e-waste reduction &middot; veteran services &middot; workforce development</div>
+            </div>
+          </div>
+          <span class="aud-chev">&#9660;</span>
+        </button>
+        <div class="aud-body">
+          <p><strong>We operate at the intersection of three grant categories</strong> that rarely overlap: digital equity (providing capable devices to underserved populations), environmental sustainability (diverting enterprise e-waste from landfills and extending hardware life by 5&ndash;7 years), and veteran services (veteran-owned nonprofit serving veteran communities through established partner organizations).</p>
+          <p><strong>The market data is unambiguous.</strong>&nbsp; As of April 2026, there are zero new gaming or productivity PCs with capable GPUs available under $800 at any major US retailer.&nbsp; Our 19-product lineup spans $429&ndash;$1,699 and delivers performance that meets or exceeds new OEM systems at every comparable price point&mdash;while including permanent software licensing, debloated operating systems, premium cooling, and ARGB lighting that OEMs either omit or charge extra for.</p>
+          <p><strong>Our structural advantages create sustainable margins.</strong>&nbsp; As an IRS-approved 501(c)(3), we receive a 2% eBay fee rate versus the standard 13.6%.&nbsp; Combined with below-market component sourcing through enterprise surplus recovery and GPU refurbishment, this creates 35&ndash;45% net margins at price points no for-profit competitor can match.&nbsp; Gaming PC revenue sustains operations.&nbsp; <span class="highlight">Grant funding powers the negative-margin work&mdash;consumer device recovery&mdash;that the for-profit market cannot economically address.</span></p>
+          <p><strong>What grant funding enables:</strong></p>
+          <div class="aud-actions">
+            <div class="aud-actions-title">Funded Programs</div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Family PC Donation Program</strong>&mdash;Purpose-built systems for veterans, students, and families in need.&nbsp; Not leftover inventory.&nbsp; Dedicated builds with full software stack, premium cooling, and ARGB lighting.&nbsp; These are cool machines that kids are proud to own.</span></div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Consumer Device Recovery</strong>&mdash;Laptops, tablets, and phones with broken screens, soldered components, and negative repair margins.&nbsp; Proper data sanitization (DoD 5220.22-M certified), component-level triage, and redeployment or responsible recycling.&nbsp; The work nobody else will do because the economics are negative.</span></div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Build Capacity Scaling</strong>&mdash;Component procurement, workspace equipment, and additional builder training to increase throughput from current capacity to meet community demand.</span></div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>CNC Machine Acquisition</strong>&mdash;We currently hand-fabricate <a href="sff-workstation.html" style="color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(139,92,246,.3)">SFF Workstation</a> cases with hand tools&mdash;approximately 2 hours of skilled labor per unit.&nbsp; A used CNC machine would reduce this to 15 minutes, transforming a limited-production prototype into a scalable product line.&nbsp; The single highest-impact equipment investment we need to scale.</span></div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Open-Source Software Development</strong>&mdash;Our debloated Windows image, <a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(139,92,246,.3)">RR Turbo v6</a>, is published under the MIT license on GitHub.&nbsp; Free for any organization or individual to use.&nbsp; Nine months of production deployment across multiple hardware platforms.</span></div>
+          </div>
+          <a href="index.html#contact" class="aud-cta">Contact Us About Grant Partnerships &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CARD 2: INDIVIDUAL DONORS -->
+      <div class="aud-card" id="aud-donors">
+        <button class="aud-trigger" onclick="toggleAud('aud-donors')">
+          <div class="aud-left">
+            <span class="aud-icon">&#128156;</span>
+            <div class="aud-meta">
+              <div class="aud-title">Individual Donors</div>
+              <div class="aud-sub">Tax-deductible donations &middot; every dollar funds the work that runs at a loss</div>
+            </div>
+          </div>
+          <span class="aud-chev">&#9660;</span>
+        </button>
+        <div class="aud-body">
+          <p><strong>Gaming PCs keep the lights on.&nbsp; Your donation funds the work we actually care about.</strong></p>
+          <p>Our 16-build gaming PC lineup generates the revenue that sustains operations&mdash;builder costs, components, workspace, shipping.&nbsp; That engine runs.&nbsp; But the hardest problems&mdash;laptops with cracked screens and soldered RAM, tablets with shattered digitizers, phones choked by obsolete software on hardware that still works&mdash;run at a loss.&nbsp; Nobody else touches them because the margins are negative.&nbsp; <strong>That&rsquo;s exactly where your donation goes.</strong></p>
+          <p>Every dollar of donation funding goes directly to recovering, sanitizing, and redeploying devices that would otherwise enter the waste stream with personal data intact.&nbsp; No executive salaries.&nbsp; No fundraising overhead.&nbsp; Components, tools, and the labor to turn e-waste into capability.</p>
+          <div class="aud-actions">
+            <div class="aud-actions-title">What Your Donation Buys</div>
+            <div class="aud-action"><span class="aud-ck">$25</span><span class="aud-action-text">WiFi adapter + Bluetooth module for one build.&nbsp; Connectivity for a family that didn&rsquo;t have it.</span></div>
+            <div class="aud-action"><span class="aud-ck">$50</span><span class="aud-action-text">GPU for a Raider donation unit.&nbsp; The component that turns office surplus into a gaming PC.</span></div>
+            <div class="aud-action"><span class="aud-ck">$100</span><span class="aud-action-text">Complete component kit for one family donation PC&mdash;case, PSU, storage, cooling, ARGB, WiFi.</span></div>
+            <div class="aud-action"><span class="aud-ck">$250</span><span class="aud-action-text">Fully built Raider donation unit: CPU, GPU, 16GB RAM, NVMe + HDD, Win 11 Pro, ARGB.&nbsp; Ready to game, ready for homework, ready for life.</span></div>
+          </div>
+          <a href="#donate" class="aud-cta">Donate Now &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CARD 3: CORPORATE PARTNERS -->
+      <div class="aud-card" id="aud-corporate">
+        <button class="aud-trigger" onclick="toggleAud('aud-corporate')">
+          <div class="aud-left">
+            <span class="aud-icon">&#127970;</span>
+            <div class="aud-meta">
+              <div class="aud-title">Corporate &amp; E-Waste Partners</div>
+              <div class="aud-sub">Hardware donations &middot; surplus recovery &middot; certified data destruction</div>
+            </div>
+          </div>
+          <span class="aud-chev">&#9660;</span>
+        </button>
+        <div class="aud-body">
+          <p><strong>Your surplus hardware has years of useful life.&nbsp; We prove it every day.</strong></p>
+          <p>When your organization declares hardware end-of-life, most of it gets shredded.&nbsp; Processors with 5&ndash;7 years of remaining useful life.&nbsp; DDR4 that still runs at rated speed.&nbsp; Server boards with features that consumer platforms won&rsquo;t have for another generation.&nbsp; All of it headed for e-waste processing because your support contract expired or your refresh cycle triggered.</p>
+          <p><strong>We turn your compliance liability into community impact.</strong>&nbsp; Every drive we receive is sanitized using Active@ KillDisk with DoD 5220.22-M certification&mdash;digitally signed PDF certificates for your audit trail.&nbsp; Every component is tested, validated, and either deployed in a new build or responsibly recycled.&nbsp; Your organization gets a tax-deductible donation receipt, a certified data destruction report, and the knowledge that your hardware is serving veterans and families instead of a landfill.</p>
+          <div class="aud-actions">
+            <div class="aud-actions-title">What We Accept</div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Desktop workstations &amp; towers</strong>&mdash;Dell, HP, Lenovo enterprise-class.&nbsp; Any generation.&nbsp; Working or non-working.</span></div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Server hardware</strong>&mdash;Rack servers, tower servers, Supermicro, Dell PowerEdge.&nbsp; Processors, RAM, storage controllers.</span></div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Components</strong>&mdash;CPUs, RAM (DDR3/DDR4/DDR5), GPUs, NVMe drives, PSUs, enterprise SSDs.</span></div>
+            <div class="aud-action"><span class="aud-ck">[&#10003;]</span><span class="aud-action-text"><strong>Laptops, tablets, phones</strong>&mdash;Even broken.&nbsp; Even with soldered components.&nbsp; We triage at the component level and recover what others won&rsquo;t.</span></div>
+          </div>
+          <a href="index.html#contact" class="aud-cta">Schedule a Pickup or Drop-Off &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- THE NEGATIVE MARGIN PROBLEM -->
+<div class="neg-section">
+  <div class="neg-inner">
+    <div class="sec-label">The Hard Problem</div>
+    <h2 class="sec-title">The Work Nobody Else Will Do.</h2>
+    <p class="sec-body" style="margin-bottom:0">Landfills are full of consumer devices that still work.&nbsp; They&rsquo;re choked by software, cracked by accidents, and stuffed with personal data that was never wiped.&nbsp; The for-profit repair market won&rsquo;t touch them because the economics are negative.&nbsp; That&rsquo;s exactly why this work requires nonprofit funding.</p>
+
+    <div class="neg-cards">
+      <div class="neg-card">
+        <span class="neg-icon">&#128187;</span>
+        <div class="neg-title">Laptops</div>
+        <div class="neg-desc">Cracked screens on $600 machines with soldered RAM and glued batteries.&nbsp; A screen replacement costs more than the resale value.&nbsp; The CPU, WiFi card, and SSD still work.&nbsp; Most get shredded whole&mdash;with the owner&rsquo;s data still on the drive.</div>
+        <span class="neg-stat">Repair cost exceeds resale value by 40&ndash;60%</span>
+      </div>
+      <div class="neg-card">
+        <span class="neg-icon">&#128241;</span>
+        <div class="neg-title">Phones</div>
+        <div class="neg-desc">Shattered screens on hardware that still processes, still connects, still has value.&nbsp; But OEMs design repair out of the product&mdash;glued assemblies, proprietary fasteners, software locks that brick the device if you replace a component without factory authorization.</div>
+        <span class="neg-stat">1.5 billion phones discarded globally per year</span>
+      </div>
+      <div class="neg-card">
+        <span class="neg-icon">&#128218;</span>
+        <div class="neg-title">Tablets</div>
+        <div class="neg-desc">Digitizers that cost $15 to manufacture and $120 to replace.&nbsp; Batteries that swell after 500 cycles because they were glued in and designed to be non-serviceable.&nbsp; Software updates that deliberately slow older hardware until the user gives up and buys new.</div>
+        <span class="neg-stat">Average tablet lifespan: 3 years.&nbsp; Capable lifespan: 7+</span>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:2rem">
+      <div class="callout-title">The Throw-Away Economy</div>
+      <p><strong>The resale margins on consumer devices are negative.</strong>&nbsp; A laptop with a cracked screen and 4 years of use has a repair cost that exceeds its resale value.&nbsp; A phone with a shattered digitizer costs more to fix than to replace.&nbsp; A tablet with a swollen battery is classified as hazardous waste.&nbsp; The for-profit market treats all three as scrap.</p>
+      <p><strong>But the components inside still work.</strong>&nbsp; The processor, the storage, the wireless radio, the sensors&mdash;these have years of useful life.&nbsp; And every one of these devices enters the waste stream carrying personal data&mdash;photos, passwords, banking credentials, medical records&mdash;that was never properly sanitized.&nbsp; <strong>This is simultaneously an e-waste crisis and a data security crisis, and no one is solving both at once.</strong></p>
+      <p>Gaming PCs generate our revenue.&nbsp; <strong>Your donations and grant funding are the only thing that makes this work possible.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- THE MODEL -->
+<section>
+  <div class="sec-label">How It Works</div>
+  <h2 class="sec-title">Recover.&nbsp; Revive.&nbsp; Redeploy.</h2>
+  <p class="sec-body">Our revenue model funds itself.&nbsp; Grant funding extends our reach into the work the market abandoned.</p>
+  <div class="model-grid">
+    <div class="model-card">
+      <div class="model-step">Step 01</div>
+      <span class="model-icon">&#9851;&#65039;</span>
+      <div class="model-title">Recover</div>
+      <div class="model-desc">Enterprise hardware from corporate refresh cycles, government surplus, and e-waste donation partnerships.&nbsp; Components that have been declared obsolete by policy&mdash;not by capability.</div>
+      <div class="model-margin positive">Sourcing cost: 10&ndash;30% of retail</div>
+    </div>
+    <div class="model-card">
+      <div class="model-step">Step 02</div>
+      <span class="model-icon">&#128295;</span>
+      <div class="model-title">Revive</div>
+      <div class="model-desc">BIOS-level turbo unlocking, custom debloated OS images (<a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none">RR Turbo v6&mdash;open-sourced on GitHub</a>), thermal solutions, GPU deep-cleans, quad-channel memory architecture, and full hardware validation.&nbsp; Not refurbishing&mdash;engineering.</div>
+      <div class="model-margin positive">Build time: 4&ndash;6 hours per unit</div>
+    </div>
+    <div class="model-card">
+      <div class="model-step">Step 03</div>
+      <span class="model-icon">&#128640;</span>
+      <div class="model-title">Redeploy</div>
+      <div class="model-desc">Gaming PCs sell on eBay at 35&ndash;45% margins, funding operations.&nbsp; Donation units go to veterans, students, and families through our community partners.&nbsp; Consumer devices get triaged, sanitized, and redeployed.</div>
+      <div class="model-margin funded">Grant funding unlocks consumer device recovery</div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<div class="donate-sec" id="donate">
+  <div class="donate-in">
+    <div class="donate-txt">
+      <div class="sec-label">Support the Mission</div>
+      <h2 class="sec-title">The Hard Problems Don&rsquo;t Pay for Themselves.</h2>
+      <p>Gaming PCs keep the lights on.&nbsp; But the work we actually care about&mdash;laptops, tablets, phones, and family donation PCs&mdash;runs at a loss.&nbsp; Nobody else is doing it because the margins are negative.&nbsp; That&rsquo;s exactly why it needs to be done.</p>
+      <p>Donations fund the R&amp;D, the rework, and the devices that will never turn a profit but will end up in the hands of someone who needs them.</p>
+      <p>Our family donation PCs aren&rsquo;t afterthoughts&mdash;they&rsquo;re dedicated builds with the same premium cooling, ARGB lighting, and debloated software as our gaming lineup.&nbsp; <strong>These are machines kids are proud to own.</strong></p>
+    </div>
+    <div class="donate-box">
+      <h3>Tax-Deductible Donation</h3>
+      <p>Renewable Revolt, Inc. is an IRS-approved 501(c)(3) nonprofit.&nbsp; All donations are fully tax-deductible to the extent permitted by law.</p>
+      <div id="donate-button" style="margin-bottom:1rem"></div>
+      <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+      <script>if(typeof PayPal!=='undefined'){PayPal.Donation.Button({env:'production',hosted_button_id:'9MPACUWVF5NZ8',image:{src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',alt:'Donate with PayPal button',title:'PayPal - The safer, easier way to pay online!'}}).render('#donate-button')}</script>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=9MPACUWVF5NZ8" target="_blank" rel="noopener" class="btn-s" style="width:100%;text-align:center;display:block;margin-top:.5rem">Direct PayPal Link &rarr;</a>
+      <div class="ein-tag">EIN: 99-2777606 &middot; Charity ID: 391538 &middot; Hammond, IN</div>
+    </div>
+  </div>
+</div>
+
+<!-- ORG INFO -->
+<section>
+  <div class="sec-label">Organization Details</div>
+  <h2 class="sec-title">For Grant Applications &amp; Due Diligence</h2>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-label">Legal Name</div>
+      <div class="info-val">Renewable Revolt, Incorporated</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Tax Status</div>
+      <div class="info-val">IRS-Approved 501(c)(3)<br>Tax-Exempt since September 2024</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">EIN</div>
+      <div class="info-val">99-2777606</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">eBay Charity ID</div>
+      <div class="info-val">391538</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Location</div>
+      <div class="info-val">Hammond, Indiana<br>Lake County &middot; Northwest Indiana</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Leadership</div>
+      <div class="info-val">Veteran Owned &amp; Operated<br>3-Member Board of Directors</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Operations</div>
+      <div class="info-val">5 Builders / 5 Sites<br>8+ Unit Monthly Build Capacity</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Community Partners</div>
+      <div class="info-val">The LAB (Veterans Organization)<br>St. John the Evangelist Catholic Church<br>American Legion</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <div><div class="foot-brand">RENEWABLE <span>REVOLT</span></div><div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER &middot; REVIVE &middot; REDEPLOY</div></div>
+    <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+  </div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" target="_blank" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555">Interserver</a></div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+document.addEventListener('click',e=>{const m=document.getElementById('mobMenu');const h=document.querySelector('.hamburger');if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open')});
+function toggleAud(id){const el=document.getElementById(id);const wasOpen=el.classList.contains('open');el.classList.toggle('open');const trigger=el.querySelector('.aud-trigger');trigger.classList.toggle('open')}
+</script>
+</body>
+</html>
