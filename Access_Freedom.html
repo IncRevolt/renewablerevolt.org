@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access + Freedom — Own Your AI | Renewable Revolt</title>
+<meta name="description" content="Access was never the hard part. Freedom is. Nearly every Renewable Revolt workstation can grow into a private AI host that runs on your desk, answers only to you, and never sends your data anywhere. Add a recovered compute card, run your own AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080a0c;--surface:rgba(255,255,255,0.03);--surface2:rgba(255,255,255,0.06);--green:#00e676;--green-glow:rgba(0,230,118,0.08);--cyan:#00E5FF;--cyan-glow:rgba(0,229,255,0.07);--purple:#b388ff;--brand-purple:#8b5cf6;--mac:#e65100;--mac-glow:rgba(230,81,0,0.07);--text:#e8e8e8;--text-muted:#999;--text-dim:#666;--border:rgba(255,255,255,0.08);--black:#07080c;--mono:'IBM Plex Mono',monospace;--display:'Inter',-apple-system,sans-serif;--body:'Inter',-apple-system,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,12,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px}
+.nav-logo{font-family:var(--display);font-weight:800;font-size:1rem;color:var(--text);letter-spacing:.05em;text-transform:uppercase}.nav-logo .accent{color:var(--brand-purple)}
+.nav-back{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)}.nav-back:hover{color:var(--cyan);text-decoration:none}
+
+.hero{padding:10rem 2rem 5rem;max-width:1000px;margin:0 auto;border-bottom:1px solid var(--border)}
+.hero-label{font-family:var(--mono);font-size:0.62rem;color:var(--cyan);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:1.3rem}
+.hero h1{font-family:var(--display);font-size:clamp(2.8rem,8vw,5.5rem);font-weight:900;line-height:0.98;letter-spacing:-0.035em;margin-bottom:1.8rem}.hero h1 .accent{color:var(--cyan)}
+.hero-sub{font-size:1.18rem;color:var(--text-muted);max-width:640px;line-height:1.75;margin-bottom:2.5rem}
+.hero-sub strong{color:var(--text)}
+.hero-cta{display:inline-flex;gap:1rem;flex-wrap:wrap}
+.btn-cyan{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 1.7rem;border:1px solid var(--cyan);color:var(--cyan);border-radius:2px;transition:all 0.2s}.btn-cyan:hover{background:var(--cyan);color:var(--black);text-decoration:none}
+.btn-ghost{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 1.7rem;border:1px solid var(--border);color:var(--text-muted);border-radius:2px;transition:all 0.2s}.btn-ghost:hover{border-color:var(--text-muted);color:var(--text);text-decoration:none}
+
+.section{max-width:1000px;margin:0 auto;padding:5rem 2rem;border-bottom:1px solid var(--border)}
+.section:last-of-type{border-bottom:none}
+.sec-label{font-family:var(--mono);font-size:0.6rem;color:var(--cyan);text-transform:uppercase;letter-spacing:0.2em;margin-bottom:0.9rem}
+.sec-h2{font-family:var(--display);font-size:clamp(1.6rem,3.6vw,2.6rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:1.4rem;line-height:1.12}.sec-h2 .accent{color:var(--cyan)}
+.prose{font-size:1.02rem;color:var(--text-muted);line-height:1.8;max-width:680px}
+.prose p{margin-bottom:1.2rem}.prose p:last-child{margin-bottom:0}.prose strong{color:var(--text)}.prose em{color:var(--cyan);font-style:normal;font-weight:600}
+
+.pull{font-family:var(--display);font-size:clamp(1.45rem,3.4vw,2.2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;color:var(--text);max-width:760px;margin:2.2rem 0;padding:0.4rem 0 0.4rem 1.4rem;border-left:3px solid var(--cyan)}.pull .accent{color:var(--cyan)}
+
+.blist{list-style:none;padding:0;margin:1.6rem 0;max-width:700px}
+.blist li{position:relative;padding:0.95rem 0 0.95rem 1.9rem;border-bottom:1px solid var(--border);font-size:0.96rem;color:var(--text-muted);line-height:1.6}
+.blist li:last-child{border-bottom:none}
+.blist li::before{content:"";position:absolute;left:0;top:1.35rem;width:8px;height:8px;background:var(--mac);border-radius:50%}
+.blist li strong{color:var(--text)}
+.blist.good li::before{background:var(--cyan)}
+
+.callout{padding:1.5rem 1.9rem;border-left:3px solid var(--cyan);background:var(--cyan-glow);margin:2rem 0;border-radius:0 4px 4px 0}.callout p{font-size:0.94rem;color:var(--text);line-height:1.7}.callout strong{color:var(--cyan)}
+.callout.green{border-left-color:var(--green);background:var(--green-glow)}.callout.green strong{color:var(--green)}
+
+.pair-wrap{margin:2rem 0;overflow-x:auto}
+.pair-table{width:100%;border-collapse:collapse;font-family:var(--mono);min-width:560px}
+.pair-table th{font-size:0.56rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;text-align:left;padding:0.6rem 0.9rem;border-bottom:1px solid var(--border);font-weight:500}
+.pair-table td{font-size:0.7rem;color:var(--text-muted);padding:0.85rem 0.9rem;border-bottom:1px solid rgba(255,255,255,0.05);line-height:1.4}
+.pair-table tr:last-child td{border-bottom:none}
+.pair-table .pt-gpu{color:var(--text);font-weight:600}
+.pair-table .pt-card{color:var(--purple);font-weight:600}
+.pair-table .pt-mem{color:var(--cyan);font-weight:600}
+.pair-table .pt-price{color:#ffd54f;font-weight:700;white-space:nowrap}
+
+.lines-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.85rem;margin:1.6rem 0 2rem}
+.line-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--cyan);border-radius:0 4px 4px 0;padding:1.1rem 1.3rem}
+.line-card .ln{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--text);margin-bottom:0.25rem}
+.line-card .ld{font-family:var(--mono);font-size:0.6rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;line-height:1.5}
+
+.except{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:1.5rem 1.9rem;margin-top:0.5rem}
+.except .et{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--green);margin-bottom:0.6rem}
+.except p{font-family:var(--body);font-size:0.92rem;color:var(--text-muted);line-height:1.7}.except strong{color:var(--text)}
+
+.final{text-align:center;padding:6rem 2rem;max-width:760px;margin:0 auto}
+.final h2{font-family:var(--display);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-0.025em;line-height:1.04;margin-bottom:1.3rem}
+.final h2 .accent{color:var(--cyan)}
+.final p{color:var(--text-muted);font-size:1.05rem;line-height:1.75;margin-bottom:2.2rem;max-width:620px;margin-left:auto;margin-right:auto}
+.final-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.foot-brand{font-family:var(--display);font-weight:800;font-size:0.9rem}.foot-brand span{color:var(--brand-purple)}
+.foot-tag{font-family:var(--mono);font-size:0.52rem;color:var(--text-dim);letter-spacing:0.12em;margin-top:0.3rem}
+.foot-meta{font-family:var(--mono);font-size:0.58rem;color:var(--text-dim);line-height:1.8}
+.foot-links{display:flex;flex-direction:column;gap:0.4rem}.foot-links a{font-family:var(--mono);font-size:0.62rem;color:var(--text-muted);letter-spacing:0.05em}.foot-links a:hover{color:var(--cyan);text-decoration:none}
+
+@media(max-width:768px){.hero{padding:8rem 1.5rem 3rem}.section{padding:3.5rem 1.5rem}.final{padding:4rem 1.5rem}.lines-grid{grid-template-columns:1fr 1fr}footer{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<nav><a href="index.html" class="nav-logo">RENEWABLE<span class="accent"> REVOLT</span></a><a href="index.html" class="nav-back">&larr; Back to Main</a></nav>
+
+<!-- SECTION 1 — HERO -->
+<div class="hero">
+<div class="hero-label">Access &middot; Freedom &middot; Ownership</div>
+<h1>Own your <span class="accent">AI.</span></h1>
+<p class="hero-sub">Access was never the hard part.  <strong>Freedom is.</strong>  Every Renewable Revolt workstation &mdash; except our two entry models &mdash; can grow into a private AI host that runs on your desk, answers only to you, and never sends your data anywhere.</p>
+<div class="hero-cta"><a href="#how" class="btn-cyan">See How It Works &darr;</a><a href="index.html#products" class="btn-ghost">Browse Builds &rarr;</a></div>
+</div>
+
+<!-- SECTION 2 — RETHINKING ACCESS -->
+<section class="section">
+<div class="sec-label">Rethinking Access</div>
+<h2 class="sec-h2">Access isn&rsquo;t the problem you think it is.</h2>
+<div class="prose">
+<p>There&rsquo;s a common assumption that &ldquo;access to technology&rdquo; means giving devices to students and the less fortunate.  But look closer.  In the United States, those groups already have devices.  There are free phones for low-income households.  There are school Chromebooks for nearly every student.</p>
+<p>The device isn&rsquo;t missing.  Something else is.</p>
+<p>What&rsquo;s missing &mdash; and what a lot of people lack regardless of their income &mdash; is the <em>freedom</em> to use the device the way they want.  The free phone runs the same data-harvesting software as everyone else&rsquo;s.  The school Chromebook adds a second cage on top: it decides which sites and which content you&rsquo;re allowed to reach.</p>
+</div>
+<div class="pull">Access without freedom isn&rsquo;t access.  <span class="accent">It&rsquo;s a leash with a longer cord.</span></div>
+</section>
+
+<!-- SECTION 3 — THE MACHINE THAT WATCHES YOU -->
+<section class="section">
+<div class="sec-label">The Trade You Didn&rsquo;t Agree To</div>
+<h2 class="sec-h2">You bought it.  <span class="accent" style="color:var(--mac)">You don&rsquo;t own it.</span></h2>
+<div class="prose">
+<p>Spend $1,200 on an off-the-shelf gaming PC.  Spend far more on a Mac Studio.  Either way, the machine you &ldquo;own&rdquo; is working a second job you didn&rsquo;t authorize:</p>
+</div>
+<ul class="blist">
+<li>It collects telemetry on how you use it.</li>
+<li>It feeds you recommendations and surfaces ads in places that used to be yours.</li>
+<li>It increasingly ships with cloud AI features baked in at the system level &mdash; features you can&rsquo;t fully remove, that send your activity off your machine to be processed somewhere else.</li>
+<li>And when something breaks or falls behind, most of these are sealed shut &mdash; soldered memory, glued batteries, locked bootloaders.  Non-repairable by design.  Non-upgradeable by design.  Built to be replaced, not maintained.</li>
+</ul>
+<div class="prose">
+<p>The free phone does it.  The Chromebook does it, and restricts you on top.  The premium machine does it with a nicer logo.</p>
+<p>You&rsquo;re not the owner.  You&rsquo;re the product, the renter, and the next upgrade cycle&rsquo;s customer &mdash; all at once.</p>
+</div>
+</section>
+
+<!-- SECTION 4 — THE RENEWABLE REVOLT DIFFERENCE -->
+<section class="section">
+<div class="sec-label">The Renewable Revolt Difference</div>
+<h2 class="sec-h2">Repairable.  Upgradeable.  <span class="accent">Yours.</span></h2>
+<div class="prose">
+<p>We build from recovered enterprise hardware and run it on lean software.  That combination isn&rsquo;t a compromise &mdash; it&rsquo;s the whole point.  Recovered hardware is built to be serviced.  Lean software stays out of your way.  Together they make a machine that you can open, fix, upgrade, and actually own.</p>
+<p>Our software image, <strong>RR Turbo</strong>, strips out the mandatory, always-on AI and telemetry that modern systems force on you.  Removing that bloat does two things at once: it stops the machine from watching you, and it frees up enough headroom that <em>older, recovered hardware runs beautifully</em> &mdash; the same hardware the throwaway economy wrote off.</p>
+</div>
+<div class="callout green"><p><strong>We&rsquo;re not chasing &ldquo;best.&rdquo;</strong>  &ldquo;Best&rdquo; is a marketing treadmill.  We build for <strong style="color:var(--text)">capability matched to your use case</strong>, with access and freedom as the non-negotiables.  A machine that does what you need, that you control completely, beats a faster machine that controls you.</p></div>
+</section>
+
+<!-- SECTION 5 — AI THAT SERVES YOU -->
+<section class="section">
+<div class="sec-label">AI On Your Terms</div>
+<h2 class="sec-h2">You don&rsquo;t need a frontier model.  <span class="accent">You need a good one that&rsquo;s yours.</span></h2>
+<div class="prose">
+<p>The AI industry wants you to believe you need the biggest, newest model in someone else&rsquo;s data center.  For most real use, you don&rsquo;t.</p>
+<p>What you need is a <em>good</em> model that:</p>
+</div>
+<ul class="blist good">
+<li><strong>Runs on your machine</strong> &mdash; your prompts and documents never leave your desk.</li>
+<li><strong>Doesn&rsquo;t watch you</strong> &mdash; no account, no telemetry, no training on your data.</li>
+<li><strong>Won&rsquo;t throttle you</strong> &mdash; no rate limits, no &ldquo;you&rsquo;ve hit your usage cap.&rdquo;</li>
+<li><strong>Won&rsquo;t disappear or spike in price</strong> &mdash; when token prices jump or a service sunsets a model, yours keeps running exactly as it did the day you set it up.</li>
+</ul>
+<div class="prose">
+<p>A private local model handles the everyday work &mdash; drafting, summarizing, answering questions, searching your own documents &mdash; without a subscription and without a connection to anyone else&rsquo;s cloud.  It&rsquo;s not about having the most powerful AI.  It&rsquo;s about having AI that&rsquo;s <em>yours</em>, permanently, on your terms.</p>
+</div>
+</section>
+
+<!-- SECTION 5B — WHY IT WORKS -->
+<section class="section">
+<div class="sec-label">Why It Actually Works</div>
+<h2 class="sec-h2">Big-model smarts.  <span class="accent">Small-machine speed.</span></h2>
+<div class="prose">
+<p>It&rsquo;s a fair question: can a recovered workstation really run AI that&rsquo;s any good?  A few years ago, not really.  Today, yes &mdash; because the best open models stopped trying to get smarter by getting bigger, and started getting smarter about <em>what they switch on.</em></p>
+<p>Modern open models use a design called <strong>mixture-of-experts</strong>.  Picture a large, well-read model that, for every word it writes, wakes only the small part of itself that&rsquo;s actually relevant and leaves the rest asleep.  You get the knowledge and judgment of a big model at the speed and memory footprint of a small one.</p>
+<p>That is the trick that makes private, local AI practical on recovered hardware.  A single dedicated 16&nbsp;GB card holds the whole model, and because only a sliver of it runs at any instant, it answers quickly &mdash; on a machine the throwaway economy already wrote off.  Not a stripped-down toy.  A genuinely capable assistant that happens to live on your desk.</p>
+</div>
+<div class="pull">A model that&rsquo;s mostly asleep is a model that runs anywhere &mdash; <span class="accent">including the machine you already own.</span></div>
+</section>
+
+<!-- SECTION 6 — HOW IT WORKS -->
+<section class="section" id="how">
+<div class="sec-label">How It Works</div>
+<h2 class="sec-h2">Add a brain.  <span class="accent">Keep your machine.</span></h2>
+<div class="prose">
+<p>Local AI needs dedicated memory and compute.  Rather than make you buy a whole new machine, we let you add a second card built for exactly this: a <strong>recovered datacenter AI accelerator</strong>, given a second life and dropped in alongside your existing graphics card.</p>
+<p>Your main card keeps driving your displays and doing your creative work.  The compute card sits beside it with its own pool of high-speed memory and hosts your private AI.  One machine, two specialized cards, one private model that belongs to you.</p>
+<p>These accelerators are themselves recovered enterprise hardware &mdash; the same Recover, Revive, Redeploy story as the rest of our builds.  <em>The AI brain in your workstation used to live in a server rack.  We brought it back.</em></p>
+<p>The card matches your build&rsquo;s graphics vendor, so the two share one clean driver path &mdash; and either way you get a full <strong>16 GB</strong> of dedicated high-speed memory for the model, on top of your gaming card&rsquo;s own VRAM:</p>
+</div>
+
+<div class="pair-wrap">
+<table class="pair-table">
+<thead><tr><th>Your build&rsquo;s graphics</th><th>AI compute card</th><th>Dedicated AI memory</th><th>Total usable VRAM</th></tr></thead>
+<tbody>
+<tr><td class="pt-gpu">AMD Radeon (8 GB or larger)</td><td class="pt-card">Vega Frontier Edition</td><td class="pt-mem">16 GB HBM2</td><td class="pt-price">up to 24 GB</td></tr>
+<tr><td class="pt-gpu">NVIDIA GeForce / RTX (8 GB or larger)</td><td class="pt-card">Tesla P100</td><td class="pt-mem">16 GB HBM2</td><td class="pt-price">up to 24 GB</td></tr>
+</tbody>
+</table>
+</div>
+
+<p style="font-family:var(--mono);font-size:0.62rem;color:#ffd54f;letter-spacing:0.04em;margin:0 0 1.5rem;line-height:1.7"><strong>AI Integration: $350</strong> &mdash; or <strong>$250</strong> on builds that already ship the heavier power supply (Dreadnought, Banshee Workstation, Ironclad).&nbsp; The $100 difference is just the power supply, passed straight through &mdash; if your machine is already provisioned for it, you don&rsquo;t pay for it twice.&nbsp; One flagship model, one 16 GB card, both vendor paths the same price.</p>
+
+<div class="callout"><p><strong>One honest nuance.</strong>  On our AMD builds, the Vega Frontier Edition pulls double duty &mdash; it hosts your AI <em>and</em> genuinely accelerates GPU creative work in DaVinci Resolve and Blender.  On NVIDIA builds, the Tesla P100 is focused on AI &mdash; expect marginal editing gains at most.  Same price either way; we won&rsquo;t pretend a card speeds up your edit when it doesn&rsquo;t.</p></div>
+</section>
+
+<!-- SECTION 7 — WHICH BUILDS -->
+<section class="section">
+<div class="sec-label">Where You Can Add It</div>
+<h2 class="sec-h2">Available across the line.</h2>
+<div class="prose">
+<p>We designed AI Integration into every build with an 8 GB or larger graphics card.  If your build qualifies, you can add private AI now or later &mdash; your choice, your timeline.</p>
+</div>
+<div class="lines-grid">
+<div class="line-card"><div class="ln">X79 Nightmare</div><div class="ld">DDR3 quad-channel gaming line</div></div>
+<div class="line-card"><div class="ln">The Forge</div><div class="ld">X79 ECC workstation line</div></div>
+<div class="line-card"><div class="ln">X99 Fleet</div><div class="ld">DDR4 quad-channel workstation line</div></div>
+</div>
+<div class="except">
+<div class="et">The exceptions &mdash; the Revenant line (Raider, Relic, Rogue).</div>
+<p>These ship 4 GB graphics cards, which can&rsquo;t host the model at usable quality and speed &mdash; so we don&rsquo;t offer AI Integration on them, rather than sell you something that runs poorly.  They stay focused on what they do best: the lowest-cost path to a capable, private, telemetry-free machine.  Start there, and step up to an 8 GB+ build when you&rsquo;re ready for private AI.</p>
+</div>
+</section>
+
+<!-- SECTION 8 — WHAT YOU CAN DO -->
+<section class="section">
+<div class="sec-label">Day One</div>
+<h2 class="sec-h2">Your private AI, <span class="accent">day one.</span></h2>
+<ul class="blist good">
+<li>A private assistant for writing, drafting, and answering questions &mdash; offline-capable, no account.</li>
+<li>Search and question your own documents and files (private RAG) &mdash; your data stays on your disk.</li>
+<li>A coding helper, a study aid, a research partner &mdash; without a subscription meter running.</li>
+<li>Peace of mind: nothing you type is logged to a cloud, sold, or used to train someone else&rsquo;s model.</li>
+</ul>
+<div class="callout"><p>This is everyday AI you own outright &mdash; ideal for personal, study, and small-business work.  It&rsquo;s <strong>not</strong> built to train frontier models or replace a data center.  That&rsquo;s not the point.  The point is a capable, private model that&rsquo;s permanently yours.</p></div>
+</section>
+
+<!-- SECTION 9 — CLOSE / CTA -->
+<div class="final">
+<h2>Access.  Freedom.  <span class="accent">Ownership.</span><br>Pick a build.</h2>
+<p>Every machine we sell is repairable, upgradeable, and free of the software that watches you.  Most of them can grow into a private AI host whenever you&rsquo;re ready.  That&rsquo;s not a premium feature.  That&rsquo;s the whole idea.</p>
+<div class="final-cta">
+<a href="index.html#products" class="btn-cyan">Browse Upgrade-Ready Builds &rarr;</a>
+<a href="Mac_Attack.html" class="btn-ghost">See the Upgrade Matrix &rarr;</a>
+<a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" class="btn-ghost">Learn About RR Turbo &rarr;</a>
+</div>
+</div>
+
+<footer>
+<div><div class="foot-brand">RENEWABLE <span>REVOLT</span></div><div class="foot-tag">RECOVER &middot; REVIVE &middot; REDEPLOY</div></div>
+<div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; eBay Charity ID: 391538<br>Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+<div class="foot-links"><a href="index.html#products">Full Lineup</a><a href="Mac_Attack.html">Mac Attack</a><a href="recover.html">Circular Economy</a><a href="revive.html">Build Process &amp; R&amp;D</a><a href="decide.html">Pick Your Path</a><a href="index.html#contact">Contact</a></div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem;width:100%">Hosted &amp; Powered by <a href="https://www.interserver.net" target="_blank" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555">Interserver</a></div>
+</footer>
+
+</body>
+</html>
