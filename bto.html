@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build to Order &mdash; Renewable Revolt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080a0c; --surface:rgba(255,255,255,0.03); --surface2:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.08); --border2:rgba(255,255,255,0.14);
+  --green:#00e676; --purple:#b388ff; --nv:#76b900; --mac:#e65100;
+  --amber:#ffd54f; --cyan:#00E5FF; --red:#ff5252;
+  --text:#e8e8e8; --text-muted:#999; --text-dim:#666;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --body:'Inter',-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 90% 55% at 50% -8%,rgba(0,229,255,.05),transparent 70%);}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{padding:34px 0 22px;border-bottom:1px solid var(--border)}
+.eyebrow{font-family:var(--mono);font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+h1{font-size:clamp(1.8rem,4vw,2.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+h1 .thin{color:var(--text-muted);font-weight:500}
+.sub{color:var(--text-muted);margin-top:12px;max-width:640px;font-size:.98rem}
+
+/* step labels */
+.step{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-dim);
+  display:flex;align-items:center;gap:12px;margin:40px 0 18px}
+.step .n{color:var(--cyan)}
+.step::after{content:"";flex:1;height:1px;background:var(--border)}
+
+/* build picker */
+.builds{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:860px){.builds{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.builds{grid-template-columns:1fr}}
+.bcard{position:relative;text-align:left;cursor:pointer;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:16px 15px;transition:.16s;color:inherit;font-family:inherit}
+.bcard:hover{border-color:var(--border2);background:var(--surface2);transform:translateY(-2px)}
+.bcard.on{border-color:var(--accent);background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 12%,transparent),transparent 70%);
+  box-shadow:0 0 0 1px var(--accent) inset,0 8px 30px -12px var(--accent)}
+.bcard .bn{font-weight:700;font-size:1.02rem;letter-spacing:-.01em;display:flex;align-items:center;gap:7px}
+.btag{font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;padding:2px 5px;border:1px solid var(--amber);
+  color:var(--amber);border-radius:3px}
+.bcard .from{font-family:var(--mono);font-size:.72rem;color:var(--text-muted);margin-top:8px}
+.bcard .from b{color:var(--green);font-weight:600}
+.bcard .bt{font-size:.76rem;color:var(--text-dim);margin-top:7px;line-height:1.4}
+.bcard .dot{position:absolute;top:14px;right:14px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--text-dim)}
+.bcard.on .dot{border-color:var(--accent);background:var(--accent);box-shadow:0 0 8px var(--accent)}
+
+/* config layout */
+.config{display:grid;grid-template-columns:1fr 372px;gap:22px;align-items:start}
+@media(max-width:840px){.config{grid-template-columns:1fr}}
+.panel-empty{border:1px dashed var(--border2);border-radius:14px;padding:48px 24px;text-align:center;color:var(--text-dim);
+  font-family:var(--mono);font-size:.82rem;letter-spacing:.02em}
+
+.grouplabel{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin:0 0 11px}
+.pkgs{display:flex;flex-direction:column;gap:9px}
+.pkg{cursor:pointer;display:grid;grid-template-columns:22px 1fr auto;gap:13px;align-items:start;
+  background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px 16px;transition:.15s}
+.pkg:hover{border-color:var(--border2);background:var(--surface2)}
+.pkg.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--text-dim);margin-top:2px;position:relative;transition:.15s}
+.pkg.on .radio{border-color:var(--accent)}
+.pkg.on .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--accent)}
+.pkg .pname{font-weight:650;font-size:.96rem;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pkg .pspecs{font-family:var(--mono);font-size:.72rem;color:var(--text-muted);margin-top:5px;line-height:1.55}
+.pkg .pprice{font-family:var(--mono);font-weight:600;font-size:1rem;color:var(--green);white-space:nowrap;text-align:right}
+.pill{font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:3px;
+  border:1px solid currentColor}
+.pill.compute{color:var(--purple)} .pill.ram{color:var(--cyan)} .pill.chef{color:var(--amber)}
+
+.addons{margin-top:20px}
+.addon{cursor:pointer;display:grid;grid-template-columns:20px 1fr auto;gap:12px;align-items:center;
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 15px;transition:.15s;margin-bottom:8px}
+.addon:hover{border-color:var(--border2)}
+.addon.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.chk{width:18px;height:18px;border-radius:5px;border:2px solid var(--text-dim);position:relative;transition:.15s}
+.addon.on .chk{border-color:var(--accent);background:var(--accent)}
+.addon.on .chk::after{content:"";position:absolute;left:4.5px;top:1px;width:5px;height:9px;border:solid var(--bg);
+  border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.addon .al{font-size:.85rem;line-height:1.35}
+.addon .ap{font-family:var(--mono);font-weight:600;font-size:.86rem;color:var(--green);white-space:nowrap}
+.note{font-family:var(--mono);font-size:.68rem;color:var(--text-dim);margin-top:14px;line-height:1.6;
+  border-left:2px solid var(--border2);padding-left:12px}
+
+/* spec sheet */
+.sheet{position:sticky;top:18px;background:linear-gradient(180deg,var(--surface2),var(--surface));
+  border:1px solid var(--border2);border-radius:14px;overflow:hidden}
+.sheet-h{padding:15px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.sheet-h .lbl{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-dim)}
+.sheet-h .mdl{font-weight:750;font-size:1.05rem;letter-spacing:-.01em;margin-top:3px}
+.sheet-body{padding:6px 18px 4px}
+.srow{display:grid;grid-template-columns:74px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:.8rem}
+.srow:last-child{border-bottom:none}
+.srow .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding-top:2px}
+.srow .v{color:var(--text);line-height:1.4}
+.srow .v .up{color:var(--cyan);font-family:var(--mono);font-size:.64rem;margin-left:6px}
+.inc{padding:12px 18px;border-top:1px solid var(--border);font-family:var(--mono);font-size:.66rem;color:var(--text-muted);line-height:1.9}
+.inc .c{color:var(--green)}
+.total{padding:16px 18px;border-top:1px solid var(--border2);display:flex;justify-content:space-between;align-items:baseline;
+  background:rgba(0,230,118,.04)}
+.total .tl{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted)}
+.total .tv{font-family:var(--mono);font-weight:600;font-size:1.7rem;color:var(--green)}
+.gen{width:100%;border:none;cursor:pointer;font-family:var(--mono);font-weight:600;font-size:.82rem;letter-spacing:.06em;
+  padding:15px;background:var(--cyan);color:#001014;transition:.15s}
+.gen:hover{filter:brightness(1.12)}
+.gen:disabled{background:var(--surface2);color:var(--text-dim);cursor:not-allowed}
+
+/* output */
+.out{margin-top:22px;border:1px solid var(--border2);border-radius:14px;overflow:hidden;display:none}
+.out.show{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.out-h{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.out-h .t{font-weight:700;font-size:.98rem}
+.out-actions{display:flex;gap:8px}
+.oa{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.04em;padding:9px 14px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--border2);background:var(--surface);color:var(--text);transition:.15s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.oa:hover{border-color:var(--cyan);color:var(--cyan)}
+.oa.mail{background:var(--cyan);color:#001014;border-color:var(--cyan)}
+.oa.mail:hover{filter:brightness(1.1);color:#001014}
+pre.summary{font-family:var(--mono);font-size:.74rem;color:var(--text-muted);line-height:1.7;padding:18px;
+  white-space:pre-wrap;word-break:break-word;background:rgba(0,0,0,.25)}
+.rr-form{padding:16px 18px 20px;border-top:1px solid var(--border);background:rgba(255,255,255,.015)}
+.rr-form .grouplabel{margin-bottom:13px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.frow{grid-template-columns:1fr}}
+.fld{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:9px;padding:11px 13px;
+  color:var(--text);font-family:var(--body);font-size:.86rem;margin-bottom:10px;transition:.15s;resize:vertical}
+.fld:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan)}
+.fld::placeholder{color:var(--text-dim)}
+.frow .fld{margin-bottom:0}
+.send{width:100%;border:none;cursor:pointer;font-family:var(--mono);font-weight:600;font-size:.8rem;letter-spacing:.05em;
+  padding:13px;background:var(--green);color:#00140a;border-radius:9px;transition:.15s;margin-top:2px}
+.send:hover:not(:disabled){filter:brightness(1.1)}
+.send:disabled{opacity:.55;cursor:not-allowed}
+.fstatus{font-family:var(--mono);font-size:.72rem;margin-top:11px;min-height:1em;line-height:1.5}
+.fstatus.ok{color:var(--green)} .fstatus.err{color:var(--amber)}
+footer{border-top:1px solid var(--border);margin-top:56px;padding:26px 0 46px;font-family:var(--mono);
+  font-size:.66rem;color:var(--text-dim);line-height:1.9;text-align:center}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Renewable Revolt &middot; Build to Order</div>
+    <h1>Configure your workstation. <span class="thin">Get a spec sheet.</span></h1>
+    <p class="sub">Every option here is a complete, tested configuration &mdash; recovered enterprise silicon, matched cooling, and a power supply sized for exactly what you pick. Choose a platform, choose a package, and we'll build it to order.</p>
+  </header>
+
+  <div class="step"><span class="n">01</span> Choose your platform</div>
+  <div class="builds" id="builds"></div>
+
+  <div class="step"><span class="n">02</span> Configure &amp; review</div>
+  <div class="config">
+    <div id="configPanel"><div class="panel-empty">Select a platform above to configure it.</div></div>
+    <div id="sheetWrap"></div>
+  </div>
+
+  <div class="out" id="out">
+    <div class="out-h">
+      <div class="t">Your build is ready</div>
+      <div class="out-actions">
+        <button class="oa" id="copyBtn">Copy spec sheet</button>
+      </div>
+    </div>
+    <pre class="summary" id="summary"></pre>
+    <form class="rr-form" id="rrForm" novalidate>
+      <div class="grouplabel">Send this build to Renewable Revolt for a quote &amp; lead time</div>
+      <div class="frow">
+        <input class="fld" id="fName" name="name" placeholder="Your name" autocomplete="name">
+        <input class="fld" id="fEmail" name="email" type="text" placeholder="Email or phone" autocomplete="email">
+      </div>
+      <textarea class="fld" id="fNotes" name="notes" placeholder="Anything else? (timeline, questions, customizations)" rows="2"></textarea>
+      <button class="send" type="submit" id="sendBtn">Send my build</button>
+      <div class="fstatus" id="fStatus" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <footer>
+    Renewable Revolt Inc. &middot; 501(c)(3) &middot; Recover. Revive. Redeploy.<br>
+    Build-to-order configs are hand-assembled from recovered enterprise hardware. Lead times and availability confirmed by email.
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   EDIT PRICES / SPECS HERE — one place, plain data.
+   ============================================================ */
+const RR_EMAIL = "andrew@renewablerevolt.org";   // fallback contact shown on errors
+const FORMSPREE_ID = "YOUR_FORM_ID";             // <-- sign up at formspree.io, paste your form ID (e.g. "xldrabcd")
+const INCLUDED = ["RR Turbo (debloated Windows 11 Pro)", "Office 2019 Pro+"];
+
+const BUILDS = [
+  { id:"marauder", name:"Marauder", accent:"var(--nv)",
+    tagline:"6-core creator rig. GPU + RAM only.",
+    chassis:"Q300L / mATX \u2014 no compute-card bay",
+    cpu:"Intel i7-6800K \u00b7 6C/12T \u00b7 3.4 / 3.8 GHz",
+    packages:[
+      {id:"m1070", name:"Marauder", price:849, ram:"32GB DDR4-2400 QC", gpu:"GTX 1070 8GB", psu:"550W"},
+      {id:"m1070ti", name:"Marauder \u00b7 1070 Ti", price:899, ram:"32GB DDR4-2400 QC", gpu:"GTX 1070 Ti 8GB", psu:"650 / 700W"}
+    ],
+    addons:[ {id:"mram", label:"Upgrade to 64GB DDR4-2400", price:150, sets:{ram:"64GB DDR4-2400 QC"}} ]
+  },
+  { id:"ghoul", name:"Ghoul WS", accent:"var(--nv)",
+    tagline:"Unlocked 6-core CUDA workstation.",
+    chassis:"Full tower",
+    cpu:"Xeon E5-1650 v2 [Unlocked] \u00b7 6C/12T \u00b7 3.5 / 3.9 GHz",
+    ramCap:"Capped at 64GB \u2014 step up to the DDR4 line (Ironclad / Dreadnought) for 128GB.",
+    packages:[
+      {id:"g1080", name:"Ghoul WS", price:1199, ram:"64GB DDR3-1333", gpu:"GTX 1080 8GB", psu:"700W"},
+      {id:"g1080ti", name:"Ghoul WS \u00b7 1080 Ti", price:1299, ram:"64GB DDR3-1333", gpu:"GTX 1080 Ti 11GB", psu:"700W"}
+    ],
+    addons:[
+      {id:"gcpu", label:"CPU \u2192 Xeon E5-1660 v2 (3.7 / 4.0 GHz)", price:75, sets:{cpu:"Xeon E5-1660 v2 \u00b7 6C/12T \u00b7 3.7 / 4.0 GHz"}},
+      {id:"gai", label:"Add P100 16GB compute card (AI) \u2014 includes 900W PSU", price:350, sets:{ai:"NVIDIA Tesla P100 16GB HBM2", psu:"900W"}}
+    ]
+  },
+  { id:"banshee", name:"Banshee WS", accent:"var(--purple)",
+    tagline:"10-core ECC AMD workstation.",
+    chassis:"Full tower",
+    ramCap:"Capped at 64GB \u2014 step up to the DDR4 line (Ironclad / Dreadnought) for 128GB.",
+    cpu:"Xeon E5-2690 v2 \u00b7 10C/20T \u00b7 3.0 / 3.6 GHz",
+    packages:[
+      {id:"bbase", name:"Banshee WS", price:1499, ram:"64GB DDR3-1600 ECC", gpu:"RX 6700 XT 12GB", psu:"1050W"},
+      {id:"bplus", name:"Banshee WS+", price:1699, ram:"64GB DDR3-1600 ECC", gpu:"Vega 64 + WX9100 dual-GPU", psu:"1050W", pill:"compute", pillTxt:"dual-GPU compute"}
+    ],
+    addons:[ {id:"bcpu", label:"CPU \u2192 Xeon E5-2697 v2 (12C / 24T)", price:25, sets:{cpu:"Xeon E5-2697 v2 \u00b7 12C/24T \u00b7 2.7 / 3.5 GHz"}} ]
+  },
+  { id:"ironclad", name:"Ironclad", accent:"var(--nv)", tag:"BTO",
+    tagline:"CUDA creator workstation. NVIDIA where it matters.",
+    chassis:"Full tower",
+    cpu:"Intel i7-5960X \u00b7 8C/16T \u00b7 3.0 / 3.5 GHz",
+    packages:[
+      {id:"i64", name:"Ironclad", price:1699, ram:"64GB DDR4-2133 QC \u00b7 68.3 GB/s", gpu:"RTX 3060 12GB", psu:"900W"},
+      {id:"i128", name:"Ironclad 128GB", price:1899, ram:"128GB DDR4-2133 QC \u00b7 68.3 GB/s", gpu:"RTX 3060 12GB", psu:"900W", pill:"ram", pillTxt:"128GB"}
+    ],
+    addons:[
+      {id:"icpu", label:"CPU \u2192 Xeon E5-2697 v3 (14C / 28T)", price:25, sets:{cpu:"Xeon E5-2697 v3 \u00b7 14C/28T"}},
+      {id:"iai", label:"Add P100 16GB compute card (AI)", price:250, sets:{ai:"NVIDIA Tesla P100 16GB HBM2"}}
+    ]
+  },
+  { id:"dreadnought", name:"Dreadnought", accent:"var(--purple)", tag:"BTO",
+    tagline:"AMD-first flagship. Grows with your career.",
+    chassis:"Full tower",
+    cpu:"Intel i7-6900K \u00b7 8C/16T \u00b7 3.2 / 3.7 GHz",
+    packages:[
+      {id:"dbase", name:"Dreadnought", price:1999, ram:"64GB DDR4-2400 QC \u00b7 76.8 GB/s", gpu:"RX 6700 XT 12GB", psu:"1050W"},
+      {id:"d128", name:"Dreadnought 128GB", price:2299, ram:"128GB DDR4-2667 QC \u00b7 85.3 GB/s", gpu:"RX 6700 XT 12GB", psu:"1050W", pill:"ram", pillTxt:"RAM path"},
+      {id:"dplus", name:"Dreadnought+", price:2299, ram:"64GB DDR4-2400 QC \u00b7 76.8 GB/s", gpu:"Vega 64 + WX9100 dual-GPU", cpu:"Xeon E5-2697A v4 \u00b7 16C/32T", psu:"1050W", pill:"compute", pillTxt:"compute path"},
+      {id:"dult", name:"Ultimate Dreadnought", price:2599, ram:"128GB DDR4-2667 QC \u00b7 85.3 GB/s", gpu:"Vega 64 + WX9100 dual-GPU", cpu:"Xeon E5-2697A v4 \u00b7 16C/32T", psu:"1050W", pill:"chef", pillTxt:"Chef's Choice"}
+    ],
+    addons:[
+      {id:"dcpu", label:"CPU \u2192 Xeon E5-2697A v4 (16C / 32T)", price:50, sets:{cpu:"Xeon E5-2697A v4 \u00b7 16C/32T"}, hideFor:["dplus","dult"]}
+    ]
+  }
+];
+
+/* ---------- state ---------- */
+let state = { build:null, pkg:null, addons:new Set() };
+const $ = id => document.getElementById(id);
+const money = n => "$"+n.toLocaleString();
+const getBuild = () => BUILDS.find(b=>b.id===state.build);
+const getPkg = () => { const b=getBuild(); return b && b.packages.find(p=>p.id===state.pkg); };
+
+/* ---------- build picker ---------- */
+function renderBuilds(){
+  $("builds").innerHTML = BUILDS.map(b=>{
+    const from = Math.min(...b.packages.map(p=>p.price));
+    return `<button class="bcard ${state.build===b.id?'on':''}" style="--accent:${b.accent}" data-b="${b.id}">
+      <span class="dot"></span>
+      <div class="bn">${b.name}${b.tag?`<span class="btag">${b.tag}</span>`:""}</div>
+      <div class="from">from <b>${money(from)}</b></div>
+      <div class="bt">${b.tagline}</div>
+    </button>`;
+  }).join("");
+  document.querySelectorAll("[data-b]").forEach(el=>el.onclick=()=>selectBuild(el.dataset.b));
+}
+function selectBuild(id){
+  const b = BUILDS.find(x=>x.id===id);
+  state.build=id; state.pkg=b.packages[0].id; state.addons=new Set();
+  hideOut(); renderBuilds(); renderConfig();
+}
+
+/* ---------- config panel ---------- */
+function renderConfig(){
+  const b=getBuild();
+  if(!b){ $("configPanel").innerHTML='<div class="panel-empty">Select a platform above to configure it.</div>'; $("sheetWrap").innerHTML=""; return; }
+
+  const pkgs = b.packages.map(p=>`
+    <div class="pkg ${state.pkg===p.id?'on':''}" style="--accent:${b.accent}" data-p="${p.id}">
+      <div class="radio"></div>
+      <div>
+        <div class="pname">${p.name}${p.pill?`<span class="pill ${p.pill}">${p.pillTxt}</span>`:""}</div>
+        <div class="pspecs">${p.cpu?p.cpu+" &middot; ":""}${p.ram} &middot; ${p.gpu} &middot; ${p.psu}</div>
+      </div>
+      <div class="pprice">${money(p.price)}</div>
+    </div>`).join("");
+
+  const visibleAddons = (b.addons||[]).filter(a=>!(a.hideFor||[]).includes(state.pkg));
+  const addons = visibleAddons.length ? `<div class="addons">
+      <div class="grouplabel">Add-ons</div>
+      ${visibleAddons.map(a=>`
+        <div class="addon ${state.addons.has(a.id)?'on':''}" style="--accent:${b.accent}" data-a="${a.id}">
+          <div class="chk"></div>
+          <div class="al">${a.label}</div>
+          <div class="ap">+${money(a.price)}</div>
+        </div>`).join("")}
+    </div>` : "";
+
+  const cap = b.ramCap ? `<div class="note">${b.ramCap}</div>` : "";
+
+  $("configPanel").innerHTML = `<div class="grouplabel">${b.name} &mdash; packages</div>
+    <div class="pkgs">${pkgs}</div>${addons}${cap}`;
+
+  document.querySelectorAll("[data-p]").forEach(el=>el.onclick=()=>{ state.pkg=el.dataset.p;
+    (b.addons||[]).forEach(a=>{ if((a.hideFor||[]).includes(state.pkg)) state.addons.delete(a.id); });
+    hideOut(); renderConfig(); });
+  document.querySelectorAll("[data-a]").forEach(el=>el.onclick=()=>{ const id=el.dataset.a;
+    state.addons.has(id)?state.addons.delete(id):state.addons.add(id); hideOut(); renderConfig(); });
+
+  renderSheet();
+}
+
+/* ---------- live spec sheet ---------- */
+function currentSpec(){
+  const b=getBuild(), p=getPkg();
+  const spec={ cpu:p.cpu||b.cpu, ram:p.ram, gpu:p.gpu, psu:p.psu, ai:p.ai||null };
+  const ups={};
+  (b.addons||[]).forEach(a=>{ if(state.addons.has(a.id)){ Object.entries(a.sets).forEach(([k,v])=>{ spec[k]=v; ups[k]=true; }); } });
+  const price = p.price + (b.addons||[]).filter(a=>state.addons.has(a.id)).reduce((s,a)=>s+a.price,0);
+  return { spec, ups, price };
+}
+function renderSheet(){
+  const b=getBuild(), p=getPkg(), {spec,ups,price}=currentSpec();
+  const row=(k,v,up)=>`<div class="srow"><div class="k">${k}</div><div class="v">${v}${up?'<span class="up">upgraded</span>':""}</div></div>`;
+  $("sheetWrap").innerHTML = `<div class="sheet">
+    <div class="sheet-h"><div><div class="lbl">Your build</div><div class="mdl">${p.name}</div></div></div>
+    <div class="sheet-body">
+      ${row("CPU",spec.cpu,ups.cpu)}
+      ${row("Memory",spec.ram,ups.ram)}
+      ${row("GPU",spec.gpu,ups.gpu)}
+      ${spec.ai?row("Compute",spec.ai,true):""}
+      ${row("Power",spec.psu,ups.psu)}
+      ${row("Chassis",b.chassis,false)}
+    </div>
+    <div class="inc">${INCLUDED.map(i=>`<span class="c">&#10003;</span> ${i}`).join("<br>")}</div>
+    <div class="total"><span class="tl">Build total</span><span class="tv">${money(price)}</span></div>
+    <button class="gen" id="genBtn">Generate my build</button>
+  </div>`;
+  $("genBtn").onclick=generate;
+}
+
+/* ---------- generate ---------- */
+function generate(){
+  const b=getBuild(), p=getPkg(), {spec,price}=currentSpec();
+  const L=[];
+  L.push("RENEWABLE REVOLT \u2014 BUILD TO ORDER");
+  L.push("========================================");
+  L.push("Model      : "+p.name+"  ("+b.name+" platform)");
+  L.push("CPU        : "+spec.cpu);
+  L.push("Memory     : "+spec.ram);
+  L.push("GPU        : "+spec.gpu);
+  if(spec.ai) L.push("Compute    : "+spec.ai);
+  L.push("Power      : "+spec.psu);
+  L.push("Chassis    : "+b.chassis);
+  L.push("Included   : "+INCLUDED.join(" + "));
+  L.push("----------------------------------------");
+  L.push("BUILD TOTAL: "+money(price));
+  L.push("========================================");
+  L.push("Recover. Revive. Redeploy.  \u2014 renewablerevolt.org");
+  const text=L.join("\n");
+  $("summary").textContent=text;
+  $("out").classList.add("show");
+  $("out").scrollIntoView({behavior:"smooth",block:"nearest"});
+  $("copyBtn").textContent="Copy spec sheet";
+  const btn=$("sendBtn"); btn.disabled=false; btn.textContent="Send my build";
+  $("fStatus").textContent=""; $("fStatus").className="fstatus";
+}
+function hideOut(){ $("out").classList.remove("show"); }
+$("copyBtn").onclick=()=>{ const t=$("summary").textContent;
+  navigator.clipboard?.writeText(t).then(()=>{ $("copyBtn").textContent="Copied \u2713"; },()=>{ $("copyBtn").textContent="Press \u2318/Ctrl+C"; }); };
+
+function fstatus(msg,err){ const s=$("fStatus"); s.textContent=msg; s.className="fstatus "+(err?"err":"ok"); }
+$("rrForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const name=$("fName").value.trim(), email=$("fEmail").value.trim();
+  if(!name||!email){ fstatus("Add your name and a way to reach you.",true); return; }
+  if(FORMSPREE_ID==="YOUR_FORM_ID"){ fstatus("Form isn\u2019t connected yet \u2014 set FORMSPREE_ID in the page source.",true); return; }
+  const p=getPkg(), {price}=currentSpec(), btn=$("sendBtn");
+  btn.disabled=true; btn.textContent="Sending\u2026";
+  try{
+    const res=await fetch("https://formspree.io/f/"+FORMSPREE_ID,{
+      method:"POST", headers:{"Accept":"application/json","Content-Type":"application/json"},
+      body:JSON.stringify({ name, email, notes:$("fNotes").value.trim(), build:p.name,
+        total:money(price), spec:$("summary").textContent,
+        _subject:"Build to Order \u2014 "+p.name+" ("+money(price)+")" })
+    });
+    if(res.ok){ $("rrForm").reset(); fstatus("Sent \u2713  We\u2019ll reply with a quote and lead time.",false); btn.textContent="Sent \u2713"; }
+    else{ fstatus("Couldn\u2019t send \u2014 email "+RR_EMAIL+" and we\u2019ll sort it.",true); btn.disabled=false; btn.textContent="Send my build"; }
+  }catch(_){ fstatus("Network error \u2014 email "+RR_EMAIL+" directly.",true); btn.disabled=false; btn.textContent="Send my build"; }
+});
+
+renderBuilds();
+const _h=location.hash.replace("#","");   // deep-link: bto.html#dreadnought pre-selects a build
+if(BUILDS.some(b=>b.id===_h)) selectBuild(_h);
+</script>
+</body>
+</html>
