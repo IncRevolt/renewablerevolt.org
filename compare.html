@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renewable Revolt &mdash; The OEM Trap</title>
+<meta name="description" content="The new $989+ gaming PC ships 16GB and a paper RTX number.  The Renewable Revolt Coffee Lake Gamer ($849) and Marauder ($949) ship 32GB, perpetual Office, and balance that actually delivers frames.  Advertised isn't available.  Available isn't capable.  Read the trap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;
+  --purple:#8b5cf6;--royal:#7c3aed;--plum:#a855f7;
+  --green:#00e676;--cyan:#00E5FF;--amber:#ffab00;--red:#ff4444;
+  --mac:#e65100;--console:#0ea5e9;
+  --text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;
+  --mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:1.1rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--cyan);color:var(--black)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-title span{color:var(--purple)}
+.sec-body{font-size:1rem;color:var(--muted);max-width:720px;line-height:1.75;margin-bottom:1rem}
+.sec-body span{color:var(--text);font-weight:600}
+
+/* HERO */
+.c-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.c-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.c-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.09) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.c-hero-content{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.c-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.c-hero h1 span{color:var(--purple);display:block}
+.c-hero-sub{font-size:clamp(1rem,1.8vw,1.1rem);color:var(--muted);max-width:640px;line-height:1.75;margin-bottom:2rem}
+
+/* CALLOUTS */
+.callout{background:var(--surface);border-left:3px solid var(--purple);padding:1.2rem 1.5rem;border-radius:0 4px 4px 0;margin:1.5rem 0}
+.callout p{font-size:.92rem;color:var(--muted);line-height:1.7}
+.callout p span{color:var(--text);font-weight:700}
+.callout-green{border-left-color:var(--green)}
+.callout-red{border-left-color:var(--red)}
+.callout-amber{border-left-color:var(--amber)}
+
+/* COLLAPSIBLE CARDS */
+.acc{border:1px solid var(--border);border-radius:4px;margin-bottom:.75rem;overflow:hidden;background:var(--surface)}
+.acc-trigger{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.4rem;cursor:pointer;background:var(--surface);transition:background .2s;gap:1rem}
+.acc-trigger:hover{background:var(--surface2)}
+.acc-title{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:-.01em;color:var(--text);line-height:1.2}
+.acc-tag{font-family:var(--mono);font-size:.55rem;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;margin-top:.25rem;display:block}
+.acc-preview{font-family:var(--mono);font-size:.6rem;color:var(--dim);text-align:right;line-height:1.4;letter-spacing:.04em;display:flex;align-items:center;gap:.9rem}
+.acc-preview .pw{font-family:var(--disp);font-size:.95rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
+.acc-preview .pw.rr{color:var(--green)}
+.acc-preview .pw.red{color:var(--red)}
+.acc-preview .pw.amber{color:var(--amber)}
+.acc-preview .pw.purple{color:var(--purple)}
+.chevron{color:var(--dim);font-size:1.1rem;transition:transform .2s;display:inline-block}
+.acc-trigger.open .chevron{transform:rotate(180deg)}
+.acc-trigger.open .acc-preview{display:none}
+.acc-body{display:none;padding:1.4rem;border-top:1px solid var(--border);background:var(--surface2)}
+.acc-body.open{display:block}
+.acc-body p{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:.9rem}
+.acc-body p:last-child{margin-bottom:0}
+.acc-body p span{color:var(--text);font-weight:600}
+.acc-body p span.g{color:var(--green)}
+.acc-body p span.r{color:#ff8888}
+.acc-body p span.a{color:var(--amber)}
+.acc-body ul{list-style:none;padding:0;margin:.5rem 0}
+.acc-body li{font-family:var(--mono);font-size:.7rem;color:var(--muted);line-height:1.85;padding-left:1rem;position:relative}
+.acc-body li::before{content:'\2023';color:var(--purple);position:absolute;left:0;font-size:1.1rem;line-height:1}
+
+/* Ranking bar chart */
+.rank-chart{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1.5rem;margin:1.5rem 0}
+.rank-title{font-family:var(--mono);font-size:.62rem;color:var(--purple);text-transform:uppercase;letter-spacing:.15em;margin-bottom:1.25rem}
+.rank-row{display:flex;align-items:center;gap:0;margin-bottom:.55rem}
+.rank-label{width:250px;min-width:250px;font-family:var(--mono);font-size:.62rem;color:var(--muted);line-height:1.3;padding-right:.8rem}
+.rank-label .sp{font-weight:700;display:block;color:var(--text);font-size:.7rem;letter-spacing:-.01em}
+.rank-label .sp.rr{color:var(--green)}
+.rank-label .sb{font-size:.55rem;color:var(--dim);margin-top:.1rem;display:block}
+.rank-track{flex:1;height:32px;background:var(--black);border-radius:2px;overflow:visible;position:relative}
+.rank-fill{height:100%;border-radius:2px;display:flex;align-items:center;padding-left:10px;font-family:var(--disp);font-size:.9rem;font-weight:800;transition:width .8s ease;min-width:62px;color:#fff;white-space:nowrap}
+.rank-fill.rr{background:linear-gradient(90deg,rgba(0,230,118,.35),rgba(0,230,118,.65));color:var(--text)}
+.rank-fill.rr2{background:linear-gradient(90deg,rgba(139,92,246,.4),rgba(139,92,246,.7))}
+.rank-fill.oem{background:linear-gradient(90deg,rgba(255,68,68,.3),rgba(255,68,68,.55));color:#fff}
+.rank-fill.oem2{background:linear-gradient(90deg,rgba(255,171,0,.25),rgba(255,171,0,.5));color:var(--amber)}
+.ppd{font-family:var(--mono);font-size:.55rem;color:var(--dim);margin-left:auto;padding-right:10px;align-self:center}
+.rank-foot{font-family:var(--mono);font-size:.55rem;color:var(--dim);margin-top:1.25rem;letter-spacing:.04em;line-height:1.7}
+
+/* Stacked segmented bars (RAM availability) */
+.seg-row{display:flex;align-items:center;gap:0;margin-bottom:.5rem}
+.seg-label{width:210px;min-width:210px;font-family:var(--mono);font-size:.58rem;color:var(--muted);line-height:1.3;padding-right:.7rem}
+.seg-label .sp{display:block;font-weight:700;color:var(--text);font-size:.65rem}
+.seg-label .sp.rr{color:var(--green)}
+.seg-label .sp.red{color:var(--red)}
+.seg-track{flex:1;height:26px;background:var(--black);border-radius:2px;overflow:hidden;display:flex;position:relative}
+.seg-os{background:repeating-linear-gradient(45deg,rgba(255,68,68,.25),rgba(255,68,68,.25) 4px,rgba(255,68,68,.1) 4px,rgba(255,68,68,.1) 8px);font-family:var(--mono);font-size:.52rem;color:var(--red);display:flex;align-items:center;padding-left:6px;font-weight:700;white-space:nowrap;overflow:hidden}
+.seg-free{background:linear-gradient(90deg,rgba(0,230,118,.25),rgba(0,230,118,.45));font-family:var(--mono);font-size:.6rem;color:#fff;font-weight:700;display:flex;align-items:center;padding-left:6px;white-space:nowrap;overflow:hidden}
+.seg-legend{font-family:var(--mono);font-size:.52rem;color:var(--dim);margin-top:.6rem;display:flex;gap:1.25rem;flex-wrap:wrap;letter-spacing:.04em}
+.seg-legend span{display:flex;align-items:center;gap:.35rem}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px}
+.sw-os{background:repeating-linear-gradient(45deg,rgba(255,68,68,.25),rgba(255,68,68,.25) 2px,rgba(255,68,68,.1) 2px,rgba(255,68,68,.1) 4px)}
+.sw-free{background:linear-gradient(90deg,rgba(0,230,118,.25),rgba(0,230,118,.45))}
+
+/* Stat strip (memory shock) */
+.stat-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin:1.75rem 0 1rem}
+.stat-cell{background:var(--surface);padding:1.15rem 1rem;display:flex;flex-direction:column;gap:.4rem}
+.stat-cell.win{background:#0a1409}
+.stat-n{font-family:var(--disp);font-size:1.65rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+.stat-n.up{color:var(--red)}.stat-n.g{color:var(--green)}.stat-n.a{color:var(--amber)}
+.stat-k{font-family:var(--mono);font-size:.53rem;color:var(--dim);letter-spacing:.07em;text-transform:uppercase;line-height:1.5}
+
+/* TCO grid */
+.tco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin:1.25rem 0;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.tco-col{background:var(--surface);padding:1.25rem;display:flex;flex-direction:column;gap:.4rem}
+.tco-col.win{background:#0a1409}
+.tco-eyebrow{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.tco-eyebrow.g{color:var(--green)}
+.tco-eyebrow.r{color:#ff8888}
+.tco-price{font-family:var(--disp);font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.tco-price.g{color:var(--green)}
+.tco-price.r{color:#ff8888}
+.tco-row{font-family:var(--mono);font-size:.64rem;color:var(--muted);line-height:1.6;padding:.2rem 0;border-top:1px dashed rgba(139,92,246,.12)}
+.tco-row:first-of-type{border-top:none;padding-top:0}
+.tco-total{font-family:var(--disp);font-size:1.15rem;font-weight:800;margin-top:.5rem;padding-top:.5rem;border-top:2px solid var(--border)}
+.tco-total.g{color:var(--green)}
+.tco-total.r{color:#ff8888}
+
+/* Contender spec block */
+.spec-grid{display:grid;grid-template-columns:150px 1fr;gap:.4rem .9rem;font-family:var(--mono);font-size:.66rem;margin:.75rem 0}
+.spec-k{color:var(--dim);letter-spacing:.04em}
+.spec-v{color:var(--muted)}
+.spec-v.g{color:var(--green)}
+.spec-v.r{color:#ff8888}
+.spec-v.a{color:var(--amber)}
+
+/* Verdict inline badge */
+.verdict{background:var(--surface);border:1px solid var(--green);border-left:3px solid var(--green);padding:1rem 1.3rem;border-radius:0 4px 4px 0;margin:1.5rem 0 0}
+.verdict p{font-size:.9rem;color:var(--text);line-height:1.7;font-family:var(--sans)}
+.verdict p strong{color:var(--green)}
+.verdict.amber{border-color:var(--amber);border-left-color:var(--amber)}
+.verdict.amber p strong{color:var(--amber)}
+.verdict.purple{border-color:var(--purple);border-left-color:var(--purple)}
+.verdict.purple p strong{color:var(--plum)}
+
+.zing{color:var(--purple)!important;font-weight:700}
+.sub{color:#ff8c1a!important;font-weight:700}
+
+/* comparison table */
+.cmp-wrap{overflow-x:auto;margin:1.5rem 0}
+.cmp{width:100%;border-collapse:collapse;background:var(--surface2);border:1px solid var(--border);min-width:640px}
+.cmp th{text-align:left;padding:.8rem .9rem;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);vertical-align:bottom}
+.cmp th.rr{color:var(--green)}
+.cmp th.rr2{color:var(--plum)}
+.cmp th.oem{color:#ff8888}
+.cmp td{padding:.65rem .9rem;border-bottom:1px solid rgba(255,255,255,.06);font-size:.78rem;line-height:1.45;vertical-align:top;color:var(--muted)}
+.cmp td.k{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;color:var(--dim)}
+.cmp td.g{color:var(--green);font-weight:600}
+.cmp td.r{color:#ff8888}
+.cmp td.a{color:var(--amber)}
+.cmp tr:last-child td{border-bottom:none}
+.cmp col.hl{background:rgba(0,230,118,.04)}
+
+/* Final CTA */
+.final-cta{text-align:center;padding:5rem 2rem;max-width:780px;margin:0 auto}
+.final-cta h2{font-family:var(--disp);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.08}
+.final-cta h2 .accent{color:var(--purple)}
+.final-cta p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:2rem}
+.final-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.final-links a{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 1.4rem;text-decoration:none;border:1px solid var(--purple);color:var(--purple);transition:all .2s;border-radius:2px}
+.final-links a:hover{background:var(--purple);color:#fff}
+.final-links a.primary{background:var(--purple);color:#fff}
+.final-links a.primary:hover{background:var(--royal);border-color:var(--royal)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;background:#050609}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.foot-brand{font-family:var(--disp);font-weight:800;font-size:1rem}
+.foot-brand span{color:var(--purple)}
+.foot-tag{font-family:var(--mono);font-size:.55rem;color:var(--dim);letter-spacing:.12em;margin-top:.3rem}
+.foot-meta{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:1.8;margin-top:1rem}
+.foot-links{display:flex;flex-direction:column;gap:.4rem;align-items:flex-end}
+.foot-links a{font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.05em;text-decoration:none}
+.foot-links a:hover{color:var(--purple)}
+.foot-pages{max-width:1100px;margin:2.5rem auto 0;display:flex;gap:.5rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
+.fp{flex:1;min-width:180px;display:flex;flex-direction:column;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);text-decoration:none;transition:all .2s;border-radius:2px}
+.fp:hover{border-color:var(--purple);background:var(--surface2)}
+.fp-l{font-family:var(--disp);font-weight:800;font-size:.95rem;color:var(--text)}
+.fp-n{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.04em;margin-top:.25rem}
+
+/* Fade in */
+.fi{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.fi.vis{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section{padding:3.5rem 1.25rem}
+  .c-hero{padding:6rem 1.25rem 3rem}
+  .foot-in{grid-template-columns:1fr}
+  .foot-links{align-items:flex-start}
+  .foot-pages{flex-direction:column}
+  .stat-strip{grid-template-columns:1fr 1fr}
+  .rank-label,.seg-label{width:135px;min-width:135px;font-size:.52rem}
+  .rank-label .sp,.seg-label .sp{font-size:.58rem}
+  .rank-fill{font-size:.72rem}
+  .seg-free,.seg-os{font-size:.52rem}
+  .ppd{font-size:.5rem;padding-right:6px}
+  .tco-grid{grid-template-columns:1fr}
+  .spec-grid{grid-template-columns:115px 1fr;font-size:.58rem}
+  .acc-trigger{padding:.9rem 1rem}
+  .acc-title{font-size:1rem}
+  .acc-preview{font-size:.52rem}
+  .acc-preview .pw{font-size:.8rem}
+  .acc-body{padding:1.1rem}
+}
+</style>
+<style>.nav-links a{font-size:.66rem;letter-spacing:.06em;white-space:nowrap}.nav-links a.active{color:var(--amber)}@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}}</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="index.html" class="logo">RENEWABLE<span> REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Lineup</a></li>
+    <li><a href="compare.html" class="active">Compare</a></li>
+    <li><a href="ai.html">AI</a></li>
+    <li><a href="rr-turbo.html">RR Turbo</a></li>
+    <li><a href="why.html">Why</a></li>
+    <li><a href="cooling.html">Cooling</a></li>
+    <li><a href="lighting.html">Lighting</a></li>
+    <li><a href="recover.html">Recover</a></li>
+    <li><a href="revive.html">Revive</a></li>
+    <li><a href="mission.html">Mission</a></li>
+  </ul>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="nav-cta">Shop eBay</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Lineup</a>
+  <a href="compare.html" class="active">Compare</a>
+  <a href="ai.html">AI</a>
+  <a href="rr-turbo.html">RR Turbo</a>
+  <a href="why.html">Why</a>
+  <a href="cooling.html">Cooling</a>
+  <a href="lighting.html">Lighting</a>
+  <a href="recover.html">Recover</a>
+  <a href="revive.html">Revive</a>
+  <a href="mission.html">Mission</a>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop on eBay</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="c-hero">
+  <div class="c-hero-grid"></div>
+  <div class="c-hero-glow"></div>
+  <div class="c-hero-content">
+    <div class="sec-label" style="color:#ff6b6b">The Showdown &middot; The OEM Trap</div>
+    <h1>Don&rsquo;t be fooled by the headline.<span>Balance beats the newest graphics card.</span></h1>
+    <p class="c-hero-sub">You&rsquo;ve felt the squeeze everywhere&mdash;groceries, insurance, the car, the house.&nbsp; A new gaming PC now starts around <span style="color:#fff;font-weight:600">$989</span>, and to hit even that it ships half the memory, one stick, no Office, and one flashy graphics number meant to make you stop reading.&nbsp; We build on proven hardware the industry left behind, balance the whole machine, and hold the price.&nbsp; The Coffee Lake Gamer is still <span style="color:#fff;font-weight:600">$849</span> and the Marauder is <span style="color:#fff;font-weight:600">$949</span>&mdash;both with a full 32GB of memory, Office that never expires, and a private AI that runs on your own desk.&nbsp; No subscriptions, ever.&nbsp; Here&rsquo;s what the shelf tag doesn&rsquo;t tell you.</p>
+  </div>
+</div>
+
+<!-- ===== MEMORY SHOCK STRIP ===== -->
+<section class="fi" id="memory-shock" style="padding-top:1rem">
+  <div class="sec-label">What The Industry Left Behind</div>
+  <h2 class="sec-title">We don&rsquo;t chase the newest chip.<span>We balance the whole machine.</span></h2>
+  <p class="sec-body" style="margin-bottom:0">Every year the industry crowns a new must-have graphics card and writes off last year&rsquo;s&mdash;still-capable hardware, passed over for the next sticker.&nbsp; We don&rsquo;t chase.&nbsp; We take proven parts, match every one of them to the others, and build a machine that plays today&rsquo;s games smoothly and keeps doing it for years.&nbsp; It matters more than ever right now: memory prices roughly <span>tripled this past year</span>, so new machines cut theirs to 16GB to hold a price.&nbsp; Ours still ship a full 32GB.</p>
+
+  <div class="stat-strip">
+    <div class="stat-cell"><div class="stat-n up">&asymp;3&times;</div><div class="stat-k">What memory prices<br>did in one year</div></div>
+    <div class="stat-cell"><div class="stat-n up">&frac12;</div><div class="stat-k">The memory a new<br>$989 PC now ships</div></div>
+    <div class="stat-cell win"><div class="stat-n g">32GB</div><div class="stat-k">In every RR build<br>&mdash; unchanged</div></div>
+    <div class="stat-cell win"><div class="stat-n g">$849</div><div class="stat-k">Our starting price<br>&mdash; held</div></div>
+    <div class="stat-cell win"><div class="stat-n g">$0</div><div class="stat-k">Subscriptions<br>&mdash; ever</div></div>
+  </div>
+  <p class="sec-body" style="font-size:.78rem;color:var(--dim);max-width:none;margin-bottom:0">New machines cut corners to hold a price.&nbsp; We balanced around proven, capable hardware instead&mdash;so you get the full 32GB, Office, and a private AI, and the price holds.</p>
+</section>
+
+<!-- ===== THE TWO MACHINES ===== -->
+<section class="fi" id="machines">
+  <div class="sec-label">Two Machines, One Honest Spec Sheet</div>
+  <h2 class="sec-title">Pick the job first.<span>The spec follows.</span></h2>
+  <p class="sec-body" style="margin-bottom:1.75rem">We don&rsquo;t sell you the biggest number and hope you don&rsquo;t notice what&rsquo;s missing.&nbsp; Two builds, both subscription-free, both with 32GB, Office, and a private AI that runs on your own desk.&nbsp; The Gamer is tuned for smooth 1080p and runs a capable local AI.&nbsp; The Marauder steps that up to <span>enterprise-grade AI</span>&mdash;far more powerful, and able to look at a screenshot or photo and tell you what&rsquo;s in it.&nbsp; Tap each for the full build sheet.</p>
+
+  <!-- CL Gamer -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Coffee Lake Gamer</div>
+        <span class="acc-tag">Pure 1080p Gaming &middot; Best Frames in the Pair</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">$849</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">The job: smooth, reliable 1080p gaming&mdash;and real work&mdash;that doesn&rsquo;t crash, stutter, or bottleneck.</span>&nbsp; A newer six-core, a 6GB gaming card, 32GB of memory, and a fast NVMe drive, all balanced to each other so the machine stays quiet, cool, and consistent under load.&nbsp; Still <span>$849</span>, held there for a year while new machines climbed&mdash;not a flex, a promise: a balanced machine that delivers the same result, session after session, at a steady price.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Price</div><div class="spec-v g">$849 (no subscriptions, ever)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">Intel i5-8600K &mdash; 6 cores / 6 threads, unlocked (Coffee Lake)</div>
+        <div class="spec-k">GPU</div><div class="spec-v">NVIDIA GTX 1060 6GB &mdash; advertised floor (see note)</div>
+        <div class="spec-k">Memory</div><div class="spec-v g">32GB &mdash; both slots filled, full speed</div>
+        <div class="spec-k">Storage</div><div class="spec-v g">NVMe SSD &middot; HDD bay kept open for easy add</div>
+        <div class="spec-k">Cooling</div><div class="spec-v g">Thermalright &mdash; quiet, sustained</div>
+        <div class="spec-k">OS</div><div class="spec-v g">RR Turbo Windows 11 Pro &mdash; debloated</div>
+        <div class="spec-k">Productivity</div><div class="spec-v g">Office 2019 Professional Plus included</div>
+        <div class="spec-k">Private AI</div><div class="spec-v g">Capable local assistant + two image generators, all offline</div>
+        <div class="spec-k">Shop listing</div><div class="spec-v"><a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" style="color:var(--green)">Revolt store on eBay &rarr;</a></div>
+      </div>
+      <p><span class="g">The honest-floor promise:</span>&nbsp; we <em>advertise</em> a GTX 1060 6GB so the number on the page is one we can always ship.&nbsp; Depending on what&rsquo;s on the shelf, the card that actually arrives is often a <span>GTX 1660 or 1660 Super</span>&mdash;all 6GB, all a free step up.&nbsp; It&rsquo;s a capable 1080p card, matched to a machine that stays smooth when you open a browser and Discord alongside the game.&nbsp; <span class="zing">It games, it works, and it runs a private AI.&nbsp; Want the enterprise-grade AI too?&nbsp; That&rsquo;s the Marauder.</span></p>
+    </div>
+  </div>
+
+  <!-- Marauder -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--plum)">Marauder</div>
+        <span class="acc-tag">Games + Enterprise-Grade AI + Productivity &middot; Workstation Platform</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">$949</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span style="color:var(--plum)">The whole enchilada: 1080p gaming, enterprise-grade AI, and productivity&mdash;on one machine, all offline.</span>&nbsp; The $100 step up from the Gamer buys bigger graphics memory and twelve working cores&mdash;enough to run a <span>far more powerful private AI</span>, the kind that can look at a screenshot or a photo and tell you what&rsquo;s in it, not just chat.&nbsp; The Gamer runs a capable everyday AI; the Marauder runs the enterprise-grade one.&nbsp; Everything the Gamer does, with the ceiling raised.</p>
+      <div class="spec-grid">
+        <div class="spec-k">Price</div><div class="spec-v" style="color:var(--plum)">$949 (no subscriptions, ever)</div>
+        <div class="spec-k">CPU</div><div class="spec-v">Intel i7-6850K (or i7-6800K) &mdash; 6 cores / 12 threads, unlocked (X99)</div>
+        <div class="spec-k">GPU</div><div class="spec-v">NVIDIA GTX 1070 8GB &mdash; runs the enterprise-grade AI</div>
+        <div class="spec-k">Memory</div><div class="spec-v g">32GB &mdash; both slots filled &middot; room for 128GB later</div>
+        <div class="spec-k">Storage</div><div class="spec-v g">NVMe SSD + HDD</div>
+        <div class="spec-k">Cooling</div><div class="spec-v g">Thermalright &mdash; sustained boost</div>
+        <div class="spec-k">OS</div><div class="spec-v g">RR Turbo Windows 11 Pro &mdash; debloated</div>
+        <div class="spec-k">Productivity</div><div class="spec-v g">Office 2019 Professional Plus included</div>
+        <div class="spec-k">Private AI</div><div class="spec-v g">Enterprise-grade &mdash; reads images, plus image generators, all offline &middot; no cloud, no fees</div>
+        <div class="spec-k">Upsell</div><div class="spec-v a">GTX 1070 Ti ~$999+ &mdash; same platform, more headroom</div>
+        <div class="spec-k">Shop listing</div><div class="spec-v"><a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" style="color:var(--plum)">Revolt store on eBay &rarr;</a></div>
+      </div>
+      <p>A private AI that runs on your own desk means nothing you type or show it ever leaves the house&mdash;no account, no monthly bill, no company reading it.&nbsp; <span class="zing">The full AI story lives on the AI page.</span>&nbsp; This page is about the trap you avoid to get here.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-green"><p><span>Two models, one simple choice.</span>&nbsp; The Coffee Lake Gamer if you want the smoothest 1080p gaming at the best price.&nbsp; The Marauder if you want that <em>plus</em> enterprise-grade AI and more cores for real work.&nbsp; Both go head-to-head with the new-OEM floor below.</p></div>
+  <div class="callout" style="border-left-color:var(--console)"><p><span>And it replaces the console, too.</span>&nbsp; Either machine plays the games <em>and</em> does the homework, the taxes, and the private AI&mdash;on one box.&nbsp; No $500 console, no game subscription, no monthly bill stacking up behind it.&nbsp; A console does one job and rents you the rest; a Revolt build does the lot and owes you nothing.</p></div>
+</section>
+
+<!-- ===== THE OEM TRAP ===== -->
+<section class="fi" id="oem-trap">
+  <div class="sec-label" style="color:#ff6b6b">The Key Comparison</div>
+  <h2 class="sec-title">The OEM Trap:<span>Advertised &ne; Available &ne; Capable.</span></h2>
+  <p class="sec-body" style="margin-bottom:1.75rem">A new $989 box with an RTX 5060 on the sticker <em>looks</em> like it beats a refurbished machine with a 6GB or 8GB card.&nbsp; That&rsquo;s the trap working exactly as designed.&nbsp; It falls apart in three steps&mdash;and you only have to read one layer deeper than the shelf tag.&nbsp; Tap each.</p>
+
+  <!-- Layer 1 -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:#ff8888">1 &middot; Advertised</div>
+        <span class="acc-tag">The Price On The Shelf Isn&rsquo;t The Floor</span>
+      </div>
+      <div class="acc-preview"><span class="pw red">$989&ndash;$1,399</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>The new &ldquo;budget&rdquo; gaming desktop doesn&rsquo;t start where it used to.&nbsp; Memory got so expensive that the makers couldn&rsquo;t keep the old price&mdash;so the real floor is now near $989, and even that one ships half the memory.&nbsp; Both our builds sit <span class="g">underneath</span> the cheapest capable new machine while shipping double the memory, Office that never expires, and a private AI none of them offer.</p>
+      <div class="rank-chart">
+        <div class="rank-title">Entry gaming-desktop floor &mdash; advertised price, Oct 2026</div>
+        <div class="rank-row"><div class="rank-label"><span class="sp rr">RR Coffee Lake Gamer</span><span class="sb">32GB &middot; 6GB card &middot; Office &middot; in stock</span></div><div class="rank-track"><div class="rank-fill rr" style="width:61%">$849</div></div></div>
+        <div class="rank-row"><div class="rank-label"><span class="sp rr">RR Marauder</span><span class="sb">32GB &middot; GTX 1070 8GB &middot; Office &middot; AI</span></div><div class="rank-track"><div class="rank-fill rr2" style="width:68%">$949</div></div></div>
+        <div class="rank-row"><div class="rank-label"><span class="sp">Thermaltake (new)</span><span class="sb">16GB &middot; RTX 5060 &middot; no Office / AI</span></div><div class="rank-track"><div class="rank-fill oem2" style="width:71%">$989</div></div></div>
+        <div class="rank-row"><div class="rank-label"><span class="sp">CyberPowerPC (new)</span><span class="sb">16GB &middot; RTX 5060 &middot; no Office / AI</span></div><div class="rank-track"><div class="rank-fill oem" style="width:83%">$1,149</div></div></div>
+        <div class="rank-row"><div class="rank-label"><span class="sp">Stormcraft (new)</span><span class="sb">RTX 5060 &middot; 650W mATX &middot; no Office / AI</span></div><div class="rank-track"><div class="rank-fill oem" style="width:100%">$1,399</div></div></div>
+        <div class="rank-foot">Every new machine above ships 16GB of memory, no Office, and no private AI.&nbsp; Both Renewable Revolt builds come in under all of them with double the memory.&nbsp; New-machine prices as advertised, October 2026.</div>
+      </div>
+      <p>The RTX 5060 is a genuinely good GPU.&nbsp; <span class="r">It is also the one number on the box engineered to make you stop reading before you reach the memory line.</span></p>
+    </div>
+  </div>
+
+  <!-- Layer 2 -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:#ff8888">2 &middot; Available</div>
+        <span class="acc-tag">Advertised Stock Isn&rsquo;t Stock You Can Buy</span>
+      </div>
+      <div class="acc-preview"><span class="pw red">Ghost stock</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Because memory is in such short supply, the cheapest advertised machines are often ones you can&rsquo;t actually buy&mdash;a low price posted to pull you in, on a build that&rsquo;s back-ordered, swapped for something lesser, or quietly gone by the time you reach the checkout.&nbsp; Experts expect this shortage to last for years, not months.&nbsp; It isn&rsquo;t a bump you wait out.</p>
+      <p><span class="g">We don&rsquo;t have that problem.</span>&nbsp; We build on proven, capable hardware that the industry already moved past&mdash;parts that are plentiful and on hand, not fought over at the newest-chip counter.&nbsp; So our machines are <span>actually in stock and actually ship</span>, while the new-machine shelf thins out.&nbsp; Refurbished is the part of the market that&rsquo;s <em>growing</em> right now, not the one shrinking.</p>
+      <div class="verdict purple"><p><strong>Advertised isn&rsquo;t available:</strong>&nbsp; a $989 price you can&rsquo;t reliably buy is worth less than an $849 machine that ships this week.</p></div>
+    </div>
+  </div>
+
+  <!-- Layer 3 -->
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:#ff8888">3 &middot; Capable</div>
+        <span class="acc-tag">A Starved GPU Doesn&rsquo;t Deliver Its Spec</span>
+      </div>
+      <div class="acc-preview"><span class="pw red">16GB, one stick</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Here&rsquo;s the part the graphics number hides.&nbsp; That RTX 5060 is usually fed by <span class="r">16GB of memory on a single stick</span>&mdash;which runs at about half the speed of a proper pair&mdash;and a stock copy of Windows eats 3&ndash;4GB before you open anything.&nbsp; The card can draw frames faster than that memory can feed it, so the performance you paid for falls apart the moment a browser and a voice chat are open next to the game.&nbsp; That&rsquo;s the crash, the stutter, the stall.</p>
+      <p>Our builds put <span class="g">32GB across both channels</span> behind a 6GB or 8GB card, with RR Turbo trimming the OS footprint instead of feeding it.&nbsp; The card is smaller on paper and better-fed in practice.</p>
+      <div class="rank-chart" style="margin-top:1.25rem">
+        <div class="rank-title">Memory actually free for your game &mdash; after the OS takes its cut</div>
+        <div class="seg-row"><div class="seg-label"><span class="sp red">$989 new OEM</span>16GB, one stick</div><div class="seg-track"><div class="seg-os" style="width:22%">3.5</div><div class="seg-free" style="width:78%">~12.5GB left</div></div></div>
+        <div class="seg-row"><div class="seg-label"><span class="sp rr">RR Gamer / Marauder</span>32GB, both slots filled</div><div class="seg-track"><div class="seg-os" style="width:5%">1.5</div><div class="seg-free" style="width:95%">~30.5GB free</div></div></div>
+        <div class="seg-legend"><span><i class="sw sw-os"></i>Windows / background</span><span><i class="sw sw-free"></i>Free for your game</span></div>
+        <div class="rank-foot">Same price range.&nbsp; One machine hands your game about 12.5GB on half-speed memory; the other hands it about 30GB on full-speed memory&mdash;with room left over to run a private AI.</div>
+      </div>
+      <p><span class="zing">Advertised &ne; available &ne; capable.</span>&nbsp; The trap needs all three to look true.&nbsp; It isn&rsquo;t true on any of them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIDE-BY-SIDE COMPARISON ===== -->
+<section class="fi" id="head-to-head">
+  <div class="sec-label">Line By Line</div>
+  <h2 class="sec-title">Ours vs. the $989 machine.<span>Every row the sticker skips.</span></h2>
+  <p class="sec-body" style="margin-bottom:1.5rem">Both Renewable Revolt models against the cheapest capable new gaming PC on the shelf&mdash;a $989 Thermaltake.&nbsp; One row the OEM wins outright; we mark it plainly.&nbsp; The rest tell you why the sticker alone never tells the story.</p>
+  <div class="cmp-wrap">
+    <table class="cmp">
+      <colgroup><col><col class="hl"><col class="hl"><col></colgroup>
+      <thead><tr>
+        <th>&nbsp;</th>
+        <th class="rr2">RR Marauder &mdash; $949</th>
+        <th class="rr">RR Coffee Lake Gamer &mdash; $849</th>
+        <th class="oem">$989 New OEM</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="k">&ldquo;True&rdquo; cores / threads</td><td class="g">6 real cores / 12 threads</td><td class="g">6 real cores / 6 threads</td><td class="r">6 real + 4 efficiency &mdash; sold as &ldquo;10&rdquo;</td></tr>
+        <tr><td class="k">Memory + channels</td><td class="g">32GB &middot; both slots, full speed</td><td class="g">32GB &middot; both slots, full speed</td><td class="r">16GB &middot; one stick, half speed</td></tr>
+        <tr><td class="k">Storage</td><td class="g">Fast NVMe + room for a hard drive</td><td class="g">Fast NVMe + open drive bay</td><td>One SSD, no bay for more</td></tr>
+        <tr><td class="k">Graphics memory</td><td class="g">8GB (GTX 1070)</td><td>6GB (GTX 1060-class)</td><td class="a">8GB (RTX 5060)</td></tr>
+        <tr><td class="k">Operating system</td><td class="g">RR Turbo v7 &mdash; clean, private, no spyware</td><td class="g">RR Turbo v7 &mdash; clean, private, no spyware</td><td class="r">Win 11 Home (or macOS) &mdash; Copilot, Recall, telemetry</td></tr>
+        <tr><td class="k">Office</td><td class="g">2019 Pro+ included, never expires</td><td class="g">2019 Pro+ included, never expires</td><td class="r">None &mdash; 30-day trial, then paid</td></tr>
+        <tr><td class="k">Private AI (offline)</td><td class="g">Enterprise-grade &mdash; reads images</td><td class="g">Capable assistant + image generators</td><td class="r">None</td></tr>
+        <tr><td class="k">Lighting</td><td>Tasteful, not the budget</td><td>Tasteful, not the budget</td><td class="r">Lights up front, cooling cut in back</td></tr>
+        <tr><td class="k">Cooling</td><td class="g">Thermalright &mdash; quiet, holds speed</td><td class="g">Thermalright &mdash; quiet, holds speed</td><td class="r">Stock cooler &mdash; loud, throttles</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sec-body" style="font-size:.82rem;color:var(--dim);max-width:none">The OEM wins exactly one row: raw graphics speed on paper.&nbsp; Look what happens to that advantage the moment you actually sit down to play.</p>
+</section>
+
+<!-- ===== FPS REALITY ===== -->
+<section class="fi" id="fps">
+  <div class="sec-label" style="color:#ff6b6b">Frames, Not Headlines</div>
+  <h2 class="sec-title">Fast on paper.<span>Smooth in your living room.</span></h2>
+  <p class="sec-body" style="margin-bottom:1.5rem">A graphics card&rsquo;s advertised number comes from a lab, with the game running and nothing else open.&nbsp; Nobody plays that way.&nbsp; You&rsquo;ve got the game, a browser, and Discord all going at once&mdash;and that&rsquo;s where a balanced machine pulls ahead and a starved one falls apart.&nbsp; Numbers below are typical 1080p estimates for a game like Fortnite.</p>
+
+  <div class="rank-chart">
+    <div class="rank-title">On paper &mdash; just the game, nothing else open</div>
+    <div class="rank-row"><div class="rank-label"><span class="sp">RTX 5060</span><span class="sb">the new OEM card</span></div><div class="rank-track"><div class="rank-fill oem2" style="width:95%">190 fps</div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp rr">GTX 1070</span><span class="sb">in the Marauder</span></div><div class="rank-track"><div class="rank-fill rr2" style="width:53%">105 fps</div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp rr">GTX 1060 6GB</span><span class="sb">in the Coffee Lake Gamer</span></div><div class="rank-track"><div class="rank-fill rr" style="width:45%">90 fps</div></div></div>
+    <div class="rank-foot">On raw numbers the new card is well ahead.&nbsp; We&rsquo;re not going to pretend otherwise.</div>
+  </div>
+
+  <div class="rank-chart">
+    <div class="rank-title">In real life &mdash; game + browser + Discord, all at once</div>
+    <div class="rank-row"><div class="rank-label"><span class="sp rr">Marauder</span><span class="sb">GTX 1070 &middot; 32GB</span></div><div class="rank-track"><div class="rank-fill rr2" style="width:50%">~100 fps &middot; steady</div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp rr">Coffee Lake Gamer</span><span class="sb">GTX 1060 6GB &middot; 32GB</span></div><div class="rank-track"><div class="rank-fill rr" style="width:43%">~85 fps &middot; steady</div></div></div>
+    <div class="rank-row"><div class="rank-label"><span class="sp" style="color:var(--red)">$989 New OEM</span><span class="sb">RTX 5060 &middot; 16GB, one stick</span></div><div class="rank-track"><div class="rank-fill" style="width:60%;background:repeating-linear-gradient(45deg,rgba(255,68,68,.32),rgba(255,68,68,.32) 7px,rgba(255,68,68,.1) 7px,rgba(255,68,68,.1) 14px);border:1px dashed rgba(255,128,128,.6);color:#ffb3b3;font-size:.72rem">30&ndash;120 fps &middot; stutters</div></div></div>
+    <div class="rank-foot">Same game, same browser, same Discord.&nbsp; The OEM&rsquo;s 16GB fills up, Windows starts shuffling memory to the slow drive, and the frames crater&mdash;spiking high one second, hitching into the 30s the next, and in memory-hungry titles, crashing to the desktop.&nbsp; The RR machines never flinch, because 32GB has room for all three.</div>
+  </div>
+
+  <div class="verdict"><p><strong>The 5060 is the faster card.</strong>&nbsp; The $989 machine still gives you the worse night&mdash;because the thing that ruins a gaming session was never the graphics card.&nbsp; It was 16GB of memory, on one stick, with the game, a browser, and Discord all fighting over it.&nbsp; <span class="zing" style="color:var(--green)!important">Balance is what you actually play on.</span></p></div>
+</section>
+
+<!-- ===== BALANCE PRINCIPLE ===== -->
+<section class="fi" id="balance">
+  <div class="sec-label">The Principle</div>
+  <h2 class="sec-title">Balance Beats Headlines.</h2>
+  <p class="sec-body" style="margin-bottom:2rem">A computer is a team, not a trophy part.&nbsp; The fastest graphics card on the shelf can&rsquo;t outrun slow memory, a cooler that gives up under load, or a Windows install eating a quarter of your memory before you open a game.&nbsp; Every Revolt build is matched&mdash;processor, graphics, memory, cooling, and software all sized to each other.&nbsp; That&rsquo;s what keeps it smooth instead of stuttering.&nbsp; Tap each card for what &ldquo;balanced&rdquo; actually buys you.</p>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#9889;&nbsp; Memory keeps the game smooth.</div>
+        <span class="acc-tag">Why One Stick Of Memory Stutters</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">Dual is the floor</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>One stick of memory runs at <span class="r">about half the speed</span> of a matched pair.&nbsp; The graphics card draws frames faster than that single stick can feed it, so frames drop and the picture hitches&mdash;exactly the crash-and-stutter feel of a bargain machine.&nbsp; And the real scarce thing right now isn&rsquo;t speed, it&rsquo;s <span class="g">a full 32GB at all</span>&mdash;which is standard on every build we ship, while new machines quietly drop to 16GB.</p>
+      <p><span>32GB, both slots filled&mdash;standard on both builds.</span>&nbsp; Full capacity, full speed, every time.&nbsp; That&rsquo;s how the graphics card actually stays fed and the game stays smooth.</p>
+    </div>
+  </div>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#127777;&#65039;&nbsp; Cooling keeps the speed up.</div>
+        <span class="acc-tag">Thermal Headroom &middot; Throttling &middot; Noise</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">Thermalright standard</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>A CPU that boosts for three seconds and then drops because the stock cooler can&rsquo;t keep up is not a fast CPU.&nbsp; It&rsquo;s a slower CPU that lies on the spec sheet.&nbsp; Every Revolt build ships with Thermalright cooling matched to the chip it&rsquo;s sitting on&mdash;so the clock you paid for is the clock you keep under load.</p>
+      <p>A stock cooler sized to a $989 price point throttles under sustained gaming across nearly every major-retailer SKU.&nbsp; <span class="g">We don&rsquo;t ship throttled.</span></p>
+    </div>
+  </div>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title">&#128736;&#65039;&nbsp; Software is half the machine.</div>
+        <span class="acc-tag">OS Overhead &middot; RR Turbo &middot; Office Included</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">More RAM for your game</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p>Windows 11 Home runs Copilot, Recall, Edge, Teams, and telemetry before you launch a single app&mdash;<span>3&ndash;4GB of RAM gone</span>.&nbsp; On a 16GB machine that&rsquo;s a quarter of your memory consumed by software you didn&rsquo;t ask for and can&rsquo;t easily remove.</p>
+      <p><a href="https://github.com/IncRevolt/R-R-Turbo" target="_blank" rel="noopener" style="color:var(--purple);font-weight:700">RR Turbo</a> strips it at the ISO level, before Windows ever touches the drive&mdash;a lighter footprint and more RAM left for your game on the same hardware.&nbsp; And every build ships <span>Office 2019 Professional Plus</span> preinstalled.&nbsp; No subscription.&nbsp; No trial expiration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3-YEAR TCO ===== -->
+<section class="fi" id="tco">
+  <div class="sec-label">Own vs. Rent</div>
+  <h2 class="sec-title">The three-year receipt.</h2>
+  <p class="sec-body" style="margin-bottom:1.5rem">The sticker is the start of the story for a new OEM machine, not the end.&nbsp; Office and a cloud-AI subscription stack up fast&mdash;and at the end of three years you still own no software and have no private AI.&nbsp; The Marauder&rsquo;s subscriptions-avoided exceed its own price.</p>
+  <div class="tco-grid">
+    <div class="tco-col win">
+      <div class="tco-eyebrow g">RR Marauder &mdash; own outright</div>
+      <div class="tco-price g">$949</div>
+      <div class="tco-row">Machine &mdash; 32GB, GTX 1070 8GB, AI &nbsp;$949</div>
+      <div class="tco-row">Office 2019 Pro+ &mdash; included &nbsp;$0</div>
+      <div class="tco-row">Private local AI &mdash; included &nbsp;$0</div>
+      <div class="tco-row">Recurring, 3 years &nbsp;$0</div>
+      <div class="tco-total g">$949 &mdash; and you own it</div>
+    </div>
+    <div class="tco-col">
+      <div class="tco-eyebrow r">New OEM &ldquo;deal&rdquo; &mdash; PC + Office + cloud AI</div>
+      <div class="tco-price r">$2,169</div>
+      <div class="tco-row">New OEM gaming PC &nbsp;$1,149</div>
+      <div class="tco-row">Office 365 @ ~$100/yr &times; 3 &nbsp;$300</div>
+      <div class="tco-row">One cloud-AI sub @ ~$20/mo &times; 36 &nbsp;$720</div>
+      <div class="tco-row">Still owns no software &middot; no private AI</div>
+      <div class="tco-total r">$2,169 &mdash; and you rent it</div>
+    </div>
+  </div>
+  <p class="sec-body" style="font-size:.82rem;color:var(--dim);max-width:none">Office 365 and a single cloud-AI subscription add roughly $1,020 over three years.&nbsp; That gap&mdash;$1,220&mdash;is larger than the price of the Marauder itself.</p>
+</section>
+
+<!-- ===== HONEST LIMITS ===== -->
+<section class="fi" id="fineprint">
+  <div class="sec-label">Read the Fine Print</div>
+  <h2 class="sec-title">Where these builds<span>do and don&rsquo;t fit.</span></h2>
+  <p class="sec-body" style="margin-bottom:2rem">We hold the OEMs to an honest spec sheet, so we hold ourselves to one too.&nbsp; Here&rsquo;s where each build is the right call&mdash;and where it isn&rsquo;t.&nbsp; Draw your own conclusions.</p>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--green)">Coffee Lake Gamer &mdash; Honest Limits</div>
+        <span class="acc-tag">$849 &middot; Where This Build Does and Doesn&rsquo;t Fit</span>
+      </div>
+      <div class="acc-preview"><span class="pw rr">Renewable Revolt</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span class="g">The good:</span>&nbsp; A newer, quick six-core&mdash;snappy in games and in everyday Windows.&nbsp; 32GB of full-speed memory and a 6GB card tuned for smooth 1080p.&nbsp; Thermalright cooling, a cleaned-up Windows, Office included, and the drive bay left open so you can add storage later without voiding the warranty.&nbsp; It also runs a private AI&mdash;a capable chat assistant plus two image generators, all offline.</p>
+      <p><span class="g">The details worth knowing:</span></p>
+      <ul>
+        <li>It runs a <strong>capable local AI, not the enterprise-grade one</strong>.&nbsp; The 6GB card handles the everyday assistant and the image generators nicely; the more powerful AI that can read images lives on the Marauder.&nbsp; Want that?&nbsp; It&rsquo;s one step up.</li>
+        <li>6GB is comfortable at 1080p in nearly every current game.&nbsp; Push to a higher resolution or max out the newest titles and you&rsquo;ll reach its limit.</li>
+        <li>The card doesn&rsquo;t do the newest ray-tracing effects.&nbsp; If that&rsquo;s your one must-have, a new RTX machine is the honest pick&mdash;and we&rsquo;ll say so.</li>
+        <li>Six cores&mdash;plenty for gaming; heavy video rendering wants the Marauder&rsquo;s twelve.</li>
+        <li>Refurbished parts&mdash;our warranty covers our work; the chip itself is past the maker&rsquo;s original coverage.</li>
+      </ul>
+      <p>Buy it if you want the smoothest 1080p gaming in the pair at the lowest price, a private AI, and no subscriptions, ever.&nbsp; Step up to the Marauder for the bigger graphics memory, twelve cores, and the enterprise-grade AI.</p>
+    </div>
+  </div>
+
+  <div class="acc fi">
+    <div class="acc-trigger" onclick="toggleAcc(this)">
+      <div>
+        <div class="acc-title" style="color:var(--plum)">Marauder &mdash; Honest Limits</div>
+        <span class="acc-tag">$949 &middot; Where This Build Does and Doesn&rsquo;t Fit</span>
+      </div>
+      <div class="acc-preview"><span class="pw purple">Renewable Revolt</span><span class="chevron">&#9660;</span></div>
+    </div>
+    <div class="acc-body">
+      <p><span style="color:var(--plum);font-weight:600">The good:</span>&nbsp; The whole package&mdash;games, enterprise-grade AI, and productivity on one machine, all offline.&nbsp; Twelve working cores on a workstation-class platform, 32GB of full-speed memory with room to grow, an 8GB graphics card, Thermalright cooling, Office included, fast and roomy storage.&nbsp; A faster card is available one step up for a little more.</p>
+      <p><span style="color:var(--plum);font-weight:600">The details worth knowing:</span></p>
+      <ul>
+        <li>In a single game the Coffee Lake Gamer can feel a touch quicker; the Marauder&rsquo;s edge is its <strong>twelve cores</strong>&mdash;running the big AI and heavy multitasking without breaking a sweat.</li>
+        <li>The graphics card is great for 1080p and runs the enterprise-grade AI, but <strong>doesn&rsquo;t do the newest ray-tracing effects</strong>.&nbsp; Want those?&nbsp; A higher-tier Revolt build.</li>
+        <li>Ships with 32GB; the board has room to grow all the way to 128GB later if you ever need it.</li>
+        <li>Refurbished workstation parts&mdash;our warranty covers our work; the chip is past the maker&rsquo;s original coverage.</li>
+        <li>A full-size tower&mdash;it wants a desk.&nbsp; Wi-Fi is added with a small adapter.</li>
+      </ul>
+      <p>Buy it if you want one machine that games well and runs a private AI you own outright&mdash;nothing leaves the house, no monthly bill.&nbsp; The full AI story is on the <a href="ai.html" style="color:var(--plum);font-weight:700">AI page</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<div class="final-cta fi">
+  <h2>No scoreboard.&nbsp; <span class="accent">Just the receipts.</span><br>Your call.</h2>
+  <p>The trap only works if you stop reading at the graphics number.&nbsp; Read one line further&mdash;to the memory, to whether it&rsquo;s really in stock, to the monthly bill&mdash;and the $849 Gamer and the $949 all-in-one stop looking like the budget choice and start looking like the only honest one at the price.&nbsp; Same money.&nbsp; Double the memory, Office that never expires, a private AI, and no subscriptions&mdash;on a machine built to last.&nbsp; If the newest ray-tracing graphics are your one must-have, buy the new RTX machine.&nbsp; Otherwise, here&rsquo;s the lineup.</p>
+  <div class="final-links">
+    <a href="index.html#machines" class="primary">See the Full Lineup &rarr;</a>
+    <a href="ai.html">The Private AI Story</a>
+    <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop Revolt on eBay</a>
+    
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-in">
+    <div>
+      <div class="foot-brand">RENEWABLE<span>/</span>REVOLT</div>
+      <div class="foot-tag">ENGINEERING RESILIENCE, MULTIPLYING JUSTICE</div>
+      <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; eBay Charity ID: 391538<br>Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+    </div>
+    <div class="foot-links">
+      <a href="recover.html">Circular Economy</a>
+      <a href="revive.html">Build Process &amp; R&amp;D</a>
+      <a href="compare.html">Compare &mdash; The OEM Trap</a>
+      <a href="ai.html">Private AI</a>
+      <a href="rr-turbo.html">RR Turbo</a>
+      
+      <a href="index.html#donate">Donate</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="foot-pages">
+    <a href="recover.html" class="fp"><span class="fp-l">Recover &rarr;</span><span class="fp-n">Procurement &amp; the Circular Economy</span></a>
+    <a href="revive.html" class="fp"><span class="fp-l">Revive &rarr;</span><span class="fp-n">Build Process, R&amp;D &amp; Work Instructions</span></a>
+    <a href="ai.html" class="fp"><span class="fp-l">Private AI &rarr;</span><span class="fp-n">The Marauder&rsquo;s Offline AI Stack</span></a>
+    <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="fp"><span class="fp-l">Shop &rarr;</span><span class="fp-n">eBay Store &mdash; Live Listings</span></a>
+    
+    <a href="mission.html" class="fp"><span class="fp-l">Mission &rarr;</span><span class="fp-n">Donations at Work</span></a>
+  </div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" target="_blank" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555">Interserver</a></div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+document.addEventListener('click',function(e){var m=document.getElementById('mobMenu');var h=document.querySelector('.hamburger');if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
+function toggleAcc(el){el.classList.toggle('open');var body=el.nextElementSibling;if(body)body.classList.toggle('open');}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');e.target.querySelectorAll('.rank-fill,.seg-free,.seg-os').forEach(function(b){var w=b.style.width;b.style.width='0%';setTimeout(function(){b.style.width=w},80)});obs.unobserve(e.target)}});},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+</script>
+<!-- FALLBACK_FI -->
+<script>document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelectorAll(".fi").forEach(function(e){e.classList.add("vis")})},400)});</script>
+</body>
+</html>

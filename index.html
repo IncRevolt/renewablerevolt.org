@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renewable Revolt &mdash; Gaming PCs With Their Own Private AI</title>
+<meta name="description" content="Two machines, built from proven hardware the industry wrote off: the Coffee Lake Gamer ($849) and the Marauder ($949). Full 32GB, Office that never expires, and a real private AI that runs on your own desk — offline, no account, no subscription. Veteran-owned 501(c)(3), Hammond, IN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;
+  --purple:#8b5cf6;--royal:#7c3aed;--plum:#a855f7;
+  --green:#00e676;--cyan:#00E5FF;--amber:#ffab00;--red:#ff4444;
+  --text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;
+  --mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none;white-space:nowrap}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:1.1rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.66rem;color:var(--cyan);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:var(--amber)}
+.nav-cta{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.4rem .9rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--cyan);color:var(--black)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem;max-height:calc(100vh - 64px);overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-title span{color:var(--purple)}
+.sec-body{font-size:1rem;color:var(--muted);max-width:720px;line-height:1.75;margin-bottom:1rem}
+.sec-body span{color:var(--text);font-weight:600}
+
+/* HERO */
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 2rem 4rem;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.10) 0%,transparent 70%);top:45%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{max-width:960px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.5rem}
+.hero h1{font-family:var(--disp);font-size:clamp(2.1rem,5.5vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem}
+.hero h1 span{color:var(--cyan);display:block}
+.hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:var(--muted);max-width:680px;line-height:1.75;margin-bottom:2rem}
+.hero-sub b{color:var(--text);font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.25rem}
+.badge{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border:1px solid var(--border);color:var(--dim);border-radius:2px}
+.badge.on{border-color:rgba(0,229,255,.4);color:var(--cyan);background:rgba(0,229,255,.06)}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* BUTTONS */
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:var(--cyan);color:var(--black);border:none;padding:.85rem 1.9rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block;border-radius:2px}
+.btn-p:hover{opacity:.85}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.85rem 1.9rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent;border-radius:2px}
+.btn-s:hover{background:var(--cyan);color:var(--black)}
+
+/* STAT STRIP */
+.stat-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat-cell{background:var(--surface);padding:2rem 1.25rem;display:flex;flex-direction:column;gap:.45rem;align-items:center;text-align:center}
+.stat-n{font-family:var(--disp);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--cyan)}
+.stat-k{font-family:var(--mono);font-size:.55rem;color:var(--dim);letter-spacing:.07em;text-transform:uppercase;line-height:1.5}
+
+/* MACHINE CARDS */
+.machines{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.machine{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.machine.gamer{border-top:3px solid var(--green)}
+.machine.marauder{border-top:3px solid var(--plum)}
+.machine-hd{padding:1.5rem 1.5rem 1.25rem}
+.machine-line{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:.5rem}
+.machine-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.machine-name{font-family:var(--disp);font-size:1.7rem;font-weight:800;letter-spacing:-.01em}
+.machine.gamer .machine-name{color:var(--green)}
+.machine.marauder .machine-name{color:var(--plum)}
+.machine-price{font-family:var(--disp);font-size:1.5rem;font-weight:800;color:var(--text)}
+.machine-role{font-size:.92rem;color:var(--muted);line-height:1.6;margin-top:.75rem}
+.machine-status{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-top:1rem}
+.machine-status .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(0,230,118,.7)}
+.machine-specs{list-style:none;padding:1.25rem 1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:0;flex:1}
+.machine-specs li{display:flex;gap:.75rem;padding:.45rem 0;border-bottom:1px solid rgba(30,32,53,.6);font-size:.82rem}
+.machine-specs li:last-child{border-bottom:none}
+.machine-specs .sk{font-family:var(--mono);font-size:.62rem;color:var(--dim);letter-spacing:.04em;min-width:82px;flex-shrink:0;padding-top:.1rem}
+.machine-specs .sv{color:var(--muted);line-height:1.45}
+.machine-specs .sv.hl{color:var(--green);font-weight:600}
+.machine-specs .sv.hlp{color:var(--plum);font-weight:600}
+.machine-foot{padding:1.25rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:.75rem;flex-wrap:wrap}
+.machine-foot a{flex:1;text-align:center;min-width:120px}
+
+/* PILLARS */
+.pill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:2rem}
+.pill{background:var(--surface);padding:1.6rem 1.35rem;display:flex;flex-direction:column;gap:.6rem;text-decoration:none;transition:background .2s}
+.pill:hover{background:var(--surface2)}
+.pill-ic{font-size:1.7rem;line-height:1}
+.pill-h{font-family:var(--disp);font-size:1.05rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
+.pill-p{font-size:.82rem;color:var(--muted);line-height:1.6}
+.pill-go{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-top:auto}
+
+/* AI BANNER */
+.ai-banner{background:linear-gradient(120deg,rgba(139,92,246,.10),rgba(0,229,255,.05) 70%);border:1px solid var(--border);border-left:3px solid var(--plum);border-radius:6px;padding:2rem}
+.ai-banner h3{font-family:var(--disp);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.2}
+.ai-banner h3 span{color:var(--plum)}
+.ai-banner p{font-size:.95rem;color:var(--muted);line-height:1.7;max-width:720px;margin-bottom:1.25rem}
+
+/* MISSION STRIP */
+.mission-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 2rem}
+.mission-inner{max-width:900px;margin:0 auto;text-align:center}
+.mission-inner h2{font-family:var(--disp);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:1rem}
+.mission-inner h2 span{color:var(--green)}
+.mission-inner p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:680px;margin:0 auto 1.5rem}
+
+/* DONATE */
+.donate-wrap{background:var(--surface);border-top:1px solid var(--border)}
+.donate-in{max-width:1100px;margin:0 auto;padding:5rem 2rem;display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:start}
+.donate-txt p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:1rem;max-width:620px}
+.dollar-tiers{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:1.25rem}
+.dt{background:var(--surface2);padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.25rem}
+.dt-amount{font-family:var(--disp);font-size:1.3rem;font-weight:800;color:var(--green)}
+.dt-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+.donate-box{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:1.75rem}
+.donate-box h3{font-family:var(--disp);font-size:1.25rem;font-weight:800;margin-bottom:.75rem}
+.donate-box p{font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:1.25rem}
+.ein-tag{font-family:var(--mono);font-size:.58rem;color:var(--dim);letter-spacing:.06em;margin-top:1rem;text-align:center;line-height:1.6}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem}
+.contact-info p{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:1rem}
+.c-links{display:flex;flex-direction:column;gap:.6rem;margin-top:1.5rem}
+.c-link{display:flex;justify-content:space-between;align-items:center;padding:.85rem 1.1rem;background:var(--surface2);border:1px solid var(--border);border-radius:3px;text-decoration:none;color:var(--text);font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;transition:all .2s}
+.c-link:hover{border-color:var(--cyan);color:var(--cyan)}
+.c-arr{color:var(--cyan)}
+.form-grp{margin-bottom:1rem}
+.form-lbl{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);display:block;margin-bottom:.4rem}
+.form-inp{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:.75rem .9rem;color:var(--text);font-family:var(--sans);font-size:.9rem}
+.form-inp:focus{outline:none;border-color:var(--cyan)}
+textarea.form-inp{min-height:120px;resize:vertical}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;background:#050609}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.foot-brand{font-family:var(--disp);font-weight:800;font-size:1rem}
+.foot-brand span{color:var(--purple)}
+.foot-tag{font-family:var(--mono);font-size:.55rem;color:var(--dim);letter-spacing:.12em;margin-top:.3rem}
+.foot-meta{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:1.8;margin-top:1rem}
+.foot-links{display:flex;flex-direction:column;gap:.4rem;align-items:flex-end}
+.foot-links a{font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.05em;text-decoration:none}
+.foot-links a:hover{color:var(--purple)}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.fi.vis{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}}
+@media(max-width:768px){
+  section{padding:3.5rem 1.25rem}
+  .hero{padding:7rem 1.25rem 3rem;min-height:auto}
+  .stat-strip{grid-template-columns:1fr 1fr 1fr}
+  .machines{grid-template-columns:1fr}
+  .pill-grid{grid-template-columns:1fr 1fr}
+  .donate-in{grid-template-columns:1fr;gap:2.5rem}
+  .dollar-tiers{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .foot-in{grid-template-columns:1fr}
+  .foot-links{align-items:flex-start}
+}
+@media(max-width:420px){.stat-strip{grid-template-columns:1fr}.pill-grid{grid-template-columns:1fr}}
+</style>
+<script>function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}</script>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="index.html" class="logo">RENEWABLE<span> REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Lineup</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="ai.html">AI</a></li>
+    <li><a href="rr-turbo.html">RR Turbo</a></li>
+    <li><a href="why.html">Why</a></li>
+    <li><a href="cooling.html">Cooling</a></li>
+    <li><a href="lighting.html">Lighting</a></li>
+    <li><a href="recover.html">Recover</a></li>
+    <li><a href="revive.html">Revive</a></li>
+    <li><a href="mission.html">Mission</a></li>
+  </ul>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="nav-cta">Shop eBay</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" class="active">Lineup</a>
+  <a href="compare.html">Compare</a>
+  <a href="ai.html">AI</a>
+  <a href="rr-turbo.html">RR Turbo</a>
+  <a href="why.html">Why</a>
+  <a href="cooling.html">Cooling</a>
+  <a href="lighting.html">Lighting</a>
+  <a href="recover.html">Recover</a>
+  <a href="revive.html">Revive</a>
+  <a href="mission.html">Mission</a>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop on eBay</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="eyebrow">IRS-Approved 501(c)(3) &middot; Veteran Owned &amp; Operated &middot; Hammond, IN</div>
+    <h1>A real gaming PC.<span>With its own private AI.</span></h1>
+    <p class="hero-sub">Two machines, built from proven hardware the industry wrote off.&nbsp; A full <b>32GB of memory</b>, <b>Office that never expires</b>, and a real <b>private AI that runs on your own desk</b>&mdash;offline, no account, no subscription, no one reading your conversations.&nbsp; The Coffee Lake Gamer at <b>$849</b> and the Marauder at <b>$949</b>.&nbsp; Both in stock now.</p>
+    <div class="badges">
+      <span class="badge on">Private AI, built in</span>
+      <span class="badge on">32GB in every build</span>
+      <span class="badge on">$0 subscriptions, ever</span>
+      <span class="badge">100% eBay positive feedback</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#machines" class="btn-p">Meet the Two Machines &rarr;</a>
+      <a href="ai.html" class="btn-s">See the Private AI &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VALUE STRIP ===== -->
+<div class="stat-strip">
+  <div class="stat-cell"><div class="stat-n">2</div><div class="stat-k">Models<br>ready now</div></div>
+  <div class="stat-cell"><div class="stat-n">32GB</div><div class="stat-k">In every<br>build</div></div>
+  <div class="stat-cell"><div class="stat-n">$0</div><div class="stat-k">Subscriptions<br>ever</div></div>
+  <div class="stat-cell"><div class="stat-n">100%</div><div class="stat-k">Private, offline<br>AI</div></div>
+  <div class="stat-cell"><div class="stat-n">$849</div><div class="stat-k">Starting<br>price</div></div>
+</div>
+
+<!-- ===== THE TWO MACHINES ===== -->
+<section class="fi" id="machines">
+  <div class="sec-label">The Lineup</div>
+  <h2 class="sec-title">Two machines.<span>Pick the job; the spec follows.</span></h2>
+  <p class="sec-body">We don&rsquo;t sell you the biggest number and hope you don&rsquo;t notice what&rsquo;s missing.&nbsp; Both ship a full 32GB, perpetual Office, RR Turbo Windows 11 Pro, and a private AI&mdash;on proven, balanced hardware that&rsquo;s actually in stock.&nbsp; The Gamer is tuned for smooth 1080p and runs a capable local AI.&nbsp; The Marauder steps that up to an enterprise-grade AI that can read a screenshot or photo and tell you what&rsquo;s in it.</p>
+
+  <div class="machines">
+
+    <!-- Coffee Lake Gamer -->
+    <div class="machine gamer">
+      <div class="machine-hd">
+        <div class="machine-line">Coffee Lake</div>
+        <div class="machine-top">
+          <div class="machine-name">Coffee Lake Gamer</div>
+          <div class="machine-price">$849</div>
+        </div>
+        <p class="machine-role">Smooth, reliable 1080p gaming&mdash;and real work&mdash;that doesn&rsquo;t crash, stutter, or bottleneck.&nbsp; A capable private AI included.</p>
+        <span class="machine-status"><span class="dot"></span>In stock &middot; ships this week</span>
+      </div>
+      <ul class="machine-specs">
+        <li><span class="sk">CPU</span><span class="sv">Intel i5-8600K &mdash; 6 cores / 6 threads, unlocked (Coffee Lake)</span></li>
+        <li><span class="sk">Graphics</span><span class="sv">NVIDIA GTX 1060 6GB advertised floor &mdash; often ships a 1660 / 1660 Super (free step up)</span></li>
+        <li><span class="sk">Memory</span><span class="sv hl">32GB &mdash; both slots filled, full speed</span></li>
+        <li><span class="sk">Storage</span><span class="sv">NVMe SSD + open drive bay</span></li>
+        <li><span class="sk">Cooling</span><span class="sv">Thermalright &mdash; quiet, sustained</span></li>
+        <li><span class="sk">OS</span><span class="sv">RR Turbo Windows 11 Pro &mdash; debloated, private</span></li>
+        <li><span class="sk">Office</span><span class="sv">Office 2019 Pro+ included &mdash; never expires</span></li>
+        <li><span class="sk">Private AI</span><span class="sv hl">Capable local assistant + two image generators &mdash; fully offline</span></li>
+      </ul>
+      <div class="machine-foot">
+        <a href="compare.html" class="btn-s">Full Build Sheet &rarr;</a>
+        <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="btn-p">Shop on eBay &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Marauder -->
+    <div class="machine marauder">
+      <div class="machine-hd">
+        <div class="machine-line">X99 Fleet</div>
+        <div class="machine-top">
+          <div class="machine-name">Marauder</div>
+          <div class="machine-price">$949</div>
+        </div>
+        <p class="machine-role">The whole enchilada: 1080p gaming, enterprise-grade AI, and productivity&mdash;on one machine, all offline.&nbsp; The $100 step up buys the AI that can see.</p>
+        <span class="machine-status"><span class="dot"></span>In stock &middot; ships this week</span>
+      </div>
+      <ul class="machine-specs">
+        <li><span class="sk">CPU</span><span class="sv">Intel i7-6850K (or i7-6800K) &mdash; 6 cores / 12 threads, unlocked (X99)</span></li>
+        <li><span class="sk">Graphics</span><span class="sv">NVIDIA GTX 1070 8GB &mdash; runs the enterprise-grade AI</span></li>
+        <li><span class="sk">Memory</span><span class="sv hlp">32GB &mdash; both slots filled &middot; room for 128GB later</span></li>
+        <li><span class="sk">Storage</span><span class="sv">NVMe SSD + HDD</span></li>
+        <li><span class="sk">Cooling</span><span class="sv">Thermalright &mdash; sustained boost</span></li>
+        <li><span class="sk">OS</span><span class="sv">RR Turbo Windows 11 Pro &mdash; debloated, private</span></li>
+        <li><span class="sk">Office</span><span class="sv">Office 2019 Pro+ included &mdash; never expires</span></li>
+        <li><span class="sk">Private AI</span><span class="sv hlp">Enterprise-grade &mdash; reads images, plus image generators &middot; all offline</span></li>
+      </ul>
+      <div class="machine-foot">
+        <a href="compare.html" class="btn-s">Full Build Sheet &rarr;</a>
+        <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="btn-p">Shop on eBay &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout callout-green" style="background:var(--surface);border-left:3px solid var(--green);padding:1.2rem 1.5rem;border-radius:0 4px 4px 0;margin:2rem 0 0">
+    <p style="font-size:.92rem;color:var(--muted);line-height:1.7"><span style="color:var(--text);font-weight:700">One machine instead of a console, too.</span>&nbsp; A Revolt build plays the games <em>and</em> does the homework, the taxes, and the private AI&mdash;with no $500 console, no game subscription, and no monthly bill stacking up behind it.&nbsp; <a href="compare.html" style="color:var(--green);font-weight:600">See it line-by-line against the new $989 OEM &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ===== PRIVATE AI BANNER ===== -->
+<section class="fi" style="padding-top:1rem">
+  <div class="ai-banner">
+    <div class="sec-label" style="color:var(--plum)">The Headline Feature</div>
+    <h3>Your own AI.&nbsp; <span>On your own computer.</span></h3>
+    <p>Every Renewable Revolt machine comes with a real AI assistant built in&mdash;and it runs on the computer in front of you, not on some company&rsquo;s servers.&nbsp; No account, no monthly fee, no one reading your conversations.&nbsp; It works with the internet unplugged.&nbsp; The Marauder even runs a 27-billion-parameter model that can <b style="color:var(--text)">look at a photo or document and tell you what&rsquo;s in it</b>&mdash;on an 8GB card the industry calls e-waste.</p>
+    <a href="ai.html" class="btn-p" style="background:var(--plum)">See What the AI Does &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== WHY DIFFERENT ===== -->
+<section class="fi">
+  <div class="sec-label">Why These Beat a New Machine</div>
+  <h2 class="sec-title">The whole machine&mdash;<span>not the one flashy number.</span></h2>
+  <p class="sec-body">A computer is a team, not a trophy part.&nbsp; We balance every piece to the others, strip the software that slows it down, and hand it back at a price that holds.&nbsp; Here&rsquo;s what that actually buys.</p>
+  <div class="pill-grid">
+    <a href="ai.html" class="pill">
+      <span class="pill-ic">&#129504;</span>
+      <div class="pill-h">Private AI, included</div>
+      <div class="pill-p">A real assistant that runs offline on your own machine&mdash;no account, no subscription, nothing leaving the house.</div>
+      <span class="pill-go">How it works &rarr;</span>
+    </a>
+    <a href="compare.html" class="pill">
+      <span class="pill-ic">&#9889;</span>
+      <div class="pill-h">32GB &amp; balanced</div>
+      <div class="pill-p">A full 32GB across both slots feeds the graphics card properly&mdash;while new machines quietly drop to 16GB on one stick.</div>
+      <span class="pill-go">See the trap &rarr;</span>
+    </a>
+    <a href="rr-turbo.html" class="pill">
+      <span class="pill-ic">&#128640;</span>
+      <div class="pill-h">RR Turbo inside</div>
+      <div class="pill-p">A clean, hardened Windows 11 Pro that gives the machine&rsquo;s power to you&mdash;not to spyware, ads, and background bloat.</div>
+      <span class="pill-go">Meet the engine &rarr;</span>
+    </a>
+    <a href="mission.html" class="pill">
+      <span class="pill-ic">&#9851;&#65039;</span>
+      <div class="pill-h">Reclaimed &amp; veteran-owned</div>
+      <div class="pill-p">Every build keeps capable electronics out of the landfill&mdash;and funds a veteran-owned nonprofit&rsquo;s mission.</div>
+      <span class="pill-go">The mission &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== MISSION STRIP ===== -->
+<div class="mission-strip fi">
+  <div class="mission-inner">
+    <div class="sec-label" style="color:var(--green);display:inline-block">Our Mission</div>
+    <h2>End of support <span>isn&rsquo;t end of life.</span></h2>
+    <p>When an OEM walks away from a machine, we don&rsquo;t.&nbsp; We <b style="color:var(--text)">recover</b>, <b style="color:var(--text)">revive</b>, and <b style="color:var(--text)">redeploy</b> hardware the industry calls obsolete&mdash;and prove it has years of real performance left.&nbsp; Gaming PCs keep the lights on; donations put private, capable machines in the hands of veterans, students, and families who need them.</p>
+    <div class="hero-btns" style="justify-content:center">
+      <a href="mission.html" class="btn-s">Our Full Mission &rarr;</a>
+      <a href="#donate" class="btn-p">Support the Work &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DONATE ===== -->
+<div class="donate-wrap" id="donate">
+  <div class="donate-in">
+    <div class="donate-txt">
+      <div class="sec-label">Support the Mission</div>
+      <h2 class="sec-title" style="margin-bottom:1rem">The hard problems don&rsquo;t pay for themselves.</h2>
+      <p>Gaming PCs keep the lights on&mdash;our margins are just enough for that, and no more.&nbsp; The work we actually care about&mdash;family donation PCs, laptops, tablets, phones&mdash;doesn&rsquo;t pay for itself.&nbsp; Nobody else is doing it because the margins are negative.&nbsp; That&rsquo;s exactly why it needs to be done.</p>
+      <p>Donations fund the builds, the rework, and the devices that will never turn a profit but will end up in the hands of someone who needs them.</p>
+      <div class="dollar-tiers">
+        <div class="dt"><span class="dt-amount">$25</span><span class="dt-desc">WiFi + Bluetooth module for one build</span></div>
+        <div class="dt"><span class="dt-amount">$50</span><span class="dt-desc">GPU for a donation gaming build</span></div>
+        <div class="dt"><span class="dt-amount">$100</span><span class="dt-desc">Complete component kit for one family PC</span></div>
+        <div class="dt"><span class="dt-amount">$250</span><span class="dt-desc">Fully built donation PC&mdash;ready for homework, gaming, and life</span></div>
+      </div>
+    </div>
+    <div class="donate-box">
+      <h3>Tax-Deductible Donation</h3>
+      <p>Renewable Revolt, Inc. is an IRS-approved 501(c)(3) nonprofit.&nbsp; All donations are fully tax-deductible to the extent permitted by law.</p>
+      <div id="donate-button" style="margin-bottom:1rem"></div>
+      <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+      <script>if(typeof PayPal!=='undefined'){PayPal.Donation.Button({env:'production',hosted_button_id:'9MPACUWVF5NZ8',image:{src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',alt:'Donate with PayPal button',title:'PayPal - The safer, easier way to pay online!'}}).render('#donate-button')}</script>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=9MPACUWVF5NZ8" target="_blank" rel="noopener" class="btn-s" style="width:100%;text-align:center;display:block;margin-top:.5rem">Direct PayPal Link &rarr;</a>
+      <div class="ein-tag">EIN: 99-2777606 &middot; Charity ID: 391538 &middot; Hammond, IN</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="fi">
+  <div class="sec-label">Get In Touch</div>
+  <h2 class="sec-title">Let&rsquo;s talk.</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Whether you&rsquo;re a business with surplus electronics to donate, a parent looking for affordable and reliable tech, or someone who just wants a machine that isn&rsquo;t fighting them&mdash;we want to hear from you.</p>
+      <p>We&rsquo;re always looking for partnership opportunities with organizations aligned with digital equity, sustainable tech, and veteran services.</p>
+      <div class="c-links">
+        <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="c-link"><span>Shop Our eBay Store</span><span class="c-arr">&rarr;</span></a>
+        <a href="https://www.ebay.com/usr/renewable-revolt-inc" target="_blank" rel="noopener" class="c-link"><span>eBay Seller Profile</span><span class="c-arr">&rarr;</span></a>
+        <a href="#donate" class="c-link"><span>Make a Donation</span><span class="c-arr">&rarr;</span></a>
+        <a href="/cdn-cgi/l/email-protection#92fbfcf4fdd2e0f7fcf7e5f3f0fef7e0f7e4fdfee6bcfde0f5" class="c-link"><span><span class="__cf_email__" data-cfemail="1970777f76596b7c777c6e787b757c6b7c6f76756d37766b7e">[email&#160;protected]</span></span><span class="c-arr">&rarr;</span></a>
+      </div>
+    </div>
+    <div>
+      <div class="form-grp"><label class="form-lbl">Name</label><input type="text" class="form-inp" placeholder="Your name"></div>
+      <div class="form-grp"><label class="form-lbl">Email</label><input type="email" class="form-inp" placeholder="your@email.com"></div>
+      <div class="form-grp"><label class="form-lbl">Message</label><textarea class="form-inp" placeholder="Donation, purchase, partnership, or just a question."></textarea></div>
+      <a href="/cdn-cgi/l/email-protection#2e474048416e5c4b404b594f4c424b5c4b5841425a00415c49" class="btn-p" style="text-align:center;display:block">Send Message &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-in">
+    <div>
+      <div class="foot-brand">RENEWABLE <span>REVOLT</span></div>
+      <div class="foot-tag">RECOVER &middot; REVIVE &middot; REDEPLOY</div>
+      <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; eBay Charity ID: 391538<br>Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+    </div>
+    <div class="foot-links">
+      <a href="compare.html">Compare &mdash; The OEM Trap</a>
+      <a href="ai.html">Private AI</a>
+      <a href="rr-turbo.html">RR Turbo</a>
+      <a href="why.html">Why Renewable Revolt</a>
+      <a href="recover.html">Recover &mdash; Circular Economy</a>
+      <a href="revive.html">Revive &mdash; Build &amp; R&amp;D</a>
+      <a href="mission.html">Mission</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" target="_blank" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555">Interserver</a></div>
+</footer>
+
+<script>
+document.addEventListener('click',function(e){var m=document.getElementById('mobMenu');var h=document.querySelector('.hamburger');if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+</script>
+<!-- FALLBACK_FI -->
+<script>document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelectorAll(".fi").forEach(function(e){e.classList.add("vis")})},400)});</script>
+</body>
+</html>
