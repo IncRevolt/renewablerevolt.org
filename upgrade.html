@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Revolt &mdash; Free Upgrade Advisor &mdash; Renewable Revolt</title>
+<meta name="description" content="Don't replace your computer — revolt it. Run one free, read-only check, paste it into the advisor, and get a straight verdict, a shopping list with real prices, and local shops who'll do the work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--plum:#a855f7;--green:#00e676;--cyan:#00E5FF;--amber:#ffab00;--red:#ff4444;--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:1.1rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.66rem;color:var(--dim);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--green)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--purple);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--green)}
+.page-hero{padding:8rem 2rem 3.5rem;position:relative;overflow:hidden}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,230,118,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,230,118,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.page-hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,230,118,.06) 0%,rgba(139,92,246,.04) 30%,transparent 70%);top:45%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.page-hero-content{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--green);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.25rem}
+.page-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.6rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.25rem}
+.accent{color:var(--green)}
+.accent-p{color:var(--purple)}
+.page-hero-sub{font-size:clamp(1rem,2vw,1.1rem);color:var(--muted);max-width:720px;line-height:1.8;margin-bottom:2rem}
+.breadcrumb{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.75rem}
+.breadcrumb a{color:var(--dim);text-decoration:none}.breadcrumb a:hover{color:var(--green)}
+.breadcrumb .sep{margin:0 .5rem;color:var(--border)}
+section{padding:4.5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--green);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.7rem,3.3vw,2.6rem);font-weight:800;margin-bottom:1.25rem;line-height:1.12;letter-spacing:-.02em}
+.sec-body{font-size:.95rem;color:var(--muted);max-width:740px;line-height:1.8}
+.sec-body+.sec-body{margin-top:1rem}
+.dark-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4.5rem 2rem}
+.dark-inner{max-width:1100px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2.5rem}
+.step{background:var(--surface2);padding:2rem}
+.step-n{font-family:var(--disp);font-size:2rem;font-weight:800;color:var(--green);line-height:1;margin-bottom:.6rem}
+.step-h{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.step-p{font-size:.86rem;color:var(--muted);line-height:1.7}
+.ff-head{display:flex;align-items:baseline;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap}
+.ff-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--black);background:var(--green);padding:.2rem .6rem;border-radius:3px;font-weight:700}
+.ff-tag.desk{background:var(--cyan)}
+.prompt-wrap{position:relative;margin-top:1.5rem;border:1px solid var(--border);border-radius:8px;background:#0b0c12;overflow:hidden}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;border-bottom:1px solid var(--border);background:var(--surface)}
+.prompt-bar span{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.copy-btn{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:transparent;border:1px solid var(--green);border-radius:4px;padding:.3rem .8rem;cursor:pointer;transition:all .2s}
+.copy-btn:hover{background:var(--green);color:var(--black)}
+.prompt-pre{margin:0;padding:1.25rem;font-family:var(--mono);font-size:.72rem;line-height:1.7;color:var(--muted);white-space:pre-wrap;word-break:break-word;max-height:360px;overflow:auto}
+.example{margin-top:2rem;border:1px solid var(--border);border-radius:8px;background:var(--surface2);padding:1.75rem 2rem}
+.example .verdict{font-family:var(--disp);font-size:1.15rem;font-weight:800;color:var(--green);margin-bottom:.75rem}
+.example p{font-size:.86rem;color:var(--muted);line-height:1.75;margin-bottom:.6rem}
+.example .lab{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:1rem 0 .4rem}
+.example ul{list-style:none;padding:0}
+.example li{font-family:var(--mono);font-size:.74rem;color:var(--muted);line-height:1.8;padding-left:1.1rem;position:relative}
+.example li::before{content:'\25B8';position:absolute;left:0;color:var(--green)}
+.example .shop{font-family:var(--mono);font-size:.72rem;color:var(--text);background:#0b0c12;border-left:2px solid var(--cyan);padding:.75rem 1rem;margin-top:.5rem;line-height:1.7}
+.callout{padding:1.5rem 2rem;border-left:3px solid var(--purple);background:var(--surface2);margin-top:2rem}
+.callout p{font-family:var(--mono);font-size:.8rem;color:var(--text);line-height:1.85}
+.callout .hl{color:var(--green)}
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--green);color:var(--black);border:none;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}
+.btn-p:hover{opacity:.85}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);border:1px solid var(--green);padding:.85rem 2rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent}
+.btn-s:hover{background:var(--green);color:var(--black)}
+.cta-section{text-align:center;padding:4.5rem 2rem;max-width:820px;margin:0 auto}
+.cta-section p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--border);padding:3rem 2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.foot-brand{font-family:var(--disp);font-size:1rem;font-weight:800;letter-spacing:.05em}
+.foot-brand span{color:var(--purple)}
+.foot-meta{font-family:var(--mono);font-size:.55rem;color:var(--dim);line-height:2;letter-spacing:.06em;text-align:right}
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fi.vis{opacity:1;transform:none}
+@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}}
+@media(max-width:768px){.steps{grid-template-columns:1fr}section{padding:3.5rem 1.5rem}}
+@media(max-width:480px){nav{padding:0 1.25rem}}
+</style>
+<script>
+function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.toggle('open')}
+function copyPrompt(btn,id){var el=document.getElementById(id);if(!el)return;var t=el.innerText;navigator.clipboard.writeText(t).then(function(){var o=btn.textContent;btn.textContent='Copied ✓';setTimeout(function(){btn.textContent=o},1600)})}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">RENEWABLE<span> REVOLT</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Lineup</a></li>
+    <li><a href="will-it-revolt.html">Will It Revolt?</a></li>
+    <li><a href="upgrade.html" class="active">Upgrade</a></li>
+    <li><a href="ai.html">AI</a></li>
+    <li><a href="rr-turbo.html">RR Turbo</a></li>
+    <li><a href="why.html">Why</a></li>
+    <li><a href="mission.html">Mission</a></li>
+  </ul>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener" class="nav-cta">Shop eBay</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Lineup</a>
+  <a href="will-it-revolt.html">Will It Revolt?</a>
+  <a href="upgrade.html" class="active">Upgrade</a>
+  <a href="ai.html">AI</a>
+  <a href="rr-turbo.html">RR Turbo</a>
+  <a href="why.html">Why</a>
+  <a href="mission.html">Mission</a>
+  <a href="https://ebay.us/m/KgGZ0K" target="_blank" rel="noopener">Shop on eBay</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Join the Revolt</span></div>
+    <div class="eyebrow">Help Us Spark a Consumer Revolution</div>
+    <h1>Your computer isn&rsquo;t disposable.<br><span class="accent">You&rsquo;re just supposed to think it is.</span></h1>
+    <p class="page-hero-sub">The big brands build budget machines to fade on schedule, then sell you the subscriptions and the &ldquo;deals&rdquo; to replace them.&nbsp; We think that&rsquo;s a racket &mdash; and we&rsquo;re in the crosshairs right alongside you.&nbsp; So here&rsquo;s the counter-move: run one free, read-only check, paste it into the advisor below, and in a few minutes you&rsquo;ll know exactly what your machine needs to run another decade.&nbsp; Usually it&rsquo;s a part or two and an afternoon.</p>
+    <div class="cta-btns" style="justify-content:flex-start">
+      <a href="#how" class="btn-p">Get my plan &darr;</a>
+      <a href="https://github.com/IncRevolt/rr-checkup/releases/latest/download/RR-Checkup.zip" target="_blank" rel="noopener" class="btn-s">Download RR Checkup &mdash; free &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="fi" id="how">
+  <div class="sec-label">Three Steps, No Tech Degree</div>
+  <h2 class="sec-title">Check it.&nbsp; Get your plan.&nbsp; Revolt it.</h2>
+  <p class="sec-body">You don&rsquo;t need to know a thing about hardware.&nbsp; The tool reads the machine; the advisor reads the tool; you get a plain-English answer and a shopping list.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-h">Check it</div>
+      <div class="step-p">Run the free <strong>RR Checkup</strong> &mdash; read-only, Windows only, nothing leaves your machine.&nbsp; It writes a plain report: your exact model, CPU, memory, storage, battery, and Wi-Fi.&nbsp; <a href="https://github.com/IncRevolt/rr-checkup/releases/latest/download/RR-Checkup.zip" target="_blank" rel="noopener" style="color:var(--green);text-decoration:none">Get it here &rarr;</a></div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div class="step-h">Get your plan</div>
+      <div class="step-p">Find your machine below &mdash; laptop or desktop &mdash; copy the prompt, and paste it into any AI assistant along with your report.&nbsp; Answer a question or two.</div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div class="step-h">Revolt it</div>
+      <div class="step-p">You get a straight verdict, a shopping list with real prices, and local shops who&rsquo;ll install it &mdash; plus RR Turbo, free, to clear out the junk Windows piles on.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAPTOP -->
+<div class="dark-section fi" id="laptop">
+  <div class="dark-inner">
+    <div class="ff-head"><span class="ff-tag">Laptop</span><h2 class="sec-title" style="margin-bottom:0">If it&rsquo;s a laptop</h2></div>
+    <p class="sec-body">For most laptops the big wins are the same three: a solid-state drive (the single biggest change you&rsquo;ll feel), a Wi-Fi 6 card, and a fresh battery if the old one&rsquo;s worn out.&nbsp; The advisor watches for the two laptop landmines &mdash; parts soldered down so they can&rsquo;t be swapped, and a BIOS that rejects a new Wi-Fi card &mdash; and tells you before you buy, not after.</p>
+    <div class="prompt-wrap">
+      <div class="prompt-bar"><span>Copy this &rarr; paste into any AI with your report</span><button class="copy-btn" onclick="copyPrompt(this,'p-laptop')">Copy</button></div>
+      <pre class="prompt-pre" id="p-laptop">You are my honest PC Upgrade Advisor, in the spirit of Renewable Revolt, a veteran-owned nonprofit that keeps working computers out of the landfill. Your bias is to SAVE my machine when that makes sense, and to tell me plainly when it doesn't -- sending me down a $300 road on a machine that can't take it is its own kind of waste.
+
+I'll paste a report from the RR Checkup tool below. Some things software can't see -- whether an empty M.2 slot physically exists, whether the Wi-Fi card is socketed or soldered, any BIOS Wi-Fi whitelist, the real RAM maximum. Look those up by my exact model.
+
+Do this:
+1. Identify my exact model and variant. If the report is ambiguous, ask me for the ONE thing that settles it.
+2. Look up what the report can't see.
+3. Give me a VERDICT up front, one line: UPGRADE IT / HOLD WHAT YOU'VE GOT / REPLACE -- then your reasoning.
+4. Score the keys to a snappy machine: SSD/NVMe (biggest felt upgrade), Wi-Fi 6/6E, enough RAM (8GB floor, 16GB sweet spot), and battery health.
+5. Give me a shopping list: exact parts, reputable brands, rough cost, and the order to do them in. Match parts to the slots I actually have -- don't sell me Gen5 on a Gen3 board.
+6. If the machine is truly weak (e.g. 4GB soldered RAM, a soldered 2-core CPU), scope it to realistic wins -- a solid web, email, and one-thing-at-a-time machine -- not a dream build.
+7. Ask my ZIP code, then find a few nearby computer-repair shops that could install these parts. If you can't search, tell me to look up "computer repair near me" and give me a short script to call them: "I have the parts, here's what I need done -- would you do these upgrades for about $__?"
+8. Offer both paths for anything inside the case: the DIY version, and the "any shop does this for ~$50-100" version. Never make me feel dumb for not wanting to open it.
+
+Be decisive. If you're missing a fact, ask me to run one command and paste it back -- don't hedge. State your confidence.
+
+I'm on a Windows LAPTOP. Here is my RR Checkup report:
+[paste your report here]</pre>
+    </div>
+  </div>
+</div>
+
+<!-- DESKTOP -->
+<section class="fi" id="desktop">
+  <div class="ff-head"><span class="ff-tag desk">Desktop</span><h2 class="sec-title" style="margin-bottom:0">If it&rsquo;s a desktop</h2></div>
+  <p class="sec-body">On a desktop the drive and the memory are easy wins.&nbsp; The landmine is the power supply and the case.&nbsp; Before anyone sells you a graphics card, the advisor checks whether your box can even power one &mdash; most small office desktops can&rsquo;t, and that&rsquo;s fine.&nbsp; They make superb everyday machines; they just won&rsquo;t become gaming rigs without rebuilding half the box, and it&rsquo;ll tell you so instead of taking your money.</p>
+  <div class="prompt-wrap">
+    <div class="prompt-bar"><span>Copy this &rarr; paste into any AI with your report</span><button class="copy-btn" onclick="copyPrompt(this,'p-desktop')">Copy</button></div>
+    <pre class="prompt-pre" id="p-desktop">You are my honest PC Upgrade Advisor, in the spirit of Renewable Revolt, a veteran-owned nonprofit that keeps working computers out of the landfill. Your bias is to SAVE my machine when that makes sense, and to tell me plainly when it doesn't -- sending me down a $300 road on a machine that can't take it is its own kind of waste.
+
+I'll paste a report from the RR Checkup tool below. Some things software can't see -- the PSU wattage and whether it has a spare PCIe power connector, whether an empty M.2 slot exists, case size and low-profile limits, proprietary parts. Look those up by my exact model.
+
+Do this:
+1. Identify my exact model and variant (a "7050" can be SFF, Micro, or Tower -- totally different stories). If the report is ambiguous, ask me for the ONE thing that settles it.
+2. Look up what the report can't see -- especially the PSU and whether a graphics card is even possible.
+3. Give me a VERDICT up front, one line: UPGRADE IT / HOLD WHAT YOU'VE GOT / REPLACE -- then your reasoning.
+4. Score the keys to a snappy machine: SSD/NVMe (biggest felt upgrade), enough RAM (8GB floor, 16GB sweet spot), Wi-Fi 6/6E if I'm not on Ethernet.
+5. Give me a shopping list: exact parts, reputable brands, rough cost, and the order. Match parts to the slots I actually have -- don't sell me Gen5 on a Gen3 board.
+6. On graphics: do NOT recommend a card until you've confirmed the PSU and case can take one. If they can't, say so plainly -- a snappy everyday machine is the win, not a doomed gaming build.
+7. Ask my ZIP code, then find a few nearby computer-repair shops that could install these parts. If you can't search, tell me to look up "computer repair near me" and give me a short script to call them: "I have the parts, here's what I need done -- would you do these upgrades for about $__?"
+8. Offer both paths: the DIY version, and the "any shop does this for ~$50-100" version. Never make me feel dumb for not wanting to open it.
+
+Be decisive. If you're missing a fact, ask me to run one command and paste it back -- don't hedge. State your confidence.
+
+I'm on a Windows DESKTOP. Here is my RR Checkup report:
+[paste your report here]</pre>
+  </div>
+</section>
+
+<!-- EXAMPLE -->
+<div class="dark-section fi" id="example">
+  <div class="dark-inner">
+    <div class="sec-label">What You Get Back</div>
+    <h2 class="sec-title">A real answer &mdash; not a spec dump.</h2>
+    <p class="sec-body">Here&rsquo;s the advisor on a 2018 Lenovo laptop that came back from the dead for about $120 in parts.&nbsp; Yours will read like this:</p>
+    <div class="example">
+      <div class="verdict">VERDICT: UPGRADE IT &mdash; ~$120 transforms this machine.</div>
+      <p>Your IdeaPad 330-15IKB is a textbook rescue.&nbsp; The quad-core i5 is still plenty; it&rsquo;s being held back by a spinning hard drive, a worn battery, and old Wi-Fi &mdash; all cheap, all fixable.</p>
+      <div class="lab">The three keys on your machine</div>
+      <ul>
+        <li>Storage: spinning HDD &rarr; add a 1TB NVMe (the slot is free). Biggest single change you&rsquo;ll feel.</li>
+        <li>Wi-Fi: Wi-Fi 5 &rarr; Intel AX210 drops into the socket (no BIOS whitelist on this model).</li>
+        <li>Battery: 58% health &rarr; a fresh Lenovo L16 cell. Match the part number on the old one.</li>
+      </ul>
+      <div class="lab">What I&rsquo;d buy, in order</div>
+      <ul>
+        <li>1TB Gen3 NVMe (Crucial / WD Blue) &mdash; ~$55</li>
+        <li>Intel AX210 Wi-Fi 6E card &mdash; ~$20</li>
+        <li>Replacement battery (match the part number) &mdash; ~$35</li>
+        <li>+8GB DDR4 stick, second slot is open &mdash; ~$18</li>
+      </ul>
+      <div class="lab">Get it installed</div>
+      <div class="shop">Not comfortable opening it?&nbsp; Any shop does all four in under an hour.&nbsp; Give me your ZIP and I&rsquo;ll find a few &mdash; and here&rsquo;s your script: &ldquo;I have the parts.&nbsp; I need an NVMe drive, a Wi-Fi card, a battery, and a RAM stick installed on a laptop.&nbsp; Would you do it for about $75?&rdquo;</div>
+      <p style="margin-top:1rem"><strong style="color:var(--text)">Confidence:</strong>&nbsp; High on the slot and Wi-Fi socket for this exact model.&nbsp; Verify the battery part number off the old cell before ordering.</p>
+    </div>
+  </div>
+</div>
+
+<!-- HONESTY / SCOPE -->
+<section class="fi" id="honest">
+  <div class="sec-label">The Honest Part</div>
+  <h2 class="sec-title">We&rsquo;ll tell you when to stop spending.</h2>
+  <p class="sec-body">We&rsquo;re a nonprofit, not a parts store &mdash; there&rsquo;s nothing to sell you here.&nbsp; So the advisor&rsquo;s job is the truth: sometimes the answer is &ldquo;this one&rsquo;s a dead end, put the money toward a different box.&rdquo;&nbsp; But far more often, a machine you&rsquo;d written off just needs a drive, a Wi-Fi card, and maybe a battery.&nbsp; Even a 4GB laptop with everything soldered down makes a genuinely good web-and-email machine with those three &mdash; we run exactly that on a 2018 Lenovo, and it&rsquo;s a pleasure for one thing at a time.</p>
+  <div class="callout">
+    <p><span class="hl">Two things worth money, free:</span>&nbsp; The advisor will tell you if your machine already carries a Windows license in its firmware &mdash; most do, which means you don&rsquo;t need to buy Windows 11.&nbsp; And RR Turbo, our light, private fork of Windows, is free forever.&nbsp; The parts are the only thing you&rsquo;ll spend on.</p>
+  </div>
+  <p class="sec-body" style="margin-top:1.5rem"><strong style="color:var(--text)">Scope:</strong>&nbsp; We work Windows machines only &mdash; Macs are out of our lane.&nbsp; The checker is read-only and runs entirely on your computer; nothing is uploaded, nothing is installed.</p>
+</section>
+
+<!-- CTA / MISSION -->
+<div class="cta-section fi">
+  <div class="sec-label" style="text-align:center">This Is the Revolt</div>
+  <h2 class="sec-title" style="text-align:center">Every machine saved is one they don&rsquo;t get to sell twice.</h2>
+  <p>That&rsquo;s the whole movement.&nbsp; Keep a working computer alive, and you keep it out of the landfill and out of the replacement cycle the disposable-tech racket depends on.&nbsp; The tools are free and always will be.&nbsp; If you want to help us get them into the hands of the people getting fleeced the hardest &mdash; the folks who pay full freight for everything and get a discount on nothing &mdash; a donation (or a company match) puts drives and shipping into more rescued machines.</p>
+  <div class="cta-btns">
+    <a href="https://github.com/IncRevolt/rr-checkup/releases/latest/download/RR-Checkup.zip" target="_blank" rel="noopener" class="btn-p">Download RR Checkup &mdash; free &rarr;</a>
+    <a href="why.html" class="btn-s">See why this matters &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-in">
+    <div><div class="foot-brand">RENEWABLE <span>REVOLT</span></div><div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER &middot; REVIVE &middot; REDEPLOY</div></div>
+    <div class="foot-meta">501(c)(3) Tax-Exempt &middot; EIN: 99-2777606<br>Hammond, Indiana &middot; Veteran Owned &amp; Operated<br>&copy; 2026 Renewable Revolt, Incorporated</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click',function(e){var m=document.getElementById('mobMenu');var h=document.querySelector('.hamburger');if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open')});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el)});
+document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelectorAll(".fi").forEach(function(e){e.classList.add("vis")})},400)});
+</script>
+</body>
+</html>
