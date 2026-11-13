@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recover — Renewable Revolt</title>
+<meta content="How Renewable Revolt recovers enterprise hardware: DOD/NIST data destruction, hardware triage, and performance-first sourcing." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--amethyst:#9b59b6;--revenant:#8b5cf6;--imperial:#6d28d9;--royal:#7c3aed;--plum:#a855f7;--green:#00e676;--amber:#ffab00;--red:#ff4444;--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:1.1rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--purple)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--purple);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--purple)}
+
+.page-hero{padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.07) 0%,transparent 70%);top:40%;left:30%;transform:translate(-50%,-50%);pointer-events:none}
+.page-hero-content{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.5rem}
+.page-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.accent{color:var(--purple)}
+.page-hero-sub{font-size:clamp(1rem,2vw,1.1rem);color:var(--muted);max-width:700px;line-height:1.8;margin-bottom:2rem}
+.breadcrumb{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2rem}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--purple)}
+.breadcrumb .sep{margin:0 .5rem;color:var(--border)}
+
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-body{font-size:.95rem;color:var(--muted);max-width:720px;line-height:1.8}
+.sec-body+.sec-body{margin-top:1rem}
+
+.dark-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem}
+.dark-inner{max-width:1100px;margin:0 auto}
+
+.callout{padding:1.5rem 2rem;border-left:3px solid var(--purple);background:var(--surface2);margin-top:2rem}
+.callout p{font-family:var(--mono);font-size:.82rem;color:var(--text);line-height:1.85}
+.callout .hl{color:var(--purple)}
+.callout .warn{color:var(--red)}
+
+.process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border);margin-top:2.5rem}
+.process-card{background:var(--surface2);padding:2rem}
+.process-num{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);margin-bottom:.75rem}
+.process-icon{font-size:2rem;margin-bottom:.75rem;display:block}
+.process-h{font-family:var(--disp);font-size:1.2rem;font-weight:800;margin-bottom:.75rem}
+.process-p{font-size:.88rem;color:var(--muted);line-height:1.75}
+.process-p+.process-p{margin-top:.75rem}
+.process-detail{font-family:var(--mono);font-size:.62rem;color:var(--dim);line-height:2;margin-top:1rem}
+.process-detail strong{color:var(--purple)}
+
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2rem}
+.compare-col{padding:2rem 2.5rem}
+.compare-col.bad{background:#140a0a}
+.compare-col.good{background:#0a1409}
+.compare-label-sm{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem}
+.compare-label-sm.red{color:var(--red)}
+.compare-label-sm.grn{color:var(--green)}
+.compare-h{font-family:var(--disp);font-size:1.4rem;font-weight:800;margin-bottom:.5rem}
+.compare-h.red{color:#ff6b6b}
+.compare-h.grn{color:var(--green)}
+.compare-detail{font-family:var(--mono);font-size:.72rem;color:var(--muted);line-height:2}
+.compare-detail span{display:block}
+.compare-detail .bad-line{color:#ff8888}
+.compare-detail .good-line{color:var(--green)}
+
+.triage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:2rem}
+.triage-card{background:var(--surface2);padding:1.75rem;text-align:center}
+.triage-icon{font-size:2.5rem;margin-bottom:.75rem;display:block}
+.triage-verdict{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem;font-weight:700}
+.triage-verdict.yes{color:var(--green)}
+.triage-verdict.maybe{color:var(--amber)}
+.triage-verdict.no{color:var(--red)}
+.triage-h{font-family:var(--disp);font-size:1rem;font-weight:800;margin-bottom:.5rem}
+.triage-p{font-size:.8rem;color:var(--muted);line-height:1.7}
+
+.quote-block{border-left:3px solid var(--purple);padding:1.5rem 2rem;margin:2.5rem 0;background:var(--surface2)}
+.quote-block p{font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic}
+.quote-block cite{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:.75rem;font-style:normal}
+
+.next-link{display:block;padding:2rem 2.5rem;background:var(--surface2);border:1px solid var(--border);text-decoration:none;margin-top:3rem;transition:border-color .2s}
+.next-link:hover{border-color:var(--purple)}
+.next-link-label{font-family:var(--mono);font-size:.58rem;color:var(--purple);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
+.next-link-title{font-family:var(--disp);font-size:1.3rem;font-weight:800;color:var(--text)}
+.next-link-sub{font-size:.82rem;color:var(--dim);margin-top:.25rem}
+
+footer{border-top:1px solid var(--border);padding:3rem 2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.foot-brand{font-family:var(--disp);font-size:1rem;font-weight:800;letter-spacing:.05em}
+.foot-brand span{color:var(--purple)}
+.foot-meta{font-family:var(--mono);font-size:.55rem;color:var(--dim);line-height:2;letter-spacing:.06em;text-align:right}
+
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fi.vis{opacity:1;transform:none}
+
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.triage-grid{grid-template-columns:1fr}.compare-row{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}section{padding:3.5rem 1.5rem}}
+@media(max-width:480px){nav{padding:0 1.25rem}}
+
+/* ===== slim-nav + More dropdown (v15 audit) ===== */
+.nav-links .has-more{position:relative;display:flex;align-items:center}
+.more-btn{font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:#00E5FF;background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px;line-height:1}
+.more-btn:hover,.has-more:hover .more-btn,.has-more:focus-within .more-btn{color:#fff}
+.more-btn.active{color:#ffab00}
+.more-menu{position:absolute;top:100%;right:0;margin-top:10px;min-width:168px;background:rgba(10,11,18,.98);backdrop-filter:blur(16px);border:1px solid #1e2035;border-radius:2px;padding:6px 0;list-style:none;display:none;flex-direction:column;z-index:200;box-shadow:0 10px 30px rgba(0,0,0,.55)}
+.more-menu::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px}
+.has-more:hover .more-menu,.has-more:focus-within .more-menu{display:flex}
+.more-menu li{display:block;margin:0}
+.more-menu a{display:block;padding:9px 16px;font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:#00E5FF;text-decoration:none;white-space:nowrap}
+.more-menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
+.more-menu a.active{color:#ffab00}
+.mob-sep{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#5f6b85;padding:.5rem 0 .15rem;border-top:1px solid #1e2035;margin-top:.35rem}
+</style>
+<script>
+function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.toggle('open')}
+</script>
+<style>.nav-links a{font-size:.66rem;letter-spacing:.06em;white-space:nowrap}.nav-links a.active{color:var(--amber)}@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}}</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="index.html">RENEWABLE<span> REVOLT</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Lineup</a></li>
+<li><a href="will-it-revolt.html">Will It Revolt?</a></li>
+<li><a href="upgrade.html">Upgrade</a></li>
+<li><a href="compare.html">Compare</a></li>
+<li><a href="is-it-real.html">Is It Real?</a></li>
+<li><a href="ai.html">AI</a></li>
+<li><a href="why.html">Why</a></li>
+<li><a href="mission.html">Mission</a></li>
+<li class="has-more"><button aria-expanded="false" aria-haspopup="true" class="more-btn active">More ▾</button>
+<ul class="more-menu">
+<li><a href="rr-turbo.html">RR Turbo</a></li>
+<li><a href="cooling.html">Cooling</a></li>
+<li><a href="lighting.html">Lighting</a></li>
+<li><a class="active" href="recover.html">Recover</a></li>
+<li><a href="revive.html">Revive</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul></li>
+</ul>
+<a class="nav-cta" href="https://ebay.us/m/KgGZ0K" rel="noopener" target="_blank">Shop eBay</a>
+<button aria-label="Open menu" class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+<a href="index.html" onclick="toggleMenu()">Lineup</a>
+<a href="will-it-revolt.html" onclick="toggleMenu()">Will It Revolt?</a>
+<a href="upgrade.html" onclick="toggleMenu()">Upgrade</a>
+<a href="compare.html" onclick="toggleMenu()">Compare</a>
+<a href="is-it-real.html" onclick="toggleMenu()">Is It Real?</a>
+<a href="ai.html" onclick="toggleMenu()">AI</a>
+<a href="why.html" onclick="toggleMenu()">Why</a>
+<a href="mission.html" onclick="toggleMenu()">Mission</a>
+<div class="mob-sep">More</div>
+<a href="rr-turbo.html" onclick="toggleMenu()">RR Turbo</a>
+<a href="cooling.html" onclick="toggleMenu()">Cooling</a>
+<a href="lighting.html" onclick="toggleMenu()">Lighting</a>
+<a class="active" href="recover.html" onclick="toggleMenu()">Recover</a>
+<a href="revive.html" onclick="toggleMenu()">Revive</a>
+<a href="faq.html" onclick="toggleMenu()">FAQ</a>
+<a href="https://ebay.us/m/KgGZ0K" onclick="toggleMenu()" rel="noopener" target="_blank">Shop on eBay →</a>
+</div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+<div class="page-hero-grid"></div>
+<div class="page-hero-glow"></div>
+<div class="page-hero-content">
+<div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Recover</span></div>
+<div class="eyebrow">01 — Recover</div>
+<h1>Your Data Dies Here.<br/><span class="accent">The Hardware Lives On.</span></h1>
+<p class="page-hero-sub">Every machine we build starts with enterprise hardware that someone else threw away.  Before we touch a single component, the previous owner’s data is destroyed to military and federal standards.  Then we decide what’s worth saving—and what isn’t.</p>
+</div>
+</div>
+<!-- DATA DESTRUCTION -->
+<section class="fi" id="data-destruction">
+<div class="sec-label">Data Destruction</div>
+<h2 class="sec-title">Deleting Is Not Destroying.</h2>
+<p class="sec-body">When you delete a file, the data doesn’t go anywhere.  The operating system marks the space as available, but the bits are still on the drive.  A $30 recovery tool pulls them back in minutes.  “Factory reset” is the same story—the data remains, waiting for anyone motivated enough to look.</p>
+<p class="sec-body">We don’t delete data.  We destroy it.</p>
+<div class="compare-row" style="margin-top:2.5rem">
+<div class="compare-col bad">
+<div class="compare-label-sm red">What most people do</div>
+<div class="compare-h red">Delete</div>
+<div class="compare-detail">
+<span class="bad-line">✗  Marks space as “available”</span>
+<span class="bad-line">✗  Data remains on the platters / cells</span>
+<span class="bad-line">✗  Recoverable with free software</span>
+<span class="bad-line">✗  “Factory reset” = same problem</span>
+<span class="bad-line">✗  Formatting = same problem</span>
+</div>
+</div>
+<div class="compare-col good">
+<div class="compare-label-sm grn">What we do</div>
+<div class="compare-h grn">Destroy</div>
+<div class="compare-detail">
+<span class="good-line">✓  Every sector overwritten with random data</span>
+<span class="good-line">✓  Multiple passes per federal standard</span>
+<span class="good-line">✓  Verification pass confirms destruction</span>
+<span class="good-line">✓  Auditable certificate of erasure</span>
+<span class="good-line">✓  Not recoverable.  Period.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- KILLDISK & STANDARDS -->
+<div class="dark-section fi">
+<div class="dark-inner">
+<div class="sec-label">The Standards</div>
+<h2 class="sec-title">DoD 5220.22-M &amp; NIST 800-88</h2>
+<p class="sec-body">We use <strong style="color:var(--green)">LSoft Active@ KillDisk</strong>—enterprise-grade data sanitization software used by government agencies, defense contractors, and Fortune 500 companies.  Every drive that enters our shop is wiped to one of two federal standards before the hardware is evaluated for reuse.</p>
+<div class="process-grid">
+<div class="process-card">
+<div class="process-num">Standard 01</div>
+<div class="process-icon">🛡</div>
+<div class="process-h">DoD 5220.22-M</div>
+<div class="process-p">The Department of Defense standard for sanitizing classified storage media.  Three overwrite passes: the first writes zeros, the second writes ones, the third writes random data.  A verification pass confirms every sector was overwritten.</div>
+<div class="process-detail">
+<strong>Pass 1:</strong> All zeros (0x00)<br/>
+<strong>Pass 2:</strong> All ones (0xFF)<br/>
+<strong>Pass 3:</strong> Random data (PRNG)<br/>
+<strong>Pass 4:</strong> Verification read
+        </div>
+</div>
+<div class="process-card">
+<div class="process-num">Standard 02</div>
+<div class="process-icon">🏛</div>
+<div class="process-h">NIST 800-88</div>
+<div class="process-p">The National Institute of Standards and Technology guideline for media sanitization.  NIST 800-88 defines three levels: Clear, Purge, and Destroy.  We use Purge-level sanitization—rendering data unrecoverable even with laboratory-grade forensic equipment.</div>
+<div class="process-detail">
+<strong>Clear:</strong> Overwrites user-accessible areas<br/>
+<strong>Purge:</strong> Makes data unrecoverable by any known technique<br/>
+<strong>Destroy:</strong> Physical destruction (shredding, incineration)<br/>
+<strong>We use:</strong> Purge for reusable drives, Destroy for failed drives
+        </div>
+</div>
+<div class="process-card">
+<div class="process-num">The Tool</div>
+<div class="process-icon">🔀</div>
+<div class="process-h">Active@ KillDisk</div>
+<div class="process-p">Enterprise-grade data sanitization by LSoft Technologies.  Supports 25+ international sanitization standards.  Generates auditable certificates of erasure.  Used by the US Department of Defense, NATO, and enterprise IT departments worldwide.</div>
+<div class="process-detail">
+<strong>Vendor:</strong> LSoft Technologies Inc.<br/>
+<strong>Certifications:</strong> Common Criteria evaluated<br/>
+<strong>Output:</strong> PDF certificate per drive<br/>
+<strong>Standard:</strong> We run DoD 5220.22-M or NIST 800-88 Purge on every drive
+        </div>
+</div>
+</div>
+<div class="callout">
+<p><span class="hl">Why this matters for you:</span>  Every drive in every machine we sell has been sanitized to the same standard used by the US military.  There is zero residual data from the previous owner.  Zero.  If you’re donating enterprise hardware to us, your data is destroyed before we do anything else.  We can provide a certificate of erasure upon request.</p>
+</div>
+</div>
+</div>
+<!-- TRIAGE -->
+<section class="fi" id="triage">
+<div class="sec-label">Hardware Triage</div>
+<h2 class="sec-title">You Can’t Save ’Em All.</h2>
+<p class="sec-body">Not everything that comes through the door deserves a second life.  People want performance—not old, recycled crap.  We triage every piece of hardware that enters the shop.  The question isn’t “does it work?”—it’s “does it perform?”</p>
+<p class="sec-body">A machine that technically boots Windows but stutters opening Chrome is not a product we’ll put our name on.  It doesn’t matter if the hardware is free.  If it can’t deliver the experience, it doesn’t ship.</p>
+<div class="triage-grid">
+<div class="triage-card">
+<div class="triage-icon">✅</div>
+<div class="triage-verdict yes">Build</div>
+<div class="triage-h">Performance Hardware</div>
+<div class="triage-p">Capable CPUs, GPUs that game, boards that support the builds we sell.  This is what becomes a Renewable Revolt PC.  Benchmarked, optimized, shipped.</div>
+</div>
+<div class="triage-card">
+<div class="triage-icon">⚠️</div>
+<div class="triage-verdict maybe">Donate</div>
+<div class="triage-h">Functional but Limited</div>
+<div class="triage-p">Hardware that works but doesn’t meet our performance bar.  Office machines, basic browsing, homework.  These become donation units for families, students, and veterans who need a capable computer—not a gaming rig.</div>
+</div>
+<div class="triage-card">
+<div class="triage-icon">❌</div>
+<div class="triage-verdict no">Recycle</div>
+<div class="triage-h">End of Life</div>
+<div class="triage-p">Failed components, hardware too old to serve any purpose, damaged beyond repair.  These go to certified e-waste recyclers.  They don’t go to a landfill.  The metals, plastics, and rare earth elements are recovered properly.</div>
+</div>
+</div>
+</section>
+<!-- PERFORMANCE SOURCING -->
+<div class="dark-section fi" id="performance">
+<div class="dark-inner">
+<div class="sec-label">What We Look For</div>
+<h2 class="sec-title">We Look for Performance.  <span style="color:var(--purple)">Period.</span></h2>
+<p class="sec-body">The PC hardware influencer community writes off entire generations of hardware because it’s not the latest and greatest.  Sometimes they’re right.  A GT 1030 is not a gaming GPU.  A Celeron is not a gaming CPU.  Fair enough.</p>
+<p class="sec-body" style="margin-top:1rem">But sometimes they’re dead wrong.  And that’s where we live.</p>
+<div class="process-grid" style="margin-top:2.5rem">
+<div class="process-card">
+<div class="process-icon">💪</div>
+<div class="process-h">Where They Got It Wrong</div>
+<div class="process-p">An i7-4790K from 2014 runs Fortnite at 80+ FPS.  An RX 580 from the mining crash still benches at the 99th percentile.  A GTX 1060 3GB delivers smoother 1080p than the “gaming PCs” Best Buy sells for $800.</div>
+<div class="process-p">Influencers called these obsolete because they need new content every week.  We called them opportunity—because we test hardware, not narratives.</div>
+</div>
+<div class="process-card">
+<div class="process-icon">🔍</div>
+<div class="process-h">What We Actually Test</div>
+<div class="process-p">Every GPU is benchmarked.  Every CPU is stress-tested.  We don’t build with assumptions.  If a mining card survived two years at 100% load and still scores 99th percentile on UserBenchmark, that card is <em style="color:var(--green);font-style:normal">burned in, not burned out.</em></div>
+<div class="process-p">Silicon that’s been stressed and survived is proven silicon.  We trust data over marketing.</div>
+</div>
+<div class="process-card">
+<div class="process-icon">🎯</div>
+<div class="process-h">The Bar</div>
+<div class="process-p">Can it run Fortnite at 1080p above 60 FPS?  Can it handle Office, Chrome, and Discord without stuttering?  Does it stay cool and quiet under sustained load?  If yes, it becomes a Revolt build.  If no, it gets triaged to donations or recycling.  No exceptions.</div>
+<div class="process-p">The performance bar is simple.  Meeting it is not.  That’s the work.</div>
+</div>
+</div>
+<div class="quote-block">
+<p>“Reports of this hardware’s death were greatly exaggerated.”</p>
+<cite>Renewable Revolt, Inc.</cite>
+</div>
+</div>
+</div>
+<!-- NEXT PAGE -->
+<section class="fi">
+<a class="next-link" href="revive.html">
+<div class="next-link-label">Next → 02 Revive</div>
+<div class="next-link-title">Build Process, R&amp;D &amp; Work Instructions</div>
+<div class="next-link-sub">R-R Turbo debloated OS · GPU refurbishment · Benchmarking · Overclocking · ThrottleStop</div>
+</a>
+</section>
+<footer>
+<div class="foot-in">
+<div><div class="foot-brand">RENEWABLE <span>REVOLT</span></div><div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER · REVIVE · REDEPLOY</div></div>
+<div class="foot-meta">501(c)(3) Tax-Exempt · EIN: 99-2777606<br/>Hammond, Indiana · Veteran Owned &amp; Operated<br/>© 2026 Renewable Revolt, Incorporated</div>
+</div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555" target="_blank">Interserver</a></div>
+</footer>
+<script>
+document.addEventListener('click',function(e){var m=document.getElementById('mobMenu');var h=document.querySelector('.hamburger');if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open')});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el)});
+</script>
+<!-- FALLBACK_FI: guarantees fade-in content renders even if the scroll observer doesn't fire -->
+<script>document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelectorAll(".fi").forEach(function(e){e.classList.add("vis")})},400)});</script>
+</body>
+</html>

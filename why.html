@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>See Why This Matters — Renewable Revolt</title>
+<meta content="Your computer isn't slow because it's old. It's slow because it's running 47 processes you didn't ask for. Here's what's actually happening — and what it costs you." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--amethyst:#9b59b6;--revenant:#8b5cf6;--imperial:#6d28d9;--royal:#7c3aed;--plum:#a855f7;--green:#00e676;--amber:#ffab00;--red:#ff4444;--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:1.1rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--purple)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--purple);color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--purple)}
+
+.page-hero{padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,68,68,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,68,68,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.page-hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,68,68,.06) 0%,rgba(139,92,246,.04) 30%,transparent 70%);top:45%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.page-hero-content{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--red);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.5rem}
+.page-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.accent{color:var(--purple)}
+.accent-red{color:var(--red)}
+.page-hero-sub{font-size:clamp(1rem,2vw,1.1rem);color:var(--muted);max-width:700px;line-height:1.8;margin-bottom:2rem}
+.breadcrumb{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2rem}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--purple)}
+.breadcrumb .sep{margin:0 .5rem;color:var(--border)}
+
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:.6rem;color:var(--purple);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-label-red{font-family:var(--mono);font-size:.6rem;color:var(--red);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1rem}
+.sec-title{font-family:var(--disp);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.sec-body{font-size:.95rem;color:var(--muted);max-width:720px;line-height:1.8}
+.sec-body+.sec-body{margin-top:1rem}
+
+.dark-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem}
+.dark-inner{max-width:1100px;margin:0 auto}
+
+.red-section{background:#0c0808;border-top:1px solid rgba(255,68,68,.15);border-bottom:1px solid rgba(255,68,68,.15);padding:5rem 2rem}
+.red-inner{max-width:1100px;margin:0 auto}
+
+.callout{padding:1.5rem 2rem;border-left:3px solid var(--purple);background:var(--surface2);margin-top:2rem}
+.callout p{font-family:var(--mono);font-size:.82rem;color:var(--text);line-height:1.85}
+.callout .hl{color:var(--purple)}
+
+/* EXPOSURE CARDS */
+.exposure-grid{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:2.5rem}
+.exposure-card{background:#0f0a0a;padding:1.75rem 2rem;display:grid;grid-template-columns:3rem 1fr;gap:1.5rem;align-items:start}
+.exposure-icon{font-size:1.8rem;text-align:center;padding-top:.1rem}
+.exposure-name{font-family:var(--disp);font-size:1.05rem;font-weight:800;margin-bottom:.35rem}
+.exposure-what{font-family:var(--mono);font-size:.62rem;color:var(--red);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+.exposure-desc{font-size:.88rem;color:var(--muted);line-height:1.75}
+.exposure-desc strong{color:var(--text)}
+.exposure-you{font-family:var(--mono);font-size:.6rem;color:var(--dim);margin-top:.6rem;line-height:1.8}
+.exposure-you strong{color:var(--red)}
+
+/* COST GRID */
+.cost-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);margin-top:2.5rem}
+.cost-card{background:var(--surface2);padding:2rem;position:relative}
+.cost-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.cost-card.money::before{background:var(--red)}
+.cost-card.perf::before{background:var(--amber)}
+.cost-card.privacy::before{background:#ff6b6b}
+.cost-card.time::before{background:#e65100}
+.cost-type{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem}
+.cost-type.money{color:var(--red)}
+.cost-type.perf{color:var(--amber)}
+.cost-type.privacy{color:#ff6b6b}
+.cost-type.time{color:#e65100}
+.cost-number{font-family:var(--disp);font-size:2.2rem;font-weight:800;line-height:1;margin-bottom:.5rem}
+.cost-number.red{color:#ff6b6b}
+.cost-number.amber{color:var(--amber)}
+.cost-number.purple{color:var(--purple)}
+.cost-h{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.cost-p{font-size:.85rem;color:var(--muted);line-height:1.75}
+.cost-detail{font-family:var(--mono);font-size:.6rem;color:var(--dim);line-height:2;margin-top:.75rem}
+.cost-detail span{display:block}
+.cost-detail .bad{color:#ff8888}
+
+/* BEFORE/AFTER */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2.5rem}
+.ba-col{padding:2.5rem}
+.ba-col.before{background:#140a0a}
+.ba-col.after{background:#0a1409}
+.ba-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem}
+.ba-label.red{color:var(--red)}
+.ba-label.grn{color:var(--green)}
+.ba-h{font-family:var(--disp);font-size:1.6rem;font-weight:800;margin-bottom:.75rem}
+.ba-h.red{color:#ff6b6b}
+.ba-h.grn{color:var(--green)}
+.ba-list{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.ba-list li{font-family:var(--mono);font-size:.72rem;line-height:1.6}
+.ba-list li.bad{color:#ff8888}
+.ba-list li.good{color:var(--green)}
+
+/* ANSWER SECTION */
+.answer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);margin-top:2.5rem}
+.answer-card{background:var(--surface2);padding:2rem;position:relative}
+.answer-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green)}
+.answer-icon{font-size:1.8rem;margin-bottom:.75rem;display:block}
+.answer-h{font-family:var(--disp);font-size:1.1rem;font-weight:800;margin-bottom:.5rem}
+.answer-p{font-size:.85rem;color:var(--muted);line-height:1.75}
+.answer-stat{font-family:var(--mono);font-size:1.4rem;color:var(--green);font-weight:700;display:block;margin-top:.75rem}
+.answer-stat-label{font-family:var(--mono);font-size:.55rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:.2rem}
+
+/* RAM TIER TABLE */
+.ram-tier{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);margin-top:2rem}
+.ram-tier-card{background:var(--surface2);padding:1.5rem;position:relative}
+.ram-tier-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green)}
+.ram-tier-amount{font-family:var(--disp);font-size:1.8rem;font-weight:800;color:var(--green);margin-bottom:.25rem}
+.ram-tier-builds{font-family:var(--mono);font-size:.62rem;color:var(--purple);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
+.ram-tier-desc{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:var(--purple);color:#fff;border:none;padding:.85rem 2rem;text-decoration:none;font-weight:700;cursor:pointer;transition:opacity .2s;display:inline-block}
+.btn-p:hover{opacity:.85}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.85rem 2rem;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;background:transparent}
+.btn-s:hover{background:var(--purple);color:#fff}
+
+.cta-section{text-align:center;padding:5rem 2rem;max-width:800px;margin:0 auto}
+.cta-section .sec-title{text-align:center}
+.cta-section p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2rem;text-align:center}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+footer{border-top:1px solid var(--border);padding:3rem 2rem}
+.foot-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.foot-brand{font-family:var(--disp);font-size:1rem;font-weight:800;letter-spacing:.05em}
+.foot-brand span{color:var(--purple)}
+.foot-meta{font-family:var(--mono);font-size:.55rem;color:var(--dim);line-height:2;letter-spacing:.06em;text-align:right}
+
+.fi{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fi.vis{opacity:1;transform:none}
+
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.ba-grid{grid-template-columns:1fr}.cost-grid{grid-template-columns:1fr}.answer-grid{grid-template-columns:1fr}.ram-tier{grid-template-columns:1fr}.exposure-card{grid-template-columns:2.5rem 1fr;gap:1rem}section{padding:3.5rem 1.5rem}}
+@media(max-width:480px){nav{padding:0 1.25rem}}
+
+/* ===== slim-nav + More dropdown (v15 audit) ===== */
+.nav-links .has-more{position:relative;display:flex;align-items:center}
+.more-btn{font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:#00E5FF;background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px;line-height:1}
+.more-btn:hover,.has-more:hover .more-btn,.has-more:focus-within .more-btn{color:#fff}
+.more-btn.active{color:#ffab00}
+.more-menu{position:absolute;top:100%;right:0;margin-top:10px;min-width:168px;background:rgba(10,11,18,.98);backdrop-filter:blur(16px);border:1px solid #1e2035;border-radius:2px;padding:6px 0;list-style:none;display:none;flex-direction:column;z-index:200;box-shadow:0 10px 30px rgba(0,0,0,.55)}
+.more-menu::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px}
+.has-more:hover .more-menu,.has-more:focus-within .more-menu{display:flex}
+.more-menu li{display:block;margin:0}
+.more-menu a{display:block;padding:9px 16px;font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:#00E5FF;text-decoration:none;white-space:nowrap}
+.more-menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
+.more-menu a.active{color:#ffab00}
+.mob-sep{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#5f6b85;padding:.5rem 0 .15rem;border-top:1px solid #1e2035;margin-top:.35rem}
+
+:root{--drop-accent:var(--green)}
+
+/* ===== Canonical dropdown: <details class="rrdrop"> (v15 uniformity) ===== */
+.rrdrop{--da:var(--drop-accent,#00E5FF);border:1px solid var(--border,#1e2035);background:var(--surface,#0e0f16);border-radius:3px;margin:10px 0;overflow:hidden}
+.rrdrop[open]{border-color:var(--da)}
+.rrdrop>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:15px 18px;font-family:var(--disp,sans-serif);font-weight:700}
+.rrdrop>summary::-webkit-details-marker{display:none}
+.rrdrop>summary::marker{content:""}
+.rrdrop>summary:hover .rr-title{color:var(--da)}
+.rr-ico{flex:none;font-size:1.3rem;line-height:1}
+.rr-badge{flex:none;align-self:center;font-family:var(--mono,monospace);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#07080c;background:var(--muted,#8a9ab8);padding:3px 8px;border-radius:2px}
+.rr-badge.myth{background:#ff5470}.rr-badge.honest{background:#00e676}.rr-badge.tool{background:#00E5FF}
+.rr-head{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:3px}
+.rr-title{font-size:1.02rem;color:var(--text,#e8edf2);line-height:1.25;transition:color .15s}
+.rr-tag{font-family:var(--mono,monospace);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted,#8a9ab8);font-weight:400}
+.rr-preview{flex:none;font-family:var(--mono,monospace);font-size:.72rem;color:var(--muted,#8a9ab8);text-align:right;white-space:nowrap;display:flex;align-items:center;gap:.5rem}
+.rr-chev{flex:none;color:var(--da);font-family:var(--mono,monospace);font-size:1.3rem;line-height:1;transition:transform .18s ease}
+.rrdrop[open]>summary .rr-chev{transform:rotate(90deg)}
+.rrdrop[open]>summary .rr-preview{display:none}
+.rrdrop[open] .acc-body,.rrdrop[open] .acc2-body,.rrdrop[open] .aud-body,.rrdrop[open] .deeper-body,.rrdrop[open] .body{display:block}
+.rr-cost,.rrdrop .d-cost{display:inline-block;margin-top:12px;font-family:var(--mono,monospace);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--da)}
+@media(prefers-reduced-motion:reduce){.rr-chev{transition:none}}
+
+.skip-link{display:inline-block;margin:14px 0 2px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green);text-decoration:none;border-bottom:1px dotted currentColor;padding-bottom:2px}
+.skip-link:hover{color:#fff}
+#mission{scroll-margin-top:80px}
+
+/* villain + masks (Scooby unmask device, v15 Tier C) */
+.unmask-intro{font-family:var(--mono);font-size:.82rem;color:var(--amber);letter-spacing:.03em;margin:1.6rem 0 .25rem;font-style:italic}
+.masks{margin-top:1.4rem}
+.mask-body.rrdrop-body{padding-top:10px}
+.mask-body .unmask{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.55rem}
+.mask-body .truth{color:var(--text)!important;font-size:.99rem;line-height:1.75;margin:0 0 1rem}
+.mask-body .pulloff{border-left:3px solid var(--green);background:rgba(0,230,118,.06);padding:.9rem 1.1rem;font-size:.92rem;line-height:1.7;color:var(--muted)}
+.mask-body .pulloff-l{color:var(--green);font-weight:700;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.35rem}
+.mask-body .pulloff a{color:var(--green);font-weight:600}
+.reveal-all{font-family:var(--disp);font-weight:800;font-size:clamp(1.1rem,2.6vw,1.5rem);text-align:center;margin:2.25rem 0 .5rem;line-height:1.3}
+.reveal-all .v{color:var(--red)}
+</style>
+<script>
+function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.toggle('open')}
+</script>
+<style>.nav-links a{font-size:.66rem;letter-spacing:.06em;white-space:nowrap}.nav-links a.active{color:var(--amber)}@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}}</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="index.html">RENEWABLE<span> REVOLT</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Lineup</a></li>
+<li><a href="will-it-revolt.html">Will It Revolt?</a></li>
+<li><a href="upgrade.html">Upgrade</a></li>
+<li><a href="compare.html">Compare</a></li>
+<li><a href="is-it-real.html">Is It Real?</a></li>
+<li><a href="ai.html">AI</a></li>
+<li><a class="active" href="why.html">Why</a></li>
+<li><a href="mission.html">Mission</a></li>
+<li class="has-more"><button aria-expanded="false" aria-haspopup="true" class="more-btn">More ▾</button>
+<ul class="more-menu">
+<li><a href="rr-turbo.html">RR Turbo</a></li>
+<li><a href="cooling.html">Cooling</a></li>
+<li><a href="lighting.html">Lighting</a></li>
+<li><a href="recover.html">Recover</a></li>
+<li><a href="revive.html">Revive</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul></li>
+</ul>
+<a class="nav-cta" href="https://ebay.us/m/KgGZ0K" rel="noopener" target="_blank">Shop eBay</a>
+<button aria-label="Open menu" class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+<a href="index.html" onclick="toggleMenu()">Lineup</a>
+<a href="will-it-revolt.html" onclick="toggleMenu()">Will It Revolt?</a>
+<a href="upgrade.html" onclick="toggleMenu()">Upgrade</a>
+<a href="compare.html" onclick="toggleMenu()">Compare</a>
+<a href="is-it-real.html" onclick="toggleMenu()">Is It Real?</a>
+<a href="ai.html" onclick="toggleMenu()">AI</a>
+<a class="active" href="why.html" onclick="toggleMenu()">Why</a>
+<a href="mission.html" onclick="toggleMenu()">Mission</a>
+<div class="mob-sep">More</div>
+<a href="rr-turbo.html" onclick="toggleMenu()">RR Turbo</a>
+<a href="cooling.html" onclick="toggleMenu()">Cooling</a>
+<a href="lighting.html" onclick="toggleMenu()">Lighting</a>
+<a href="recover.html" onclick="toggleMenu()">Recover</a>
+<a href="revive.html" onclick="toggleMenu()">Revive</a>
+<a href="faq.html" onclick="toggleMenu()">FAQ</a>
+<a href="https://ebay.us/m/KgGZ0K" onclick="toggleMenu()" rel="noopener" target="_blank">Shop on eBay →</a>
+</div>
+<!-- PAGE HERO -->
+<div class="page-hero">
+<div class="page-hero-grid"></div>
+<div class="page-hero-glow"></div>
+<div class="page-hero-content">
+<div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Why This Matters</span></div>
+<div class="eyebrow">It’s Not Your Fault</div>
+<h1>Your Computer Isn’t Slow<br/>Because It’s Old.<br/><span class="accent-red">It’s Slow Because It’s Working Against You.</span></h1><a class="skip-link" href="#mission">Just show me the machines ↓</a>
+<p class="page-hero-sub">Right now, on a brand-new PC from any major retailer, software you didn’t install is consuming your RAM, monitoring your screen, logging your activity, and selling your attention.  Your machine isn’t broken.  It’s doing exactly what it was designed to do.  Just not for you.</p>
+</div>
+</div>
+<!-- ===== THE VILLAIN & THE MASKS ===== -->
+<div class="dark-section fi" id="villain">
+<div class="dark-inner">
+<div class="sec-label">Name the Villain</div>
+<h2 class="sec-title">There’s One Villain.<br/><span style="color:var(--red)">It Just Wears a Lot of Masks.</span></h2>
+<p class="sec-body">Strip away the brand names and the marketing and you find the same business model under every one: <strong style="color:var(--red)">planned obsolescence</strong>.  The machine built to feel broken on a schedule.  Built to bill you while you wait.  Built to be replaced, not kept.  It shows up wearing a different face every time—so let’s do the part where we pull the masks off.</p>
+<p class="unmask-intro">You’ve seen this episode.  Pull off any mask, and it’s the same face underneath.</p>
+<div class="masks">
+<details class="rrdrop">
+<summary><span class="rr-ico">🎭</span><span class="rr-head"><span class="rr-title">“The Helpful Assistant”</span><span class="rr-tag">What they call it: a smarter PC</span></span><span aria-hidden="true" class="rr-chev">›</span></summary>
+<div class="rrdrop-body mask-body">
+<div class="unmask">Pull off the mask…</div>
+<p class="truth"><strong>Planned obsolescence, wearing surveillance.</strong>  Copilot reads your screen.  Recall screenshots you every few seconds.  Telemetry phones home around the clock.  The “help” is the harvest—and it eats the RAM and CPU cycles you paid for while it works.</p>
+<div class="pulloff"><span class="pulloff-l">How we take it off</span>RR Turbo strips it out at the ISO level—removed, not toggled off in a Settings menu where Windows quietly switches it back on.    <a href="#whats-happening">See exactly what’s running →</a></div>
+</div>
+</details>
+<details class="rrdrop">
+<summary><span class="rr-ico">🎭</span><span class="rr-head"><span class="rr-title">“The Unbeatable Deal”</span><span class="rr-tag">What they call it: a steal</span></span><span aria-hidden="true" class="rr-chev">›</span></summary>
+<div class="rrdrop-body mask-body">
+<div class="unmask">Pull off the mask…</div>
+<p class="truth"><strong>Planned obsolescence, wearing a doorbuster price.</strong>  A fast graphics card bolted to a single 16GB stick with nothing to feed it.  It benchmarks fine in the store and starts stuttering the month the warranty cools—right on schedule, so you buy the next one.</p>
+<div class="pulloff"><span class="pulloff-l">How we take it off</span>A full 32GB matched pair and standard ATX parts you can grow instead of replace.    <a href="compare.html">See the full head-to-head →</a></div>
+</div>
+</details>
+<details class="rrdrop">
+<summary><span class="rr-ico">🎭</span><span class="rr-head"><span class="rr-title">“The Premium Experience”</span><span class="rr-tag">What they call it: it just works</span></span><span aria-hidden="true" class="rr-chev">›</span></summary>
+<div class="rrdrop-body mask-body">
+<div class="unmask">Pull off the mask…</div>
+<p class="truth"><strong>Planned obsolescence, wearing brushed aluminum.</strong>  Soldered RAM, soldered storage, glued shut.  Beautiful—and obsolete on the maker’s calendar, not yours.  When one part ages out, the whole sealed slab does.</p>
+<div class="pulloff"><span class="pulloff-l">How we take it off</span>Parts you can swap on a kitchen table—the machine you keep, not the brick you replace.  We won’t win a raw-benchmark drag race against new silicon, and we’ll say so.  You win on ownership and on the decade after the sale.</div>
+</div>
+</details>
+<details class="rrdrop">
+<summary><span class="rr-ico">🎭</span><span class="rr-head"><span class="rr-title">“The Convenience”</span><span class="rr-tag">What they call it: just subscribe</span></span><span aria-hidden="true" class="rr-chev">›</span></summary>
+<div class="rrdrop-body mask-body">
+<div class="unmask">Pull off the mask…</div>
+<p class="truth"><strong>Planned obsolescence, wearing a monthly bill.</strong>  $100/year for Office.  $50/year for antivirus.  OneDrive nagging you to sync.  It’s rent on things you used to own outright—the machine keeps charging you after you’ve bought it.</p>
+<div class="pulloff"><span class="pulloff-l">How we take it off</span>Office 2019 Pro+ included, permanent.  A private AI that runs on your own hardware.  No rent, no popups, no renewal clock.</div>
+</div>
+</details>
+<details class="rrdrop">
+<summary><span class="rr-ico">🎭</span><span class="rr-head"><span class="rr-title">“It’s Just Getting Old”</span><span class="rr-tag">What they call it: time for an upgrade</span></span><span aria-hidden="true" class="rr-chev">›</span></summary>
+<div class="rrdrop-body mask-body">
+<div class="unmask">Pull off the mask…</div>
+<p class="truth"><strong>Planned obsolescence, wearing sympathy.</strong>  The chip isn’t slow.  It’s buried under bloat and starved of memory.  “Old” is the alibi for selling you “new”—the same machine would fly with the weight taken off.</p>
+<div class="pulloff"><span class="pulloff-l">How we take it off</span>Proven silicon plus a clean OS, and it runs like the day it shipped.    <a href="compare.html">See the full head-to-head →</a></div>
+</div>
+</details>
+</div>
+<div class="reveal-all">Every mask.  <span class="v">Same villain.</span></div>
+</div>
+</div>
+<!-- ===== SECTION 1: WHAT’S HAPPENING ===== -->
+<div class="red-section fi" id="whats-happening">
+<div class="red-inner">
+<div class="sec-label-red">The Receipts — What’s Actually Running</div>
+<h2 class="sec-title">Every New PC Ships<br/><span style="color:var(--red)">With Software Working a Different Agenda.</span></h2>
+<p class="sec-body">These aren’t bugs.  They’re features—for Microsoft.  Every one of these shipped enabled by default on Windows 11 in 2025–2026.  You weren’t asked.  You weren’t told.  And most of them can’t be fully turned off through Settings.</p>
+<div class="exposure-grid">
+<details class="rrdrop"><summary><span class="rr-ico">👁</span><span class="rr-head"><span class="rr-title">Microsoft Copilot</span><span class="rr-tag">Surveillance</span></span><span aria-hidden="true" class="rr-chev">›</span></summary><div class="rrdrop-body"><div class="exposure-desc">An AI assistant that runs at startup and <strong>monitors your screen</strong> to offer “suggestions.”  It reads what you’re looking at.  It reads what you’re typing.  It sends that context to Microsoft’s cloud to generate responses.  You didn’t install it.  You can’t fully remove it through Settings.</div><div class="exposure-you"><strong>What it costs you:</strong>  RAM, CPU cycles, bandwidth, and your screen content sent to Microsoft’s servers.</div></div></details>
+<details class="rrdrop"><summary><span class="rr-ico">📸</span><span class="rr-head"><span class="rr-title">Windows Recall</span><span class="rr-tag">Surveillance</span></span><span aria-hidden="true" class="rr-chev">›</span></summary><div class="rrdrop-body"><div class="exposure-desc"><strong>Screenshots your screen every few seconds</strong> and indexes the content.  Every email you read.  Every password you type.  Every private conversation.  Stored locally in a searchable database.  Microsoft calls this “AI-powered memory.”  Security researchers call it a surveillance tool with a search engine attached.</div><div class="exposure-you"><strong>What it costs you:</strong>  Disk space, CPU, and a complete visual record of everything you do on your computer.</div></div></details>
+<details class="rrdrop"><summary><span class="rr-ico">📡</span><span class="rr-head"><span class="rr-title">Telemetry Services</span><span class="rr-tag">Data Collection</span></span><span aria-hidden="true" class="rr-chev">›</span></summary><div class="rrdrop-body"><div class="exposure-desc">Windows 11 runs <strong>multiple background services</strong> that collect and transmit data about how you use your computer.  DiagTrack (Connected User Experiences and Telemetry), the Diagnostic Policy Service, CEIP (Customer Experience Improvement Program), and Watson error reporting all run continuously.  The “privacy settings” in Settings don’t fully disable them—the services keep running.</div><div class="exposure-you"><strong>What it costs you:</strong>  Background CPU and network usage, 24/7, transmitting your usage patterns to Microsoft.</div></div></details>
+<details class="rrdrop"><summary><span class="rr-ico">📦</span><span class="rr-head"><span class="rr-title">Edge, Teams, OneDrive, Xbox</span><span class="rr-tag">Forced Software</span></span><span aria-hidden="true" class="rr-chev">›</span></summary><div class="rrdrop-body"><div class="exposure-desc">Microsoft Edge reinstalls itself after updates.  Teams runs in the background consuming 300–500MB of RAM whether you use it or not.  OneDrive nags you to sync.  Eight Xbox services run in the background on a machine that has a dedicated GPU and doesn’t need Xbox Game Bar.  You can uninstall some of these.  Windows brings them back.</div><div class="exposure-you"><strong>What it costs you:</strong>  1–2GB of RAM consumed by software you never opened.</div></div></details>
+<details class="rrdrop"><summary><span class="rr-ico">💰</span><span class="rr-head"><span class="rr-title">Microsoft 365 &amp; McAfee</span><span class="rr-tag">The Subscription Trap</span></span><span aria-hidden="true" class="rr-chev">›</span></summary><div class="rrdrop-body"><div class="exposure-desc">Your new PC comes with a 30-day Microsoft 365 trial and a 90-day McAfee trial.  The trials expire.  The popup notifications start.  <strong>$100/year for Office.  $50/year for antivirus.</strong>  By year three, the “affordable” machine has cost you $400 more than the sticker price.  This is by design—the OEM gets a kickback for every trial that converts.</div><div class="exposure-you"><strong>What it costs you:</strong>  $100–$150/year in subscriptions for software that should have been included.</div></div></details>
+<details class="rrdrop"><summary><span class="rr-ico">🌡️</span><span class="rr-head"><span class="rr-title">Stock Cooling &amp; Locked Hardware</span><span class="rr-tag">Hardware Compromise</span></span><span aria-hidden="true" class="rr-chev">›</span></summary><div class="rrdrop-body"><div class="exposure-desc">New OEM gaming PCs ship with coolers sized to pass a compliance test—not to keep your machine running fast.  When the CPU overheats under real gaming load, it throttles automatically.  <strong>You paid for peak performance.  You’re getting sustained mediocrity.</strong>  Proprietary connectors ensure you can’t upgrade the cooler without replacing the entire case.</div><div class="exposure-you"><strong>What it costs you:</strong>  10–30% of the CPU performance you paid for, lost to thermal throttling.</div></div></details>
+</div>
+</div>
+</div>
+<!-- ===== SECTION 2: WHAT IT COSTS YOU ===== -->
+<section class="fi" id="cost">
+<div class="sec-label-red">The Real Price Tag</div>
+<h2 class="sec-title">What It Actually Costs You.</h2>
+<p class="sec-body">The sticker price is the beginning.  Everything above—the surveillance, the bloatware, the trials, the throttling—has a measurable cost.  In dollars, in performance, in privacy, and in the lifespan of the machine you bought.</p>
+<div class="cost-grid">
+<div class="cost-card money">
+<div class="cost-type money">Money</div>
+<div class="cost-number red">$300–$440</div>
+<div class="cost-h">Hidden Costs Over 3 Years</div>
+<div class="cost-p">The subscriptions, upgrades, and add-ons that turn a $1,099 OEM into a $1,400–$1,539 machine before you’ve changed a single component.</div>
+<div class="cost-detail">
+<span class="bad">‣  Office 365: $100/year × 3 = $300</span>
+<span class="bad">‣  McAfee renewal: $30–$50/year</span>
+<span class="bad">‣  Aftermarket cooler: $30–$50</span>
+<span class="bad">‣  Win 11 Pro upgrade (if needed): $100</span>
+</div>
+</div>
+<div class="cost-card perf">
+<div class="cost-type perf">Performance</div>
+<div class="cost-number amber">~4GB</div>
+<div class="cost-h">Gone Before You Open Anything</div>
+<div class="cost-p">Windows 11 Home consumes nearly 4GB of RAM at idle.  On a 16GB machine, that doesn’t sound like a big deal.  You’ve still got 12GB.  Then you open Chrome.  Then Discord.  Then Fortnite.  Suddenly your brand-new PC with an RTX 5060 stutters.  FPS drops.  You get kicked out of the session.  On a machine you bought yesterday.</div>
+<div class="cost-detail">
+<span class="bad">‣  Stock Win 11 at idle: ~4GB consumed by software you didn’t install</span>
+<span class="bad">‣  Chrome + Discord + Fortnite: 12–14GB.  On 16GB, you’re at the ceiling.</span>
+<span class="bad">‣  When RAM fills, Windows swaps to disk.  That’s your stutter.</span>
+<span class="bad">‣  The GPU isn’t slow.  It’s starving.</span>
+</div>
+</div>
+<div class="cost-card privacy">
+<div class="cost-type privacy">Privacy</div>
+<div class="cost-number red">24/7</div>
+<div class="cost-h">Data Collection Never Stops</div>
+<div class="cost-p">Telemetry runs continuously.  Copilot monitors your screen.  Recall logs your activity.  Advertising ID tracks you across apps.  Activity History records what you open and when.  None of this requires your consent beyond clicking “I agree” to use the machine you already paid for.</div>
+<div class="cost-detail">
+<span class="bad">‣  DiagTrack: transmits usage data to Microsoft</span>
+<span class="bad">‣  Advertising ID: per-device ad tracking</span>
+<span class="bad">‣  Activity History: logs apps, files, browsing</span>
+</div>
+</div>
+<div class="cost-card time">
+<div class="cost-type time">Lifespan</div>
+<div class="cost-number" style="color:#e65100">18 Mo.</div>
+<div class="cost-h">Until It Feels Slow</div>
+<div class="cost-p">Windows updates add features.  Features consume more RAM.  Background services grow.  The hardware didn’t get slower—the software got heavier.  Within 18 months, the machine that felt fast in the store is stuttering under the weight of software it never needed.</div>
+<div class="cost-detail">
+<span class="bad">‣  Each major update reinstalls removed bloatware</span>
+<span class="bad">‣  Settings changes get overwritten by feature updates</span>
+<span class="bad">‣  You buy a new machine.  The cycle repeats.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== SECTION 3: WHAT IT LOOKS LIKE WHEN SOMEONE FIXES IT ===== -->
+<div class="dark-section fi" id="fixed">
+<div class="dark-inner">
+<div class="sec-label">What It Looks Like When Someone Fixes It</div>
+<h2 class="sec-title">This Is a Problem.  <span style="color:var(--green)">We Solved It.</span></h2>
+<p class="sec-body">Win 11 Pro [RR Turbo] is a custom Windows 11 image we built from scratch.  Not debloated after install—rebuilt at the ISO level before the OS ever touches the drive.  Windows updates don’t reverse it.  We proved that over 9 months of production deployment.  Six versions over three years of R&amp;D.</p>
+<div class="ba-grid">
+<div class="ba-col before">
+<div class="ba-label red">Stock Windows 11</div>
+<div class="ba-h red">Their Machine</div>
+<ul class="ba-list">
+<li class="bad">✗  Copilot monitoring your screen</li>
+<li class="bad">✗  Recall screenshotting your activity</li>
+<li class="bad">✗  Edge reinstalling after every update</li>
+<li class="bad">✗  Teams running in the background</li>
+<li class="bad">✗  8 Xbox services you never asked for</li>
+<li class="bad">✗  Telemetry transmitting 24/7</li>
+<li class="bad">✗  30-day Office trial → $100/year</li>
+<li class="bad">✗  McAfee popups</li>
+<li class="bad">✗  Bing search in Start menu</li>
+<li class="bad">✗  68% memory usage at idle (verified, 4GB test system)</li>
+<li class="bad">✗  Ads in the lock screen</li>
+</ul>
+</div>
+<div class="ba-col after">
+<div class="ba-label grn">Win 11 Pro [RR Turbo]</div>
+<div class="ba-h grn">Our Machine</div>
+<ul class="ba-list">
+<li class="good">✓  Copilot removed at ISO level</li>
+<li class="good">✓  Recall removed at ISO level</li>
+<li class="good">✓  Edge removed completely</li>
+<li class="good">✓  Teams removed completely</li>
+<li class="good">✓  All Xbox services removed</li>
+<li class="good">✓  Telemetry modules removed</li>
+<li class="good">✓  Office 2019 Pro+ included — permanent</li>
+<li class="good">✓  No antivirus bloatware</li>
+<li class="good">✓  DuckDuckGo + LibreWolf</li>
+<li class="good">✓  Background RAM as low as ~2GB — about 10% on a Gamer or Marauder</li>
+<li class="good">✓  No ads.  Anywhere.  Ever.</li>
+</ul>
+</div>
+</div>
+<div style="margin-top:2.5rem">
+<div class="answer-grid">
+<div class="answer-card">
+<div class="answer-icon">💾</div>
+<div class="answer-h">Your RAM Back</div>
+<div class="answer-p">On identical 4GB hardware, RR Turbo idles near ~2GB where stock Windows ate ~2.7GB—roughly 50% more free RAM before you open a thing.  On a 32GB Gamer or Marauder, idle memory sits around 10%—nearly all of it stays yours.</div>
+<div class="answer-stat">~50%</div>
+<div class="answer-stat-label">More Available RAM Headroom</div>
+</div>
+<div class="answer-card">
+<div class="answer-icon">⚙️</div>
+<div class="answer-h">Your CPU Back</div>
+<div class="answer-p">~25% fewer background processes means your CPU cores are available for the work you’re actually doing.  Gaming, editing, coding—not feeding telemetry to Redmond.</div>
+<div class="answer-stat">~25%</div>
+<div class="answer-stat-label">Fewer Background Processes</div>
+</div>
+<div class="answer-card">
+<div class="answer-icon">🔒</div>
+<div class="answer-h">Your Privacy Back</div>
+<div class="answer-p">No Copilot.  No Recall.  No telemetry.  No advertising ID.  No activity history.  Removed at the ISO level—not toggled off in Settings where Windows can switch it back on.  Your computer works for you.  Full stop.</div>
+<div class="answer-stat">0</div>
+<div class="answer-stat-label">Data Collection Services Running</div>
+</div>
+</div>
+<p style="font-family:var(--mono);font-size:.55rem;color:var(--dim);margin-top:1.5rem;line-height:1.8;text-align:center">Verified on Lenovo IdeaPad 1 14ADA05 (AMD Athlon Silver 3050e, 4GB DDR4-2400).  Results may vary by hardware configuration.  Screenshots available on <a href="https://github.com/IncRevolt/R-R-Turbo" rel="noopener" style="color:var(--purple);text-decoration:none" target="_blank">GitHub</a>.</p>
+</div>
+</div>
+</div>
+<!-- ===== THE SPECS ARE COMPARE'S FIGHT ===== -->
+<section class="fi" id="specs">
+<div class="sec-label">The Engineering</div>
+<h2 class="sec-title">The Spec-for-Spec Fight<br/><span style="color:var(--purple)">Has Its Own Page.</span></h2>
+<p class="sec-body">Real cores vs. efficiency-core padding.  A full 32GB matched pair vs. a single starved 16GB stick.  Clock speed, GPU balance, SSD-plus-HDD done right—the full engineering case against the $849 box is a stack of receipts.  We gave it room to breathe on its own page, in drop-downs you can open where you want.</p>
+<div style="margin-top:1.75rem"><a class="btn-p" href="compare.html">See the full head-to-head →</a></div>
+</section>
+<!-- ===== WHY WE REALLY EXIST (mission) ===== -->
+<div class="dark-section fi" id="mission">
+<div class="dark-inner">
+<div class="sec-label">Why We Really Exist</div>
+<h2 class="sec-title">This isn’t charity.  <span style="color:var(--green)">It’s a revolt.</span></h2>
+<p class="sec-body">Plenty of good nonprofits save the planet and help the needy.  That’s a crowded, worthy lane—and it’s not ours.  We’re here for three things, and they all point the same direction.</p>
+<div class="cost-grid" style="margin-top:2.5rem">
+<div class="cost-card" style="border-top:2px solid var(--green)">
+<div class="cost-type" style="color:var(--green)">Mission 01</div>
+<div class="cost-h">Keep working hardware out of the landfill</div>
+<div class="cost-p">A processor with seven good years left doesn’t belong in a shredder because a support contract expired.  Every machine we save is e-waste that never happens.</div>
+</div>
+<div class="cost-card" style="border-top:2px solid var(--green)">
+<div class="cost-type" style="color:var(--green)">Mission 02</div>
+<div class="cost-h">Make a good machine last a decade</div>
+<div class="cost-p">A drive, a little memory, a clean OS—and a computer written off as “too slow” runs another ten years.  Lifespan is the whole game.  Replacement is the racket.</div>
+</div>
+<div class="cost-card" style="border-top:2px solid var(--green)">
+<div class="cost-type" style="color:var(--green)">Mission 03</div>
+<div class="cost-h">Defend the forgotten middle</div>
+<div class="cost-p">Not the top, who buy whatever they want.  Not a charity case.  The middle—the people who pay full freight for everything and get a discount on nothing, and whom every disposable “budget” machine is built to fleece.</div>
+</div>
+</div>
+<div class="callout" style="border-left-color:var(--green);margin-top:2.5rem">
+<p><span class="hl" style="color:var(--green)">Here’s the part the glossy mission statements leave out:</span>  the budget box built to fade in 18 months, the trial that turns into a subscription, the “deal” that’s a markup with a countdown clock—all of it is aimed squarely at the forgotten middle.  They’re getting fleeced.  We’re tired of it.  And we can say so with some authority, because we’re standing right in that group with them.</p>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="cta-section fi">
+<div class="sec-label">Ready?</div>
+<h2 class="sec-title">You Deserve a Machine That<br/><span style="color:var(--purple)">Works for You.  Not on You.</span></h2>
+<p>Every Renewable Revolt build ships with Win 11 Pro [RR Turbo], Office 2019 Pro+ (permanent, no subscription), premium Thermalright cooling, and controllable ARGB lighting.  Zero bloatware.  Zero subscriptions.  Zero telemetry beyond Windows minimum.  Two machines.  From $849.</p>
+<div class="cta-btns">
+<a class="btn-p" href="index.html#classes">See the Full Lineup</a>
+<a class="btn-s" href="upgrade.html">Join the Revolt — save your own PC →</a>
+</div>
+</div>
+<footer>
+<div class="foot-in">
+<div><div class="foot-brand">RENEWABLE <span>REVOLT</span></div><div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER · REVIVE · REDEPLOY</div></div>
+<div class="foot-meta">501(c)(3) Tax-Exempt · EIN: 99-2777606<br/>Hammond, Indiana · Veteran Owned &amp; Operated<br/>© 2026 Renewable Revolt, Incorporated</div>
+</div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555" target="_blank">Interserver</a></div>
+</footer>
+<script>
+document.addEventListener('click',function(e){var m=document.getElementById('mobMenu');var h=document.querySelector('.hamburger');if(m&&h&&m.classList.contains('open')&&!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open')});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(function(el){obs.observe(el)});
+</script>
+<!-- FALLBACK_FI: guarantees fade-in content renders even if the scroll observer doesn't fire -->
+<script>document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelectorAll(".fi").forEach(function(e){e.classList.add("vis")})},400)});</script>
+</body>
+</html>

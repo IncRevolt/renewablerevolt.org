@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cooling — Renewable Revolt</title>
+<meta content="Noisy stock cooler or heat transfer engineering? Positive-pressure case airflow, Thermalright coolers, liquid cooling where GPUs demand it, and tuned fan curves on every build." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--black:#07080c;--surface:#0e0f16;--surface2:#141620;--border:#1e2035;--purple:#8b5cf6;--amethyst:#9b59b6;--revenant:#8b5cf6;--imperial:#6d28d9;--royal:#7c3aed;--plum:#a855f7;--green:#00e676;--cyan:#00E5FF;--cyan-dim:rgba(0,229,255,.15);--cyan-glow:rgba(0,229,255,.08);--amber:#ffab00;--red:#ff4444;--red-dim:rgba(255,68,68,.15);--text:#e8edf2;--muted:#ccd8e4;--dim:#8a9ab8;--mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;--disp:'Syne',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--disp);font-size:1.1rem;font-weight:800;letter-spacing:.05em;color:var(--text);text-decoration:none}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:1.1rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan)}
+.nav-cta{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.4rem 1rem;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--cyan);color:var(--black)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(7,8,12,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--cyan)}
+
+.page-hero{padding:8rem 2rem 4rem;position:relative;overflow:hidden}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.09) 0%,transparent 70%);top:40%;left:30%;transform:translate(-50%,-50%);pointer-events:none}
+.page-hero-content{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.63rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.5rem}
+.page-hero h1{font-family:var(--disp);font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.accent{color:var(--cyan)}
+.page-hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:var(--muted);max-width:760px;line-height:1.8;margin-bottom:2rem}
+
+.section{max-width:1100px;margin:0 auto;padding:5rem 2rem;border-top:1px solid var(--border)}
+.sec-label{font-family:var(--mono);font-size:.62rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.2em;margin-bottom:.8rem}
+.sec-h2{font-family:var(--disp);font-size:clamp(1.5rem,3vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1rem;line-height:1.1}
+.sec-h2 .accent{color:var(--cyan)}
+.sec-sub{color:var(--muted);font-size:1rem;max-width:760px;line-height:1.8;margin-bottom:2.5rem}
+.sec-body p{color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.15rem;max-width:820px}
+.sec-body p strong{color:var(--text)}
+.sec-body p .hl{color:var(--cyan);font-weight:700}
+
+/* AIRFLOW DIAGRAM */
+.diagram-wrap{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;margin:2rem 0 2.5rem}
+.diagram-title{font-family:var(--mono);font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:.15em;margin-bottom:1.5rem;text-align:center}
+.diagram-svg{display:block;width:100%;height:auto;max-width:560px;margin:0 auto}
+.diagram-caps{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.75rem}
+@media(max-width:640px){.diagram-caps{grid-template-columns:1fr}}
+.dcap{padding:1rem 1.25rem;border-radius:4px}
+.dcap.rr{background:var(--cyan-glow);border-left:3px solid var(--cyan)}
+.dcap.oem{background:var(--red-dim);border-left:3px solid var(--red)}
+.dcap-h{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;font-weight:700}
+.dcap.rr .dcap-h{color:var(--cyan)}
+.dcap.oem .dcap-h{color:var(--red)}
+.dcap-p{font-size:.86rem;line-height:1.7;color:var(--muted)}
+
+/* THERMAL DENSITY TABLE */
+.td-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.74rem;margin:1.5rem 0 2.25rem;background:var(--surface);border-radius:4px;overflow:hidden}
+.td-table thead{background:var(--surface2)}
+.td-table th{padding:.85rem 1rem;text-align:left;font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);border-bottom:1px solid var(--border);font-weight:700}
+.td-table td{padding:.72rem 1rem;border-bottom:1px solid var(--border);color:var(--muted)}
+.td-table tr:last-child td{border-bottom:none}
+.td-table tr:hover td{background:rgba(0,229,255,.03)}
+.td-cpu{color:var(--text);font-weight:700}
+.td-density{color:var(--cyan)}
+.td-density.hot{color:var(--amber)}
+@media(max-width:640px){.td-table{font-size:.66rem}.td-table th,.td-table td{padding:.55rem .6rem}}
+
+/* LIQUID COOLING CARDS */
+.tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin:1.5rem 0 2rem}
+.tier-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:1.3rem 1.4rem;border-radius:0 4px 4px 0}
+.tier-card.hot{border-left-color:var(--amber)}
+.tier-card .t-tag{font-family:var(--mono);font-size:.58rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.4rem;font-weight:700}
+.tier-card.hot .t-tag{color:var(--amber)}
+.tier-card .t-h{font-family:var(--disp);font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:.5rem;line-height:1.25}
+.tier-card .t-p{font-size:.84rem;color:var(--muted);line-height:1.7}
+.tier-card .t-p strong{color:var(--text)}
+
+/* FAN CONTROL CTA */
+.fc-card{background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(139,92,246,.04));border:1px solid var(--border);border-radius:4px;padding:2rem 2.25rem;margin:1.5rem 0 2rem;display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between}
+.fc-left{max-width:620px}
+.fc-left .fc-h{font-family:var(--disp);font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:.5rem}
+.fc-left .fc-p{color:var(--muted);font-size:.88rem;line-height:1.7}
+.fc-btn{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:.8rem 1.4rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.fc-btn:hover{background:var(--cyan);color:var(--black)}
+
+.sec-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
+.btn-p{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);border:1px solid var(--purple);padding:.85rem 1.5rem;text-decoration:none;transition:all .2s}
+.btn-p:hover{background:var(--purple);color:#fff}
+.btn-s{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid var(--border);padding:.85rem 1.5rem;text-decoration:none;transition:all .2s}
+.btn-s:hover{color:var(--text);border-color:var(--dim)}
+
+footer{border-top:1px solid var(--border);padding:3rem 2rem;margin-top:4rem}
+.foot-in{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem}
+.foot-brand{font-family:var(--disp);font-size:1rem;font-weight:800;letter-spacing:.05em;color:var(--text)}
+.foot-brand span{color:var(--cyan)}
+.foot-meta{font-family:var(--mono);font-size:.62rem;color:var(--dim);letter-spacing:.08em;line-height:2;text-align:right}
+
+@media(max-width:840px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .page-hero{padding:6.5rem 1.25rem 3rem}
+  .section{padding:3.5rem 1.25rem}
+  footer{padding:2.5rem 1.25rem}
+  .foot-meta{text-align:left}
+  .fc-card{padding:1.5rem}
+}
+
+/* ===== slim-nav + More dropdown (v15 audit) ===== */
+.nav-links .has-more{position:relative;display:flex;align-items:center}
+.more-btn{font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:#00E5FF;background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px;line-height:1}
+.more-btn:hover,.has-more:hover .more-btn,.has-more:focus-within .more-btn{color:#fff}
+.more-btn.active{color:#ffab00}
+.more-menu{position:absolute;top:100%;right:0;margin-top:10px;min-width:168px;background:rgba(10,11,18,.98);backdrop-filter:blur(16px);border:1px solid #1e2035;border-radius:2px;padding:6px 0;list-style:none;display:none;flex-direction:column;z-index:200;box-shadow:0 10px 30px rgba(0,0,0,.55)}
+.more-menu::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px}
+.has-more:hover .more-menu,.has-more:focus-within .more-menu{display:flex}
+.more-menu li{display:block;margin:0}
+.more-menu a{display:block;padding:9px 16px;font-family:var(--mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:#00E5FF;text-decoration:none;white-space:nowrap}
+.more-menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
+.more-menu a.active{color:#ffab00}
+.mob-sep{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#5f6b85;padding:.5rem 0 .15rem;border-top:1px solid #1e2035;margin-top:.35rem}
+</style>
+<script>
+function toggleMenu(){var m=document.getElementById('mobMenu');if(m)m.classList.toggle('open')}
+</script>
+<style>.nav-links a{font-size:.66rem;letter-spacing:.06em;white-space:nowrap}.nav-links a.active{color:var(--amber)}@media(max-width:1024px){.nav-links{display:none}.hamburger{display:flex}}</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="index.html">RENEWABLE<span> REVOLT</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Lineup</a></li>
+<li><a href="will-it-revolt.html">Will It Revolt?</a></li>
+<li><a href="upgrade.html">Upgrade</a></li>
+<li><a href="compare.html">Compare</a></li>
+<li><a href="is-it-real.html">Is It Real?</a></li>
+<li><a href="ai.html">AI</a></li>
+<li><a href="why.html">Why</a></li>
+<li><a href="mission.html">Mission</a></li>
+<li class="has-more"><button aria-expanded="false" aria-haspopup="true" class="more-btn active">More ▾</button>
+<ul class="more-menu">
+<li><a href="rr-turbo.html">RR Turbo</a></li>
+<li><a class="active" href="cooling.html">Cooling</a></li>
+<li><a href="lighting.html">Lighting</a></li>
+<li><a href="recover.html">Recover</a></li>
+<li><a href="revive.html">Revive</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul></li>
+</ul>
+<a class="nav-cta" href="https://ebay.us/m/KgGZ0K" rel="noopener" target="_blank">Shop eBay</a>
+<button aria-label="Open menu" class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+<a href="index.html" onclick="toggleMenu()">Lineup</a>
+<a href="will-it-revolt.html" onclick="toggleMenu()">Will It Revolt?</a>
+<a href="upgrade.html" onclick="toggleMenu()">Upgrade</a>
+<a href="compare.html" onclick="toggleMenu()">Compare</a>
+<a href="is-it-real.html" onclick="toggleMenu()">Is It Real?</a>
+<a href="ai.html" onclick="toggleMenu()">AI</a>
+<a href="why.html" onclick="toggleMenu()">Why</a>
+<a href="mission.html" onclick="toggleMenu()">Mission</a>
+<div class="mob-sep">More</div>
+<a href="rr-turbo.html" onclick="toggleMenu()">RR Turbo</a>
+<a class="active" href="cooling.html" onclick="toggleMenu()">Cooling</a>
+<a href="lighting.html" onclick="toggleMenu()">Lighting</a>
+<a href="recover.html" onclick="toggleMenu()">Recover</a>
+<a href="revive.html" onclick="toggleMenu()">Revive</a>
+<a href="faq.html" onclick="toggleMenu()">FAQ</a>
+<a href="https://ebay.us/m/KgGZ0K" onclick="toggleMenu()" rel="noopener" target="_blank">Shop on eBay →</a>
+</div>
+<!-- HERO -->
+<div class="page-hero">
+<div class="page-hero-grid"></div>
+<div class="page-hero-glow"></div>
+<div class="page-hero-content">
+<div class="eyebrow">Thermal Engineering · Build Floor</div>
+<h1>Do you want your PC to have a noisy stock cooler<br/><span class="accent">or heat transfer engineering?</span></h1>
+<p class="page-hero-sub">OEMs ship coolers sized to pass a compliance test, then hide the throttling behind “turbo boost” marketing.  We start with case airflow, match the cooler to the CPU’s actual thermal profile, switch to liquid when the GPU demands it, and tune the fan curves before the machine leaves the bench.  Every unit.</p>
+</div>
+</div>
+<!-- SECTION 1 — AIRFLOW & DUST -->
+<section class="section">
+<div class="sec-label">01 — Case Airflow &amp; Dust Abatement</div>
+<h2 class="sec-h2">Positive pressure.  <span class="accent">Filtered intake.</span>  A case that pushes dust out, not in.</h2>
+<p class="sec-sub">Every build ships with <strong style="color:var(--cyan)">at least</strong> two front intake fans and one rear exhaust.  Larger cases get more intake.  That asymmetry isn’t aesthetic—it’s thermal engineering.  More air coming in than going out creates <strong style="color:var(--text)">positive case pressure</strong>, which changes everything about how the machine behaves over its lifetime.</p>
+<div class="diagram-wrap">
+<div class="diagram-title">Airflow Topology — Renewable Revolt vs. OEM Stock</div>
+<svg aria-label="Comparison of Renewable Revolt positive-pressure case airflow versus OEM negative-pressure case airflow" class="diagram-svg" viewbox="0 0 560 860" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Arrowhead markers -->
+<marker id="arrowCyan" markerheight="7" markerwidth="7" orient="auto" refx="8" refy="5" viewbox="0 0 10 10">
+<path d="M0,0 L10,5 L0,10 z" fill="#00E5FF"></path>
+</marker>
+<marker id="arrowRed" markerheight="7" markerwidth="7" orient="auto" refx="8" refy="5" viewbox="0 0 10 10">
+<path d="M0,0 L10,5 L0,10 z" fill="#ff4444"></path>
+</marker>
+<marker id="arrowCyanSm" markerheight="5" markerwidth="5" orient="auto" refx="8" refy="5" viewbox="0 0 10 10">
+<path d="M0,0 L10,5 L0,10 z" fill="#00E5FF" opacity="0.6"></path>
+</marker>
+<!-- Fan gradient -->
+<radialgradient id="fanCyan">
+<stop offset="0%" stop-color="#00E5FF" stop-opacity="0.4"></stop>
+<stop offset="70%" stop-color="#00E5FF" stop-opacity="0.08"></stop>
+<stop offset="100%" stop-color="#00E5FF" stop-opacity="0"></stop>
+</radialgradient>
+<radialgradient id="fanRed">
+<stop offset="0%" stop-color="#ff4444" stop-opacity="0.35"></stop>
+<stop offset="70%" stop-color="#ff4444" stop-opacity="0.06"></stop>
+<stop offset="100%" stop-color="#ff4444" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<!-- =========================================================
+           TOP PANEL: RR (POSITIVE PRESSURE)
+           Panel area: 0-400 vertical
+           ========================================================= -->
+<g transform="translate(30,30)">
+<!-- Background glow -->
+<rect fill="url(#fanCyan)" height="360" opacity="0.5" width="500" x="0" y="0"></rect>
+<!-- Case outline -->
+<rect fill="none" height="280" rx="4" stroke="#00E5FF" stroke-width="1.8" width="320" x="100" y="40"></rect>
+<rect fill="#00E5FF" fill-opacity="0.025" height="280" rx="4" width="320" x="100" y="40"></rect>
+<!-- INTAKE FANS (left side / front of case) -->
+<g>
+<!-- Top intake fan -->
+<circle cx="100" cy="115" fill="none" r="28" stroke="#00E5FF" stroke-width="2.2"></circle>
+<circle cx="100" cy="115" fill="#00E5FF" fill-opacity="0.08" r="21"></circle>
+<circle cx="100" cy="115" fill="#00E5FF" r="5"></circle>
+<path d="M100,94 Q110,105 100,115 Q90,125 100,136" fill="none" opacity="0.7" stroke="#00E5FF" stroke-width="1.4"></path>
+<path d="M121,115 Q110,125 100,115 Q90,105 79,115" fill="none" opacity="0.7" stroke="#00E5FF" stroke-width="1.4"></path>
+<!-- Bottom intake fan -->
+<circle cx="100" cy="245" fill="none" r="28" stroke="#00E5FF" stroke-width="2.2"></circle>
+<circle cx="100" cy="245" fill="#00E5FF" fill-opacity="0.08" r="21"></circle>
+<circle cx="100" cy="245" fill="#00E5FF" r="5"></circle>
+<path d="M100,224 Q110,235 100,245 Q90,255 100,266" fill="none" opacity="0.7" stroke="#00E5FF" stroke-width="1.4"></path>
+<path d="M121,245 Q110,255 100,245 Q90,235 79,245" fill="none" opacity="0.7" stroke="#00E5FF" stroke-width="1.4"></path>
+</g>
+<!-- EXHAUST FAN (right side / rear) -->
+<g>
+<circle cx="420" cy="180" fill="none" r="28" stroke="#00E5FF" stroke-width="2.2"></circle>
+<circle cx="420" cy="180" fill="#00E5FF" fill-opacity="0.08" r="21"></circle>
+<circle cx="420" cy="180" fill="#00E5FF" r="5"></circle>
+<path d="M420,159 Q430,170 420,180 Q410,190 420,201" fill="none" opacity="0.7" stroke="#00E5FF" stroke-width="1.4"></path>
+<path d="M441,180 Q430,190 420,180 Q410,170 399,180" fill="none" opacity="0.7" stroke="#00E5FF" stroke-width="1.4"></path>
+</g>
+<!-- AIRFLOW ARROWS - intake (inward, thick) -->
+<line marker-end="url(#arrowCyan)" stroke="#00E5FF" stroke-width="3" x1="42" x2="71" y1="115" y2="115"></line>
+<line marker-end="url(#arrowCyan)" stroke="#00E5FF" stroke-width="3" x1="42" x2="71" y1="245" y2="245"></line>
+<!-- AIRFLOW ARROWS - exhaust (outward) -->
+<line marker-end="url(#arrowCyan)" stroke="#00E5FF" stroke-width="3" x1="449" x2="480" y1="180" y2="180"></line>
+<!-- POSITIVE PRESSURE overflow arrows (small, escaping through gaps) -->
+<line marker-end="url(#arrowCyanSm)" opacity="0.65" stroke="#00E5FF" stroke-width="1.6" x1="260" x2="260" y1="34" y2="18"></line>
+<line marker-end="url(#arrowCyanSm)" opacity="0.55" stroke="#00E5FF" stroke-width="1.4" x1="210" x2="210" y1="34" y2="20"></line>
+<line marker-end="url(#arrowCyanSm)" opacity="0.55" stroke="#00E5FF" stroke-width="1.4" x1="310" x2="310" y1="34" y2="20"></line>
+<line marker-end="url(#arrowCyanSm)" opacity="0.65" stroke="#00E5FF" stroke-width="1.6" x1="260" x2="260" y1="326" y2="342"></line>
+<line marker-end="url(#arrowCyanSm)" opacity="0.55" stroke="#00E5FF" stroke-width="1.4" x1="210" x2="210" y1="326" y2="340"></line>
+<line marker-end="url(#arrowCyanSm)" opacity="0.55" stroke="#00E5FF" stroke-width="1.4" x1="310" x2="310" y1="326" y2="340"></line>
+<!-- Interior components (schematic) -->
+<rect fill="none" height="200" opacity="0.35" rx="2" stroke="#00E5FF" stroke-width="0.9" width="210" x="155" y="80"></rect>
+<!-- CPU block -->
+<rect fill="#00E5FF" fill-opacity="0.12" height="50" opacity="0.55" rx="2" stroke="#00E5FF" stroke-width="1" width="50" x="190" y="115"></rect>
+<text fill="#00E5FF" font-family="Space Mono, monospace" font-size="10" opacity="0.8" text-anchor="middle" x="215" y="146">CPU</text>
+<!-- GPU -->
+<rect fill="#00E5FF" fill-opacity="0.08" height="38" opacity="0.55" rx="2" stroke="#00E5FF" stroke-width="1" width="170" x="175" y="220"></rect>
+<text fill="#00E5FF" font-family="Space Mono, monospace" font-size="10" opacity="0.8" text-anchor="middle" x="260" y="244">GPU</text>
+<!-- RAM slots -->
+<rect fill="#00E5FF" height="50" opacity="0.45" width="5" x="275" y="115"></rect>
+<rect fill="#00E5FF" height="50" opacity="0.45" width="5" x="287" y="115"></rect>
+<rect fill="#00E5FF" height="50" opacity="0.45" width="5" x="299" y="115"></rect>
+<rect fill="#00E5FF" height="50" opacity="0.45" width="5" x="311" y="115"></rect>
+<!-- Labels -->
+<text fill="#00E5FF" font-family="Space Mono, monospace" font-size="11" font-weight="700" x="40" y="92">INTAKE</text>
+<text fill="#00E5FF" font-family="Space Mono, monospace" font-size="11" font-weight="700" x="40" y="222">INTAKE</text>
+<text fill="#00E5FF" font-family="Space Mono, monospace" font-size="11" font-weight="700" x="455" y="162">EXHAUST</text>
+<!-- Overflow labels -->
+<text fill="#00E5FF" font-family="Space Mono, monospace" font-size="10" opacity="0.75" text-anchor="middle" x="260" y="10">overflow out</text>
+</g>
+<!-- RR Panel title -->
+<text fill="#00E5FF" font-family="Syne, sans-serif" font-size="18" font-weight="800" text-anchor="middle" x="280" y="410">RR — POSITIVE PRESSURE</text>
+<text fill="#ccd8e4" font-family="Space Mono, monospace" font-size="11" opacity="0.85" text-anchor="middle" x="280" y="430">2 intake &gt; 1 exhaust · air leaves through filtered gaps</text>
+<!-- DIVIDER -->
+<line stroke="#1e2035" stroke-dasharray="3 4" stroke-width="1" x1="40" x2="520" y1="445" y2="445"></line>
+<!-- =========================================================
+           BOTTOM PANEL: OEM (NEGATIVE PRESSURE)
+           Panel area: 460-820 vertical
+           ========================================================= -->
+<g transform="translate(30,460)">
+<!-- Background glow -->
+<rect fill="url(#fanRed)" height="360" opacity="0.5" width="500" x="0" y="0"></rect>
+<!-- Case outline -->
+<rect fill="none" height="280" rx="4" stroke="#ff4444" stroke-width="1.8" width="320" x="100" y="40"></rect>
+<rect fill="#ff4444" fill-opacity="0.025" height="280" rx="4" width="320" x="100" y="40"></rect>
+<!-- EXHAUST FAN ONLY (rear) -->
+<g>
+<circle cx="420" cy="180" fill="none" r="28" stroke="#ff4444" stroke-width="2.2"></circle>
+<circle cx="420" cy="180" fill="#ff4444" fill-opacity="0.08" r="21"></circle>
+<circle cx="420" cy="180" fill="#ff4444" r="5"></circle>
+<path d="M420,159 Q430,170 420,180 Q410,190 420,201" fill="none" opacity="0.7" stroke="#ff4444" stroke-width="1.4"></path>
+<path d="M441,180 Q430,190 420,180 Q410,170 399,180" fill="none" opacity="0.7" stroke="#ff4444" stroke-width="1.4"></path>
+</g>
+<!-- Front: NO intake fans - sealed panel indicators -->
+<line opacity="0.55" stroke="#ff4444" stroke-width="1.8" x1="100" x2="100" y1="80" y2="280"></line>
+<line opacity="0.6" stroke="#ff4444" stroke-width="2.2" x1="96" x2="104" y1="100" y2="100"></line>
+<line opacity="0.6" stroke="#ff4444" stroke-width="2.2" x1="96" x2="104" y1="130" y2="130"></line>
+<line opacity="0.6" stroke="#ff4444" stroke-width="2.2" x1="96" x2="104" y1="160" y2="160"></line>
+<line opacity="0.6" stroke="#ff4444" stroke-width="2.2" x1="96" x2="104" y1="190" y2="190"></line>
+<line opacity="0.6" stroke="#ff4444" stroke-width="2.2" x1="96" x2="104" y1="220" y2="220"></line>
+<line opacity="0.6" stroke="#ff4444" stroke-width="2.2" x1="96" x2="104" y1="250" y2="250"></line>
+<text fill="#ff4444" font-family="Space Mono, monospace" font-size="10" opacity="0.8" text-anchor="middle" transform="rotate(-90, 70, 183)" x="70" y="183">NO FRONT INTAKE</text>
+<!-- AIRFLOW ARROWS - exhaust (outward) -->
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="3" x1="449" x2="480" y1="180" y2="180"></line>
+<!-- NEGATIVE PRESSURE: air sucked IN through every gap -->
+<!-- Top edges -->
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="150" x2="150" y1="20" y2="34"></line>
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="210" x2="210" y1="20" y2="34"></line>
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="270" x2="270" y1="20" y2="34"></line>
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="330" x2="330" y1="20" y2="34"></line>
+<!-- Bottom edges -->
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="150" x2="150" y1="340" y2="326"></line>
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="210" x2="210" y1="340" y2="326"></line>
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="270" x2="270" y1="340" y2="326"></line>
+<line marker-end="url(#arrowRed)" stroke="#ff4444" stroke-width="2.2" x1="330" x2="330" y1="340" y2="326"></line>
+<!-- Interior components (dusty) -->
+<rect fill="none" height="200" opacity="0.35" rx="2" stroke="#ff4444" stroke-width="0.9" width="210" x="155" y="80"></rect>
+<!-- CPU block -->
+<rect fill="#ff4444" fill-opacity="0.1" height="50" opacity="0.55" rx="2" stroke="#ff4444" stroke-width="1" width="50" x="190" y="115"></rect>
+<text fill="#ff4444" font-family="Space Mono, monospace" font-size="10" opacity="0.8" text-anchor="middle" x="215" y="146">CPU</text>
+<!-- GPU -->
+<rect fill="#ff4444" fill-opacity="0.08" height="38" opacity="0.55" rx="2" stroke="#ff4444" stroke-width="1" width="170" x="175" y="220"></rect>
+<text fill="#ff4444" font-family="Space Mono, monospace" font-size="10" opacity="0.8" text-anchor="middle" x="260" y="244">GPU</text>
+<!-- RAM slots -->
+<rect fill="#ff4444" height="50" opacity="0.45" width="5" x="275" y="115"></rect>
+<rect fill="#ff4444" height="50" opacity="0.45" width="5" x="287" y="115"></rect>
+<rect fill="#ff4444" height="50" opacity="0.45" width="5" x="299" y="115"></rect>
+<rect fill="#ff4444" height="50" opacity="0.45" width="5" x="311" y="115"></rect>
+<!-- DUST PARTICLES — scattered inside case -->
+<g fill="#a85555" opacity="0.88">
+<circle cx="165" cy="105" r="1.5"></circle><circle cx="185" cy="98" r="1.3"></circle>
+<circle cx="210" cy="108" r="1.7"></circle><circle cx="235" cy="100" r="1.4"></circle>
+<circle cx="270" cy="113" r="1.5"></circle><circle cx="295" cy="103" r="1.3"></circle>
+<circle cx="322" cy="108" r="1.6"></circle><circle cx="348" cy="102" r="1.5"></circle>
+<circle cx="178" cy="195" r="1.5"></circle><circle cx="240" cy="190" r="1.7"></circle>
+<circle cx="300" cy="195" r="1.4"></circle><circle cx="335" cy="198" r="1.5"></circle>
+<circle cx="170" cy="275" r="1.5"></circle><circle cx="198" cy="282" r="1.3"></circle>
+<circle cx="235" cy="276" r="1.6"></circle><circle cx="268" cy="284" r="1.4"></circle>
+<circle cx="295" cy="277" r="1.5"></circle><circle cx="330" cy="285" r="1.4"></circle>
+<circle cx="155" cy="300" r="1.4"></circle><circle cx="190" cy="307" r="1.3"></circle>
+<circle cx="228" cy="305" r="1.5"></circle><circle cx="262" cy="295" r="1.4"></circle>
+<circle cx="295" cy="302" r="1.3"></circle><circle cx="335" cy="298" r="1.6"></circle>
+<!-- Dust bunnies near fan (heavier accumulation) -->
+<circle cx="395" cy="155" r="1.9"></circle><circle cx="388" cy="168" r="1.6"></circle>
+<circle cx="392" cy="190" r="1.5"></circle><circle cx="398" cy="202" r="1.7"></circle>
+<circle cx="382" cy="180" r="2.1"></circle>
+</g>
+<!-- Labels -->
+<text fill="#ff4444" font-family="Space Mono, monospace" font-size="11" font-weight="700" x="455" y="162">EXHAUST</text>
+<text fill="#ff4444" font-family="Space Mono, monospace" font-size="10" opacity="0.85" text-anchor="middle" x="260" y="10">unfiltered air in</text>
+</g>
+<!-- OEM Panel title -->
+<text fill="#ff4444" font-family="Syne, sans-serif" font-size="18" font-weight="800" text-anchor="middle" x="280" y="828">OEM — NEGATIVE PRESSURE</text>
+<text fill="#ccd8e4" font-family="Space Mono, monospace" font-size="11" opacity="0.85" text-anchor="middle" x="280" y="848">1 exhaust only · air pulled in through every seam &amp; gap</text>
+</svg>
+<div class="diagram-caps">
+<div class="dcap rr">
+<div class="dcap-h">→ How our builds breathe</div>
+<div class="dcap-p">Two 120mm intake fans at the front pull <strong style="color:var(--cyan)">filtered</strong> air through dust screens.  One rear exhaust removes heated air.  Because intake exceeds exhaust, the excess air pushes <em>out</em> through every other opening—top vents, PCIe slots, seams.  Dust that tries to enter those gaps gets pushed back.  Interior stays clean for years.</div>
+</div>
+<div class="dcap oem">
+<div class="dcap-h">← How OEM builds breathe</div>
+<div class="dcap-p">A single rear exhaust fan pulls air out faster than the token front vent allows in.  The case becomes a <strong style="color:var(--red)">vacuum</strong>.  Air—and the dust in it—gets pulled through every unsealed gap: optical bay, PCIe slots, top vents, cable cutouts.  Dust accumulates on fins, blankets the GPU, and insulates the CPU until temps climb and fans ramp.</div>
+</div>
+</div>
+</div>
+<div class="sec-body">
+<p>The result, at 24 months of daily use: the Revolt build is still running clean and cool.  The OEM build has a visible dust carpet, fans running 300 RPM higher to compensate, and a CPU that now thermal-throttles in workloads it handled fine at 6 months.  Same silicon.  Different end state.  The fans are cheap.  The engineering decision is <span class="hl">where you put them and which direction they point</span>.</p>
+<div style="background:rgba(0,229,255,.06);border-left:3px solid var(--cyan);padding:1rem 1.25rem;margin:1.5rem 0 0;border-radius:0 4px 4px 0;max-width:820px">
+<div style="font-family:var(--mono);font-size:.62rem;color:var(--cyan);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.4rem;font-weight:700">Owner Maintenance</div>
+<p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:0">Wipe down your front intake dust filters every <strong style="color:var(--text)">6–12 months</strong>.  Five minutes with a microfiber cloth or a quick rinse keeps airflow unrestricted and temps where they were on day one.  If you can’t remember the last time you cleaned them, it’s been long enough.</p>
+</div>
+</div>
+</section>
+<!-- SECTION 2 — MATCH THE COOLER TO THE CHIP -->
+<section class="section">
+<div class="sec-label">02 — Thermal Density</div>
+<h2 class="sec-h2">We match the cooler <span class="accent">to the chip</span>—not to the price tag.</h2>
+<p style="font-family:var(--sans);font-size:1rem;color:var(--muted);line-height:1.75;max-width:760px;margin-bottom:1.75rem">Total watts is the headline number.  <strong style="color:var(--text)">Thermal density</strong>—watts per square millimetre of silicon—is what actually decides whether a cooler can keep up.  A newer chip on a smaller process concentrates the same heat into less surface area, so the cooler has less die to pull from.  That’s why our two machines are cooled differently, each sized to the silicon it’s actually fighting—and why we don’t overbuild just because a spec tier suggests we should.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+<div style="background:var(--surface2);border:1px solid var(--border);border-top:3px solid var(--green);border-radius:6px;padding:1.5rem">
+<div style="font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem">Coffee Lake Gamer</div>
+<div style="font-family:var(--disp);font-size:1.15rem;font-weight:800;margin-bottom:.5rem">Thermalright Assassin King</div>
+<p style="font-family:var(--sans);font-size:.88rem;color:var(--muted);line-height:1.65">The i5-8600K runs comfortably on a quiet Thermalright Assassin King in the Cooler Master Q300L.  Properly sized, it holds full clocks under sustained load where a stock 92mm OEM cooler would throttle—cool, quiet, and one less point of failure than a pump.</p>
+</div>
+<div style="background:var(--surface2);border:1px solid var(--border);border-top:3px solid var(--plum);border-radius:6px;padding:1.5rem">
+<div style="font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);margin-bottom:.5rem">Marauder</div>
+<div style="font-family:var(--disp);font-size:1.15rem;font-weight:800;margin-bottom:.5rem">Thermalright AIO</div>
+<p style="font-family:var(--sans);font-size:.88rem;color:var(--muted);line-height:1.65">The i7-6850K (Broadwell-E) packs its heat into a denser die and runs alongside a GTX 1070, so it gets a Thermalright closed-loop AIO.  The radiator draws fresh outside air, keeping the CPU out of the GPU’s thermal shadow under sustained load.</p>
+</div>
+</div>
+<div style="margin-top:1.5rem;padding:1.1rem 1.4rem;border-left:3px solid var(--cyan);background:var(--surface2)">
+<p style="font-family:var(--mono);font-size:.8rem;color:var(--text);line-height:1.8">Two conditions push a build from air to liquid: the GPU dumping enough heat to raise the whole case’s ambient, or the CPU crossing a thermal-density line.  The Marauder hits both; the Gamer hits neither.  <span style="color:var(--cyan)">The cooler matches the silicon—every time.</span></p>
+</div>
+</section>
+<!-- SECTION 4 — FAN CONTROL -->
+<section class="section">
+<div class="sec-label">04 — Tuned Fan Curves</div>
+<h2 class="sec-h2">Every build ships with <span class="accent">FanControl</span> pre-configured.</h2>
+<p class="sec-sub">Motherboard BIOS fan curves are universally terrible: a single temperature source, a binary ramp, and no awareness of GPU load or ambient case temp.  FanControl is a free open-source Windows application that lets us build curves against any sensor on the machine—CPU, GPU, chipset, NVMe, liquid temp—and blend them however the thermal profile demands.  It’s installed and tuned on your specific build before it leaves the bench.</p>
+<div class="fc-card">
+<div class="fc-left">
+<div class="fc-h">FanControl by Rem0o</div>
+<div class="fc-p">Free.  Open source.  Actively maintained.  The tool we use to build fan curves for every Revolt unit.  Ships pre-configured with curves tuned to your specific CPU / GPU / cooler combination.  You can edit, extend, or replace the curves at any time—you own the machine and you own the software controlling it.</div>
+</div>
+<a class="fc-btn" href="https://github.com/Rem0o/FanControl.Releases" rel="noopener" target="_blank">View on GitHub →</a>
+</div>
+<div class="sec-body">
+<p>Why it matters: a well-tuned curve keeps fans at idle RPM until the silicon actually needs the airflow, then ramps intelligently based on which component is the current bottleneck.  A gaming load is a GPU problem first; a Blender render is a CPU problem first.  FanControl lets us treat those as different cases.  The result is <strong>a machine that’s genuinely quiet when idle and measured under load</strong>, rather than a machine that oscillates between inaudible and jet-engine because the BIOS only sees CPU temperature.</p>
+</div>
+<div class="sec-cta">
+<a class="btn-p" href="index.html#classes">See the Lineup →</a>
+<a class="btn-s" href="index.html">Back to Home</a>
+</div>
+</section>
+<footer>
+<div class="foot-in">
+<div>
+<div class="foot-brand">RENEWABLE <span>REVOLT</span></div>
+<div style="font-family:var(--mono);font-size:.56rem;color:var(--dim);margin-top:.4rem;letter-spacing:.1em">RECOVER · REVIVE · REDEPLOY</div>
+</div>
+<div class="foot-meta">501(c)(3) Tax-Exempt · EIN: 99-2777606<br/>Hammond, Indiana · Veteran Owned &amp; Operated<br/>© 2026 Renewable Revolt, Incorporated</div>
+</div>
+<div style="text-align:center;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.58rem;color:#666;letter-spacing:.1em;padding:1.25rem 1rem .5rem;border-top:1px solid rgba(255,255,255,0.06);margin-top:1.5rem">Hosted &amp; Powered by <a href="https://www.interserver.net" rel="noopener" style="color:#888;text-decoration:none;border-bottom:1px dotted #555" target="_blank">Interserver</a></div>
+</footer>
+<!-- FALLBACK_FI -->
+<script>document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelectorAll(".fi").forEach(function(e){e.classList.add("vis")})},400)});</script>
+</body>
+</html>
